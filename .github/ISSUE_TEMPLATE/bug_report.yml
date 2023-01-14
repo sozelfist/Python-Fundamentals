@@ -1,0 +1,54 @@
+name: Bug report
+description: Create a bug report to help us address errors in the repository
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: >
+        Before requesting please search [existing issues](https://github.com/TruongNhanNguyen/Python-Fundamentals/labels/bug).
+        Usage questions such as "How do I...?".
+
+  - type: input
+    attributes:
+      label: "Repository commit"
+      description: >
+        The commit hash for `TruongNhanNguyen/Python-Fundamentals` repository. You can get this
+        by running the command `git rev-parse HEAD` locally.
+      placeholder: "a0b0f414ae134aa1772d33bb930e5a960f9979e8"
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: "Python version (python --version)"
+      placeholder: "Python 3.9.12"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Dependencies version (pip freeze)"
+      description: >
+        This is the output of the command `pip freeze --all`. Note that the
+        actual output might be different as compared to the placeholder text.
+      placeholder: |
+        numpy==1.24.1
+        autopep8==2.0.1
+        pycodestyle==2.10.0
+        pyflakes==3.0.1
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Expected behavior"
+      description: "Describe the behavior you expect. May include images or videos."
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Actual behavior"
+    validations:
+      required: true

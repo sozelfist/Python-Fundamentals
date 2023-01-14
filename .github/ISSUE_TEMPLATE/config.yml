@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Python Fundamentals Discussion
+    url: https://github.com/TruongNhanNguyen/Python-Fundamentals/issues
+    about: Please ask and answer questions here.
