@@ -1,0 +1,5 @@
+# Python
+
+Python is a popular, high-level programming language known for its readability and simplicity. It was first released in 1991 by Guido van Rossum and has since become one of the most widely used programming languages in the world. Python is used for a variety of tasks, including web development, scientific computing, data analysis, artificial intelligence, and more. It has a large and active community, which has developed a vast collection of libraries and modules to extend its capabilities. Python is an interpreted language, which means that the written code is not translated to a computer-readable format before it is executed, making it a popular choice for rapid prototyping and development.
+
+You can learn the basics of the language: Start with the basics of Python syntax, such as variables, data types, loops, and control structures. There are many tutorials and resources available online to help you get started [here](../docs/basis/readme.md)
