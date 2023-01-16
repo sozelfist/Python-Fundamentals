@@ -1,6 +1,6 @@
 # Python Fundamentals
 
-Ilcome to Python Fundamentals, a comprehensive collection of Python code implementations for basic and advanced concepts in the Python programming language. In this project, you will find the following:
+Welcome to Python Fundamentals, a comprehensive collection of Python code implementations for basic and advanced concepts in the Python programming language. In this project, you will find the following:
 
 ## Basic Concepts
 - Variables and data types
@@ -26,13 +26,11 @@ Ilcome to Python Fundamentals, a comprehensive collection of Python code impleme
 - Heap
 - Other data structures will be updated later
 
-
 ## Algorithms
 
 - Sorting algorithms (Bubble sort, Insertion sort, Selection sort, etc.)
 - Searching algorithms (Linear search, Binary search, etc.)
 - Other type of algorithms will be updated later
-
 
 Each concept and data structure has been thoroughly documented with clear explanations and examples to help you understand how they work and how to use them effectively. I also provide test cases for each implementation to ensure that they are working correctly.
 
@@ -53,6 +51,7 @@ I alway welcome contributions to this project. If you have an implementation of 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT)
 
 ## Contact
+
 If you have any questions or feedback about this project, please feel free to reach out to us at my email - nhantruongnguyen@123.com
 
 ## Acknowledgments
