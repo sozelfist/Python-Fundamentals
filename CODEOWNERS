@@ -3,25 +3,25 @@
 #   path/to/code/files @username
 
 # Ownership for all Python files in the root directory
-*.py @pythonfundamentals
+*.py @TruongNhanNguyen
 
 # Ownership for all files in the ".github" directory
-.github/ @pythonfundamentals
+.github/ @TruongNhanNguyen
 
 # Ownership for all files in the "advanced" directory
-advanced/ @pythonfundamentals
+advanced/ @TruongNhanNguyen
 
 # Ownership for all files in the "basis" directory
-basis/ @pythonfundamentals
+basis/ @TruongNhanNguyen
 
 # Ownership for all files in the "docs" directory
-docs/ @pythonfundamentals
+docs/ @TruongNhanNguyen
 
 # Ownership for all files in the "data_structures" directory
-data_structures/ @pythonfundamentals
+data_structures/ @TruongNhanNguyen
 
 # Ownership for all files in the "algorithms" directory
-algorithms/ @pythonfundamentals
+algorithms/ @TruongNhanNguyen
 
 # Ownership for all dot-files in the directory
-.*/ @pythonfundamentals
+.*/ @TruongNhanNguyen
