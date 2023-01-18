@@ -26,7 +26,7 @@ def fibonacci_search(arr: List[int], x: int) -> int:
             fib2 = fib - fib1
         else:
             return idx
-    if(fib1 and arr[offset + 1] == x):
+    if (fib1 and arr[offset + 1] == x):
         return offset + 1
     return -1
 
