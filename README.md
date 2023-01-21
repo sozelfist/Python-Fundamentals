@@ -1,8 +1,9 @@
 # Python Fundamentals
 
-Welcome to Python Fundamentals, a comprehensive collection of Python code implementations for basic and advanced concepts in the Python programming language. In this project, you will find the following:
+Welcome to Python Fundamentals, a comprehensive collection of Python code implementations for basic and advanced concepts in the Python programming language. In this project, you will find the following
 
 ## Basic Concepts
+
 - Variables and data types
 - Operators and expressions
 - Control flow statements (if-else, for loops, while loops)
@@ -21,16 +22,27 @@ Welcome to Python Fundamentals, a comprehensive collection of Python code implem
 - Linked List
 - Stack
 - Queue
-- Tree
+- Binary Tree
+- Binary Search Tree
 - Graph
 - Heap
-- Other data structures will be updated later
+- Bloom Filter
+- Disjoin Set
+- Trie
+- Priority Queue
+- Skip List
+- Hash Table
+- And many more data structures will be updated later
 
 ## Algorithms
 
 - Sorting algorithms (Bubble sort, Insertion sort, Selection sort, etc.)
 - Searching algorithms (Linear search, Binary search, etc.)
-- Other type of algorithms will be updated later
+- Graph Algorithms
+- Backtracking Algorithms
+- Dynamic Programming
+- Greedy Algorithms
+- Brute Force Algorithms
 
 Each concept and data structure has been thoroughly documented with clear explanations and examples to help you understand how they work and how to use them effectively. I also provide test cases for each implementation to ensure that they are working correctly.
 
@@ -44,7 +56,7 @@ git clone https://github.com/TruongNhanNguyen/Python-Fundamentals.git
 
 ## Contributing
 
-I alway welcome contributions to this project. If you have an implementation of a concept or data structure that is not included here, or you have found an error in our code, please feel free to submit a pull request.
+I always welcome contributions to this project. If you have an implementation of a concept or data structure that is not included here, or you have found an error in our code, please feel free to submit a pull request.
 
 ## License
 
