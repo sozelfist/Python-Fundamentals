@@ -120,11 +120,6 @@ class AVLTree:
         self._inorder_traversal(self.root, res)
         return res
 
-    def inorder_traversal(self) -> List[int]:
-        res = []
-        self._inorder_traversal(self.root, res)
-        return res
-
     def _inorder_traversal(self, node: Node, res: List[int]) -> None:
         if node:
             self._inorder_traversal(node.left, res)
