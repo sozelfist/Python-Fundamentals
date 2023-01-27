@@ -10,6 +10,7 @@ iniconfig==2.0.0
 kiwisolver==1.4.4
 matplotlib==3.6.3
 mccabe==0.7.0
+mpmath==1.2.1
 numpy==1.24.1
 packaging==23.0
 Pillow==9.4.0
@@ -21,4 +22,5 @@ pytest==7.2.0
 pytest-cov==4.0.0
 python-dateutil==2.8.2
 six==1.16.0
+sympy==1.11.1
 tomli==2.0.1
