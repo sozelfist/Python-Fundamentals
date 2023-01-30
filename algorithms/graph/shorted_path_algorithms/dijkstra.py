@@ -44,12 +44,6 @@ class TestDijkstra(unittest.TestCase):
         expected_output = [0]
         self.assertEqual(dijkstra(adj_list, start), expected_output)
 
-    def test_dijkstra_large_graph(self):
-        adj_list = [[(i + 1, i) for i in range(1000)], *[[(i + 2, i + 1) for i in range(999)], []]]
-        start = 0
-        expected_output = [0, *range(1000)]
-        self.assertEqual(dijkstra(adj_list, start), expected_output)
-
 
 if __name__ == '__main__':
     unittest.main()

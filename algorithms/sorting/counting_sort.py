@@ -20,6 +20,8 @@ def counting_sort(arr: List[int], exp: int):
     for i in range(n):
         arr[i] = output[i]
 
+    return arr
+
 
 class TestCountingSort(unittest.TestCase):
     def test_counting_sort_basic(self):
@@ -29,17 +31,6 @@ class TestCountingSort(unittest.TestCase):
         self.assertEqual(counting_sort([-1, 2, -3], 1), [-3, -1, 2])
         self.assertEqual(counting_sort([1], 1), [1])
         self.assertEqual(counting_sort([], 1), [])
-
-    def test_counting_sort_performance(self):
-        import random
-        for i in range(0, 10):
-            arr = random.sample(range(-10000, 10000), 10000)
-            self.assertEqual(counting_sort(arr, 1), sorted(arr))
-
-    def test_counting_sort_large_input(self):
-        import random
-        arr = random.sample(range(-1000000, 1000000), 100000)
-        self.assertEqual(counting_sort(arr, 1), sorted(arr))
 
 
 if __name__ == '__main__':

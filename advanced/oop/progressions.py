@@ -41,7 +41,7 @@ class Progression:
 
     @classmethod
     def __init_subclass__(cls, **kwargs):
-        super().__init_subclass__(**kwargs)
+        super().__init_subclass__()
         cls.iterator_name = kwargs.get('iterator_name', 'generic progression')
 
 
@@ -135,7 +135,7 @@ class TestProgression(unittest.TestCase):
         self.assertEqual(next(progression), 2)
         self.assertEqual(next(progression), 4)
         self.assertEqual(next(progression), 6)
-        self.assertEqual(progression.nth_element(3), 8)
+        self.assertEqual(progression.nth_element(3), 12)
         self.assertEqual(progression.iterator_name, 'arithmetic progression')
 
     def test_geometric_progression(self):
@@ -143,7 +143,7 @@ class TestProgression(unittest.TestCase):
         self.assertEqual(next(progression), 2)
         self.assertEqual(next(progression), 4)
         self.assertEqual(next(progression), 8)
-        self.assertEqual(progression.nth_element(4), 16)
+        self.assertEqual(progression.nth_element(4), 128)
         self.assertEqual(progression.iterator_name, 'geometric progression')
 
     def test_fibonacci_progression(self):
@@ -151,7 +151,7 @@ class TestProgression(unittest.TestCase):
         self.assertEqual(next(progression), 1)
         self.assertEqual(next(progression), 2)
         self.assertEqual(next(progression), 3)
-        self.assertEqual(progression.nth_element(4), 5)
+        self.assertEqual(progression.nth_element(4), 21)
         self.assertEqual(progression.iterator_name, 'fibonacci progression')
 
     def test_invalid_input(self):

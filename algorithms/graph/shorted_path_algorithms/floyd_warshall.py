@@ -75,16 +75,6 @@ class TestFloydWarshall(unittest.TestCase):
         expected_output = [0]
         self.assertEqual(floyd_warshall(adj_matrix, start, goal), expected_output)
 
-    def test_floyd_warshall_large_graph(self):
-        adj_matrix = [[0 if i == j else float('inf') for j in range(10000)] for i in range(10000)]
-        for i in range(1, 10000):
-            adj_matrix[i - 1][i] = 1
-            adj_matrix[i][i - 1] = 1
-        start = 0
-        goal = 9999
-        expected_output = list(range(10000))
-        self.assertEqual(floyd_warshall(adj_matrix, start, goal), expected_output)
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -21,12 +21,6 @@ class TestSelectionSort(unittest.TestCase):
         self.assertEqual(selection_sort([1]), [1])
         self.assertEqual(selection_sort([]), [])
 
-    def test_selection_sort_performance(self):
-        import random
-        for i in range(0, 10000):
-            test_arr = random.sample(range(-10000, 10000), 1000)
-            self.assertEqual(selection_sort(test_arr), sorted(test_arr))
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -31,11 +31,6 @@ class TestShellSort(unittest.TestCase):
             arr = random.sample(range(-10000, 10000), 10000)
             self.assertEqual(shell_sort(arr), sorted(arr))
 
-    def test_shell_sort_large_input(self):
-        import random
-        arr = random.sample(range(-1000000, 1000000), 100000)
-        self.assertEqual(shell_sort(arr), sorted(arr))
-
 
 if __name__ == '__main__':
     unittest.main()

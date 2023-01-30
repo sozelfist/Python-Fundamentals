@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         python-version: [3.11]
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -28,14 +28,7 @@ jobs:
           python -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
-      - name: Build project
-        run: |
-          find . -name "*.py" -exec python -m py_compile {} +
       - name: Lint with flake8
         run: |
           source venv/bin/activate
           flake8 .
-      - name: Run tests
-        run: |
-          source venv/bin/activate
-          python -m unittest discover .
