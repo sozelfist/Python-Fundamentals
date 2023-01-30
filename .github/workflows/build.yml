@@ -4,12 +4,14 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
+env:
+  PYTHON_VERSIONS: 3.11
 jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: [3.11]
+        python-version: ${{ env.PYTHON_VERSIONS }}
         os: [ubuntu-latest, macos-latest]
     steps:
       - name: Checkout code
@@ -35,3 +37,13 @@ jobs:
         run: |
           source venv/bin/activate
           flake8 .
+      - name: Run tests
+        run: |
+          source venv/bin/activate
+          pytest
+      - name: Upload test coverage
+        uses: actions/upload-artifact@v2
+        if: success()
+        with:
+          name: test-coverage
+          path: htmlcov/
