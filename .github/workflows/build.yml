@@ -4,14 +4,12 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
-env:
-  PYTHON_VERSIONS: 3.11
 jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: ${{ env.PYTHON_VERSIONS }}
+        python-version: [3.11]
         os: [ubuntu-latest, macos-latest]
     steps:
       - name: Checkout code
