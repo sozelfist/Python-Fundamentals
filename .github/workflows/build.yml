@@ -38,10 +38,4 @@ jobs:
       - name: Run tests
         run: |
           source venv/bin/activate
-          pytest
-      - name: Upload test coverage
-        uses: actions/upload-artifact@v2
-        if: success()
-        with:
-          name: test-coverage
-          path: htmlcov/
+          python -m unittest discover
