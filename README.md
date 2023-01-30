@@ -46,6 +46,10 @@ Welcome to Python Fundamentals, a comprehensive collection of Python code implem
 
 Each concept and data structure has been thoroughly documented with clear explanations and examples to help you understand how they work and how to use them effectively. I also provide test cases for each implementation to ensure that they are working correctly.
 
+## Others
+
+This project also includes the implementation in Python of different subjects such as: mathematics, physics, and among others.
+
 ## Getting Started
 
 To get started with the project, simply clone the repository to your local machine and navigate to the appropriate folder for the concept or data structure you wish to learn about. Each implementation has its own dedicated folder with the necessary files and documentation.
