@@ -38,4 +38,7 @@ jobs:
       - name: Run tests
         run: |
           source venv/bin/activate
-          find . -name "*.py" ! -path "./venv/*" -exec python -m unittest {} +
+      - name: Run tests
+        run: |
+          source venv/bin/activate
+          pytest $(find . -name "*.py" ! -path "./venv/*")
