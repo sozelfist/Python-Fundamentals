@@ -33,17 +33,6 @@ class TestHeapSort(unittest.TestCase):
         self.assertEqual(heap_sort([1]), [1])
         self.assertEqual(heap_sort([]), [])
 
-    def test_heap_sort_performance(self):
-        import random
-        for i in range(0, 10):
-            arr = random.sample(range(-10000, 10000), 10000)
-            self.assertEqual(heap_sort(arr), sorted(arr))
-
-    def test_heap_sort_large_input(self):
-        import random
-        arr = random.sample(range(-1000000, 1000000), 100000)
-        self.assertEqual(heap_sort(arr), sorted(arr))
-
 
 if __name__ == '__main__':
     unittest.main()

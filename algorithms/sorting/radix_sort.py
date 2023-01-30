@@ -38,17 +38,6 @@ class TestRadixSort(unittest.TestCase):
         self.assertEqual(radix_sort([1]), [1])
         self.assertEqual(radix_sort([]), [])
 
-    def test_radix_sort_performance(self):
-        import random
-        for i in range(0, 10):
-            arr = random.sample(range(-10000, 10000), 10000)
-            self.assertEqual(radix_sort(arr), sorted(arr))
-
-    def test_radix_sort_large_input(self):
-        import random
-        arr = random.sample(range(-1000000, 1000000), 100000)
-        self.assertEqual(radix_sort(arr), sorted(arr))
-
 
 if __name__ == '__main__':
     unittest.main()

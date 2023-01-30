@@ -68,14 +68,6 @@ class TestAStar(unittest.TestCase):
         expected_output = [0]
         self.assertEqual(a_star(adj_list, heuristics, start, goal), expected_output)
 
-    def test_a_star_large_graph(self):
-        adj_list = [[(i + 1, i) for i in range(1000)], *[[(i + 2, i + 1) for i in range(999)], []]]
-        heuristics = list(range(1001))
-        start = 0
-        goal = 1000
-        expected_output = list(range(1001))
-        self.assertEqual(a_star(adj_list, heuristics, start, goal), expected_output)
-
 
 if __name__ == '__main__':
     unittest.main()

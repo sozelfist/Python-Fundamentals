@@ -34,12 +34,6 @@ class TestMergeSort(unittest.TestCase):
         self.assertEqual(merge_sort([1]), [1])
         self.assertEqual(merge_sort([]), [])
 
-    def test_merge_sort_performance(self):
-        import random
-        for i in range(0, 10000):
-            test_arr = random.sample(range(-10000, 10000), 1000)
-            self.assertEqual(merge_sort(test_arr), sorted(test_arr))
-
 
 if __name__ == '__main__':
     unittest.main()

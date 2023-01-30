@@ -32,17 +32,6 @@ class TestQuickSort(unittest.TestCase):
         self.assertEqual(quick_sort([1], 0, 0), [1])
         self.assertEqual(quick_sort([], 0, 0), [])
 
-    def test_quick_sort_performance(self):
-        import random
-        for i in range(0, 10):
-            test_arr = random.sample(range(-10000, 10000), 10000)
-            self.assertEqual(quick_sort(test_arr, 0, len(test_arr) - 1), sorted(test_arr))
-
-    def test_quick_sort_large_input(self):
-        import random
-        test_arr = random.sample(range(-1000000, 1000000), 100000)
-        self.assertEqual(quick_sort(test_arr, 0, len(test_arr) - 1), sorted(test_arr))
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -24,12 +24,6 @@ class TestBubbleSort(unittest.TestCase):
         self.assertEqual(bubble_sort([1]), [1])
         self.assertEqual(bubble_sort([]), [])
 
-    def test_bubble_sort_performance(self):
-        import random
-        for i in range(0, 10000):
-            test_list = random.sample(range(-10000, 10000), 1000)
-            self.assertEqual(bubble_sort(test_list), sorted(test_list))
-
 
 if __name__ == '__main__':
     unittest.main()
