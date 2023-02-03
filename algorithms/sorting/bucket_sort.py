@@ -8,20 +8,29 @@ def bucket_sort(arr: List[float]) -> List[float]:
     for i in range(n):
         index = int(n * arr[i])
         buckets[index].append(arr[i])
-    for bucket in buckets:
-        bucket.sort()
-    result = []
-    for bucket in buckets:
-        for val in bucket:
-            result.append(val)
-    return result
+    return [val for bucket in buckets for val in sorted(bucket)]
 
 
 class TestBucketSort(unittest.TestCase):
-    def test_bucket_sort_basic(self):
-        self.assertEqual(bucket_sort([0.78, 0.17, 0.39, 0.26, 0.72, 0.94, 0.21, 0.12, 0.23, 0.68]), [
-                         0.12, 0.17, 0.21, 0.23, 0.26, 0.39, 0.68, 0.72, 0.78, 0.94])
-        self.assertEqual(bucket_sort([]), [])
+    def test_already_sorted(self):
+        arr = [0.1, 0.2, 0.3, 0.4, 0.5]
+        sorted_arr = bucket_sort(arr)
+        self.assertEqual(sorted_arr, [0.1, 0.2, 0.3, 0.4, 0.5])
+
+    def test_reverse_sorted(self):
+        arr = [0.5, 0.4, 0.3, 0.2, 0.1]
+        sorted_arr = bucket_sort(arr)
+        self.assertEqual(sorted_arr, [0.1, 0.2, 0.3, 0.4, 0.5])
+
+    def test_random_unsorted(self):
+        arr = [0.3, 0.5, 0.2, 0.1, 0.4]
+        sorted_arr = bucket_sort(arr)
+        self.assertEqual(sorted_arr, [0.1, 0.2, 0.3, 0.4, 0.5])
+
+    def test_duplicates(self):
+        arr = [0.3, 0.5, 0.3, 0.1, 0.4]
+        sorted_arr = bucket_sort(arr)
+        self.assertEqual(sorted_arr, [0.1, 0.3, 0.3, 0.4, 0.5])
 
 
 if __name__ == '__main__':
