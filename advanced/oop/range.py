@@ -1,10 +1,11 @@
 import unittest
+from typing import Union
 
 
 class Range:
-    """ A class that mimic's the built in range class """
+    """ A class that mimic's the built-in range class """
 
-    def __init__(self, start, stop=None, step=1):
+    def __init__(self, start: int, stop: Union[int, None] = None, step: int = 1):
         """ Initialize a Range instance
         Semantics is similar to built-in range class """
 
@@ -23,33 +24,36 @@ class Range:
         self._start = start
         self._step = step
 
-    def __len__(self):
+    def __len__(self) -> int:
         """ Return number of entries in the range """
         return self._length
 
-    def __getitem__(self, index):
+    def __getitem__(self, index: int) -> int:
         """ Return entry at given index (using standard interpretation if negative) """
         if index < 0:
             index += len(self)  # attemp to convert negative index
 
-        if not 0 <= index <= self._length:
+        if not 0 <= index < self._length:
             raise IndexError("Index out of range")
 
         return self._start + index * self._step
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return "Range({}, {}, {})".format(self._start, self._start + self._length * self._step, self._step)
 
-    def __contains__(self, value):
+    def __contains__(self, value: int) -> bool:
         """ Return True if value is in the range, False otherwise """
-        return value in self.__iter__()
+        for i in self:
+            if i == value:
+                return True
+        return False
 
     def __iter__(self):
         """ Return an iterator for the range """
         self._current = self._start
         return self
 
-    def __next__(self):
+    def __next__(self) -> int:
         """ Return the next value in the range """
         if self._current >= self._start + self._length * self._step:
             raise StopIteration
@@ -57,7 +61,7 @@ class Range:
         self._current += self._step
         return current
 
-    def __eq__(self, other):
+    def __eq__(self, other: object) -> bool:
         """ Return True if other range is the same as this range, False otherwise """
         if not isinstance(other, Range):
             return False
