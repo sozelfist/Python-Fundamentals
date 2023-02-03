@@ -1,10 +1,14 @@
-def check_permission(role):
+import unittest
+from typing import Any, Callable, Dict, Tuple, Union
+
+
+def check_permission(role: str) -> bool:
     return True if role.lower() in ['admin', 'user'] else False
 
 
-def permission(role):
-    def decorator(func):
-        def wrapper(*args, **kwargs):
+def permission(role: str) -> Callable:
+    def decorator(func: Callable) -> Callable:
+        def wrapper(*args: Union[Any, Tuple[Any, ...]], **kwargs: Dict[str, Any]) -> Any:
             if check_permission(role):
                 return func(*args, **kwargs)
             else:
@@ -14,15 +18,30 @@ def permission(role):
 
 
 @permission("admin")
-def my_function():
+def admin():
     print("Welcome admin")
 
 
 @permission("user")
-def my_function2():
+def user():
     print("Welcome user")
 
 
+class TestMyFunction(unittest.TestCase):
+    def test_permission_admin(self):
+        self.assertEqual(admin(), None)
+
+    def test_permission_user(self):
+        self.assertEqual(user(), None)
+
+    def test_permission_error(self):
+        with self.assertRaises(PermissionError):
+            @permission("guest")
+            def restricted_function():
+                pass
+
+            restricted_function()
+
+
 if __name__ == '__main__':
-    my_function()
-    my_function2()
+    unittest.main()
