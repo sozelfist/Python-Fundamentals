@@ -1,13 +1,32 @@
-def divide(numerator, denominator):
+import unittest
+from typing import Optional
+
+
+def divide(numerator: int, denominator: int) -> Optional[float]:
     try:
         result = numerator / denominator
     except ZeroDivisionError:
         print("Cannot divide by zero.")
         result = None
+    except TypeError:
+        print("Both numerator and denominator should be numbers.")
+        result = None
     return result
 
 
-if __name__ == '__main__':
+class TestDivideFunction(unittest.TestCase):
+    def test_divide_valid_inputs(self):
+        result = divide(10, 2)
+        self.assertEqual(result, 5.0)
 
-    print(divide(4, 2))  # Output: 2.0
-    print(divide(4, 0))  # Output: "Cannot divide by zero."
+    def test_divide_denominator_zero(self):
+        result = divide(10, 0)
+        self.assertIsNone(result)
+
+    def test_divide_non_numeric_inputs(self):
+        result = divide(10, 'a')
+        self.assertIsNone(result)
+
+
+if __name__ == '__main__':
+    unittest.main()
