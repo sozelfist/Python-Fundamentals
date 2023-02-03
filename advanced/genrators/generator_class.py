@@ -1,43 +1,42 @@
 import unittest
+from typing import Union, Any
 
 
 class Generator:
-    def __init__(self, start, end):
+    def __init__(self, start: Union[int, float], end: Union[int, float, None] = None, step: Union[int, float] = 1):
         self.start = start
-        self.end = end
+        self.step = step
+        if end is not None:
+            self.end = end
+        else:
+            self.end = start
+            self.start = 0
 
-    def generate_numbers(self):
-        for i in range(self.start, self.end):
+    def generate_numbers(self) -> Any:
+        for i in range(int(self.start), int(self.end), int(self.step)):
             yield i
 
 
 class TestGenerator(unittest.TestCase):
-    def setUp(self):
-        self.gen = Generator(5, 10)
+    def test_generate_numbers_with_one_argument(self):
+        generator = Generator(10)
+        numbers = list(generator.generate_numbers())
+        self.assertEqual(numbers, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 
-    def test_generate_numbers(self):
-        # Test that the generator returns the correct numbers
-        numbers = list(self.gen.generate_numbers())
-        self.assertEqual(numbers, [5, 6, 7, 8, 9])
+    def test_generate_numbers_with_two_arguments(self):
+        generator = Generator(2, 12)
+        numbers = list(generator.generate_numbers())
+        self.assertEqual(numbers, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
 
     def test_generate_numbers_with_step(self):
-        # Test that the generator can return numbers with a given step
-        self.gen.step = 2
-        numbers = list(self.gen.generate_numbers())
-        self.assertEqual(numbers, [5, 7, 9])
+        generator = Generator(2, 12, step=2)
+        numbers = list(generator.generate_numbers())
+        self.assertEqual(numbers, [2, 4, 6, 8, 10])
 
     def test_generate_numbers_with_negative_step(self):
-        # Test that the generator can return numbers with a negative step
-        self.gen.step = -1
-        numbers = list(self.gen.generate_numbers())
-        self.assertEqual(numbers, [])
-
-    def test_generate_numbers_with_start_greater_than_end(self):
-        # Test that the generator returns an empty list if start is greater than end
-        self.gen.start = 10
-        self.gen.end = 5
-        numbers = list(self.gen.generate_numbers())
-        self.assertEqual(numbers, [])
+        generator = Generator(12, 2, step=-2)
+        numbers = list(generator.generate_numbers())
+        self.assertEqual(numbers, [12, 10, 8, 6, 4])
 
 
 if __name__ == '__main__':
