@@ -2,12 +2,13 @@ import unittest
 from typing import List
 
 
-def permute(items: List[int], result: List[List[int]]):
+def permute(items: List[int]) -> List[List[int]]:
     if len(items) == 0:
-        result.append([])
+        return [[]]
+    result = []
     for i in range(len(items)):
         remaining_items = items[:i] + items[i + 1:]
-        for permutation in permute(remaining_items, result):
+        for permutation in permute(remaining_items):
             result.append([items[i]] + permutation)
     return result
 
@@ -15,11 +16,11 @@ def permute(items: List[int], result: List[List[int]]):
 class TestPermute(unittest.TestCase):
     def test_permute(self):
         items = [1, 2, 3]
-        result = permute(items, [])
+        result = permute(items)
         self.assertEqual(result, [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]])
 
         items = [4, 5]
-        result = permute(items, [])
+        result = permute(items)
         self.assertEqual(result, [[4, 5], [5, 4]])
 
 
