@@ -1,5 +1,6 @@
 import unittest
 from typing import List
+import bisect
 
 
 def insertion_sort(arr: List[int], left=0, right=None) -> List[int]:
@@ -7,11 +8,9 @@ def insertion_sort(arr: List[int], left=0, right=None) -> List[int]:
         right = len(arr) - 1
     for i in range(left + 1, right + 1):
         key_item = arr[i]
-        j = i - 1
-        while j >= left and arr[j] > key_item:
-            arr[j + 1] = arr[j]
-            j -= 1
-        arr[j + 1] = key_item
+        j = bisect.bisect_left(arr[:i], key_item, lo=left, hi=i)
+        arr[j + 1:i + 1] = arr[j:i]
+        arr[j] = key_item
     return arr
 
 
@@ -45,25 +44,36 @@ def timsort(arr: List[int]) -> List[int]:
     return arr
 
 
-class TestTimsort(unittest.TestCase):
-    def test_timsort_basic(self):
-        self.assertEqual(timsort([170, 45, 75, 90, 802, 24, 2, 66]), [2, 24, 45, 66, 75, 90, 170, 802])
-        self.assertEqual(timsort([1, 2, 3]), [1, 2, 3])
-        self.assertEqual(timsort([-1, 2, -3]), [-3, -1, 2])
-        self.assertEqual(timsort([1]), [1])
-        self.assertEqual(timsort([]), [])
+class TestTimSort(unittest.TestCase):
+    def test_already_sorted(self):
+        arr = [1, 2, 3, 4, 5]
+        sorted_arr = timsort(arr)
+        self.assertEqual(sorted_arr, [1, 2, 3, 4, 5])
 
-    def test_timsort_already_sorted(self):
-        arr = [1, 2, 3, 4, 5, 6]
-        self.assertEqual(timsort(arr), sorted(arr))
+    def test_reverse_sorted(self):
+        arr = [5, 4, 3, 2, 1]
+        sorted_arr = timsort(arr)
+        self.assertEqual(sorted_arr, [1, 2, 3, 4, 5])
 
-    def test_timsort_reverse_sorted(self):
-        arr = [6, 5, 4, 3, 2, 1]
-        self.assertEqual(timsort(arr), sorted(arr))
+    def test_random_unsorted(self):
+        arr = [3, 5, 2, 1, 4]
+        sorted_arr = timsort(arr)
+        self.assertEqual(sorted_arr, [1, 2, 3, 4, 5])
 
-    def test_timsort_with_duplicates(self):
-        arr = [6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1]
-        self.assertEqual(timsort(arr), sorted(arr))
+    def test_duplicates(self):
+        arr = [3, 5, 3, 1, 4]
+        sorted_arr = timsort(arr)
+        self.assertEqual(sorted_arr, [1, 3, 3, 4, 5])
+
+    def test_negative_elements(self):
+        arr = [3, -5, 2, -1, 4]
+        sorted_arr = timsort(arr)
+        self.assertEqual(sorted_arr, [-5, -1, 2, 3, 4])
+
+    def test_empty_list(self):
+        arr = []
+        sorted_arr = timsort(arr)
+        self.assertEqual(sorted_arr, [])
 
 
 if __name__ == '__main__':
