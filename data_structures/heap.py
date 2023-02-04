@@ -1,73 +1,77 @@
 import unittest
-from typing import List
+from typing import List, Union
 
 
 class Heap:
-    def __init__(self, is_min: bool, arr: List[int] = None):
+    def __init__(self, is_min: bool, arr: Union[List[int], None] = None):
         self.is_min = is_min
-        self.heap = arr if arr else []
-        self.build_heap()
+        self._heap = arr if arr else []
+        self._heapify()
 
-    def build_heap(self) -> None:
-        n = len(self.heap)
-        for i in range(n // 2 - 1, -1, -1):
-            self.heapify(i)
+    def _heapify(self) -> None:
+        n = len(self._heap)
+        start = n // 2 - 1
+        for i in range(start, -1, -1):
+            self._sift_down(i, n)
 
-    def heapify(self, i: int) -> None:
+    def _sift_down(self, i: int, n: int) -> None:
         left = 2 * i + 1
         right = 2 * i + 2
         smallest = i
-        if left < len(self.heap) and (self.heap[left] < self.heap[smallest]
-                                      if self.is_min else self.heap[left] > self.heap[smallest]):
+        if left < n and (self._heap[left] < self._heap[smallest]
+                         if self.is_min else self._heap[left] > self._heap[smallest]):
             smallest = left
-        if right < len(self.heap) and (self.heap[right] < self.heap[smallest]
-                                       if self.is_min else self.heap[right] > self.heap[smallest]):
+        if right < n and (self._heap[right] < self._heap[smallest]
+                          if self.is_min else self._heap[right] > self._heap[smallest]):
             smallest = right
 
         if smallest != i:
-            self.heap[i], self.heap[smallest] = self.heap[smallest], self.heap[i]
-            self.heapify(smallest)
+            self._heap[i], self._heap[smallest] = self._heap[smallest], self._heap[i]
+            self._sift_down(smallest, n)
 
     def push(self, value: int) -> None:
-        self.heap.append(value)
-        i = len(self.heap) - 1
-        while i > 0 and (self.heap[i] < self.heap[(i - 1) // 2]
-                         if self.is_min else self.heap[i] > self.heap[(i - 1) // 2]):
-            self.heap[i], self.heap[(i - 1) // 2] = self.heap[(i - 1) // 2], self.heap[i]
-            i = (i - 1) // 2
+        self._heap.append(value)
+        self._sift_up(len(self._heap) - 1)
+
+    def _sift_up(self, i: int) -> None:
+        parent = (i - 1) // 2
+        if parent >= 0 and (self._heap[i] < self._heap[parent]
+                            if self.is_min else self._heap[i] > self._heap[parent]):
+            self._heap[i], self._heap[parent] = self._heap[parent], self._heap[i]
+            self._sift_up(parent)
 
     def pop(self) -> int:
-        if not self.heap:
+        if not self._heap:
             raise Exception("Heap is empty")
-        self.heap[0], self.heap[-1] = self.heap[-1], self.heap[0]
-        result = self.heap.pop()
-        self.heapify(0)
+        self._heap[0], self._heap[-1] = self._heap[-1], self._heap[0]
+        result = self._heap.pop()
+        self._sift_down(0, len(self._heap))
         return result
 
     def poll(self) -> int:
         """
         Returns the root element of the heap and removes it from the heap
         """
-        if not self.heap:
+        if not self._heap:
             raise Exception("Heap is empty")
-        result = self.heap[0]
-        self.heap[0] = self.heap.pop()
-        self.heapify(0)
+        result = self._heap[0]
+        self._heap[0] = self._heap.pop()
+        self._sift_down(0, len(self._heap))
         return result
 
     def top(self) -> int:
-        if not self.heap:
+        if not self._heap:
             raise Exception("Heap is empty")
-        return self.heap[0]
+        return self._heap[0]
 
     def __len__(self) -> int:
-        return len(self.heap)
+        return len(self._heap)
 
     def __repr__(self):
-        return str(self.heap)
+        return str(self._heap)
 
     def __iter__(self):
-        for i in self.heap:
+        for i in self._heap:
             yield i
 
 
