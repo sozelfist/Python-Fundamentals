@@ -4,17 +4,13 @@ from typing import List, Tuple
 
 def knapsack(items: List[Tuple[int, int]], capacity: int) -> int:
     n = len(items)
-    dp = [[0 for _ in range(capacity + 1)] for _ in range(n + 1)]
+    dp = [0] * (capacity + 1)
 
-    for i in range(1, n + 1):
-        weight, value = items[i - 1]
-        for j in range(1, capacity + 1):
-            if weight > j:
-                dp[i][j] = dp[i - 1][j]
-            else:
-                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight] + value)
+    for weight, value in items:
+        for j in range(capacity, weight - 1, -1):
+            dp[j] = max(dp[j], dp[j - weight] + value)
 
-    return dp[n][capacity]
+    return dp[capacity]
 
 
 class TestKnapsack(unittest.TestCase):
