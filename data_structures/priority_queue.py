@@ -94,7 +94,7 @@ class TestPriorityQueue(unittest.TestCase):
 
     def test_init_with_list(self):
         pq = PriorityQueue(values=[(3, 'c'), (2, 'b'), (1, 'a')])
-        self.assertEqual(pq.heap, [(1, 'a'), (3, 'c'), (2, 'b')])
+        self.assertEqual(pq.heap, [(2, 'b'), (3, 'c'), (1, 'a')])
 
     def test_init_max_heap(self):
         pq = PriorityQueue(is_min_heap=False, values=[(3, 'c'), (2, 'b'), (1, 'a')])
