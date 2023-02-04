@@ -1,3 +1,4 @@
+from typing import Union
 import unittest
 
 
@@ -13,42 +14,42 @@ class LinkedList:
 
     def append(self, data: int) -> None:
         new_node = Node(data)
-        if self.head is None:
+        if not self.head:
             self.head = new_node
             return
-        last_node = self.head
-        while last_node.next:
-            last_node = last_node.next
-        last_node.next = new_node
+
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = new_node
 
     def insert(self, prev_node: Node, data: int) -> None:
-        if prev_node is None:
+        if not prev_node:
             print("Previous node is not in the list")
             return
+
         new_node = Node(data)
         new_node.next = prev_node.next
         prev_node.next = new_node
 
     def delete(self, key: int) -> None:
-        temp = self.head
-        if temp is not None:
-            if temp.data == key:
-                self.head = temp.next
-                temp = None
-                return
-        while temp is not None:
-            if temp.data == key:
-                break
-            prev = temp
-            temp = temp.next
-        if temp is None:
+        if not self.head:
             return
-        prev.next = temp.next
-        temp = None
 
-    def search(self, x: int) -> Node:
+        if self.head.data == key:
+            self.head = self.head.next
+            return
+
         current = self.head
-        while current is not None:
+        while current.next and current.next.data != key:
+            current = current.next
+
+        if current.next:
+            current.next = current.next.next
+
+    def search(self, x: int) -> Union[Node, None]:
+        current = self.head
+        while current:
             if current.data == x:
                 return current
             current = current.next
@@ -57,11 +58,13 @@ class LinkedList:
     def __getitem__(self, index: int) -> int:
         current = self.head
         for i in range(index):
-            if current is None:
+            if not current:
                 raise IndexError("Index out of range")
             current = current.next
-        if current is None:
+
+        if not current:
             raise IndexError("Index out of range")
+
         return current.data
 
     def __len__(self) -> int:
@@ -73,6 +76,9 @@ class LinkedList:
         return count
 
     def __str__(self) -> str:
+        if not self.head:
+            return ''
+
         res = []
         current = self.head
         while current:
