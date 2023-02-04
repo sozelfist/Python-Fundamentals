@@ -1,10 +1,10 @@
 import unittest
 import random
-from typing import Union
+from typing import Union, Optional
 
 
 class Node:
-    def __init__(self, key: int, value: int, level: int):
+    def __init__(self, key: Union[int, float], value: Optional[int], level: int):
         self.key = key
         self.value = value
         self.next = [None] * level
