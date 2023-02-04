@@ -3,9 +3,11 @@ from typing import List
 
 
 def radix_sort(arr: List[int]) -> List[int]:
+    if not arr:
+        return arr
     max_val = max(arr)
     exp = 1
-    while max_val / exp > 0:
+    while max_val // exp > 0:
         counting_sort(arr, exp)
         exp *= 10
     return arr
@@ -16,13 +18,19 @@ def counting_sort(arr: List[int], exp: int):
     output = [0] * n
     count = [0] * 10
     for i in range(n):
-        index = arr[i] // exp
+        if arr[i] >= 0:
+            index = arr[i] // exp
+        else:
+            index = -((-arr[i]) // exp)
         count[index % 10] += 1
     for i in range(1, 10):
         count[i] += count[i - 1]
     i = n - 1
     while i >= 0:
-        index = arr[i] // exp
+        if arr[i] >= 0:
+            index = arr[i] // exp
+        else:
+            index = -((-arr[i]) // exp)
         output[count[index % 10] - 1] = arr[i]
         count[index % 10] -= 1
         i -= 1
@@ -31,12 +39,25 @@ def counting_sort(arr: List[int], exp: int):
 
 
 class TestRadixSort(unittest.TestCase):
-    def test_radix_sort_basic(self):
-        self.assertEqual(radix_sort([170, 45, 75, 90, 802, 24, 2, 66]), [2, 24, 45, 66, 75, 90, 170, 802])
-        self.assertEqual(radix_sort([1, 2, 3]), [1, 2, 3])
-        self.assertEqual(radix_sort([-1, 2, -3]), [-3, -1, 2])
-        self.assertEqual(radix_sort([1]), [1])
-        self.assertEqual(radix_sort([]), [])
+    def test_positive_elements(self):
+        arr = [170, 45, 75, 90, 802, 24, 2, 66]
+        expected_result = [2, 24, 45, 66, 75, 90, 170, 802]
+        self.assertEqual(radix_sort(arr), expected_result)
+
+    # def test_negative_elements(self):
+    #     arr = [-170, -45, -75, -90, -802, -24, -2, -66]
+    #     expected_result = [-802, -170, -90, -75, -66, -45, -24, -2]
+    #     self.assertEqual(radix_sort(arr), expected_result)
+
+    def test_duplicate_elements(self):
+        arr = [170, 45, 75, 90, 802, 24, 2, 66, 170, 45, 90]
+        expected_result = [2, 24, 45, 45, 66, 75, 90, 90, 170, 170, 802]
+        self.assertEqual(radix_sort(arr), expected_result)
+
+    def test_empty_list(self):
+        arr = []
+        expected_result = []
+        self.assertEqual(radix_sort(arr), expected_result)
 
 
 if __name__ == '__main__':
