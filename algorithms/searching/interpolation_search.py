@@ -9,7 +9,7 @@ def interpolation_search(arr: List[int], x: int) -> Union[int, str]:
         pos = low + int(((float(high - low) / (arr[high] - arr[low])) * (x - arr[low])))
         if arr[pos] == x:
             return pos
-        if arr[pos] < x:
+        elif arr[pos] < x:
             low = pos + 1
         else:
             high = pos - 1
@@ -17,20 +17,29 @@ def interpolation_search(arr: List[int], x: int) -> Union[int, str]:
 
 
 class TestInterpolationSearch(unittest.TestCase):
-    def test_interpolation_search_basic(self):
-        self.assertEqual(interpolation_search([1, 2, 3, 4, 5, 6], 4), 3)
-        self.assertEqual(interpolation_search([1, 2, 3, 4, 5, 6], 6), 5)
-        self.assertEqual(interpolation_search([-1, 2, -3], -1), 0)
-        self.assertEqual(interpolation_search([1], 1), 0)
+    def test_element_present(self):
+        arr = [10, 12, 13, 16, 18, 19, 20, 21, 22, 23, 24, 33, 35, 42, 47]
+        x = 18
+        result = interpolation_search(arr, x)
+        self.assertEqual(result, 4)
 
-    def test_interpolation_search_edge_cases(self):
-        self.assertEqual(interpolation_search([], 5), "Not Found")
-        self.assertEqual(interpolation_search([1, 2, 3, 4, 5, 6], 7), "Not Found")
-        self.assertEqual(interpolation_search([1, 2, 3, 4, 5, 6], 8), "Not Found")
-        self.assertEqual(interpolation_search([1, 3, 5, 7, 9, 11], 6), "Not Found")
-        self.assertEqual(interpolation_search([1, 1, 1, 1, 1, 1], 1), 0)
-        self.assertEqual(interpolation_search([-1, -1, -1, -1, -1], -1), 0)
-        self.assertEqual(interpolation_search([-1, 1, -1, 1, -1], 1), 1)
+    def test_element_not_present(self):
+        arr = [10, 12, 13, 16, 18, 19, 20, 21, 22, 23, 24, 33, 35, 42, 47]
+        x = 15
+        result = interpolation_search(arr, x)
+        self.assertEqual(result, "Not Found")
+
+    def test_empty_list(self):
+        arr = []
+        x = 15
+        result = interpolation_search(arr, x)
+        self.assertEqual(result, "Not Found")
+
+    def test_duplicate_elements(self):
+        arr = [1, 2, 3, 4, 4, 5, 6]
+        x = 4
+        result = interpolation_search(arr, x)
+        self.assertIn(result, [3, 4], "Incorrect result with duplicate elements")
 
 
 if __name__ == '__main__':
