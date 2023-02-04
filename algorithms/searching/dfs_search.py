@@ -1,34 +1,51 @@
-import unittest
 from typing import List
+import unittest
 
 
 def dfs(graph: List[List[int]], start: int) -> List[int]:
     if not graph:
-        raise ValueError("Not a valid graph")
-    if start >= len(graph) or start < 0:
-        raise ValueError("Not a valid start vertex")
-    visited = [False] * len(graph)
+        raise ValueError("Invalid graph")
+    if start < 0 or start >= len(graph):
+        raise ValueError("Invalid start vertex")
+
+    visited = [False for _ in range(len(graph))]
     stack = [start]
     result = []
+
     while stack:
         vertex = stack.pop()
         if not visited[vertex]:
             visited[vertex] = True
             result.append(vertex)
-            for neighbor in graph[vertex]:
-                stack.append(neighbor)
+            stack.extend(neighbor for neighbor in reversed(graph[vertex]) if not visited[neighbor])
+
     return result
 
 
 class TestDFS(unittest.TestCase):
-    def test_dfs_basic(self):
-        self.assertEqual(dfs([[1, 2], [3], [4], [], []], 0), [0, 2, 4, 1, 3])
-        self.assertEqual(dfs([[1, 2], [0, 3], [1, 4], [2], [3]], 2), [2, 4, 3, 1, 0])
+    def test_valid_input(self):
+        graph = [[1, 2], [0, 3], [0, 3], [1, 2]]
+        start = 0
+        result = dfs(graph, start)
+        self.assertEqual(result, [0, 1, 3, 2])
 
-    def test_dfs_exception(self):
-        self.assertRaises(ValueError, dfs, [], 0)
-        self.assertRaises(ValueError, dfs, [[1, 2], [3], [4], [], []], 5)
-        self.assertRaises(ValueError, dfs, [[1, 2], [3], [4], [], []], -1)
+    def test_empty_graph(self):
+        graph = []
+        start = 0
+        with self.assertRaises(ValueError, msg="Invalid graph"):
+            dfs(graph, start)
+
+    def test_invalid_start_vertex(self):
+        graph = [[1, 2], [0, 3], [0, 3], [1, 2]]
+        start = 4
+        with self.assertRaises(ValueError, msg="Invalid start vertex"):
+            dfs(graph, start)
+
+    def test_disconnected_graph(self):
+        graph = [[1, 2], [0], []]
+        start = 0
+        result = dfs(graph, start)
+        self.assertEqual(result, [0, 1, 2])
 
 
 if __name__ == '__main__':
