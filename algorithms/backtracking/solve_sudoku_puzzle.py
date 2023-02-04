@@ -45,7 +45,7 @@ def sudoku(grid: List[List[int]]) -> List[List[int]]:
 
 
 class TestSudoku(unittest.TestCase):
-    def test_sudoku_no_solution(self):
+    def test_sudoku(self):
         grid = [[0, 0, 0, 2, 6, 0, 7, 0, 1],
                 [6, 8, 0, 0, 7, 0, 0, 9, 0],
                 [1, 9, 0, 0, 0, 4, 5, 0, 0],
