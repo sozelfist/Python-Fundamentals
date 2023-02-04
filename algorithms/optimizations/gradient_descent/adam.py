@@ -1,16 +1,22 @@
+from typing import Tuple
+import unittest
 import numpy as np
 
 
-def linear_model(x, w, b):
+def linear_model(x: np.ndarray, w: float, b: float) -> np.ndarray:
     return w * x + b
 
 
-def cost_function(x, y, w, b):
+def cost_function(x: np.ndarray, y: np.ndarray, w: float, b: float) -> float:
     predictions = linear_model(x, w, b)
     return ((predictions - y)**2).mean()
 
 
-def adam(x, y, w, b, learning_rate, num_iterations, beta1=0.9, beta2=0.999, epsilon=1e-8):
+def adam(
+        x: np.ndarray, y: np.ndarray, w: float, b: float,
+        learning_rate: float, num_iterations: int,
+        beta1: float = 0.9, beta2: float = 0.999, epsilon: float = 1e-8
+) -> Tuple[float, float]:
     # initialize variables for momentum
     m_w = 0
     m_b = 0
@@ -40,26 +46,25 @@ def adam(x, y, w, b, learning_rate, num_iterations, beta1=0.9, beta2=0.999, epsi
 
         # calculate cost
         cost = cost_function(x, y, w, b)
-
-        # print progress
-        if (i + 1) % 100 == 0:
-            print(f'Iteration: {i+1}, cost = {cost}, w = {w}, b = {b}')
     return w, b
 
 
+class TestAdam(unittest.TestCase):
+
+    def test_adam(self):
+        x = np.array([1, 2, 3, 4, 5])
+        y = np.array([5, 7, 9, 11, 13])
+
+        w = 1
+        b = 1
+
+        learning_rate = 0.01
+        num_iterations = 3000
+        final_w, final_b = adam(x, y, w, b, learning_rate, num_iterations)
+
+        self.assertAlmostEqual(final_w, 2.0, delta=0.001)
+        self.assertAlmostEqual(final_b, 3.0, delta=0.001)
+
+
 if __name__ == '__main__':
-
-    # sample data
-    x = np.array([1, 2, 3, 4, 5])
-    y = np.array([5, 7, 9, 11, 13])
-
-    # initial values for parameters
-    w = 1
-    b = 1
-
-    # run Adam
-    learning_rate = 0.01
-    num_iterations = 2000
-    final_w, final_b = adam(x, y, w, b, learning_rate, num_iterations)
-
-    print(f'Final values: w = {final_w}, b = {final_b}')
+    unittest.main()
