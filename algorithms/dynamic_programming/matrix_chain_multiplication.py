@@ -2,18 +2,19 @@ import unittest
 from typing import List, Tuple
 
 
-def matrix_chain_multiplication(matrices: List[Tuple[int, int]]) -> int:
+def matrix_chain_multiplication(
+        matrices: List[Tuple[int, int]]
+) -> int:
     n = len(matrices)
     dp = [[0 for _ in range(n)] for _ in range(n)]
 
     for l in range(2, n):
-        for i in range(1, n - l + 1):
+        for i in range(n - l + 1):
             j = i + l - 1
             dp[i][j] = float('inf')
             for k in range(i, j):
                 q = dp[i][k] + dp[k + 1][j] + matrices[i - 1][0] * matrices[k][1] * matrices[j][1]
-                if q < dp[i][j]:
-                    dp[i][j] = q
+                dp[i][j] = min(dp[i][j], q)
 
     return dp[1][n - 1]
 
