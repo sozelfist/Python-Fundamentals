@@ -3,7 +3,7 @@ import unittest
 
 
 class HashTable:
-    def __init__(self, size: int) -> None:
+    def __init__(self, size: int = 8) -> None:
         self.size = size
         self.table = [[] for _ in range(self.size)]
         self.load_factor = 0
@@ -47,7 +47,7 @@ class HashTable:
             if k == key:
                 del self.table[index][i]
                 self.load_factor -= 1
-            return
+                return
 
     def get(self, key: Union[str, int]) -> Type:
         """Get the value associated with a key in the hash table, raise an exception if the key is not found"""
