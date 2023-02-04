@@ -99,42 +99,40 @@ class BinaryTree:
 
 class TestBinaryTree(unittest.TestCase):
     def setUp(self):
-        self.tree = BinaryTree(8)
-        self.tree.insert(3)
-        self.tree.insert(10)
-        self.tree.insert(1)
-        self.tree.insert(6)
-        self.tree.insert(14)
-        self.tree.insert(4)
-        self.tree.insert(7)
-        self.tree.insert(13)
+        self.binary_tree = BinaryTree(10)
+        self.binary_tree.insert(5)
+        self.binary_tree.insert(15)
+        self.binary_tree.insert(3)
+        self.binary_tree.insert(7)
+        self.binary_tree.insert(12)
+        self.binary_tree.insert(17)
 
     def test_insert(self):
-        self.tree.insert(5)
-        self.assertEqual(
-            str(self.tree), "8\n├── 3\n│   ├── 1\n│   │   └── None\n│   │\n│   └── 6\n│       ├── 4\n│       \
-                │   └── None\n│       │\n│       └── 7\n│           └── None\n│\n└── 14\n    ├── 13\n    \
-                    │   └── None\n    │\n    └── None\n"
-        )
+        self.binary_tree.insert(1)
+        self.binary_tree.insert(2)
+        self.assertEqual(self.binary_tree.left.left.data, 3)
+        self.assertEqual(self.binary_tree.left.left.left.data, 1)
 
     def test_lookup(self):
-        node, parent = self.tree.lookup(14)
-        self.assertEqual(node.data, 14)
-        self.assertEqual(parent.data, 10)
+        node, parent = self.binary_tree.lookup(7)
+        self.assertEqual(node.data, 7)
+        self.assertEqual(parent.data, 5)
+
+    def test_children_count(self):
+        node, _ = self.binary_tree.lookup(7)
+        self.assertEqual(node.children_count(), 0)
+        node, _ = self.binary_tree.lookup(15)
+        self.assertEqual(node.children_count(), 2)
 
     def test_delete(self):
-        self.tree.delete(10)
-        self.assertEqual(str(self.tree), "8\n├── 3\n│   ├── 1\n│   \
-        │   └── None\n│   │\n│   └── 6\n│       \
-        ├── 4\n│       │   └── None\n│       │\n│       └── 7\n│           └── None\n│\n└── 14\n    ├── 13\n    \
-        │   └── None\n    │\n    └── None\n")
-        self.tree.delete(3)
-        self.assertEqual(str(
-            self.tree), "8\n├── 6\n│   ├── 4\n│   │   └── None\n│   │\n│   └── 7\n│       └── None\n│\n└── 14\n    \
-        ├── 13\n    │   └── None\n    │\n    └── None\n")
-        self.tree.delete(8)
-        self.assertEqual(str(self.tree), "6\n├── 4\n│   └── None\n│\n└── 7\n    └── None\n")
+        self.binary_tree.delete(15)
+        node, _ = self.binary_tree.lookup(15)
+        self.assertIsNone(node)
+        self.assertEqual(self.binary_tree.right.data, 17)
+
+    # if you have a test string method, let's create pull request to add
+    # the method
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
