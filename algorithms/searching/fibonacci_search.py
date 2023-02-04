@@ -3,6 +3,8 @@ from typing import List
 
 
 def fibonacci_search(arr: List[int], x: int) -> int:
+    if not arr:
+        return -1
     n = len(arr)
     fib2 = 0  # (m-2)'th Fibonacci Number
     fib1 = 1  # (m-1)'th Fibonacci Number
@@ -32,17 +34,25 @@ def fibonacci_search(arr: List[int], x: int) -> int:
 
 
 class TestFibonacciSearch(unittest.TestCase):
-    def test_fibonacci_search_basic(self):
-        self.assertEqual(fibonacci_search([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5), 4)
-        self.assertEqual(fibonacci_search([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 8), 7)
+    def test_empty_list(self):
+        result = fibonacci_search([], 2)
+        self.assertEqual(result, -1)
 
-    def test_fibonacci_search_not_found(self):
-        self.assertEqual(fibonacci_search([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 11), -1)
-        self.assertEqual(fibonacci_search([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 0), -1)
+    def test_element_not_present(self):
+        result = fibonacci_search([1, 2, 3, 4, 5], 6)
+        self.assertEqual(result, -1)
 
-    def test_fibonacci_search_edge_cases(self):
-        self.assertEqual(fibonacci_search([], 11), -1)
-        self.assertEqual(fibonacci_search([1], 1), 0)
+    def test_element_present_at_first_index(self):
+        result = fibonacci_search([1, 2, 3, 4, 5], 1)
+        self.assertEqual(result, 0)
+
+    def test_element_present_at_last_index(self):
+        result = fibonacci_search([1, 2, 3, 4, 5], 5)
+        self.assertEqual(result, 4)
+
+    def test_element_present_in_middle(self):
+        result = fibonacci_search([1, 2, 3, 4, 5], 3)
+        self.assertEqual(result, 2)
 
 
 if __name__ == '__main__':
