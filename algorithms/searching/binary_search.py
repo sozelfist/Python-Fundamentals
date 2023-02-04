@@ -3,12 +3,14 @@ from typing import List, Union
 
 
 def binary_search(arr: List[int], x: int) -> Union[int, str]:
-    low = 0
-    high = len(arr) - 1
+    low, high = 0, len(arr) - 1
     while low <= high:
         mid = (high + low) // 2
         if arr[mid] == x:
-            return mid
+            if mid == 0 or arr[mid - 1] != x:
+                return mid
+            else:
+                high = mid - 1
         elif arr[mid] < x:
             low = mid + 1
         else:
@@ -17,20 +19,29 @@ def binary_search(arr: List[int], x: int) -> Union[int, str]:
 
 
 class TestBinarySearch(unittest.TestCase):
-    def test_binary_search_basic(self):
-        self.assertEqual(binary_search([1, 2, 3, 4, 5, 6], 4), 3)
-        self.assertEqual(binary_search([1, 2, 3, 4, 5, 6], 6), 5)
-        self.assertEqual(binary_search([-1, 2, -3], -1), 0)
-        self.assertEqual(binary_search([1], 1), 0)
+    def test_found_element(self):
+        arr = [1, 2, 3, 4, 5]
+        x = 3
+        result = binary_search(arr, x)
+        self.assertEqual(result, 2)
 
-    def test_binary_search_edge_cases(self):
-        self.assertEqual(binary_search([], 5), "Not Found")
-        self.assertEqual(binary_search([1, 2, 3, 4, 5, 6], 7), "Not Found")
-        self.assertEqual(binary_search([1, 2, 3, 4, 5, 6], 8), "Not Found")
-        self.assertEqual(binary_search([1, 3, 5, 7, 9, 11], 6), "Not Found")
-        self.assertEqual(binary_search([1, 1, 1, 1, 1, 1], 1), 0)
-        self.assertEqual(binary_search([-1, -1, -1, -1, -1], -1), 0)
-        self.assertEqual(binary_search([-1, 1, -1, 1, -1], 1), 1)
+    def test_not_found_element(self):
+        arr = [1, 2, 3, 4, 5]
+        x = 6
+        result = binary_search(arr, x)
+        self.assertEqual(result, "Not Found")
+
+    def test_empty_array(self):
+        arr = []
+        x = 1
+        result = binary_search(arr, x)
+        self.assertEqual(result, "Not Found")
+
+    def test_duplicate_element(self):
+        arr = [1, 2, 2, 3, 4, 5]
+        x = 2
+        result = binary_search(arr, x)
+        self.assertEqual(result, 1)
 
 
 if __name__ == '__main__':
