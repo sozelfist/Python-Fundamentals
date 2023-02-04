@@ -1,20 +1,24 @@
 import unittest
-from typing import List
+from typing import List, Dict, Tuple
 
 
-def lcs(X: List[int], Y: List[int], m: int, n: int) -> int:
+def lcs(X: List[int], Y: List[int], m: int, n: int, memo: Dict[Tuple[int, int], int]) -> int:
     if m == 0 or n == 0:
         return 0
-    elif X[m - 1] == Y[n - 1]:
-        return 1 + lcs(X, Y, m - 1, n - 1)
+    if (m, n) in memo:
+        return memo[(m, n)]
+    if X[m - 1] == Y[n - 1]:
+        memo[(m, n)] = 1 + lcs(X, Y, m - 1, n - 1, memo)
     else:
-        return max(lcs(X, Y, m, n - 1), lcs(X, Y, m - 1, n))
+        memo[(m, n)] = max(lcs(X, Y, m, n - 1, memo), lcs(X, Y, m - 1, n, memo))
+    return memo[(m, n)]
 
 
 def lcs_length(X: List[int], Y: List[int]) -> int:
     m = len(X)
     n = len(Y)
-    return lcs(X, Y, m, n)
+    memo = {}
+    return lcs(X, Y, m, n, memo)
 
 
 class TestLCS(unittest.TestCase):
