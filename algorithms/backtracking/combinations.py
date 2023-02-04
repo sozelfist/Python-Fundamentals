@@ -2,20 +2,18 @@ import unittest
 from typing import List
 
 
-def find_combinations(items: List[int], index: int, current: List[int], result: List[List[int]]) -> List[List[int]]:
-    if index == len(items):
-        result.append(current[:])
-        return result
-    find_combinations(items, index + 1, current, result)
-    current.append(items[index])
-    find_combinations(items, index + 1, current, result)
-    current.pop()
-    return result
-
-
 def combinations(items: List[int]) -> List[List[int]]:
+    def find_combinations(index: int, current: List[int], result: List[List[int]]):
+        if index == len(items):
+            result.append(current[:])
+            return
+        find_combinations(index + 1, current, result)
+        current.append(items[index])
+        find_combinations(index + 1, current, result)
+        current.pop()
+
     result = []
-    find_combinations(items, 0, [], result)
+    find_combinations(0, [], result)
     return result
 
 
@@ -28,6 +26,10 @@ class TestCombinations(unittest.TestCase):
         items = [4, 5]
         result = combinations(items)
         self.assertEqual(result, [[], [5], [4], [4, 5]])
+
+        items = []
+        result = combinations(items)
+        self.assertEqual(result, [[]])
 
 
 if __name__ == '__main__':
