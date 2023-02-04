@@ -10,14 +10,16 @@ class DisjointSet:
         self.parent[x] = x
         self.rank[x] = 0
 
-    def find_set(self, x: int) -> int:
+    def find(self, x: int) -> int:
+        if x not in self.parent:
+            self.make_set(x)
         if self.parent[x] != x:
-            self.parent[x] = self.find_set(self.parent[x])
+            self.parent[x] = self.find(self.parent[self.parent[x]])
         return self.parent[x]
 
     def union(self, x: int, y: int):
-        x_root = self.find_set(x)
-        y_root = self.find_set(y)
+        x_root = self.find(x)
+        y_root = self.find(y)
         if x_root == y_root:
             return
         if self.rank[x_root] < self.rank[y_root]:
@@ -45,9 +47,9 @@ class TestDisjointSet(unittest.TestCase):
         self.ds.make_set(2)
         self.ds.make_set(3)
         self.ds.union(1, 2)
-        self.assertEqual(self.ds.find_set(1), 1)
-        self.assertEqual(self.ds.find_set(2), 1)
-        self.assertEqual(self.ds.find_set(3), 3)
+        self.assertEqual(self.ds.find(1), 1)
+        self.assertEqual(self.ds.find(2), 1)
+        self.assertEqual(self.ds.find(3), 3)
 
     def test_union(self):
         self.ds.make_set(1)
