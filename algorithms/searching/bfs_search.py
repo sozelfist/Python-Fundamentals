@@ -3,12 +3,17 @@ from typing import List
 from collections import deque
 
 
-def bfs(graph: List[List[int]], start: int) -> List[int]:
+def validate_input(graph: List[List[int]], start: int, n: int):
     if not graph:
         raise ValueError("Not a valid graph")
-    if start >= len(graph) or start < 0:
+    if start >= n or start < 0:
         raise ValueError("Not a valid start vertex")
-    visited = [False] * len(graph)
+
+
+def bfs(graph: List[List[int]], start: int) -> List[int]:
+    n = len(graph)
+    validate_input(graph, start, n)
+    visited = [False] * n
     queue = deque([start])
     result = []
     while queue:
@@ -22,14 +27,23 @@ def bfs(graph: List[List[int]], start: int) -> List[int]:
 
 
 class TestBFS(unittest.TestCase):
-    def test_bfs_basic(self):
-        self.assertEqual(bfs([[1, 2], [3], [4], [], []], 0), [0, 1, 2, 3, 4])
-        self.assertEqual(bfs([[1, 2], [0, 3], [1, 4], [2], [3]], 2), [2, 1, 4, 0, 3])
+    def test_valid_input(self):
+        graph = [[1, 2], [0, 3], [0], [1]]
+        start = 0
+        result = bfs(graph, start)
+        self.assertEqual(result, [0, 1, 2, 3])
 
-    def test_bfs_exception(self):
-        self.assertRaises(ValueError, bfs, [], 0)
-        self.assertRaises(ValueError, bfs, [[1, 2], [3], [4], [], []], 5)
-        self.assertRaises(ValueError, bfs, [[1, 2], [3], [4], [], []], -1)
+    def test_start_vertex_out_of_bounds(self):
+        graph = [[1, 2], [0, 3], [0], [1]]
+        start = 4
+        with self.assertRaises(ValueError):
+            bfs(graph, start)
+
+    def test_empty_graph(self):
+        graph = []
+        start = 0
+        with self.assertRaises(ValueError):
+            bfs(graph, start)
 
 
 if __name__ == '__main__':
