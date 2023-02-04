@@ -7,8 +7,9 @@ def ternary_search(arr: List[int], x: int) -> int:
     right = len(arr) - 1
 
     while left <= right:
-        left_third = left + (right - left) // 3
-        right_third = right - (right - left) // 3
+        one_third = (right - left) // 3
+        left_third = left + one_third
+        right_third = right - one_third
 
         if arr[left_third] == x:
             return left_third
