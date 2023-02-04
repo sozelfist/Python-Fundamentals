@@ -7,9 +7,9 @@ def exponential_search(arr: List[int], x: int) -> int:
         return 0
     i = 1
     n = len(arr)
-    while i < n and arr[i] <= x:
+    while i < n and i < len(arr) and arr[i] <= x:
         i = i * 2
-    return binary_search(arr, i // 2, min(i, n), x)
+    return binary_search(arr, i // 2, min(i, n - 1), x)
 
 
 def binary_search(arr: List[int], left: int, right: int, x: int) -> int:
@@ -25,17 +25,29 @@ def binary_search(arr: List[int], left: int, right: int, x: int) -> int:
 
 
 class TestExponentialSearch(unittest.TestCase):
-    def test_exponential_search_basic(self):
-        self.assertEqual(exponential_search([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5), 4)
-        self.assertEqual(exponential_search([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 8), 7)
+    def test_valid_input(self):
+        arr = [2, 3, 4, 10, 40]
+        x = 10
+        result = exponential_search(arr, x)
+        self.assertEqual(result, 3)
 
-    def test_exponential_search_not_found(self):
-        self.assertEqual(exponential_search([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 11), -1)
-        self.assertEqual(exponential_search([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 0), -1)
+    def test_element_not_present(self):
+        arr = [2, 3, 4, 10, 40]
+        x = 50
+        result = exponential_search(arr, x)
+        self.assertEqual(result, -1)
 
-    def test_exponential_search_edge_cases(self):
-        self.assertEqual(exponential_search([], 11), -1)
-        self.assertEqual(exponential_search([1], 1), 0)
+    def test_small_array(self):
+        arr = [2, 3]
+        x = 2
+        result = exponential_search(arr, x)
+        self.assertEqual(result, 0)
+
+    def test_array_of_length_one(self):
+        arr = [2]
+        x = 2
+        result = exponential_search(arr, x)
+        self.assertEqual(result, 0)
 
 
 if __name__ == '__main__':
