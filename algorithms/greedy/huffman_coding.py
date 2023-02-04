@@ -1,9 +1,9 @@
 import unittest
-from typing import Dict, Tuple
 import heapq
+from typing import Dict, Any
 
 
-def build_tree(freq: Dict[str, int]) -> Tuple:
+def build_tree(freq: Dict[str, int]) -> Any:
     heap = [[weight, [char, ""]] for char, weight in freq.items()]
     heapq.heapify(heap)
     while len(heap) > 1:
@@ -25,13 +25,16 @@ def huffman_coding(freq: Dict[str, int]) -> Dict[str, str]:
 class TestHuffmanCoding(unittest.TestCase):
     def test_huffman_coding(self):
         freq = {'a': 5, 'b': 9, 'c': 12, 'd': 13, 'e': 16, 'f': 45}
-        huff_codes = huffman_coding(freq)
-        self.assertEqual(huff_codes['a'], '1100')
-        self.assertEqual(huff_codes['b'], '1101')
-        self.assertEqual(huff_codes['c'], '100')
-        self.assertEqual(huff_codes['d'], '101')
-        self.assertEqual(huff_codes['e'], '111')
-        self.assertEqual(huff_codes['f'], '0')
+        result = huffman_coding(freq)
+        self.assertDictEqual(result, {'a': '1100', 'b': '1101', 'c': '100', 'd': '101', 'e': '111', 'f': '0'})
+
+        freq = {'a': 1, 'b': 1, 'c': 1, 'd': 1, 'e': 1, 'f': 1}
+        result = huffman_coding(freq)
+        self.assertDictEqual(result, {'a': '100', 'b': '101', 'c': '110', 'd': '111', 'e': '00', 'f': '01'})
+
+        freq = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6}
+        result = huffman_coding(freq)
+        self.assertDictEqual(result, {'a': '1000', 'b': '1001', 'c': '101', 'd': '00', 'e': '01', 'f': '11'})
 
 
 if __name__ == '__main__':
