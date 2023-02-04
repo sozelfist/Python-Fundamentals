@@ -9,20 +9,12 @@ class Graph:
         self.directed = directed
 
     def add_vertex(self, vertex: int) -> None:
-        if vertex not in self.graph:
-            self.graph[vertex] = []
+        self.graph.setdefault(vertex, [])
 
     def add_edge(self, vertex1: int, vertex2: int) -> None:
-        if vertex1 in self.graph:
-            self.graph[vertex1].append(vertex2)
-        else:
-            self.graph[vertex1] = [vertex2]
-
+        self.graph.setdefault(vertex1, []).append(vertex2)
         if not self.directed:
-            if vertex2 in self.graph:
-                self.graph[vertex2].append(vertex1)
-            else:
-                self.graph[vertex2] = [vertex1]
+            self.graph.setdefault(vertex2, []).append(vertex1)
 
     def get_vertices(self) -> List[int]:
         return list(self.graph.keys())
