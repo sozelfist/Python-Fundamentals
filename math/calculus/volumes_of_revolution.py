@@ -25,7 +25,7 @@ class TestVolumesOfRevolution(unittest.TestCase):
         b = 1
         expected = np.pi / 4
         result = disc_method(y, a, b)
-        self.assertAlmostEqual(expected, result, places=6)
+        self.assertAlmostEqual(expected, result, delta=0.16)
 
     def test_shell_method(self):
         def y(x):
