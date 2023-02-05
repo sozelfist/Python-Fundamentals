@@ -1,4 +1,4 @@
-name: build
+name: CI
 on:
   push:
     branches: [master]
@@ -6,29 +6,39 @@ on:
     branches: [master]
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.11]
-        os: [ubuntu-latest]
+        python-version: ["3.10", "3.11", "3.12"]
     steps:
-      - name: Checkout code
+      - name: Run actions/checkout@v3
         uses: actions/checkout@v3
-      - name: Set up Python
+      - name: Run actions/setup-python@v4
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Cache dependencies
+      - name: Run actions/cache@v3
         uses: actions/cache@v3
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-python-${{ matrix.python-version }}-dependencies-${{ hashFiles('requirements.txt') }}
-      - name: Install dependencies
+      - name: Install Dependencies
         run: |
           python -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
-      - name: Lint with flake8
+      - name: Lint Code with Flake8
         run: |
           source venv/bin/activate
           flake8 .
+      - name: Run Tests with Coverage
+        run: |
+          source venv/bin/activate
+          pytest \
+          --cov-report=term-missing:skip-covered \
+          --cov=$(find . -name "*.py" ! -path "./venv/*")
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v1
+        with:
+          name: coverage-report
+          path: htmlcov
