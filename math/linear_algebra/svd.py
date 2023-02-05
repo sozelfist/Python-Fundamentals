@@ -1,7 +1,8 @@
+import unittest
 import numpy as np
 
 
-def svd(A):
+def svd(A: np.ndarray) -> tuple:
     # Compute the transpose of A
     A_transpose = np.transpose(A)
     # Compute the matrix B = A * A_transpose
@@ -20,11 +21,12 @@ def svd(A):
     return U, S, V
 
 
+class TestSVD(unittest.TestCase):
+    def test_svd(self):
+        A = np.array([[3, 2, 2], [2, 3, -2]])
+        U, S, V = svd(A)
+        np.testing.assert_allclose(A, U @ S @ np.transpose(V), rtol=1e-6, atol=1e-6)
+
+
 if __name__ == '__main__':
-    A = np.array([[3, 2, 2], [2, 3, -2]])
-    U, S, V = svd(A)
-    print(f'U = {U}')
-    print(f'S = {S}')
-    print(f'V = {V}')
-    print(f'The orginal matrix: {A}')
-    print(f'The reconstructed matrix: {U@S@np.transpose(V)}')
+    unittest.main()

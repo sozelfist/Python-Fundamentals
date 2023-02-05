@@ -1,8 +1,12 @@
 import numpy as np
-import matplotlib.pyplot as plt
+from typing import Tuple
+import unittest
 
 
-def pca(X, n_components):
+def pca(X: np.ndarray, n_components: int) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Perform PCA on the input data X and return the transformed data and the eigenvectors.
+    """
     # Subtract the mean of the data from each feature
     X = X - np.mean(X, axis=0)
 
@@ -27,20 +31,23 @@ def pca(X, n_components):
     return X_pca, eigenvectors
 
 
+class TestPCA(unittest.TestCase):
+    def setUp(self):
+        np.random.seed(0)
+        self.X = np.random.rand(100, 5)
+
+    def test_pca_output_shape(self):
+        n_components = 2
+        X_pca, eigenvectors = pca(self.X, n_components)
+        self.assertEqual(X_pca.shape, (100, 2))
+        self.assertEqual(eigenvectors.shape, (5, 2))
+
+    def test_pca_transformed_data(self):
+        n_components = 2
+        X_pca_1, _ = pca(self.X, n_components)
+        X_pca_2, _ = pca(self.X, n_components)
+        self.assertTrue(np.allclose(X_pca_1, X_pca_2))
+
+
 if __name__ == "__main__":
-    np.random.seed(0)
-    X = np.random.rand(100, 5)
-
-    # Perform PCA on the data
-    n_components = 2
-    X_pca, eigenvectors = pca(X, n_components)
-
-    print("Original data shape: ", X.shape)
-    print("Transformed data shape: ", X_pca.shape)
-    print("Eigenvectors shape: ", eigenvectors.shape)
-
-    # Plot the transformed data
-    plt.scatter(X_pca[:, 0], X_pca[:, 1])
-    plt.xlabel("First Principal Component")
-    plt.ylabel("Second Principal Component")
-    plt.show()
+    unittest.main()
