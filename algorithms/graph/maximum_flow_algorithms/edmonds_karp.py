@@ -1,83 +1,79 @@
 import unittest
-from typing import List, Tuple
-from collections import deque
+from typing import Any, List, Union
 
 
-def edmonds_karp(n: int, edges: List[Tuple[int, int, int]], s: int, t: int) -> int:
-    # Initialize the residual graph
-    residual = [[0 for _ in range(n)] for _ in range(n)]
-    for u, v, w in edges:
-        residual[u][v] += w
-
-    # Initialize the parent array
-    parent = [-1 for _ in range(n)]
-
-    # Initialize the maximum flow
+def edmonds_karp(graph: Any, source: int, sink: int) -> Union[int, float]:
+    n = len(graph)
+    parent = [-1] * n
     max_flow = 0
 
-    # Perform the Edmonds-Karp algorithm
     while True:
-        # Use BFS to find an augmenting path
-        queue = deque([s])
-        parent[s] = -2
-        while queue:
-            u = queue.popleft()
-            for v in range(n):
-                if parent[v] == -1 and residual[u][v] > 0:
-                    parent[v] = u
-                    queue.append(v)
-                    if v == t:
-                        break
-
-        # If no augmenting path was found, break out of the loop
-        if parent[t] == -1:
+        bfs_result = bfs(graph, source, sink, parent)
+        if not bfs_result:
             break
-
-        # Find the bottleneck capacity
-        bottleneck = float('inf')
-        v = t
-        while v != s:
+        flow = float("inf")
+        s = sink
+        while s != source:
+            u = parent[s]
+            flow = min(flow, graph[u][s][1])
+            s = parent[s]
+        max_flow += flow
+        v = sink
+        while v != source:
             u = parent[v]
-            bottleneck = min(bottleneck, residual[u][v])
-            v = u
-
-        # Update the residual graph
-        v = t
-        while v != s:
-            u = parent[v]
-            residual[u][v] -= bottleneck
-            residual[v][u] += bottleneck
-            v = u
-
-        # Add the bottleneck capacity to the maximum flow
-        max_flow += bottleneck
-
-    # Return the maximum flow
+            graph[u][v] = (graph[u][v][0], graph[u][v][1] - flow)
+            graph[v][u] = (graph[v][u][0], graph[v][u][1] + flow)
+            v = parent[v]
     return max_flow
 
 
+def bfs(graph: Any, source: int, sink: int, parent: List[int]) -> bool:
+    n = len(graph)
+    visited = [False] * n
+    queue = [source]
+    visited[source] = True
+
+    while queue:
+        u = queue.pop(0)
+        for v in range(n):
+            if not visited[v] and graph[u][v][1] > 0:
+                queue.append(v)
+                parent[v] = u
+                visited[v] = True
+                if v == sink:
+                    return True
+    return False
+
+
 class TestEdmondsKarp(unittest.TestCase):
-    def test_simple(self):
-        n = 6
-        edges = [(0, 1, 16), (0, 2, 13), (1, 2, 10), (1, 3, 12), (2, 1, 4),
-                 (2, 4, 14), (3, 2, 9), (3, 5, 20), (4, 3, 7), (4, 5, 4)]
-        s = 0
-        t = 5
-        self.assertEqual(edmonds_karp(n, edges, s, t), 23)
+    def test_case_1(self):
+        graph = [[(0, 0) for j in range(6)] for i in range(6)]
+        graph[0][1] = (1, 16)
+        graph[0][2] = (2, 13)
+        graph[1][2] = (3, 10)
+        graph[1][3] = (4, 12)
+        graph[2][4] = (5, 14)
+        graph[3][2] = (6, 9)
+        graph[3][5] = (7, 20)
+        graph[4][3] = (8, 7)
+        graph[4][5] = (9, 4)
 
-    def test_complex(self):
-        n = 5
-        edges = [(0, 1, 9), (0, 3, 5), (1, 2, 2), (1, 3, 4), (2, 4, 4), (3, 2, 1), (3, 4, 6)]
-        s = 0
-        t = 4
-        self.assertEqual(edmonds_karp(n, edges, s, t), 8)
+        source, sink = 0, 5
+        max_flow = edmonds_karp(graph, source, sink)
 
-    def test_no_path(self):
-        n = 5
-        edges = [(0, 1, 1), (1, 2, 1), (2, 3, 1), (3, 4, 1), (4, 0, 1)]
-        s = 0
-        t = 4
-        self.assertEqual(edmonds_karp(n, edges, s, t), 0)
+        self.assertEqual(max_flow, 23)
+
+    def test_case_2(self):
+        graph = [[(0, 0) for j in range(4)] for i in range(4)]
+        graph[0][1] = (1, 3)
+        graph[0][2] = (2, 5)
+        graph[1][3] = (3, 4)
+        graph[2][3] = (4, 2)
+
+        source, sink = 0, 3
+        max_flow = edmonds_karp(graph, source, sink)
+
+        self.assertEqual(max_flow, 5)
 
 
 if __name__ == '__main__':
