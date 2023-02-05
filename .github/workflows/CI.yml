@@ -35,6 +35,7 @@ jobs:
         run: |
           source venv/bin/activate
           pytest \
+          --cov-report=html \
           --cov-report=term-missing:skip-covered \
           --cov=$(find . -name "*.py" ! -path "./venv/*")
       - name: Upload coverage report
