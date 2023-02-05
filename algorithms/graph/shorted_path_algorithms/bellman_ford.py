@@ -1,48 +1,50 @@
 import unittest
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
 
-def bellman_ford(adj_list: List[List[Tuple[int, int]]], start: int) -> List[int]:
+def bellman_ford(adj_list: List[List[Tuple[int, int]]], start: int) -> List[Union[int, float]]:
     n = len(adj_list)
-    dist = [float('inf')] * n
-    dist[start] = 0
+    distances = [float('inf')] * n
+    distances[start] = 0
 
     for i in range(n - 1):
-        for u in range(n):
-            for v, w in adj_list[u]:
-                if dist[u] != float('inf') and dist[u] + w < dist[v]:
-                    dist[v] = dist[u] + w
+        for u, neighbors in enumerate(adj_list):
+            for v, w in neighbors:
+                if distances[u] != float('inf') and distances[u] + w < distances[v]:
+                    distances[v] = distances[u] + w
 
-    for u in range(n):
-        for v, w in adj_list[u]:
-            if dist[u] != float('inf') and dist[u] + w < dist[v]:
+    for u, neighbors in enumerate(adj_list):
+        for v, w in neighbors:
+            if distances[u] != float('inf') and distances[u] + w < distances[v]:
                 raise ValueError("Graph contains a negative-weight cycle")
-    return dist
+
+    return distances
 
 
 class TestBellmanFord(unittest.TestCase):
-    def test_bellman_ford_valid_input(self):
-        adj_list = [[(1, 2), (2, 1)], [(2, 3)], [(0, 4), (1, 4)], []]
-        start = 0
-        expected_output = [0, 2, 3, 7]
-        self.assertEqual(bellman_ford(adj_list, start), expected_output)
+    def test_bellman_ford_negative_cycle(self):
+        adj_list = [[(1, -1), (2, -1)], [(2, -1)], [(0, 1)]]
+        with self.assertRaises(ValueError) as context:
+            bellman_ford(adj_list, 0)
+        self.assertEqual(str(context.exception), "Graph contains a negative-weight cycle")
 
-    def test_bellman_ford_negative_weights(self):
-        adj_list = [[(1, -2), (2, -1)], [(2, -3)], [(0, -4), (1, -4)], [(0, 1)]]
-        start = 0
-        self.assertRaises(ValueError, bellman_ford, adj_list, start)
+    def test_bellman_ford_shortest_paths(self):
+        adj_list = [[(1, 2), (2, -1)], [(2, 2)], [(0, 3)]]
+        result = bellman_ford(adj_list, 0)
+        expected = [0, 2, -1]
+        self.assertEqual(result, expected)
+
+    def test_bellman_ford_single_node(self):
+        adj_list = [[]]
+        result = bellman_ford(adj_list, 0)
+        expected = [0]
+        self.assertEqual(result, expected)
 
     def test_bellman_ford_disconnected_graph(self):
-        adj_list = [[(1, 2), (2, 1)], [(2, 3)], [(0, 4), (1, 4)], [], [(4, 1)]]
-        start = 0
-        expected_output = [0, 2, 3, 7, float('inf')]
-        self.assertEqual(bellman_ford(adj_list, start), expected_output)
-
-    def test_bellman_ford_single_vertex(self):
-        adj_list = [[]]
-        start = 0
-        expected_output = [0]
-        self.assertEqual(bellman_ford(adj_list, start), expected_output)
+        adj_list = [[(1, 2)], [(2, 1)], [], [], []]
+        result = bellman_ford(adj_list, 0)
+        expected = [0, 2, 3, float('inf'), float('inf')]
+        self.assertEqual(result, expected)
 
 
 if __name__ == '__main__':

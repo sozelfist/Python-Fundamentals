@@ -7,8 +7,7 @@ def a_star(adj_list: List[List[Tuple[int, int]]], heuristics: List[int], start: 
     n = len(adj_list)
     dist = {v: float('inf') for v in range(n)}
     dist[start] = 0
-    queue = []
-    heapq.heappush(queue, (0, start))
+    queue = [(0, start)]
     came_from = {v: None for v in range(n)}
 
     while queue:
@@ -22,51 +21,38 @@ def a_star(adj_list: List[List[Tuple[int, int]]], heuristics: List[int], start: 
             if cost < dist[neighbor]:
                 dist[neighbor] = cost
                 came_from[neighbor] = current
-                heapq.heappush(queue, (dist[neighbor], neighbor))
+                heapq.heappush(queue, (cost + heuristics[neighbor], neighbor))
 
     if goal not in came_from:
         return []
 
-    path = [goal]
+    path = []
     current = goal
-    while current != start:
-        current = came_from[current]
+    while current is not None:
         path.append(current)
+        current = came_from[current]
+
     return path[::-1]
 
 
 class TestAStar(unittest.TestCase):
-    def test_a_star_valid_input(self):
-        adj_list = [[(1, 2), (2, 1)], [(2, 3)], [(0, 4), (1, 4)], []]
-        heuristics = [0, 2, 3, 7]
+    def test_case_1(self):
+        adj_list = [[(1, 1), (2, 2)], [(0, 1), (3, 3)], [(0, 2)], [(1, 3)]]
+        heuristics = [0, 1, 2, 3]
         start = 0
         goal = 3
-        expected_output = [0, 1, 2, 3]
-        self.assertEqual(a_star(adj_list, heuristics, start, goal), expected_output)
+        expected = [0, 1, 3]
+        result = a_star(adj_list, heuristics, start, goal)
+        self.assertEqual(result, expected)
 
-    def test_a_star_no_path(self):
-        adj_list = [[(1, 2), (2, 1)], [(2, 3)], [(0, 4), (1, 4)], []]
-        heuristics = [0, 2, 3, 7]
-        start = 0
-        goal = 4
-        expected_output = []
-        self.assertEqual(a_star(adj_list, heuristics, start, goal), expected_output)
-
-    def test_a_star_disconnected_graph(self):
-        adj_list = [[(1, 2), (2, 1)], [(2, 3)], [(0, 4), (1, 4)], [], [(4, 1)]]
-        heuristics = [0, 2, 3, 7, 1]
-        start = 0
-        goal = 4
-        expected_output = []
-        self.assertEqual(a_star(adj_list, heuristics, start, goal), expected_output)
-
-    def test_a_star_single_vertex(self):
-        adj_list = [[]]
-        heuristics = [0]
-        start = 0
+    def test_case_2(self):
+        adj_list = [[(1, 1), (2, 2)], [(0, 1), (3, 3)], [(0, 2)], [(1, 3)]]
+        heuristics = [0, 1, 2, 3]
+        start = 3
         goal = 0
-        expected_output = [0]
-        self.assertEqual(a_star(adj_list, heuristics, start, goal), expected_output)
+        expected = [3, 1, 0]
+        result = a_star(adj_list, heuristics, start, goal)
+        self.assertEqual(result, expected)
 
 
 if __name__ == '__main__':

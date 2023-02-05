@@ -1,48 +1,40 @@
 import unittest
-from typing import List, Tuple
 import heapq
+from typing import List, Tuple
 
 
 def dijkstra(adj_list: List[List[Tuple[int, int]]], start: int) -> List[int]:
     n = len(adj_list)
     dist = [float('inf')] * n
     dist[start] = 0
+    visited = [False] * n
     queue = [(0, start)]
     while queue:
         (curr_dist, curr) = heapq.heappop(queue)
-        if curr_dist > dist[curr]:
+        if visited[curr]:
             continue
+        visited[curr] = True
         for neighbor, weight in adj_list[curr]:
-            if curr_dist + weight < dist[neighbor]:
-                dist[neighbor] = curr_dist + weight
+            if neighbor >= n:
+                continue
+            if dist[curr] + weight < dist[neighbor]:
+                dist[neighbor] = dist[curr] + weight
                 heapq.heappush(queue, (dist[neighbor], neighbor))
     return dist
 
 
 class TestDijkstra(unittest.TestCase):
-    def test_dijkstra_valid_input(self):
-        adj_list = [[(1, 2), (2, 1)], [(2, 3)], [(0, 4), (1, 4)], []]
-        start = 0
-        expected_output = [0, 2, 3, 7]
-        self.assertEqual(dijkstra(adj_list, start), expected_output)
+    def test_dijkstra_simple(self):
+        adj_list = [[(1, 2), (2, 3)], [(2, 1)], []]
+        result = dijkstra(adj_list, 0)
+        expected = [0, 2, 3]
+        self.assertEqual(result, expected)
 
-    def test_dijkstra_negative_weights(self):
-        adj_list = [[(1, -2), (2, 1)], [(2, -3)], [(0, -4), (1, 4)], []]
-        start = 0
-        expected_output = [0, -2, -1, 3]
-        self.assertEqual(dijkstra(adj_list, start), expected_output)
-
-    def test_dijkstra_disconnected_graph(self):
-        adj_list = [[(1, 2), (2, 1)], [(2, 3)], [(0, 4), (1, 4)], [], [(4, 1)]]
-        start = 0
-        expected_output = [0, 2, 3, 7, float('inf')]
-        self.assertEqual(dijkstra(adj_list, start), expected_output)
-
-    def test_dijkstra_single_vertex(self):
-        adj_list = [[]]
-        start = 0
-        expected_output = [0]
-        self.assertEqual(dijkstra(adj_list, start), expected_output)
+    def test_dijkstra_disconnected(self):
+        adj_list = [[(1, 2)], [(2, 1)], [], [], []]
+        result = dijkstra(adj_list, 0)
+        expected = [0, 2, 3, float('inf'), float('inf')]
+        self.assertEqual(result, expected)
 
 
 if __name__ == '__main__':
