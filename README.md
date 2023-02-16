@@ -1,4 +1,14 @@
+<div align='center'>
+
 # Python Fundamentals
+
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/TruongNhanNguyen/Python-Fundamentals)
+[![Contributions welcome](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=0059b3)](https://github.com/TruongNhanNguyen/Python-Fundamentals/blob/master/CONTRIBUTING.md)
+![GitHub repo size](https://img.shields.io/github/repo-size/TruongNhanNguyen/Python-Fundamentals?color=red)
+[![CI](https://img.shields.io/github/actions/workflow/status/TruongNhanNguyen/Python-Fundamentals/CI.yml?branch=master&label=CI&logo=github)](https://github.com/TruongNhanNguyen/Python-Fundamentals/actions/workflows/CI.yml)
+</div>
+
+---
 
 Welcome to Python Fundamentals, a comprehensive collection of Python code implementations for basic and advanced concepts in the Python programming language. In this project, you will find the following
 
