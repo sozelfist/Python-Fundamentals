@@ -8,8 +8,6 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/TruongNhanNguyen/Python-Fundamentals/CI.yml?branch=master&label=CI&logo=github)](https://github.com/TruongNhanNguyen/Python-Fundamentals/actions/workflows/CI.yml)
 </div>
 
----
-
 Welcome to Python Fundamentals, a comprehensive collection of Python code implementations for basic and advanced concepts in the Python programming language. In this project, you will find the following
 
 ## Basic Concepts
