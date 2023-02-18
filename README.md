@@ -2,10 +2,12 @@
 
 # Python Fundamentals
 
+[![Lisence](https://img.shields.io/github/license/TruongNhanNguyen/Python-Fundamentals?color=blue&label=License)](https://github.com/TruongNhanNguyen/Python-Fundamentals/blob/master/LICENSE)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/TruongNhanNguyen/Python-Fundamentals)
 [![Contributions welcome](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=0059b3)](https://github.com/TruongNhanNguyen/Python-Fundamentals/blob/master/CONTRIBUTING.md)
-![GitHub repo size](https://img.shields.io/github/repo-size/TruongNhanNguyen/Python-Fundamentals?color=red)
-[![CI](https://img.shields.io/github/actions/workflow/status/TruongNhanNguyen/Python-Fundamentals/CI.yml?branch=master&label=CI&logo=github)](https://github.com/TruongNhanNguyen/Python-Fundamentals/actions/workflows/CI.yml)
+[![Contributors](https://img.shields.io/github/contributors/TruongNhanNguyen/Python-Fundamentals?color=Green&label=Contributors)](https://github.com/TruongNhanNguyen/Python-Fundamentals/graphs/contributors)
+![GitHub repo size](https://img.shields.io/github/repo-size/TruongNhanNguyen/Python-Fundamentals?color=red&label=Repo%20size)
+[![CI](https://img.shields.io/github/actions/workflow/status/TruongNhanNguyen/Python-Fundamentals/CI.yml?label=CI%20Workflow&logo=GitHub&logoColor=GitHub)](https://github.com/TruongNhanNguyen/Python-Fundamentals/actions/workflows/CI.yml)
 </div>
 
 Welcome to Python Fundamentals, a comprehensive collection of Python code implementations for basic and advanced concepts in the Python programming language. In this project, you will find the following
