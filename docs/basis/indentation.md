@@ -18,7 +18,7 @@ def my_function(x):
     return x * 2
 ```
 
-ndentation is also used to indicate the scope of variables. Variables declared inside a block, such as a for loop or a function, are only accessible within that block.
+Indentation is also used to indicate the scope of variables. Variables declared inside a block, such as a for loop or a function, are only accessible within that block.
 
 Indentation is an important part of the Python language, and it plays a critical role in making the code readable, organized, and easy to understand. It is also used by the interpreter to identify and execute the correct code block. If you forget to indent the code correctly, you will get an IndentationError and your code will not run correctly.
 
