@@ -2,26 +2,5 @@
 # Each line in this file should be in the following format:
 #   path/to/code/files @username
 
-# Ownership for all Python files in the root directory
-*.py @TruongNhanNguyen
-
-# Ownership for all files in the ".github" directory
-.github/ @TruongNhanNguyen
-
-# Ownership for all files in the "advanced" directory
-advanced/ @TruongNhanNguyen
-
-# Ownership for all files in the "basis" directory
-basis/ @TruongNhanNguyen
-
-# Ownership for all files in the "docs" directory
-docs/ @TruongNhanNguyen
-
-# Ownership for all files in the "data_structures" directory
-data_structures/ @TruongNhanNguyen
-
-# Ownership for all files in the "algorithms" directory
-algorithms/ @TruongNhanNguyen
-
-# Ownership for all dot-files in the directory
-.*/ @TruongNhanNguyen
+# Ownership for all files in this project
+* @TruongNhanNguyen
