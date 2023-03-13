@@ -1,38 +1,29 @@
-# Dynamic Programming
+# Dynamic Programming Algorithms
 
-Dynamic Programming (DP) is a method of solving problems by breaking them down into smaller subproblems, and storing the solutions to these subproblems to avoid redundant work. It is a powerful technique for solving complex problems that can be broken down into smaller overlapping subproblems.
+## Introduction
 
-DP problems can be broadly classified into two types:
+Dynamic programming is a technique used to solve problems by breaking them down into smaller, simpler subproblems and solving each subproblem only once. Dynamic programming algorithms are often used to solve optimization problems, where the goal is to find the best solution among many possible solutions.
 
-- **Memoization**: This is also known as "top-down" approach, it starts from the original problem and then breaks it down into smaller subproblems. It stores the solutions of subproblems in a table so that they can be reused later, avoiding the need to recompute them.
+## Characteristics of Dynamic Programming Algorithms
 
-- **Tabulation**: This is also known as "bottom-up" approach, it starts by solving all the subproblems first and then uses the solutions to solve the original problem. It stores the solutions of subproblems in a table and uses it to fill the remaining entries in the table to solve the original problem.
+Dynamic programming algorithms typically have the following characteristics:
 
-Some common examples of problems that can be solved using dynamic programming include:
+- Optimal Substructure: A problem has optimal substructure if an optimal solution to the problem contains optimal solutions to its subproblems. This property allows us to solve the problem recursively by breaking it down into smaller subproblems.
 
-- Longest Common Subsequence (LCS)
-- Longest Increasing Subsequence (LIS)
-- Edit Distance
-- Knapsack problem
-- Matrix Chain Multiplication
-- Bellman-Ford Algorithm
-- Floyd-Warshall Algorithm
-- Fibonacci sequence
+- Overlapping Subproblems: A problem has overlapping subproblems if it can be broken down into smaller subproblems that are solved repeatedly. This property allows us to avoid redundant calculations by storing the solutions to subproblems in a table and reusing them as needed.
 
-1. **Longest Common Subsequence (LCS)**: This problem is to find the longest subsequence common to all sequences in a set of sequences (often just two).
+## Examples of Dynamic Programming Algorithms
 
-2. **Longest Increasing Subsequence (LIS)**: This problem is to find the length of the longest increasing subsequence in a given array.
+The following are some examples of dynamic programming algorithms:
 
-3. **Edit Distance**: This problem is to determine the minimum number of operations (insertions, deletions, and substitutions) needed to convert one string into another.
+1. Fibonacci Sequence: The Fibonacci sequence is a classic example of a problem that can be solved using dynamic programming. Each number in the sequence is the sum of the two preceding numbers, so we can solve for each number in the sequence recursively by summing the two preceding numbers. However, this approach results in redundant calculations, so we can use dynamic programming to avoid this by storing the solutions to subproblems in a table and reusing them as needed.
 
-4. **Knapsack problem**: This problem is to find the most valuable set of items that fit in a knapsack of fixed capacity.
+2. Knapsack Problem: The knapsack problem is a classic optimization problem that can be solved using dynamic programming. Given a set of items with weights and values, we want to find the subset of items that maximizes the total value while keeping the total weight within a certain limit. We can solve this problem using dynamic programming by breaking it down into smaller subproblems and storing the solutions to each subproblem in a table.
 
-5. **Matrix Chain Multiplication**: This problem is to find the most efficient way to multiply a given sequence of matrices.
+## Performance Characteristics
 
-6. **Bellman-Ford Algorithm**: This algorithm is used to find the shortest path between two nodes in a graph with negative edge weights.
+Dynamic programming algorithms can be evaluated based on their time and space complexity. The time complexity of a dynamic programming algorithm depends on the number of subproblems and the time required to solve each subproblem. The space complexity of a dynamic programming algorithm depends on the number of subproblems and the amount of memory required to store the solutions to each subproblem.
 
-7. **Floyd-Warshall Algorithm**: This algorithm is used to find the shortest path between all pairs of vertices in a graph.
+## Conclusion
 
-8. **Fibonacci sequence**: This problem is to find the nth Fibonacci number
-
-Dynamic Programming is a powerful technique that can be used to solve a wide variety of problems, but it can also be difficult to implement and debug. It's important to have a good understanding of the problem and the underlying recursive structure in order to develop an efficient DP solution.
+Dynamic programming is a powerful technique used to solve problems by breaking them down into smaller, simpler subproblems and solving each subproblem only once. Dynamic programming algorithms are often used to solve optimization problems, where the goal is to find the best solution among many possible solutions. When evaluating dynamic programming algorithms, it's important to consider their time and space complexity, as well as their optimal substructure and overlapping subproblems properties.

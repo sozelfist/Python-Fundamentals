@@ -1,28 +1,43 @@
 # Greedy Algorithms
 
-Greedy algorithms are a type of algorithmic paradigm that builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate benefit. The local optimal choices made by a greedy algorithm are used to construct a global solution that is also optimal.
+## Introduction
 
-A greedy algorithm always makes the choice that looks best at the moment. That is, it makes a locally optimal choice in the hope that this choice will lead to a globally optimal solution.
+Greedy algorithms are a class of algorithms that make locally optimal choices at each step with the hope of finding a global optimum. At each step, a greedy algorithm selects the best option available, without considering the larger context or future consequences.
 
-Some common examples of problems that can be solved using greedy algorithms include:
+Greedy algorithms are used in many problem domains, including scheduling, optimization, and graph theory.
 
-- Huffman Encoding
-- Dijkstra's Algorithm for finding the shortest path
-- Prim's Algorithm for finding the minimum spanning tree
-- Kruskal's Algorithm for finding the minimum spanning tree
-- Coin Change problem
-- Fractional Knapsack problem
+## Steps of Greedy Algorithms
 
-1. **Huffman Encoding**: This algorithm is used for compressing data by assigning variable-length codes to characters, such that more frequent characters have shorter codes. It is based on the idea of a greedy algorithm that builds a prefix tree from the bottom up, always adding the least frequent item as a child of the two most frequent items.
+The following are the general steps involved in a greedy algorithm:
 
-2. **Dijkstra's Algorithm**: This algorithm is used to find the shortest path between two nodes in a graph. It works by maintaining a priority queue of unvisited nodes and always visiting the node with the smallest distance first.
+1. Define the problem: First, define the problem and identify the decision variables that need to be assigned values.
 
-3. **Prim's Algorithm**: This algorithm is used to find the minimum spanning tree of a graph. It starts with an arbitrary node, and at each step, adds the edge with the smallest weight that connects the current tree to a new node.
+2. Define the objective function: Define the objective function that measures the quality of a solution. This function is used to evaluate the quality of different solutions.
 
-4. **Kruskal's Algorithm**: This algorithm is used to find the minimum spanning tree of a graph. It starts with an empty tree and at each step, adds the edge with the smallest weight that connects two different connected components.
+3. Generate feasible solutions: Generate a set of feasible solutions that satisfy the problem's constraints or requirements.
 
-5. **Coin Change problem**: Given a set of coins and amount, Write an algorithm to find out how many ways we can make the change of the amount using the coins given.
+4. Evaluate solutions: Evaluate each feasible solution by calculating its objective function value.
 
-6. **Fractional Knapsack problem**: Given a set of items, each with a weight and a value, determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.
+5. Select the best solution: Select the solution that has the best objective function value.
 
-It is important to note that not all problems have globally optimal solutions that can be constructed by making locally optimal choices, and greedy algorithms are not always able to find the optimal solution for a given problem. In some cases, a greedy algorithm may produce a suboptimal solution, and it is important to consider other algorithmic approaches when solving a problem.
+6. Iterate: Modify the problem and repeat the above steps until a satisfactory solution is found.
+
+## Example: Coin Change Problem
+
+One example of a problem that can be solved using a greedy algorithm is the coin change problem. Suppose you need to make change for a given amount of money using the minimum number of coins. Here's an example of how to solve this problem using a greedy algorithm:
+
+1. Define the problem: The problem is to make change for a given amount of money using the minimum number of coins.
+
+2. Define the objective function: The objective function is the number of coins used to make change for a given amount of money.
+
+3. Generate feasible solutions: Generate a set of feasible solutions by selecting the largest possible coin denomination that is less than or equal to the remaining amount of money.
+
+4. Evaluate solutions: Evaluate each feasible solution by counting the number of coins used.
+
+5. Select the best solution: Select the solution that uses the minimum number of coins.
+
+6. Iterate: Repeat the above steps for any remaining amount of money until all the change has been made.
+
+## Conclusion
+
+Greedy algorithms are a class of algorithms that make locally optimal choices at each step with the hope of finding a global optimum. They are useful for problems that can be solved by making a series of locally optimal decisions. When designing a greedy algorithm, it's important to define the problem, identify the decision variables, and ensure that the algorithm converges to an optimal solution. Greedy algorithms can be fast and efficient, but they are not always guaranteed to find the globally optimal solution. Therefore, it's important to carefully evaluate the results and check if they meet the problem's requirements.
