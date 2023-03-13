@@ -9,7 +9,6 @@ An iterator is an object that can be iterated (looped) upon. It implements the `
 Here's an example of creating and using an iterator:
 
 ```python
-Copy code
 class MyIterator:
     def __init__(self, max_value):
         self.current_value = 0
@@ -41,7 +40,6 @@ A generator is a special type of iterator that is defined using a `yield` statem
 Here's an example of creating and using a generator:
 
 ```python
-Copy code
 def my_generator(max_value):
     current_value = 0
     while current_value < max_value:
