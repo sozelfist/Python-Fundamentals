@@ -12,21 +12,21 @@
 
 Welcome to Python Fundamentals, a comprehensive collection of Python code implementations for basic and advanced concepts in the Python programming language. In this project, you will find the following
 
-## Basic Concepts
+## Basic Concepts :snowflake:
 
 - Variables and data types
 - Operators and expressions
 - Control flow statements (if-else, for loops, while loops)
 - Function
 
-## Advanced Concepts
+## Advanced Concepts :fire:
 
 - Object-Oriented Programming (OOP)
 - Iterators and generators
 - Decorators
 - Exception handling
 
-## Data Structures
+## Data Structures :milky_way:
 
 - Array
 - Linked List
@@ -44,7 +44,7 @@ Welcome to Python Fundamentals, a comprehensive collection of Python code implem
 - Hash Table
 - And many more data structures will be updated later
 
-## Algorithms
+## Algorithms :rocket:
 
 - Sorting algorithms (Bubble sort, Insertion sort, Selection sort, etc.)
 - Searching algorithms (Linear search, Binary search, etc.)
@@ -56,11 +56,11 @@ Welcome to Python Fundamentals, a comprehensive collection of Python code implem
 
 Each concept and data structure has been thoroughly documented with clear explanations and examples to help you understand how they work and how to use them effectively. I also provide test cases for each implementation to ensure that they are working correctly.
 
-## Others
+## Others :hammer:
 
 This project also includes the implementation in Python of different subjects such as: mathematics, physics, and among others.
 
-## Getting Started
+## Getting Started :zap:
 
 To get started with the project, simply clone the repository to your local machine and navigate to the appropriate folder for the concept or data structure you wish to learn about. Each implementation has its own dedicated folder with the necessary files and documentation.
 
@@ -68,18 +68,18 @@ To get started with the project, simply clone the repository to your local machi
 git clone https://github.com/TruongNhanNguyen/Python-Fundamentals.git
 ```
 
-## Contributing
+## Contributing :sparkling_heart: :clap:
 
 I always welcome contributions to this project. If you have an implementation of a concept or data structure that is not included here, or you have found an error in our code, please feel free to submit a pull request.
 
-## License
+## License :black_nib:
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT)
 
-## Contact
+## Contact :email:
 
 If you have any questions or feedback about this project, please feel free to reach out to us at my email - nhantruongnguyen@123.com
 
-## Acknowledgments
+## Acknowledgments :heart:
 
 I would like to thank the community for their support and contributions to this project.
