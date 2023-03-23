@@ -1,4 +1,5 @@
 import unittest
+from typing import List, Tuple
 
 
 def isomorphic(s: str, t: str) -> bool:
