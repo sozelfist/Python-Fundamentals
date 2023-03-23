@@ -23,7 +23,7 @@ def isomorphic(s: str, t: str) -> bool:
 
 
 class TestIsomorphic(unittest.TestCase):
-    
+
     def test_isomorphic(self):
         test_cases: List[Tuple[str, str, bool]] = [
             ("egg", "add", True),
@@ -32,7 +32,7 @@ class TestIsomorphic(unittest.TestCase):
             ("ab", "aa", False),
             ("ab", "cd", True)
         ]
-        
+
         for s, t, expected in test_cases:
             with self.subTest(s=s, t=t):
                 result = isomorphic(s, t)
