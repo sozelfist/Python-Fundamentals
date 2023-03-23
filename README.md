@@ -65,15 +65,28 @@ Each concept and data structure has been thoroughly documented with clear explan
 
 ## Others :hammer:
 
-This project also includes the implementation in Python of different subjects such as: mathematics, physics, and among others.
+This project also includes the implementation in Python of different subjects such as mathematics, physics, and among others.
 
 ## Getting Started :zap:
 
-To get started with the project, simply clone the repository to your local machine and navigate to the appropriate folder for the concept or data structure you wish to learn about. Each implementation has its own dedicated folder with the necessary files and documentation.
+To get started with the project, simply clone the repository to your local machine and navigate to the appropriate folder for the concept or data structure you wish to learn about. Each implementation has its dedicated folder with the necessary files and documentation.
 
 ```sh
-git clone https://github.com/TruongNhanNguyen/Python-Fundamentals.git
+$ git clone https://github.com/TruongNhanNguyen/Python-Fundamentals.git
 ```
+
+### Tests :test_tube:
+
+You can run the `Makefile` to test, lint (, and clean aux files) the project:
+
+```sh
+$ make # run testing and linting processes
+$ # make lint
+$ # make test
+$ # make cleaning
+```
+
+
 
 ## Contributing :sparkling_heart: :clap:
 
