@@ -1,8 +1,7 @@
-from typing import List
 import unittest
 
 
-def Rabin_Karp_Matcher(text: str, pattern: str) -> List[int]:
+def rabin_karp_matcher(text: str, pattern: str) -> list[int]:
     def hash_func(string: str, prime: int, multiplier: int) -> int:
         hash_value = 0
         for i in range(len(string)):
@@ -34,19 +33,19 @@ class TestRabinKarp(unittest.TestCase):
     def test_matches(self):
         text = "The quick brown fox jumps over the lazy dog."
         pattern = "the"
-        result = Rabin_Karp_Matcher(text, pattern)
+        result = rabin_karp_matcher(text, pattern)
         self.assertEqual(result, [31])
 
     def test_no_matches(self):
         text = "The quick brown fox jumps over the lazy dog."
         pattern = "xyz"
-        result = Rabin_Karp_Matcher(text, pattern)
+        result = rabin_karp_matcher(text, pattern)
         self.assertEqual(result, [])
 
     def test_empty_pattern(self):
         text = "The quick brown fox jumps over the lazy dog."
         pattern = ""
-        result = Rabin_Karp_Matcher(text, pattern)
+        result = rabin_karp_matcher(text, pattern)
         self.assertEqual(result, [
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
             11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
@@ -59,7 +58,7 @@ class TestRabinKarp(unittest.TestCase):
     def test_empty_text(self):
         text = ""
         pattern = "the"
-        result = Rabin_Karp_Matcher(text, pattern)
+        result = rabin_karp_matcher(text, pattern)
         self.assertEqual(result, [])
 
 

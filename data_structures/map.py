@@ -1,6 +1,6 @@
-from typing import TypeVar, Generic, Tuple, Optional, List, Hashable
 import unittest
-
+from collections.abc import Hashable
+from typing import Generic, TypeVar
 
 K = TypeVar('K')  # Key type
 V = TypeVar('V')  # Value type
@@ -8,9 +8,9 @@ V = TypeVar('V')  # Value type
 
 class Map(Generic[K, V]):
     def __init__(self):
-        self._map: List[Tuple[K, V]] = []
+        self._map: list[tuple[K, V]] = []
 
-    def __getitem__(self, key: K) -> Optional[V]:
+    def __getitem__(self, key: K) -> V | None:
         for k, v in self._map:
             if k == key:
                 return v
@@ -19,14 +19,14 @@ class Map(Generic[K, V]):
     def __setitem__(self, key: K, value: V) -> None:
         if not isinstance(key, Hashable):
             raise TypeError(f"Key must be hashable: {key!r}")
-        for i, (k, v) in enumerate(self._map):
+        for i, (k, _v) in enumerate(self._map):
             if k == key:
                 self._map[i] = (key, value)
                 return
         self._map.append((key, value))
 
     def __delitem__(self, key: K) -> None:
-        for i, (k, v) in enumerate(self._map):
+        for i, (k, _v) in enumerate(self._map):
             if k == key:
                 del self._map[i]
                 return
@@ -36,13 +36,12 @@ class Map(Generic[K, V]):
         return len(self._map)
 
     def __iter__(self):
-        for item in self._map:
-            yield item
+        yield from self._map
 
     def __str__(self) -> str:
         return "{" + ", ".join([f"{k}: {v}" for k, v in self._map]) + "}"
 
-    def get(self, key: K, default: Optional[V] = None) -> Optional[V]:
+    def get(self, key: K, default: V | None = None) -> V | None:
         """
         Return the value for key if key is in the dictionary, else default.
         """
@@ -51,19 +50,19 @@ class Map(Generic[K, V]):
                 return v
         return default
 
-    def keys(self) -> List[K]:
+    def keys(self) -> list[K]:
         """
         Return a list of all the keys in the dictionary.
         """
         return [k for k, _ in self._map]
 
-    def values(self) -> List[V]:
+    def values(self) -> list[V]:
         """
         Return a list of all the values in the dictionary.
         """
         return [v for _, v in self._map]
 
-    def items(self) -> List[Tuple[K, V]]:
+    def items(self) -> list[tuple[K, V]]:
         """
         Return a list of all the key-value pairs in the dictionary.
         """
@@ -110,8 +109,8 @@ class MapTestCase(unittest.TestCase):
         self.assertEqual(len(self.m), 0)
 
     def test_iter(self):
-        keys = set(['a', 'b', 'c'])
-        for k, v in self.m:
+        keys = {'a', 'b', 'c'}
+        for k, _v in self.m:
             self.assertIn(k, keys)
 
     def test_str(self):

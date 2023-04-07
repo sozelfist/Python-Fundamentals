@@ -1,11 +1,10 @@
-from typing import Dict
 import unittest
 
 
 class Vertex:
     def __init__(self, value: str):
         self.value = value
-        self.edges: Dict[str, int] = {}
+        self.edges: dict[str, int] = {}
 
     def add_edge(self, vertex: str, weight: int):
         self.edges[vertex] = weight
@@ -13,7 +12,7 @@ class Vertex:
 
 class Graph:
     def __init__(self):
-        self.graph_dict: Dict[str, Vertex] = {}
+        self.graph_dict: dict[str, Vertex] = {}
 
     def add_vertex(self, vertex: Vertex):
         self.graph_dict[vertex.value] = vertex

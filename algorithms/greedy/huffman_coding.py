@@ -1,9 +1,9 @@
-import unittest
 import heapq
-from typing import Dict, Any
+import unittest
+from typing import Any
 
 
-def build_tree(freq: Dict[str, int]) -> Any:
+def build_tree(freq: dict[str, int]) -> Any:
     heap = [[weight, [char, ""]] for char, weight in freq.items()]
     heapq.heapify(heap)
     while len(heap) > 1:
@@ -17,7 +17,7 @@ def build_tree(freq: Dict[str, int]) -> Any:
     return heap[0]
 
 
-def huffman_coding(freq: Dict[str, int]) -> Dict[str, str]:
+def huffman_coding(freq: dict[str, int]) -> dict[str, str]:
     tree = build_tree(freq)
     return {char: code for char, code in tree[1:]}
 

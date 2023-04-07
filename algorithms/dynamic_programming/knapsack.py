@@ -1,9 +1,8 @@
 import unittest
-from typing import List, Tuple
 
 
-def knapsack(items: List[Tuple[int, int]], capacity: int) -> int:
-    n = len(items)
+def knapsack(items: list[tuple[int, int]], capacity: int) -> int:
+    len(items)
     dp = [0] * (capacity + 1)
 
     for weight, value in items:

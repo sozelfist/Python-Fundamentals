@@ -1,11 +1,11 @@
 import unittest
-from typing import Any, Dict, Tuple, Type
+from typing import Any
 
 
-def singleton(cls: Type) -> Type:
+def singleton(cls: type) -> type:
     instances = {}
 
-    def getinstance(*args: Tuple[Any, ...], **kwargs: Dict[str, Any]) -> cls:
+    def getinstance(*args: tuple[Any, ...], **kwargs: dict[str, Any]) -> cls:
         if cls not in instances:
             instances[cls] = cls(*args, **kwargs)
         return instances[cls]

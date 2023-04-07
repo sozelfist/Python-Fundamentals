@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def merge_lists(left: List[int], right: List[int]) -> List[int]:
+def merge_lists(left: list[int], right: list[int]) -> list[int]:
     merged = []
     left_index = right_index = 0
     while left_index < len(left) and right_index < len(right):
@@ -17,7 +16,7 @@ def merge_lists(left: List[int], right: List[int]) -> List[int]:
     return merged
 
 
-def merge_sort(arr: List[int]) -> List[int]:
+def merge_sort(arr: list[int]) -> list[int]:
     if len(arr) < 2:
         return arr
     mid = len(arr) // 2

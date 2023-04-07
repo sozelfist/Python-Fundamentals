@@ -1,5 +1,5 @@
 import unittest
-from typing import Dict, List, Tuple, TypeVar
+from typing import TypeVar
 
 K = TypeVar('K')
 V = TypeVar('V')
@@ -8,8 +8,8 @@ V = TypeVar('V')
 class MRUCache:
     def __init__(self, capacity: int):
         self.capacity = capacity
-        self.cache: Dict[K, Tuple[V, int]] = {}
-        self.accessed: List[K] = []
+        self.cache: dict[K, tuple[V, int]] = {}
+        self.accessed: list[K] = []
 
     def get(self, key: K) -> V:
         if key in self.cache:

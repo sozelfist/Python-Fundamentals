@@ -1,8 +1,7 @@
-from typing import List, Tuple
 import unittest
 
 
-def bfs(graph: List[List[int]], source: int, sink: int, parent: List[int]) -> bool:
+def bfs(graph: list[list[int]], source: int, sink: int, parent: list[int]) -> bool:
     """
     Breadth-first search algorithm to find a path from source to sink in the residual graph.
     Returns True if there is a path from source to sink, and updates the parent list with the path.
@@ -22,7 +21,7 @@ def bfs(graph: List[List[int]], source: int, sink: int, parent: List[int]) -> bo
     return visited[sink]
 
 
-def min_cut(graph: List[List[int]], source: int, sink: int) -> List[Tuple[int, int]]:
+def min_cut(graph: list[list[int]], source: int, sink: int) -> list[tuple[int, int]]:
     """
     Implementation of the minimum cut algorithm using the Ford-Fulkerson algorithm.
     Returns a list of tuples representing the edges in the minimum cut.

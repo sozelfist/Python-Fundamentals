@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def is_safe(board: List[List[int]], row: int, col: int) -> bool:
+def is_safe(board: list[list[int]], row: int, col: int) -> bool:
     # check the same column
     for i in range(row):
         if board[i][col] == 1:
@@ -24,7 +23,7 @@ def is_safe(board: List[List[int]], row: int, col: int) -> bool:
     return True
 
 
-def solve_n_queens(board: List[List[int]], row: int) -> bool:
+def solve_n_queens(board: list[list[int]], row: int) -> bool:
     if row == len(board):
         return True
     for col in range(len(board)):
@@ -37,7 +36,7 @@ def solve_n_queens(board: List[List[int]], row: int) -> bool:
     return False
 
 
-def n_queens(n: int) -> List[List[int]]:
+def n_queens(n: int) -> list[list[int]]:
     board = [[0 for _ in range(n)] for _ in range(n)]
     if not solve_n_queens(board, 0):
         return []

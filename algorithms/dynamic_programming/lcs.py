@@ -1,8 +1,7 @@
 import unittest
-from typing import List, Dict, Tuple
 
 
-def lcs(X: List[int], Y: List[int], m: int, n: int, memo: Dict[Tuple[int, int], int]) -> int:
+def lcs(X: list[int], Y: list[int], m: int, n: int, memo: dict[tuple[int, int], int]) -> int:
     if m == 0 or n == 0:
         return 0
     if (m, n) in memo:
@@ -14,7 +13,7 @@ def lcs(X: List[int], Y: List[int], m: int, n: int, memo: Dict[Tuple[int, int], 
     return memo[(m, n)]
 
 
-def lcs_length(X: List[int], Y: List[int]) -> int:
+def lcs_length(X: list[int], Y: list[int]) -> int:
     m = len(X)
     n = len(Y)
     memo = {}

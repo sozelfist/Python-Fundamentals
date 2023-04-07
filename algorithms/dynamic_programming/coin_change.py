@@ -1,8 +1,7 @@
 import unittest
-from typing import List, Union
 
 
-def coin_change(coins: List[int], amount: int) -> Union[int, float]:
+def coin_change(coins: list[int], amount: int) -> int | float:
     dp = [float('inf') for _ in range(amount + 1)]
     dp[0] = 0
 

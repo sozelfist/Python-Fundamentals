@@ -1,9 +1,8 @@
-from collections import deque
 import unittest
-from typing import List, Tuple
+from collections import deque
 
 
-def ford_fulkerson(n: int, edges: List[Tuple[int, int, int]], s: int, t: int) -> int:
+def ford_fulkerson(n: int, edges: list[tuple[int, int, int]], s: int, t: int) -> int:
     # Initialize the residual graph
     residual = [[0 for _ in range(n)] for _ in range(n)]
     for u, v, w in edges:
@@ -38,7 +37,7 @@ def ford_fulkerson(n: int, edges: List[Tuple[int, int, int]], s: int, t: int) ->
     return flow[s]
 
 
-def bfs(residual: List[List[int]], s: int, t: int, parent: List[int]) -> bool:
+def bfs(residual: list[list[int]], s: int, t: int, parent: list[int]) -> bool:
     # Initialize the visited array
     visited = [False for _ in range(len(residual))]
 

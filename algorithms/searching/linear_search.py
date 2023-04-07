@@ -1,8 +1,7 @@
 import unittest
-from typing import List, Union
 
 
-def linear_search(arr: List[int], x: int) -> Union[int, str]:
+def linear_search(arr: list[int], x: int) -> int | str:
     for i, value in enumerate(arr):
         if value == x:
             return i

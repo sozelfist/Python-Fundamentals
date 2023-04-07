@@ -1,8 +1,7 @@
 import unittest
-from typing import List, Dict
 
 
-def kahn_topological_sort(graph: Dict[int, List[int]]) -> List[int]:
+def kahn_topological_sort(graph: dict[int, list[int]]) -> list[int]:
     indegrees = [0] * len(graph)
     for node in graph:
         for neighbor in graph[node]:

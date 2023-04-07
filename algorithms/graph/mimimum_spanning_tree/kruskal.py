@@ -1,8 +1,7 @@
 import unittest
-from typing import List, Tuple
 
 
-def kruskal(n: int, edges: List[Tuple[int, int, int]]) -> List[Tuple[int, int]]:
+def kruskal(n: int, edges: list[tuple[int, int, int]]) -> list[tuple[int, int]]:
     edges.sort(key=lambda x: x[2])
     parent = [i for i in range(n)]
     result = []
@@ -15,7 +14,7 @@ def kruskal(n: int, edges: List[Tuple[int, int, int]]) -> List[Tuple[int, int]]:
     def merge_sets(x: int, y: int) -> None:
         parent[find_parent(x)] = find_parent(y)
 
-    for u, v, w in edges:
+    for u, v, _w in edges:
         if find_parent(u) != find_parent(v):
             result.append((u, v))
             merge_sets(u, v)

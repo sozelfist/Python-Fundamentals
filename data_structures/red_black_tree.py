@@ -1,6 +1,6 @@
 from __future__ import annotations
+
 import unittest
-from typing import Optional
 
 
 class Node:
@@ -17,7 +17,7 @@ class RedBlackTree:
         self.nil = Node(None, "black")
         self.root = self.nil
 
-    def search(self, key: int) -> Optional[Node]:
+    def search(self, key: int) -> Node | None:
         current = self.root
         while current != self.nil and current.key != key:
             if key < current.key:
@@ -201,7 +201,7 @@ class RedBlackTree:
                     x = self.root
         x.color = "black"
 
-    def find_min(self) -> Optional[Node]:
+    def find_min(self) -> Node | None:
         """
         Returns the node with the minimum key value in the tree.
         """
@@ -210,7 +210,7 @@ class RedBlackTree:
             current = current.left
         return current if current != self.nil else None
 
-    def find_max(self) -> Optional[Node]:
+    def find_max(self) -> Node | None:
         """
         Returns the node with the maximum key value in the tree.
         """
@@ -219,7 +219,7 @@ class RedBlackTree:
             current = current.right
         return current if current != self.nil else None
 
-    def in_order_traversal(self, node: Optional[Node]) -> None:
+    def in_order_traversal(self, node: Node | None) -> None:
         """
         Traverses the tree in in-order and prints the key values of the nodes.
         """
@@ -228,7 +228,7 @@ class RedBlackTree:
             print(node.key)
             self.in_order_traversal(node.right)
 
-    def pre_order_traversal(self, node: Optional[Node]) -> None:
+    def pre_order_traversal(self, node: Node | None) -> None:
         """
         Traverses the tree in pre-order and prints the key values of the nodes.
         """
@@ -237,7 +237,7 @@ class RedBlackTree:
             self.pre_order_traversal(node.left)
             self.pre_order_traversal(node.right)
 
-    def post_order_traversal(self, node: Optional[Node]) -> None:
+    def post_order_traversal(self, node: Node | None) -> None:
         """
         Traverses the tree in post-order and prints the key values of the nodes.
         """

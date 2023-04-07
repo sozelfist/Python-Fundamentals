@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def floyd_warshall(graph: List[List[int]], nodes: int) -> List[List[int]]:
+def floyd_warshall(graph: list[list[int]], nodes: int) -> list[list[int]]:
     for k in range(nodes):
         for i in range(nodes):
             for j in range(nodes):
@@ -39,7 +38,7 @@ class TestFloydWarshall(unittest.TestCase):
 
     def test_floyd_warshall_3(self):
         nodes = 2
-        inf = float("inf")
+        float("inf")
         graph = [[0, 5],
                  [3, 0]]
         result = floyd_warshall(graph, nodes)

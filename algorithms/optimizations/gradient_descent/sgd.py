@@ -1,5 +1,5 @@
-from typing import Tuple
 import unittest
+
 import numpy as np
 
 
@@ -15,7 +15,7 @@ def cost_function(x: np.ndarray, y: np.ndarray, w: float, b: float) -> float:
 
 def stochastic_gradient_descent(
         x: np.ndarray, y: np.ndarray, w: float, b: float, learning_rate: float, num_iterations: int
-) -> Tuple[float, float]:
+) -> tuple[float, float]:
     for i in range(num_iterations):
         # shuffle data
         indices = np.random.permutation(len(x))

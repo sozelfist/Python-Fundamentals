@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def KMP_matcher(text: str, pattern: str) -> List[int]:
+def kmp_matcher(text: str, pattern: str) -> list[int]:
     lps = compute_lps(pattern)
     text_len = len(text)
     pattern_len = len(pattern)
@@ -24,7 +23,7 @@ def KMP_matcher(text: str, pattern: str) -> List[int]:
     return matches
 
 
-def compute_lps(pattern: str) -> List[int]:
+def compute_lps(pattern: str) -> list[int]:
     pattern_len = len(pattern)
     lps = [0] * pattern_len
     length = 0
@@ -48,31 +47,31 @@ class TestKMPMatcher(unittest.TestCase):
         text = "ABABDABACDABABCABAB"
         pattern = "ABABCABAB"
         expected_output = [10]
-        self.assertEqual(KMP_matcher(text, pattern), expected_output)
+        self.assertEqual(kmp_matcher(text, pattern), expected_output)
 
     def test_no_occurrence_of_pattern_in_text(self):
         text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         pattern = "ZZZZZ"
         expected_output = []
-        self.assertEqual(KMP_matcher(text, pattern), expected_output)
+        self.assertEqual(kmp_matcher(text, pattern), expected_output)
 
     def test_pattern_occurs_multiple_times_in_text(self):
         text = "AABAACAADAABAABA"
         pattern = "AABA"
         expected_output = [0, 9, 12]
-        self.assertEqual(KMP_matcher(text, pattern), expected_output)
+        self.assertEqual(kmp_matcher(text, pattern), expected_output)
 
     def test_pattern_is_a_substring_of_text(self):
         text = "abcdefghijklmnopqrstuvwxyz"
         pattern = "def"
         expected_output = [3]
-        self.assertEqual(KMP_matcher(text, pattern), expected_output)
+        self.assertEqual(kmp_matcher(text, pattern), expected_output)
 
     def test_pattern_is_equal_to_text(self):
         text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         pattern = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         expected_output = [0]
-        self.assertEqual(KMP_matcher(text, pattern), expected_output)
+        self.assertEqual(kmp_matcher(text, pattern), expected_output)
 
 
 if __name__ == "__main__":

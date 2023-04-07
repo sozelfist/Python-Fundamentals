@@ -1,5 +1,6 @@
-from functools import lru_cache
 import unittest
+from functools import cache
+
 # from typing import Dict
 
 
@@ -15,7 +16,7 @@ import unittest
 #     return factorial_lookup[n]
 
 
-@lru_cache(maxsize=None)
+@cache
 def factorial(n: int) -> int:
     """
     Returns the factorial of a non-negative integer n.

@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def z_algorithm(text: str, pattern: str) -> List[int]:
+def z_algorithm(text: str, pattern: str) -> list[int]:
     concat = pattern + "$" + text
     Z = [0] * len(concat)
     Z[0] = len(concat)

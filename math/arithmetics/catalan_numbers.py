@@ -1,13 +1,12 @@
-from math import comb
-from typing import List
 import unittest
+from math import comb
 
 
 def catalan_number(n: int) -> int:
     return comb(2 * n, n) // (n + 1)
 
 
-def generate_catalan_numbers(n: int) -> List[int]:
+def generate_catalan_numbers(n: int) -> list[int]:
     return [catalan_number(i) for i in range(n)]
 
 

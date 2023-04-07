@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def find_subsets(nums: List[int]) -> List[List[int]]:
+def find_subsets(nums: list[int]) -> list[list[int]]:
     subsets = []
 
     def dfs(start, path):

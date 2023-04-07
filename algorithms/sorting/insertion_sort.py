@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def insertion_sort(arr: List[int]) -> List[int]:
+def insertion_sort(arr: list[int]) -> list[int]:
     for i in range(1, len(arr)):
         j = i
         while j > 0 and arr[j] < arr[j - 1]:

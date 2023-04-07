@@ -1,6 +1,6 @@
-import numpy as np
-from typing import Tuple
 import unittest
+
+import numpy as np
 
 
 def linear_model(x: np.ndarray, w: float, b: float) -> np.ndarray:
@@ -17,7 +17,7 @@ def cost_function(
 def rmsprop(
     x: np.ndarray, y: np.ndarray, w: float, b: float, learning_rate: float,
     num_iterations: int, decay_rate: float = 0.9, epsilon: float = 1e-8
-) -> Tuple[float, float]:
+) -> tuple[float, float]:
     # initialize variables for moving average of squared gradients
     g_w = 0
     g_b = 0

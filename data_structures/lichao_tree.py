@@ -1,4 +1,3 @@
-from typing import Optional
 import unittest
 
 
@@ -19,7 +18,7 @@ class LiChaoTree:
 
     def add_line(
             self, line: Line, node: int = 0,
-            xmin: Optional[int] = None, xmax: Optional[int] = None
+            xmin: int | None = None, xmax: int | None = None
     ):
         if xmin is None:
             xmin = self.xmin
@@ -39,8 +38,8 @@ class LiChaoTree:
             self.add_line(line, 2 * node, xmin, xm)
 
     def query(
-        self, x: int, node: int = 0, xmin: Optional[int] = None, xmax: Optional[int] = None
-    ) -> Optional[int]:
+        self, x: int, node: int = 0, xmin: int | None = None, xmax: int | None = None
+    ) -> int | None:
         if xmin is None:
             xmin = self.xmin
         if xmax is None:

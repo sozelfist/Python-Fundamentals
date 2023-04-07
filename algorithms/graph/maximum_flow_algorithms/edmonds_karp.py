@@ -1,8 +1,8 @@
 import unittest
-from typing import Any, List, Union
+from typing import Any
 
 
-def edmonds_karp(graph: Any, source: int, sink: int) -> Union[int, float]:
+def edmonds_karp(graph: Any, source: int, sink: int) -> int | float:
     n = len(graph)
     parent = [-1] * n
     max_flow = 0
@@ -27,7 +27,7 @@ def edmonds_karp(graph: Any, source: int, sink: int) -> Union[int, float]:
     return max_flow
 
 
-def bfs(graph: Any, source: int, sink: int, parent: List[int]) -> bool:
+def bfs(graph: Any, source: int, sink: int, parent: list[int]) -> bool:
     n = len(graph)
     visited = [False] * n
     queue = [source]

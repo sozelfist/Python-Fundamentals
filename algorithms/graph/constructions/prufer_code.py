@@ -1,8 +1,7 @@
-from typing import List, Tuple
 import unittest
 
 
-def prufer_code(leaf_nodes: List[int]) -> List[Tuple[int, int]]:
+def prufer_code(leaf_nodes: list[int]) -> list[tuple[int, int]]:
     """
     Generate the Prufer code for a tree given a list of leaf node indices.
 

@@ -1,12 +1,12 @@
-from typing import Any, Tuple
 import unittest
+from typing import Any
 
 
 def namedtuple(classname: str, fieldnames: str) -> Any:
     class _NamedTuple:
         __slots__ = fieldnames.split()
 
-        def __init__(self, *args: Tuple) -> None:
+        def __init__(self, *args: tuple) -> None:
             if len(args) != len(self.__slots__):
                 raise TypeError(f"{len(self.__slots__)} arguments required")
             for name, value in zip(self.__slots__, args):

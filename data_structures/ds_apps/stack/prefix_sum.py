@@ -1,12 +1,11 @@
-from typing import List
 import unittest
 
 
 def prefix_sum(
-    nums: List[int],
+    nums: list[int],
     start: int | None = None,
     end: int | None = None
-) -> List[int]:
+) -> list[int]:
     """
     Given an array of integers, return a new array where each element
     is the sum of all elements up to and including the current index.
@@ -58,7 +57,7 @@ class TestPrefixSum(unittest.TestCase):
         arr = [1, 2, 3, 4, 5]
         start, end = -1, 6
         with self.assertRaises(ValueError):
-            result = prefix_sum(arr, start=start, end=end)
+            prefix_sum(arr, start=start, end=end)
 
 
 if __name__ == '__main__':

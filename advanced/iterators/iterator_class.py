@@ -1,9 +1,8 @@
 import unittest
-from typing import Union
 
 
 class Iterator:
-    def __init__(self, start: int, stop: Union[int, None] = None, step: int = 1):
+    def __init__(self, start: int, stop: int | None = None, step: int = 1):
         if step == 0:
             raise ValueError("step cannot be 0")
         self.step = step

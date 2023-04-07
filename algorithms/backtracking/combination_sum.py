@@ -1,11 +1,10 @@
-from typing import List
 import unittest
 
 
-def combination_sum(candidates: List[int], target: int) -> List[List[int]]:
+def combination_sum(candidates: list[int], target: int) -> list[list[int]]:
     result = []
 
-    def backtrack(start: int, path: List[int], current_sum: int):
+    def backtrack(start: int, path: list[int], current_sum: int):
         if current_sum == target:
             result.append(path[:])
             return

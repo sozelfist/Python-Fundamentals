@@ -1,5 +1,5 @@
+
 import numpy as np
-from typing import Tuple
 
 
 def linear_model(x: np.ndarray, w: float, b: float) -> np.ndarray:
@@ -14,7 +14,7 @@ def cost_function(x: np.ndarray, y: np.ndarray, w: float, b: float) -> float:
 def nesterov_accelerated_gradient_descent(
         x: np.ndarray, y: np.ndarray, w: float, b: float,
         learning_rate: float, num_iterations: int, momentum: float = 0.9
-) -> Tuple[float, float]:
+) -> tuple[float, float]:
     v_dw = 0
     v_db = 0
 

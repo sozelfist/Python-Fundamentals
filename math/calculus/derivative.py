@@ -1,5 +1,5 @@
-import unittest
 import math
+import unittest
 
 
 def derivative(f, x, h=1e-6):

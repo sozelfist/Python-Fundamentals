@@ -1,14 +1,13 @@
 import unittest
-from typing import List, Tuple
 
 # Define a type alias for a maze, which is represented as a 2D grid of characters.
-Maze = List[List[str]]
+Maze = list[list[str]]
 
 # Define a type alias for a point in the maze, which is represented as a tuple of x and y coordinates.
-Point = Tuple[int, int]
+Point = tuple[int, int]
 
 
-def find_path(maze: Maze, start: Point, end: Point) -> List[Point]:
+def find_path(maze: Maze, start: Point, end: Point) -> list[Point]:
     """Finds a path through a maze from a starting point to an end point.
 
     Args:
@@ -21,7 +20,7 @@ def find_path(maze: Maze, start: Point, end: Point) -> List[Point]:
         or an empty list if no path is found.
     """
     # Define a recursive helper function to explore all possible paths.
-    def explore_path(path: List[Point], current: Point) -> List[Point]:
+    def explore_path(path: list[Point], current: Point) -> list[Point]:
         # Add the current point to the path.
         path.append(current)
 

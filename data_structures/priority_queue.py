@@ -1,31 +1,30 @@
-from typing import List, Tuple
 import unittest
 
 
 class PriorityQueue:
-    def __init__(self, is_min_heap: bool = True, values: List[Tuple[int, str]] = None):
+    def __init__(self, is_min_heap: bool = True, values: list[tuple[int, str]] = None):
         self.heap = []
         self.is_min_heap = is_min_heap
         if values:
             self.heap = values
             self.build_heap()
 
-    def should_swap(self, parent: Tuple[int, str], child: Tuple[int, str]) -> bool:
+    def should_swap(self, parent: tuple[int, str], child: tuple[int, str]) -> bool:
         if self.is_min_heap:
             return parent[0] > child[0]
         else:
             return parent[0] < child[0]
 
-    def insert(self, value: Tuple[int, str]):
+    def insert(self, value: tuple[int, str]):
         self.heap.append(value)
         self.heapify_up(len(self.heap) - 1)
 
-    def peek(self) -> Tuple[int, str]:
+    def peek(self) -> tuple[int, str]:
         if len(self.heap) == 0:
             raise ValueError("Heap is empty")
         return self.heap[0]
 
-    def poll(self) -> Tuple[int, str]:
+    def poll(self) -> tuple[int, str]:
         if len(self.heap) == 0:
             raise ValueError("Heap is empty")
         value = self.heap[0]

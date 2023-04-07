@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def shell_sort(arr: List[int]) -> List[int]:
+def shell_sort(arr: list[int]) -> list[int]:
     n = len(arr)
     gap = n // 2
 

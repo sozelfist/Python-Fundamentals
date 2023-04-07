@@ -1,8 +1,7 @@
 import unittest
-from typing import List, Optional
 
 
-def bfs(graph: List[List[int]], start: int, end: int) -> Optional[List[int]]:
+def bfs(graph: list[list[int]], start: int, end: int) -> list[int] | None:
     queue = [(start, [start])]
     visited = set()
     while queue:

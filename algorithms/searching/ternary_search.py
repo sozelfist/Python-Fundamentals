@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def ternary_search(arr: List[int], x: int) -> int:
+def ternary_search(arr: list[int], x: int) -> int:
     left = 0
     right = len(arr) - 1
 

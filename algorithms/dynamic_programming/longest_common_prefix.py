@@ -1,5 +1,4 @@
 import unittest
-from typing import List
 
 # 1st approach
 # def longest_common_prefix(strs: List[str]) -> str:
@@ -54,7 +53,7 @@ from typing import List
 # 3rd approach
 
 
-def longest_common_prefix(strs: List[str]) -> str:
+def longest_common_prefix(strs: list[str]) -> str:
     if not strs:
         return ""
 
@@ -64,7 +63,7 @@ def longest_common_prefix(strs: List[str]) -> str:
             i += 1
         return left[:i]
 
-    def divide_and_conquer(strs: List[str], start: int, end: int) -> str:
+    def divide_and_conquer(strs: list[str], start: int, end: int) -> str:
         if start == end:
             return strs[start]
         else:

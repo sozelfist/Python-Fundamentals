@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def is_safe(grid: List[List[int]], row: int, col: int, num: int) -> bool:
+def is_safe(grid: list[list[int]], row: int, col: int, num: int) -> bool:
     # check the same row
     for x in range(9):
         if grid[row][x] == num:
@@ -21,7 +20,7 @@ def is_safe(grid: List[List[int]], row: int, col: int, num: int) -> bool:
     return True
 
 
-def solve_sudoku(grid: List[List[int]], row: int, col: int) -> bool:
+def solve_sudoku(grid: list[list[int]], row: int, col: int) -> bool:
     if row == 9:
         return True
     if col == 9:
@@ -38,7 +37,7 @@ def solve_sudoku(grid: List[List[int]], row: int, col: int) -> bool:
     return False
 
 
-def sudoku(grid: List[List[int]]) -> List[List[int]]:
+def sudoku(grid: list[list[int]]) -> list[list[int]]:
     if not solve_sudoku(grid, 0, 0):
         return []
     return grid

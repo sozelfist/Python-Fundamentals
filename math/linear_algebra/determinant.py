@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def determinant(A: List[List[int]]) -> int:
+def determinant(A: list[list[int]]) -> int:
     """
     Calculate the determinant of a matrix A
     """

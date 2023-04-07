@@ -1,8 +1,7 @@
-from typing import List
 import unittest
 
 
-def transitive_closure(graph: List[List[int]]) -> List[List[int]]:
+def transitive_closure(graph: list[list[int]]) -> list[list[int]]:
     """
     Calculates the transitive closure of a directed graph using Warshall's algorithm.
 

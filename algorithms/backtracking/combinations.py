@@ -1,9 +1,8 @@
 import unittest
-from typing import List
 
 
-def combinations(items: List[int]) -> List[List[int]]:
-    def find_combinations(index: int, current: List[int], result: List[List[int]]):
+def combinations(items: list[int]) -> list[list[int]]:
+    def find_combinations(index: int, current: list[int], result: list[list[int]]):
         if index == len(items):
             result.append(current[:])
             return

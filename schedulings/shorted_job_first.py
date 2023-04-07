@@ -1,8 +1,8 @@
 from __future__ import annotations
-from typing import List
-from unittest.mock import patch
-from io import StringIO
+
 import unittest
+from io import StringIO
+from unittest.mock import patch
 
 
 class Process:
@@ -16,7 +16,7 @@ class Process:
 
 
 class SJF:
-    def __init__(self, processes: List[Process]) -> None:
+    def __init__(self, processes: list[Process]) -> None:
         self.processes = processes
         self.no_of_processes = len(processes)
         self.waiting_time = [0] * self.no_of_processes
@@ -70,7 +70,7 @@ class SJF:
 
 class TestSJF(unittest.TestCase):
     def setUp(self) -> None:
-        self.processes: List[Process] = [
+        self.processes: list[Process] = [
             Process(1, 0, 6),
             Process(2, 1, 8),
             Process(3, 2, 7),

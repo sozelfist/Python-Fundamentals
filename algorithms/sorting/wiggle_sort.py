@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def wiggle_sort(nums: List[int]) -> None:
+def wiggle_sort(nums: list[int]) -> None:
     """
     Sorts the input list in a "wiggle" pattern.
     Raises ValueError if the input list is empty

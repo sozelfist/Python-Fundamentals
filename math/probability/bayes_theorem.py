@@ -1,11 +1,10 @@
-from typing import Dict
 import unittest
 
 
 def calculate_posterior_probability(
         hypothesis: str, evidence: str,
-        prior_probabilities: Dict[str, float],
-        likelihoods: Dict[str, Dict[str, float]]
+        prior_probabilities: dict[str, float],
+        likelihoods: dict[str, dict[str, float]]
 ) -> float:
     """
     Calculates the posterior probability of a hypothesis given some evidence.

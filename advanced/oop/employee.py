@@ -1,6 +1,6 @@
-from dataclasses import dataclass, field, asdict
-from datetime import date
 import unittest
+from dataclasses import asdict, dataclass, field
+from datetime import date
 
 
 @dataclass

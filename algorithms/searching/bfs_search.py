@@ -1,16 +1,15 @@
 import unittest
-from typing import List
 from collections import deque
 
 
-def validate_input(graph: List[List[int]], start: int, n: int):
+def validate_input(graph: list[list[int]], start: int, n: int):
     if not graph:
         raise ValueError("Not a valid graph")
     if start >= n or start < 0:
         raise ValueError("Not a valid start vertex")
 
 
-def bfs(graph: List[List[int]], start: int) -> List[int]:
+def bfs(graph: list[list[int]], start: int) -> list[int]:
     n = len(graph)
     validate_input(graph, start, n)
     visited = [False] * n

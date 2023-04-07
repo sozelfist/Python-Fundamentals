@@ -1,9 +1,10 @@
 import unittest
-from typing import Any, Tuple, Callable
+from collections.abc import Callable
+from typing import Any
 
 
 def cache(func: Callable) -> Callable:
-    def wrapper(*args: Tuple[Any, ...]):
+    def wrapper(*args: tuple[Any, ...]):
         if args not in wrapper.cache:
             wrapper.cache[args] = func(*args)
         return wrapper.cache[args]

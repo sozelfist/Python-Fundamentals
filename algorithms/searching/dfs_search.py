@@ -1,8 +1,7 @@
-from typing import List
 import unittest
 
 
-def dfs(graph: List[List[int]], start: int) -> List[int]:
+def dfs(graph: list[list[int]], start: int) -> list[int]:
     if not graph:
         raise ValueError("Invalid graph")
     if start < 0 or start >= len(graph):

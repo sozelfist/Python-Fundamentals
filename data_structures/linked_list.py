@@ -1,4 +1,3 @@
-from typing import Union
 import unittest
 
 
@@ -47,7 +46,7 @@ class LinkedList:
         if current.next:
             current.next = current.next.next
 
-    def search(self, x: int) -> Union[Node, None]:
+    def search(self, x: int) -> Node | None:
         current = self.head
         while current:
             if current.data == x:
@@ -57,7 +56,7 @@ class LinkedList:
 
     def __getitem__(self, index: int) -> int:
         current = self.head
-        for i in range(index):
+        for _i in range(index):
             if not current:
                 raise IndexError("Index out of range")
             current = current.next

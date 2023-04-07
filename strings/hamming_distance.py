@@ -1,8 +1,7 @@
-from typing import Tuple
 import unittest
 
 
-def hamming_distance(s1: str, s2: str) -> Tuple[int, list]:
+def hamming_distance(s1: str, s2: str) -> tuple[int, list]:
     if len(s1) != len(s2):
         raise ValueError("Strings must be of equal length")
     distance = 0

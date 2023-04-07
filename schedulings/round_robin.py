@@ -1,11 +1,11 @@
 from __future__ import annotations
-from statistics import mean
-from typing import List
+
 import unittest
+from statistics import mean
 
 
 class Scheduler:
-    def __init__(self, burst_times: List[int]):
+    def __init__(self, burst_times: list[int]):
         self.burst_times = burst_times
         self.quantum = 2
         self.rem_burst_times = list(burst_times)
@@ -30,10 +30,10 @@ class Scheduler:
             if done is True:
                 break
 
-    def get_waiting_times(self) -> List[int]:
+    def get_waiting_times(self) -> list[int]:
         return self.waiting_times
 
-    def get_turn_around_times(self) -> List[int]:
+    def get_turn_around_times(self) -> list[int]:
         return self.turn_around_times
 
     def print_results(self):

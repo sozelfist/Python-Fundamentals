@@ -1,9 +1,9 @@
 import unittest
+
 import numpy as np
-from typing import Tuple
 
 
-def cholesky_decomposition(A: np.ndarray) -> Tuple[np.ndarray, bool]:
+def cholesky_decomposition(A: np.ndarray) -> tuple[np.ndarray, bool]:
     n = A.shape[0]
     if n != A.shape[1]:
         raise ValueError('Input matrix must be square')

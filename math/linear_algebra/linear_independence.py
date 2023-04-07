@@ -1,9 +1,9 @@
 import unittest
-from typing import List
+
 import numpy as np
 
 
-def check_linear_independence(vectors: List[List[int]]) -> str:
+def check_linear_independence(vectors: list[list[int]]) -> str:
     matrix = np.column_stack(vectors)
     rref, _ = np.linalg.qr(matrix)
     if np.all(rref[np.where(rref != 0)] == 1):

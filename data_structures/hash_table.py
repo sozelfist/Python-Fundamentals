@@ -1,4 +1,3 @@
-from typing import Type, Union, List
 import unittest
 
 
@@ -8,14 +7,14 @@ class HashTable:
         self.table = [[] for _ in range(self.size)]
         self.load_factor = 0
 
-    def _hash_function(self, key: Union[str, int]) -> int:
+    def _hash_function(self, key: str | int) -> int:
         """Hash function to map a key to an index in the array"""
         if isinstance(key, int):
             return key % self.size
         else:
             return sum([ord(char) for char in key]) % self.size
 
-    def insert(self, key: Union[str, int], value: Type) -> None:
+    def insert(self, key: str | int, value: type) -> None:
         """Insert a key-value pair into the hash table"""
         index = self._hash_function(key)
         self.table[index].append((key, value))
@@ -32,7 +31,7 @@ class HashTable:
             for k, v in bucket:
                 self.insert(k, v)
 
-    def search(self, key: Union[str, int]) -> Type:
+    def search(self, key: str | int) -> type:
         """Search for a value associated with a key in the hash table"""
         index = self._hash_function(key)
         for k, v in self.table[index]:
@@ -40,16 +39,16 @@ class HashTable:
                 return v
         return None
 
-    def delete(self, key: Union[str, int]) -> None:
+    def delete(self, key: str | int) -> None:
         """Delete a key-value pair from the hash table"""
         index = self._hash_function(key)
-        for i, (k, v) in enumerate(self.table[index]):
+        for i, (k, _v) in enumerate(self.table[index]):
             if k == key:
                 del self.table[index][i]
                 self.load_factor -= 1
                 return
 
-    def get(self, key: Union[str, int]) -> Type:
+    def get(self, key: str | int) -> type:
         """Get the value associated with a key in the hash table, raise an exception if the key is not found"""
         value = self.search(key)
         if value:
@@ -57,19 +56,19 @@ class HashTable:
         else:
             raise KeyError(f"Key {key} not found in the Hash Table")
 
-    def keys(self) -> List[Union[str, int]]:
+    def keys(self) -> list[str | int]:
         """Return all the keys in the hash table"""
         keys = []
         for bucket in self.table:
-            for k, v in bucket:
+            for k, _v in bucket:
                 keys.append(k)
         return keys
 
-    def values(self) -> List[Type]:
+    def values(self) -> list[type]:
         """Return all the values in the hash table"""
         values = []
         for bucket in self.table:
-            for k, v in bucket:
+            for _k, v in bucket:
                 values.append(v)
         return values
 

@@ -1,4 +1,3 @@
-from typing import List, Union
 import unittest
 
 
@@ -64,7 +63,7 @@ class AVLTree:
             return self.left_rotate(node)
         return node
 
-    def search(self, key: int) -> Union[Node, None]:
+    def search(self, key: int) -> Node | None:
         curr = self.root
         while curr:
             if key == curr.key:
@@ -115,34 +114,34 @@ class AVLTree:
             return node
         return self._find_successor(node.left)
 
-    def inorder_traversal(self) -> List[int]:
+    def inorder_traversal(self) -> list[int]:
         res = []
         self._inorder_traversal(self.root, res)
         return res
 
-    def _inorder_traversal(self, node: Node, res: List[int]) -> None:
+    def _inorder_traversal(self, node: Node, res: list[int]) -> None:
         if node:
             self._inorder_traversal(node.left, res)
             res.append(node.key)
             self._inorder_traversal(node.right, res)
 
-    def preorder_traversal(self) -> List[int]:
+    def preorder_traversal(self) -> list[int]:
         res = []
         self._preorder_traversal(self.root, res)
         return res
 
-    def _preorder_traversal(self, node: Node, res: List[int]) -> None:
+    def _preorder_traversal(self, node: Node, res: list[int]) -> None:
         if node:
             res.append(node.key)
             self._preorder_traversal(node.left, res)
             self._preorder_traversal(node.right, res)
 
-    def postorder_traversal(self) -> List[int]:
+    def postorder_traversal(self) -> list[int]:
         res = []
         self._postorder_traversal(self.root, res)
         return res
 
-    def _postorder_traversal(self, node: Node, res: List[int]) -> None:
+    def _postorder_traversal(self, node: Node, res: list[int]) -> None:
         if node:
             self._postorder_traversal(node.left, res)
             self._postorder_traversal(node.right, res)

@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def trap(height: List[int]) -> int:
+def trap(height: list[int]) -> int:
     """
     Trapping Rain Water: https://leetcode.com/problems/trapping-rain-water/.
     Helpful animation of this prompt: https://youtu.be/HmBbcDiJapY?t=51.

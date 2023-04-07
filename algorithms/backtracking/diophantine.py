@@ -1,7 +1,6 @@
-from typing import Tuple, Union
 
 
-def extended_euclidean(a: int, b: int) -> Tuple[int, int, int]:
+def extended_euclidean(a: int, b: int) -> tuple[int, int, int]:
     if b == 0:
         return (a, 1, 0)
     else:
@@ -9,7 +8,7 @@ def extended_euclidean(a: int, b: int) -> Tuple[int, int, int]:
         return (gcd, y, x - (a // b) * y)
 
 
-def diophantine(a: int, b: int, c: int) -> Union[None, Tuple[int, int]]:
+def diophantine(a: int, b: int, c: int) -> None | tuple[int, int]:
     gcd, x, y = extended_euclidean(a, b)
     if c % gcd != 0:
         return None

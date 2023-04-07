@@ -1,8 +1,7 @@
 import unittest
-from typing import List, Tuple
 
 
-def fractional_knapsack(items: List[Tuple[int, int]], capacity: int) -> float:
+def fractional_knapsack(items: list[tuple[int, int]], capacity: int) -> float:
     items = sorted(items, key=lambda x: x[1] / x[0], reverse=True)
     total_value = 0.0
     for weight, value in items:

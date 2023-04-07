@@ -1,5 +1,6 @@
-import numpy as np
 import unittest
+
+import numpy as np
 
 
 def lower_upper_decomposition(table: np.ndarray) -> tuple[np.ndarray, np.ndarray]:

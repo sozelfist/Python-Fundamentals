@@ -63,7 +63,7 @@ class TestArray(unittest.TestCase):
         my_array.append(1)
         my_array.append(2)
         my_array.append(3)
-        my_array.insert(1    , 4)
+        my_array.insert(1, 4)
         self.assertEqual(my_array[0], 1)
         self.assertEqual(my_array[1], 4)
         self.assertEqual(my_array[2], 2)

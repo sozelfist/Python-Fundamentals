@@ -1,10 +1,9 @@
-import unittest
 import random
-from typing import Union, Optional
+import unittest
 
 
 class Node:
-    def __init__(self, key: Union[int, float], value: Optional[int], level: int):
+    def __init__(self, key: int | float, value: int | None, level: int):
         self.key = key
         self.value = value
         self.next = [None] * level
@@ -22,7 +21,7 @@ class SkipList:
             level += 1
         return level
 
-    def search(self, key: int) -> Union[int, None]:
+    def search(self, key: int) -> int | None:
         curr = self.head
         for i in range(self.level, -1, -1):
             while curr.next[i] and curr.next[i].key < key:

@@ -1,10 +1,9 @@
-import unittest
 import random
-from typing import List
+import unittest
 
 
-def quick_sort(arr: List[int]) -> List[int]:
-    def partition(arr: List[int], start: int, end: int) -> int:
+def quick_sort(arr: list[int]) -> list[int]:
+    def partition(arr: list[int], start: int, end: int) -> int:
         pivot_index = random.randint(start, end)
         pivot = arr[pivot_index]
         arr[pivot_index], arr[end] = arr[end], arr[pivot_index]
@@ -16,7 +15,7 @@ def quick_sort(arr: List[int]) -> List[int]:
         arr[i + 1], arr[end] = arr[end], arr[i + 1]
         return i + 1
 
-    def sort(arr: List[int], start: int, end: int):
+    def sort(arr: list[int], start: int, end: int):
         if start < end:
             pivot_index = partition(arr, start, end)
             sort(arr, start, pivot_index - 1)

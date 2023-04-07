@@ -1,8 +1,7 @@
-from typing import List
 import unittest
 
 
-def johnson(graph: List[List[int]], nodes: int) -> List[List[float]]:
+def johnson(graph: list[list[int]], nodes: int) -> list[list[float]]:
     dist = [[float("inf") for j in range(nodes)] for i in range(nodes)]
     for i in range(nodes):
         for j in range(nodes):
@@ -47,7 +46,7 @@ class TestFloydWarshall(unittest.TestCase):
 
     def test_johnson_3(self):
         nodes = 2
-        inf = float("inf")
+        float("inf")
         graph = [[0, 5],
                  [3, 0]]
         result = johnson(graph, nodes)

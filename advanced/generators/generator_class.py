@@ -1,9 +1,9 @@
 import unittest
-from typing import Union, Any
+from typing import Any
 
 
 class Generator:
-    def __init__(self, start: Union[int, float], end: Union[int, float, None] = None, step: Union[int, float] = 1):
+    def __init__(self, start: int | float, end: int | float | None = None, step: int | float = 1):
         self.start = start
         self.step = step
         if end is not None:
@@ -13,8 +13,7 @@ class Generator:
             self.start = 0
 
     def generate_numbers(self) -> Any:
-        for i in range(int(self.start), int(self.end), int(self.step)):
-            yield i
+        yield from range(int(self.start), int(self.end), int(self.step))
 
 
 class TestGenerator(unittest.TestCase):

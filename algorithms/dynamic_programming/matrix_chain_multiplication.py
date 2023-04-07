@@ -1,9 +1,8 @@
 import unittest
-from typing import List, Tuple
 
 
 def matrix_chain_multiplication(
-        matrices: List[Tuple[int, int]]
+        matrices: list[tuple[int, int]]
 ) -> int:
     n = len(matrices)
     dp = [[0 for _ in range(n)] for _ in range(n)]

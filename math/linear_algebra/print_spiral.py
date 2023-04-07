@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def print_spiral(matrix: List[List[int]], direction: str) -> List[int]:
+def print_spiral(matrix: list[list[int]], direction: str) -> list[int]:
     # check empty matrix
     if not matrix:
         return []

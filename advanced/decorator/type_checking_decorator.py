@@ -1,9 +1,10 @@
 import unittest
-from typing import Any, Callable, Tuple
+from collections.abc import Callable
+from typing import Any
 
 
 def type_check(func: Callable) -> Callable:
-    def wrapper(*args: Tuple[Any, ...], **kwargs: Any) -> Any:
+    def wrapper(*args: tuple[Any, ...], **kwargs: Any) -> Any:
         for i, (arg, arg_type) in enumerate(zip(args, func.__annotations__.values())):
             if not isinstance(arg, arg_type):
                 raise TypeError(f"Argument {i+1} of {func.__name__} should be {arg_type}, not {type(arg)}")

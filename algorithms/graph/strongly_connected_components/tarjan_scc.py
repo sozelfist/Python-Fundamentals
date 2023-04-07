@@ -1,5 +1,5 @@
-from collections import deque
 import unittest
+from collections import deque
 
 
 def create_graph(num_vertices, edges):

@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def fibonacci_search(arr: List[int], x: int) -> int:
+def fibonacci_search(arr: list[int], x: int) -> int:
     if not arr:
         return -1
     n = len(arr)

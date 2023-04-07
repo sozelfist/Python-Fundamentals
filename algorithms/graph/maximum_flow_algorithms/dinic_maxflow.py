@@ -1,5 +1,4 @@
 import unittest
-from typing import List
 
 INF = float("inf")
 
@@ -11,7 +10,7 @@ class Edge:
         self.rev = rev
 
 
-def add_edge(graph: List[List[Edge]], u: int, v: int, cap: int) -> None:
+def add_edge(graph: list[list[Edge]], u: int, v: int, cap: int) -> None:
     if u < 0 or u >= len(graph) or v < 0 or v >= len(graph):
         raise ValueError("Invalid vertex index")
     if cap < 0:
@@ -20,7 +19,7 @@ def add_edge(graph: List[List[Edge]], u: int, v: int, cap: int) -> None:
     graph[v].append(Edge(u, 0, len(graph[u]) - 1))
 
 
-def bfs(graph: List[List[Edge]], level: List[int], s: int, t: int) -> bool:
+def bfs(graph: list[list[Edge]], level: list[int], s: int, t: int) -> bool:
     if s < 0 or s >= len(graph) or t < 0 or t >= len(graph):
         raise ValueError("Invalid vertex index")
     level[:] = [-1] * len(graph)
@@ -37,7 +36,7 @@ def bfs(graph: List[List[Edge]], level: List[int], s: int, t: int) -> bool:
     return level[t] >= 0
 
 
-def dfs(graph: List[List[Edge]], level: List[int], iter: List[int], u: int, t: int, f: int) -> int:
+def dfs(graph: list[list[Edge]], level: list[int], iter: list[int], u: int, t: int, f: int) -> int:
     if u < 0 or u >= len(graph) or t < 0 or t >= len(graph):
         raise ValueError("Invalid vertex index")
     if u == t:
@@ -55,7 +54,7 @@ def dfs(graph: List[List[Edge]], level: List[int], iter: List[int], u: int, t: i
     return 0
 
 
-def max_flow(graph: List[List[Edge]], s: int, t: int) -> int:
+def max_flow(graph: list[list[Edge]], s: int, t: int) -> int:
     if s < 0 or s >= len(graph) or t < 0 or t >= len(graph):
         raise ValueError("Invalid vertex index")
     level = [0] * len(graph)
@@ -94,7 +93,6 @@ class TestDinicMaxFlow(unittest.TestCase):
     def test_invalid_vertex_index(self):
         n = 6
         s = 0
-        t = 5
         graph = [[] for _ in range(n)]
         with self.assertRaises(ValueError):
             add_edge(graph, -1, 2, 5)
@@ -109,8 +107,6 @@ class TestDinicMaxFlow(unittest.TestCase):
 
     def test_negative_capacity(self):
         n = 3
-        s = 0
-        t = 2
         graph = [[] for _ in range(n)]
         with self.assertRaises(ValueError):
             add_edge(graph, 0, 1, -1)

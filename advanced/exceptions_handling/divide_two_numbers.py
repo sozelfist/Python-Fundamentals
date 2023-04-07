@@ -1,8 +1,7 @@
 import unittest
-from typing import Optional
 
 
-def divide(numerator: int, denominator: int) -> Optional[float]:
+def divide(numerator: int, denominator: int) -> float | None:
     try:
         result = numerator / denominator
     except ZeroDivisionError:

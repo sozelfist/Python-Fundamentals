@@ -1,5 +1,6 @@
 import unittest
-from sympy import Symbol, Limit
+
+from sympy import Limit, Symbol
 
 
 def limit(function, x, a):

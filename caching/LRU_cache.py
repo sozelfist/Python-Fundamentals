@@ -1,14 +1,13 @@
-from typing import Dict, List, Tuple, Optional
 import unittest
 
 
 class LRUCache:
     def __init__(self, capacity: int) -> None:
         self.capacity = capacity
-        self.cache: Dict[int, Tuple[int, int]] = {}
-        self.queue: List[int] = []
+        self.cache: dict[int, tuple[int, int]] = {}
+        self.queue: list[int] = []
 
-    def get(self, key: int) -> Optional[int]:
+    def get(self, key: int) -> int | None:
         if key not in self.cache:
             return None
 

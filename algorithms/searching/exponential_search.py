@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def exponential_search(arr: List[int], x: int) -> int:
+def exponential_search(arr: list[int], x: int) -> int:
     if arr[0] == x:
         return 0
     i = 1
@@ -12,7 +11,7 @@ def exponential_search(arr: List[int], x: int) -> int:
     return binary_search(arr, i // 2, min(i, n - 1), x)
 
 
-def binary_search(arr: List[int], left: int, right: int, x: int) -> int:
+def binary_search(arr: list[int], left: int, right: int, x: int) -> int:
     while left <= right:
         mid = left + (right - left) // 2
         if arr[mid] == x:

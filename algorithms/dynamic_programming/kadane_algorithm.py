@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def kadane(arr: List[int]) -> int:
+def kadane(arr: list[int]) -> int:
     max_so_far = max_ending_here = 0
 
     for i in range(len(arr)):

@@ -1,5 +1,4 @@
 import unittest
-from typing import List, Tuple
 
 
 def isomorphic(s: str, t: str) -> bool:
@@ -25,7 +24,7 @@ def isomorphic(s: str, t: str) -> bool:
 class TestIsomorphic(unittest.TestCase):
 
     def test_isomorphic(self):
-        test_cases: List[Tuple[str, str, bool]] = [
+        test_cases: list[tuple[str, str, bool]] = [
             ("egg", "add", True),
             ("foo", "bar", False),
             ("paper", "title", True),

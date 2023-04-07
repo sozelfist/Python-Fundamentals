@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def pascal_triangle(n: int) -> List[List[int]]:
+def pascal_triangle(n: int) -> list[list[int]]:
     result = []
     for i in range(n):
         row = [1] * (i + 1)

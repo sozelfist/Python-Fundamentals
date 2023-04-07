@@ -114,7 +114,7 @@ class FibonacciProgression(Progression, iterator_name='fibonacci progression'):
 
     def nth_element(self, n: int):
         """ Return the nth element of the progression """
-        for i in range(n - 1):
+        for _i in range(n - 1):
             self._prev, self._current = self._current, self._prev + self._current
         return self._current
 
@@ -156,9 +156,9 @@ class TestProgression(unittest.TestCase):
 
     def test_invalid_input(self):
         with self.assertRaises(ValueError):
-            progression = ArithmeticProgression(increment=-1, start=2)
+            ArithmeticProgression(increment=-1, start=2)
         with self.assertRaises(ValueError):
-            progression = GeometricProgression(base=-1, start=2)
+            GeometricProgression(base=-1, start=2)
 
 
 if __name__ == '__main__':

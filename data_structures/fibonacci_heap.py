@@ -1,5 +1,5 @@
 import unittest
-from typing import TypeVar, Generic, Optional
+from typing import Generic, TypeVar
 
 T = TypeVar('T')
 
@@ -8,17 +8,17 @@ class FibonacciHeapNode(Generic[T]):
     def __init__(self, key: float, value: T) -> None:
         self.key = key
         self.value = value
-        self.parent: Optional[FibonacciHeapNode[T]] = None
-        self.child: Optional[FibonacciHeapNode[T]] = None
-        self.left: Optional[FibonacciHeapNode[T]] = None
-        self.right: Optional[FibonacciHeapNode[T]] = None
+        self.parent: FibonacciHeapNode[T] | None = None
+        self.child: FibonacciHeapNode[T] | None = None
+        self.left: FibonacciHeapNode[T] | None = None
+        self.right: FibonacciHeapNode[T] | None = None
         self.degree = 0
         self.marked = False
 
 
 class FibonacciHeap(Generic[T]):
     def __init__(self) -> None:
-        self.min_node: Optional[FibonacciHeapNode[T]] = None
+        self.min_node: FibonacciHeapNode[T] | None = None
         self.num_nodes = 0
 
     def insert(self, key: float, value: T) -> FibonacciHeapNode[T]:
@@ -28,10 +28,10 @@ class FibonacciHeap(Generic[T]):
         self.num_nodes += 1
         return node
 
-    def find_min(self) -> Optional[T]:
+    def find_min(self) -> T | None:
         return self.min_node.value if self.min_node is not None else None
 
-    def delete_min(self) -> Optional[T]:
+    def delete_min(self) -> T | None:
         if self.min_node is None:
             return None
 

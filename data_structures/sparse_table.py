@@ -1,9 +1,8 @@
-from typing import List
 import unittest
 
 
 class SparseTable:
-    def __init__(self, arr: List[int]) -> None:
+    def __init__(self, arr: list[int]) -> None:
         n = len(arr)
         k = (n).bit_length()  # The smallest power of 2 that is greater than or equal to n
         self.st = [[0] * k for _ in range(n)]
@@ -26,13 +25,13 @@ class SparseTable:
         j = self.log[r - l + 1]
         return min(self.st[l][j], self.st[r - (1 << j) + 1][j])
 
-    def get_table(self) -> List[List[int]]:
+    def get_table(self) -> list[list[int]]:
         """
         Returns the Sparse Table.
         """
         return self.st
 
-    def get_log(self) -> List[int]:
+    def get_log(self) -> list[int]:
         """
         Returns the logarithm table used for precomputing the Sparse Table.
         """

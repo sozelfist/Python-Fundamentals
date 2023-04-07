@@ -1,9 +1,8 @@
-import unittest
 import heapq
-from typing import List, Tuple
+import unittest
 
 
-def dijkstra(adj_list: List[List[Tuple[int, int]]], start: int) -> List[int]:
+def dijkstra(adj_list: list[list[tuple[int, int]]], start: int) -> list[int]:
     n = len(adj_list)
     dist = [float('inf')] * n
     dist[start] = 0

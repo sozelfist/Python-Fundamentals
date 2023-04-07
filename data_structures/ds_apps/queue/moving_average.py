@@ -1,6 +1,6 @@
-from collections import deque
-import unittest
 import itertools
+import unittest
+from collections import deque
 
 
 def moving_average(iterable, n=3, output_type='generator'):

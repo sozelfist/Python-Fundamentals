@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def counting_sort(arr: List[int], exp: int):
+def counting_sort(arr: list[int], exp: int):
     n = len(arr)
     count = [0] * 10
     for i in range(n):

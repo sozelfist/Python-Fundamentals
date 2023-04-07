@@ -1,5 +1,5 @@
 import unittest
-from typing import List, TypeVar
+from typing import TypeVar
 
 T = TypeVar('T')
 
@@ -7,7 +7,7 @@ T = TypeVar('T')
 class CircularBuffer:
     def __init__(self, capacity: int) -> None:
         self.capacity = capacity
-        self.buffer: List[T] = [None] * capacity
+        self.buffer: list[T] = [None] * capacity
         self.head = 0
         self.tail = 0
 

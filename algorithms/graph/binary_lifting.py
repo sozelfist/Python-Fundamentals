@@ -1,8 +1,7 @@
-from typing import List, Tuple
 import unittest
 
 
-def binary_lifting(adj_list: List[List[int]], root: int) -> Tuple[List[List[int]], List[int]]:
+def binary_lifting(adj_list: list[list[int]], root: int) -> tuple[list[list[int]], list[int]]:
     num_nodes = len(adj_list)
     log_num_nodes = (num_nodes - 1).bit_length()
 
@@ -30,7 +29,7 @@ def binary_lifting(adj_list: List[List[int]], root: int) -> Tuple[List[List[int]
     return ancestors, depths
 
 
-def find_kth_ancestor(node: int, k: int, ancestors: List[List[int]]) -> int:
+def find_kth_ancestor(node: int, k: int, ancestors: list[list[int]]) -> int:
     log_num_nodes = len(ancestors)
     for i in range(log_num_nodes):
         if k & (1 << i):

@@ -1,8 +1,7 @@
 import unittest
-from typing import List, Tuple
 
 
-def minPathSum(grid: List[List[int]]) -> Tuple[int, List[Tuple[int, int]]]:
+def minPathSum(grid: list[list[int]]) -> tuple[int, list[tuple[int, int]]]:
 
     # Check if the grid is empty
     if not grid:

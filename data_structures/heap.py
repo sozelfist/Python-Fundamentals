@@ -1,9 +1,8 @@
 import unittest
-from typing import List, Union
 
 
 class Heap:
-    def __init__(self, is_min: bool, arr: Union[List[int], None] = None):
+    def __init__(self, is_min: bool, arr: list[int] | None = None):
         self.is_min = is_min
         self._heap = arr if arr else []
         self._heapify()
@@ -71,8 +70,7 @@ class Heap:
         return str(self._heap)
 
     def __iter__(self):
-        for i in self._heap:
-            yield i
+        yield from self._heap
 
 
 class TestHeap(unittest.TestCase):

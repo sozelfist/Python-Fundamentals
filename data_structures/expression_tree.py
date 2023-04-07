@@ -1,13 +1,12 @@
-import unittest
 import ast
-from typing import Optional
+import unittest
 
 
 class ExpressionTree:
     def __init__(self, node: ast.AST):
         self.node = node
-        self.left: Optional[ExpressionTree] = None
-        self.right: Optional[ExpressionTree] = None
+        self.left: ExpressionTree | None = None
+        self.right: ExpressionTree | None = None
 
     def evaluate(self) -> float:
         if isinstance(self.node, ast.BinOp):
@@ -82,12 +81,12 @@ class TestExpressionTree(unittest.TestCase):
     def test_mismatched_parentheses(self):
         expression = "( 1 + 2"
         with self.assertRaises(SyntaxError):
-            tree = build_expression_tree(expression)
+            build_expression_tree(expression)
 
     def test_empty_expression(self):
         expression = ""
         with self.assertRaises(SyntaxError):
-            tree = build_expression_tree(expression)
+            build_expression_tree(expression)
 
 
 if __name__ == '__main__':

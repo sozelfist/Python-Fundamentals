@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def boyer_moore(text: str, pattern: str) -> List[int]:
+def boyer_moore(text: str, pattern: str) -> list[int]:
     n = len(text)
     m = len(pattern)
     if m == 0:

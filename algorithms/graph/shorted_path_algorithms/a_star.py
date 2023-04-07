@@ -1,9 +1,8 @@
-import unittest
-from typing import List, Tuple
 import heapq
+import unittest
 
 
-def a_star(adj_list: List[List[Tuple[int, int]]], heuristics: List[int], start: int, goal: int) -> List[int]:
+def a_star(adj_list: list[list[tuple[int, int]]], heuristics: list[int], start: int, goal: int) -> list[int]:
     n = len(adj_list)
     dist = {v: float('inf') for v in range(n)}
     dist[start] = 0

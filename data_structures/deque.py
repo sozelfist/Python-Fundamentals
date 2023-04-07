@@ -1,6 +1,6 @@
-from typing import Generic, Optional, TypeVar, Iterable
 import unittest
-
+from collections.abc import Iterable
+from typing import Generic, TypeVar
 
 T = TypeVar('T')
 
@@ -14,8 +14,8 @@ class Node(Generic[T]):
 
 class Deque(Generic[T]):
     def __init__(self) -> None:
-        self.head: Optional[Node[T]] = None
-        self.tail: Optional[Node[T]] = None
+        self.head: Node[T] | None = None
+        self.tail: Node[T] | None = None
         self.count = 0
 
     def __len__(self) -> int:

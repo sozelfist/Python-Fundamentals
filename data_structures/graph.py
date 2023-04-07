@@ -1,11 +1,10 @@
 
-from typing import Dict, List
 import unittest
 
 
 class Graph:
     def __init__(self, directed: bool = False):
-        self.graph = dict()
+        self.graph = {}
         self.directed = directed
 
     def add_vertex(self, vertex: int) -> None:
@@ -16,10 +15,10 @@ class Graph:
         if not self.directed:
             self.graph.setdefault(vertex2, []).append(vertex1)
 
-    def get_vertices(self) -> List[int]:
+    def get_vertices(self) -> list[int]:
         return list(self.graph.keys())
 
-    def get_edges(self) -> Dict[int, List[int]]:
+    def get_edges(self) -> dict[int, list[int]]:
         return self.graph
 
     def __str__(self):

@@ -1,6 +1,6 @@
 import unittest
+
 import numpy as np
-from typing import Tuple
 
 
 def linear_model(x: np.ndarray, w: float, b: float) -> np.ndarray:
@@ -15,11 +15,11 @@ def cost_function(x: np.ndarray, y: np.ndarray, w: float, b: float) -> float:
 def momentum_gradient_descent(
         x: np.ndarray, y: np.ndarray, w: float, b: float,
         learning_rate: float, num_iterations: int, momentum: float = 0.9
-) -> Tuple[float, float]:
+) -> tuple[float, float]:
     v_dw = 0
     v_db = 0
 
-    for i in range(num_iterations):
+    for _i in range(num_iterations):
         # calculate gradients
         dw = (linear_model(x, w, b) - y).dot(x) / len(x)
         db = (linear_model(x, w, b) - y).mean()
@@ -31,7 +31,7 @@ def momentum_gradient_descent(
         b = b - learning_rate * v_db
 
         # calculate cost
-        cost = cost_function(x, y, w, b)
+        cost_function(x, y, w, b)
     return w, b
 
 

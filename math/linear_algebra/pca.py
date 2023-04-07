@@ -1,9 +1,9 @@
-import numpy as np
-from typing import Tuple
 import unittest
 
+import numpy as np
 
-def pca(X: np.ndarray, n_components: int) -> Tuple[np.ndarray, np.ndarray]:
+
+def pca(X: np.ndarray, n_components: int) -> tuple[np.ndarray, np.ndarray]:
     """
     Perform PCA on the input data X and return the transformed data and the eigenvectors.
     """

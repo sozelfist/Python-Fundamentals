@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def heap_sort(arr: List[int]) -> List[int]:
+def heap_sort(arr: list[int]) -> list[int]:
     n = len(arr)
     for i in range(n, -1, -1):
         _heapify(arr, n, i)
@@ -12,7 +11,7 @@ def heap_sort(arr: List[int]) -> List[int]:
     return arr
 
 
-def _heapify(arr: List[int], n: int, i: int):
+def _heapify(arr: list[int], n: int, i: int):
     largest = i
     while True:
         left = 2 * i + 1

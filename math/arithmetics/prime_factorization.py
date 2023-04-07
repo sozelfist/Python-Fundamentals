@@ -1,6 +1,6 @@
+import unittest
 from collections import Counter
 from math import gcd
-import unittest
 
 
 class PrimeFactorization:

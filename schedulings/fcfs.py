@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import List
+
 import unittest
 
 
@@ -18,10 +18,10 @@ class Process:
 
 
 class Scheduler:
-    def __init__(self, processes: List[Process]) -> None:
+    def __init__(self, processes: list[Process]) -> None:
         self.processes = processes
 
-    def calculate_waiting_times(self) -> List[int]:
+    def calculate_waiting_times(self) -> list[int]:
         """
         This function calculates the waiting time of some processes that have a
         specified duration time.
@@ -33,14 +33,14 @@ class Scheduler:
             self.processes[i].waiting_time = waiting_times[i]
         return waiting_times
 
-    def calculate_turnaround_times(self) -> List[int]:
+    def calculate_turnaround_times(self) -> list[int]:
         """
         This function calculates the turnaround time of some processes.
             Return: The time difference between the completion time and the
                     arrival time.
                     Practically waiting_time + duration_time
         """
-        for i, process in enumerate(self.processes):
+        for _i, process in enumerate(self.processes):
             process.turnaround_time = process.waiting_time + process.duration
         return [process.turnaround_time for process in self.processes]
 
@@ -65,8 +65,8 @@ class Scheduler:
             raise SystemExit(0)
 
         # get the waiting times and the turnaround times
-        waiting_times = self.calculate_waiting_times()
-        turnaround_times = self.calculate_turnaround_times()
+        self.calculate_waiting_times()
+        self.calculate_turnaround_times()
 
         # get the average times
         average_waiting_time = self.calculate_average_waiting_time()
@@ -82,7 +82,7 @@ class Scheduler:
 
 class TestScheduler(unittest.TestCase):
     def setUp(self) -> None:
-        self.processes: List[Process] = [
+        self.processes: list[Process] = [
             Process(1, 8),
             Process(2, 4),
             Process(3, 9),

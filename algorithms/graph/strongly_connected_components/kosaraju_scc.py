@@ -1,16 +1,15 @@
 import unittest
-from typing import List
 
 
-def kosaraju(graph: List[List[int]]) -> List[List[int]]:
-    def dfs_first_pass(node: int, visited: List[bool], stack: List[int]) -> None:
+def kosaraju(graph: list[list[int]]) -> list[list[int]]:
+    def dfs_first_pass(node: int, visited: list[bool], stack: list[int]) -> None:
         visited[node] = True
         for neighbor in graph[node]:
             if not visited[neighbor]:
                 dfs_first_pass(neighbor, visited, stack)
         stack.append(node)
 
-    def dfs_second_pass(node: int, visited: List[bool], component: List[int]) -> None:
+    def dfs_second_pass(node: int, visited: list[bool], component: list[int]) -> None:
         visited[node] = True
         component.append(node)
         for neighbor in graph[node]:

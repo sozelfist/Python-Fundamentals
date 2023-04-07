@@ -1,10 +1,11 @@
-import unittest
 import time
-from typing import Callable, Tuple, Dict, Any
+import unittest
+from collections.abc import Callable
+from typing import Any
 
 
 def time_it(func: Callable) -> Callable:
-    def wrapper(*args: Tuple[Any, ...], **kwargs: Dict[str, Any]):
+    def wrapper(*args: tuple[Any, ...], **kwargs: dict[str, Any]):
         start_time = time.time()
         result = func(*args, **kwargs)
         end_time = time.time()

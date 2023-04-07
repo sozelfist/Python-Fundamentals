@@ -1,12 +1,11 @@
-from collections import OrderedDict
-from typing import Tuple
 import unittest
+from collections import OrderedDict
 
 
 class ARC:
     def __init__(self, capacity: int):
         self.capacity = capacity
-        self.cache: OrderedDict[str, Tuple[int, bool]] = OrderedDict()
+        self.cache: OrderedDict[str, tuple[int, bool]] = OrderedDict()
         self.t1: OrderedDict[str, None] = OrderedDict()
         self.t2: OrderedDict[str, None] = OrderedDict()
         self.b1: OrderedDict[str, None] = OrderedDict()

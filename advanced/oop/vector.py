@@ -1,7 +1,8 @@
-import unittest
-import numpy as np
 import math
-from typing import Union, Any
+import unittest
+from typing import Any
+
+import numpy as np
 
 
 class Vector:
@@ -11,7 +12,7 @@ class Vector:
     def __len__(self) -> int:
         return len(self._coords)
 
-    def __getitem__(self, index: int) -> Union[int, float]:
+    def __getitem__(self, index: int) -> int | float:
         return self._coords[index]
 
     def __setitem__(self, index: int, value: Any):
@@ -35,10 +36,10 @@ class Vector:
             raise ValueError("Vectors must have the same dimensions")
         return Vector(self._coords - other._coords)
 
-    def __mul__(self, scalar: Union[int, float]) -> 'Vector':
+    def __mul__(self, scalar: int | float) -> 'Vector':
         return Vector(self._coords * scalar)
 
-    def __truediv__(self, scalar: Union[int, float]) -> 'Vector':
+    def __truediv__(self, scalar: int | float) -> 'Vector':
         return Vector(self._coords * (1 / scalar))
 
     def __eq__(self, other: 'Vector') -> bool:
@@ -98,7 +99,7 @@ class TestVector(unittest.TestCase):
         v1 = Vector([1, 2, 3])
         v2 = Vector([4, 5])
         with self.assertRaises(ValueError):
-            v = v1 + v2
+            v1 + v2
 
     def test_subtract_vectors(self):
         v1 = Vector([1, 2, 3])
@@ -113,7 +114,7 @@ class TestVector(unittest.TestCase):
         v1 = Vector([1, 2, 3])
         v2 = Vector([4, 5])
         with self.assertRaises(ValueError):
-            v = v1 - v2
+            v1 - v2
 
     def test_multiply_vector_by_scalar(self):
         v1 = Vector([1, 2, 3])

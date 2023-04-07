@@ -1,12 +1,11 @@
 import unittest
-from typing import List, Union
 
 
-def interpolation_search(arr: List[int], x: int) -> Union[int, str]:
+def interpolation_search(arr: list[int], x: int) -> int | str:
     low = 0
     high = len(arr) - 1
     while low <= high and x >= arr[low] and x <= arr[high]:
-        pos = low + int(((float(high - low) / (arr[high] - arr[low])) * (x - arr[low])))
+        pos = low + int((float(high - low) / (arr[high] - arr[low])) * (x - arr[low]))
         if arr[pos] == x:
             return pos
         elif arr[pos] < x:

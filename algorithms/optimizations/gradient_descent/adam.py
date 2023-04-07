@@ -1,5 +1,5 @@
-from typing import Tuple
 import unittest
+
 import numpy as np
 
 
@@ -16,7 +16,7 @@ def adam(
         x: np.ndarray, y: np.ndarray, w: float, b: float,
         learning_rate: float, num_iterations: int,
         beta1: float = 0.9, beta2: float = 0.999, epsilon: float = 1e-8
-) -> Tuple[float, float]:
+) -> tuple[float, float]:
     # initialize variables for momentum
     m_w = 0
     m_b = 0
@@ -45,7 +45,7 @@ def adam(
         b = b - learning_rate * m_b_hat / (np.sqrt(v_b_hat) + epsilon)
 
         # calculate cost
-        cost = cost_function(x, y, w, b)
+        cost_function(x, y, w, b)
     return w, b
 
 

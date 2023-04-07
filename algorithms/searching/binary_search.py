@@ -1,8 +1,7 @@
 import unittest
-from typing import List, Union
 
 
-def binary_search(arr: List[int], x: int) -> Union[int, str]:
+def binary_search(arr: list[int], x: int) -> int | str:
     low, high = 0, len(arr) - 1
     while low <= high:
         mid = (high + low) // 2

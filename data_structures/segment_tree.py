@@ -1,14 +1,13 @@
-from typing import List
 import unittest
 
 
 class SegmentTree:
-    def __init__(self, arr: List[int]):
+    def __init__(self, arr: list[int]):
         self.n = len(arr)
         self.tree = [0] * (4 * self.n)
         self.build(arr, 1, 0, self.n - 1)
 
-    def build(self, arr: List[int], v: int, tl: int, tr: int) -> None:
+    def build(self, arr: list[int], v: int, tl: int, tr: int) -> None:
         if tl == tr:
             self.tree[v] = arr[tl]
         else:

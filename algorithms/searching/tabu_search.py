@@ -1,10 +1,10 @@
-from typing import List, Tuple, Callable
 import unittest
+from collections.abc import Callable
 
 
-def tabu_search(initial_solution: List[int], objective_function: Callable,
+def tabu_search(initial_solution: list[int], objective_function: Callable,
                 neighborhood_function: Callable, tabu_list_length: int,
-                max_iterations: int) -> Tuple[List[int], int]:
+                max_iterations: int) -> tuple[list[int], int]:
     """
     Implementation of Tabu search algorithm for combinatorial optimization problems.
 
@@ -25,7 +25,7 @@ def tabu_search(initial_solution: List[int], objective_function: Callable,
     tabu_list = []
     best_objective_value = objective_function(current_solution)
 
-    for i in range(max_iterations):
+    for _i in range(max_iterations):
         neighbors = neighborhood_function(current_solution)
         best_neighbor = None
         best_neighbor_objective_value = float('inf')

@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def find_subsets(items: List[int]) -> List[List[int]]:
+def find_subsets(items: list[int]) -> list[list[int]]:
     subsets = []
     n = len(items)
     for i in range(2**n):

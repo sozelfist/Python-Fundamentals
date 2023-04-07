@@ -1,9 +1,8 @@
-from typing import List
 import unittest
 
 
 class SqrtTree:
-    def __init__(self, arr: List[int]) -> None:
+    def __init__(self, arr: list[int]) -> None:
         self.arr = arr
         self.block_size = int(len(self.arr)**0.5) + 1
         self.blocks = [0] * self.block_size

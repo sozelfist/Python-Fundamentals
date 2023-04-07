@@ -1,9 +1,8 @@
 import unittest
-from typing import List, Dict
 
 
-def topological_sort(graph: Dict[int, List[int]]) -> List[int]:
-    def dfs(node: int, visited: List[bool], stack: List[int]):
+def topological_sort(graph: dict[int, list[int]]) -> list[int]:
+    def dfs(node: int, visited: list[bool], stack: list[int]):
         visited[node] = True
         for neighbor in graph[node]:
             if not visited[neighbor]:

@@ -1,25 +1,24 @@
 import unittest
-from typing import Dict, List
 
 
 class WeightedGraph:
     def __init__(self, directed: bool = False):
-        self.graph = dict()
+        self.graph = {}
         self.directed = directed
 
     def add_vertex(self, vertex: int) -> None:
         if vertex not in self.graph:
-            self.graph[vertex] = dict()
+            self.graph[vertex] = {}
 
     def add_edge(self, vertex1: int, vertex2: int, weight: int) -> None:
         self.graph[vertex1][vertex2] = weight
         if not self.directed:
             self.graph[vertex2][vertex1] = weight
 
-    def get_vertices(self) -> List[int]:
+    def get_vertices(self) -> list[int]:
         return list(self.graph.keys())
 
-    def get_edges(self) -> Dict[int, Dict[int, int]]:
+    def get_edges(self) -> dict[int, dict[int, int]]:
         return self.graph
 
 

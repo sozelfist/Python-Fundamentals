@@ -1,5 +1,4 @@
 import hashlib
-from typing import List
 import math
 import unittest
 
@@ -12,7 +11,7 @@ class BloomFilter:
         self.bit_array_size = int(math.ceil(self.num_hashes * math.log(2)))
         self.bit_array = [0] * (self.bit_array_size)
 
-    def _hash_functions(self, item: str) -> List[int]:
+    def _hash_functions(self, item: str) -> list[int]:
         m = hashlib.md5()
         m.update(item.encode())
         digest = int(m.hexdigest(), 16)

@@ -1,7 +1,7 @@
 import unittest
 
 
-class groupby:
+class GroupBy:
     """
     Group an iterable by key function.
 
@@ -11,11 +11,11 @@ class groupby:
       the identity function is used.
 
     Examples:
-    - [k for k, g in groupby('AAAABBBCCDAABBB')] --> A B C D A B
-    - [list(g) for k, g in groupby('AAAABBBCCD')] --> AAAA BBB CC D
+    - [k for k, g in GroupBy('AAAABBBCCDAABBB')] --> A B C D A B
+    - [list(g) for k, g in GroupBy('AAAABBBCCD')] --> AAAA BBB CC D
     """
 
-    def __init__(self, iterable, key=None):
+    def __init__(self, iterable, key=None):  # type: ignore
         if key is None:
             def key(x):
                 return x
@@ -47,29 +47,34 @@ class groupby:
 class TestGroupby(unittest.TestCase):
 
     def test_groupby_empty(self):
-        self.assertListEqual([x for x in groupby('')], [])
+        self.assertListEqual([x for x in GroupBy('')], [])
 
     def test_groupby_single_group(self):
-        self.assertListEqual([(1, [1, 1, 1]), ], [(k, list(g)) for k, g in groupby([1, 1, 1])])
+        self.assertListEqual([(1, [1, 1, 1]), ], [(k, list(g))
+                             for k, g in GroupBy([1, 1, 1])])
 
     def test_groupby_multiple_groups(self):
         self.assertListEqual([(0, [0]), (1, [1, 1]), (0, [0, 0]), (1, [1])], [(k, list(g))
-                             for k, g in groupby([0, 1, 1, 0, 0, 1])])
+                             for k, g in GroupBy([0, 1, 1, 0, 0, 1])])
 
     def test_groupby_custom_key(self):
         data = ['Apple', 'Banana', 'Cherry', 'Durian', 'Elderberry']
-        expected = [('A', ['Apple']), ('B', ['Banana']), ('C', ['Cherry']), ('D', ['Durian']), ('E', ['Elderberry'])]
-        self.assertListEqual(expected, [(k, list(g)) for k, g in groupby(data, key=lambda x: x[0])])
+        expected = [('A', ['Apple']), ('B', ['Banana']), ('C', [
+            'Cherry']), ('D', ['Durian']), ('E', ['Elderberry'])]
+        self.assertListEqual(expected, [(k, list(g))
+                             for k, g in GroupBy(data, key=lambda x: x[0])])
 
     def test_groupby_generator_input(self):
         data = (i for i in range(1, 8))
         expected = [(0, [1]), (1, [2, 3]), (2, [4, 5]), (3, [6, 7])]
-        self.assertListEqual(expected, [(k, list(g)) for k, g in groupby(data, key=lambda x: x // 2)])
+        self.assertListEqual(
+            expected, [(k, list(g)) for k, g in GroupBy(data, key=lambda x: x // 2)])
 
     def test_groupby_filter_empty_groups(self):
         data = ['', 'A', '', 'B', '', '', 'C']
         expected = [('A', ['A']), ('B', ['B']), ('C', ['C'])]
-        self.assertListEqual(expected, [(k, list(g)) for k, g in groupby(data) if k])
+        self.assertListEqual(expected, [(k, list(g))
+                             for k, g in GroupBy(data) if k])
 
 
 if __name__ == '__main__':

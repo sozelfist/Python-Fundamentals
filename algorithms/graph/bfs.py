@@ -1,9 +1,8 @@
 import unittest
 from collections import deque
-from typing import List, Tuple
 
 
-def bfs(graph: List[List[int]], start: int, end: int) -> Tuple[bool, List[int]]:
+def bfs(graph: list[list[int]], start: int, end: int) -> tuple[bool, list[int]]:
     queue = deque([start])
     visited = [False for _ in range(len(graph))]
     path = [-1 for _ in range(len(graph))]
@@ -25,7 +24,7 @@ def bfs(graph: List[List[int]], start: int, end: int) -> Tuple[bool, List[int]]:
     return False, []
 
 
-def reconstruct_path(path: List[int], start: int, end: int) -> List[int]:
+def reconstruct_path(path: list[int], start: int, end: int) -> list[int]:
     result = []
     vertex = end
     while vertex != start:

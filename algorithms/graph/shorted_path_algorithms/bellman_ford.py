@@ -1,13 +1,12 @@
 import unittest
-from typing import List, Tuple, Union
 
 
-def bellman_ford(adj_list: List[List[Tuple[int, int]]], start: int) -> List[Union[int, float]]:
+def bellman_ford(adj_list: list[list[tuple[int, int]]], start: int) -> list[int | float]:
     n = len(adj_list)
     distances = [float('inf')] * n
     distances[start] = 0
 
-    for i in range(n - 1):
+    for _i in range(n - 1):
         for u, neighbors in enumerate(adj_list):
             for v, w in neighbors:
                 if distances[u] != float('inf') and distances[u] + w < distances[v]:

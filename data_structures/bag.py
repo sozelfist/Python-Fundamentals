@@ -1,12 +1,12 @@
 import unittest
-from typing import TypeVar, Generic, Dict
+from typing import Generic, TypeVar
 
 T = TypeVar('T')
 
 
 class Bag(Generic[T]):
     def __init__(self):
-        self.items: Dict[T, int] = {}
+        self.items: dict[T, int] = {}
 
     def add(self, item: T) -> None:
         self.items[item] = self.items.get(item, 0) + 1
@@ -22,7 +22,7 @@ class Bag(Generic[T]):
 
     def __iter__(self):
         for item, count in self.items.items():
-            for i in range(count):
+            for _i in range(count):
                 yield item
 
 

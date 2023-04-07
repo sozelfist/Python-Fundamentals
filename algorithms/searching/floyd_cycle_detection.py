@@ -3,12 +3,12 @@ from typing import Optional
 
 
 class ListNode:
-    def __init__(self, val: Optional[float], next: Optional['ListNode'] = None):
+    def __init__(self, val: float | None, next: Optional['ListNode'] = None):
         self.val = val
         self.next = next
 
 
-def has_cycle(head: Optional[ListNode]) -> bool:
+def has_cycle(head: ListNode | None) -> bool:
     """
     Determines whether a linked list has a cycle using the Floyd cycle detection algorithm.
 

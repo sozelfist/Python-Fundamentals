@@ -1,4 +1,3 @@
-from typing import List
 import unittest
 
 
@@ -10,7 +9,7 @@ class Graph:
     def add_edge(self, v1: int, v2: int):
         self.adj_list[v1].append(v2)
 
-    def get_adj_list(self) -> List[List[int]]:
+    def get_adj_list(self) -> list[list[int]]:
         return self.adj_list
 
 

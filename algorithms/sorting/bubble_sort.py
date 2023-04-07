@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def bubble_sort(arr: List[int]) -> List[int]:
+def bubble_sort(arr: list[int]) -> list[int]:
     n = len(arr)
     for i in range(n):
         # check if the list is already sorted

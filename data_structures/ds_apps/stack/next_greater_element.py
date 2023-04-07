@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def next_greater_elements(nums: List[int]) -> List[int]:
+def next_greater_elements(nums: list[int]) -> list[int]:
     n = len(nums)
     result = [-1] * n
     stack = []

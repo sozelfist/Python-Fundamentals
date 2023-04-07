@@ -1,9 +1,9 @@
-from typing import List
-import numpy as np
 import unittest
 
+import numpy as np
 
-def markov_chain(transitions: List[List[float]], initial_state: int, num_steps: int) -> List[int]:
+
+def markov_chain(transitions: list[list[float]], initial_state: int, num_steps: int) -> list[int]:
     """
     Simulate a discrete-time Markov chain with a given transition matrix, starting state, and number of steps.
 

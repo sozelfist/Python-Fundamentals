@@ -1,9 +1,8 @@
-import unittest
-from typing import List
 import bisect
+import unittest
 
 
-def insertion_sort(arr: List[int], left=0, right=None) -> List[int]:
+def insertion_sort(arr: list[int], left=0, right=None) -> list[int]:
     if right is None:
         right = len(arr) - 1
     for i in range(left + 1, right + 1):
@@ -14,7 +13,7 @@ def insertion_sort(arr: List[int], left=0, right=None) -> List[int]:
     return arr
 
 
-def merge(left: List[int], right: List[int]) -> List[int]:
+def merge(left: list[int], right: list[int]) -> list[int]:
     if not left:
         return right
     if not right:
@@ -25,7 +24,7 @@ def merge(left: List[int], right: List[int]) -> List[int]:
     return [right[0]] + merge(left, right[1:])
 
 
-def timsort(arr: List[int]) -> List[int]:
+def timsort(arr: list[int]) -> list[int]:
     min_run = 32
     n = len(arr)
     for i in range(0, n, min_run):

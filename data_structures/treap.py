@@ -1,4 +1,3 @@
-from typing import Optional, List, Tuple
 import unittest
 
 
@@ -6,13 +5,13 @@ class Node:
     def __init__(self, key: int, priority: int):
         self.key = key
         self.priority = priority
-        self.left: Optional[Node] = None
-        self.right: Optional[Node] = None
+        self.left: Node | None = None
+        self.right: Node | None = None
 
 
 class Treap:
     def __init__(self):
-        self.root: Optional[Node] = None
+        self.root: Node | None = None
 
     def _rotate_left(self, node: Node) -> Node:
         # Perform a left rotation of the given node and its right child
@@ -57,7 +56,7 @@ class Treap:
             return
         self.root = self._delete_helper(self.root, key)
 
-    def _delete_helper(self, node: Node, key: int) -> Optional[Node]:
+    def _delete_helper(self, node: Node, key: int) -> Node | None:
         # Recursively delete the node with the given key from the Treap
         if node is None:
             return None
@@ -80,7 +79,7 @@ class Treap:
 
         return node
 
-    def search(self, key: int) -> Optional[Node]:
+    def search(self, key: int) -> Node | None:
         # Search for a node with the given key in the Treap
         node = self.root
         while node is not None:
@@ -92,7 +91,7 @@ class Treap:
                 return (node.key, node.priority)
         return None
 
-    def in_order_traversal(self, node: Optional[Node] = None) -> List[Tuple]:
+    def in_order_traversal(self, node: Node | None = None) -> list[tuple]:
         result = []
         if not node:
             node = self.root
@@ -103,7 +102,7 @@ class Treap:
             result.extend(self.in_order_traversal(node.right))
         return result
 
-    def pre_order_traversal(self, node: Optional[Node] = None) -> List[Tuple]:
+    def pre_order_traversal(self, node: Node | None = None) -> list[tuple]:
         result = []
         if not node:
             node = self.root
@@ -114,7 +113,7 @@ class Treap:
             result.extend(self.pre_order_traversal(node.right))
         return result
 
-    def post_order_traversal(self, node: Optional[Node] = None) -> List[Tuple]:
+    def post_order_traversal(self, node: Node | None = None) -> list[tuple]:
         result = []
         if not node:
             node = self.root

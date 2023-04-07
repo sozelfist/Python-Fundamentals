@@ -1,4 +1,3 @@
-from typing import List, Tuple
 import unittest
 
 
@@ -16,7 +15,7 @@ class Process:
 
 
 class SJF:
-    def __init__(self, processes: List[Tuple[int, int]]):
+    def __init__(self, processes: list[tuple[int, int]]):
         self.processes = [Process(pid, arrival_time, burst_time) for pid, arrival_time, burst_time in processes]
         self.num_processes = len(self.processes)
         self.current_time = 0

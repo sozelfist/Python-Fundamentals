@@ -1,4 +1,3 @@
-from typing import List, Optional
 
 
 class Book:
@@ -27,11 +26,11 @@ class Book:
 
 
 class Library:
-    def __init__(self, name: str, books: List[Book]):
+    def __init__(self, name: str, books: list[Book]):
         self.name = name
         self.books = books
 
-    def search(self, title: str) -> Optional[Book]:
+    def search(self, title: str) -> Book | None:
         for book in self.books:
             if book.title.lower() == title.lower():
                 return book

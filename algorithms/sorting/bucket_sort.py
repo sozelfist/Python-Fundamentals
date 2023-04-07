@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def bucket_sort(arr: List[float]) -> List[float]:
+def bucket_sort(arr: list[float]) -> list[float]:
     n = len(arr)
     buckets = [[] for _ in range(n)]
     for i in range(n):

@@ -1,8 +1,7 @@
-from typing import List
 import unittest
 
 
-def selection_sort(arr: List[int]) -> List[int]:
+def selection_sort(arr: list[int]) -> list[int]:
     n = len(arr)
     for i in range(n):
         min_idx = i

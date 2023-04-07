@@ -1,8 +1,7 @@
-from typing import List, Tuple
 import unittest
 
 
-def boruvka(n: int, edges: List[Tuple[int, int, int]]) -> List[Tuple[int, int]]:
+def boruvka(n: int, edges: list[tuple[int, int, int]]) -> list[tuple[int, int]]:
     mst = []
     rep = [i for i in range(n)]
     weight = [float('inf')] * n

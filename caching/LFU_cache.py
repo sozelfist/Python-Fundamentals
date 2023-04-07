@@ -1,15 +1,14 @@
-from typing import Dict, List, Tuple, Optional
 import unittest
 
 
 class LFUCache:
     def __init__(self, capacity: int) -> None:
         self.capacity = capacity
-        self.cache: Dict[int, Tuple[int, int, int]] = {}
-        self.frequency: Dict[int, List[int]] = {}
+        self.cache: dict[int, tuple[int, int, int]] = {}
+        self.frequency: dict[int, list[int]] = {}
         self.min_frequency = 0
 
-    def get(self, key: int) -> Optional[int]:
+    def get(self, key: int) -> int | None:
         if key in self.cache:
             frequency, value, index = self.cache[key]
             self.frequency[frequency].remove(key)

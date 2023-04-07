@@ -1,9 +1,8 @@
-import unittest
 import heapq
-from typing import List, Tuple
+import unittest
 
 
-def prim(n: int, edges: List[Tuple[int, int, int]], start: int) -> List[Tuple[int, int]]:
+def prim(n: int, edges: list[tuple[int, int, int]], start: int) -> list[tuple[int, int]]:
     if n == 0:
         return []
 
@@ -23,7 +22,7 @@ def prim(n: int, edges: List[Tuple[int, int, int]], start: int) -> List[Tuple[in
     return mst
 
 
-def create_graph(n: int, edges: List[Tuple[int, int, int]]) -> List[List[Tuple[int, int]]]:
+def create_graph(n: int, edges: list[tuple[int, int, int]]) -> list[list[tuple[int, int]]]:
     graph = [[] for _ in range(n)]
     for u, v, w in edges:
         graph[u].append((v, w))
@@ -32,9 +31,9 @@ def create_graph(n: int, edges: List[Tuple[int, int, int]]) -> List[List[Tuple[i
 
 
 def add_neighbors_to_heap(
-    graph: List[List[Tuple[int, int]]],
-    node: int, visited: List[bool],
-    heap: List[Tuple[int, int, int]]
+    graph: list[list[tuple[int, int]]],
+    node: int, visited: list[bool],
+    heap: list[tuple[int, int, int]]
 ):
     for neighbor, weight in graph[node]:
         if not visited[neighbor]:

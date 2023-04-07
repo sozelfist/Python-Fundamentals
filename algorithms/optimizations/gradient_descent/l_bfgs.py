@@ -1,7 +1,7 @@
-from typing import List
-from scipy.optimize import minimize
-import numpy as np
 import unittest
+
+import numpy as np
+from scipy.optimize import minimize
 
 
 def linear_model(x: np.ndarray, w: float, b: float) -> np.ndarray:
@@ -9,14 +9,14 @@ def linear_model(x: np.ndarray, w: float, b: float) -> np.ndarray:
 
 
 def cost_function(
-        params: List[float], x: np.ndarray, y: np.ndarray
+        params: list[float], x: np.ndarray, y: np.ndarray
 ) -> float:
     w, b = params
     predictions = linear_model(x, w, b)
     return ((predictions - y)**2).mean()
 
 
-def grad_cost_function(params: List[float], x: np.ndarray, y: np.ndarray) -> np.ndarray:
+def grad_cost_function(params: list[float], x: np.ndarray, y: np.ndarray) -> np.ndarray:
     w, b = params
     dw = (linear_model(x, w, b) - y).dot(x) / len(x)
     db = (linear_model(x, w, b) - y).mean()

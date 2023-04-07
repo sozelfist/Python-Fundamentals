@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def subset_sum_brute_force(numbers: List[int], target: int) -> List[List[int]]:
+def subset_sum_brute_force(numbers: list[int], target: int) -> list[list[int]]:
     """
     Brute-force subset sum algorithm that tries all possible subsets of a given set
     to find all subsets whose sum is equal to a given target value.
@@ -33,37 +32,37 @@ class TestSubsetSumBruteForce(unittest.TestCase):
 
     def test_empty_list(self):
         # Test with an empty list
-        numbers: List[int] = []
+        numbers: list[int] = []
         target: int = 0
-        expected_subsets: List[List[int]] = [[]]
+        expected_subsets: list[list[int]] = [[]]
         self.assertEqual(subset_sum_brute_force(numbers, target), expected_subsets)
 
     def test_no_subsets(self):
         # Test when there are no subsets that sum to the target value
-        numbers: List[int] = [1, 2, 3, 4, 5]
+        numbers: list[int] = [1, 2, 3, 4, 5]
         target: int = 100
-        expected_subsets: List[List[int]] = []
+        expected_subsets: list[list[int]] = []
         self.assertEqual(subset_sum_brute_force(numbers, target), expected_subsets)
 
     def test_single_element(self):
         # Test with a list containing a single element
-        numbers: List[int] = [42]
+        numbers: list[int] = [42]
         target: int = 42
-        expected_subsets: List[List[int]] = [[42]]
+        expected_subsets: list[list[int]] = [[42]]
         self.assertEqual(subset_sum_brute_force(numbers, target), expected_subsets)
 
     def test_multiple_subsets(self):
         # Test when there are multiple subsets that sum to the target value
-        numbers: List[int] = [1, 2, 3, 4, 5]
+        numbers: list[int] = [1, 2, 3, 4, 5]
         target: int = 9
-        expected_subsets: List[List[int]] = [[4, 5], [1, 3, 5], [2, 3, 4]]
+        expected_subsets: list[list[int]] = [[4, 5], [1, 3, 5], [2, 3, 4]]
         self.assertEqual(subset_sum_brute_force(numbers, target), expected_subsets)
 
     def test_all_elements(self):
         # Test when all elements of the list sum to the target value
-        numbers: List[int] = [1, 2, 3, 4, 5]
+        numbers: list[int] = [1, 2, 3, 4, 5]
         target: int = 15
-        expected_subsets: List[List[int]] = [[1, 2, 3, 4, 5]]
+        expected_subsets: list[list[int]] = [[1, 2, 3, 4, 5]]
         self.assertEqual(subset_sum_brute_force(numbers, target), expected_subsets)
 
 

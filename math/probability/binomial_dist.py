@@ -1,4 +1,3 @@
-from typing import List
 import math
 import unittest
 
@@ -50,7 +49,7 @@ def binomial_variance(n: int, p: float) -> float:
     return variance
 
 
-def binomial_probability_mass_function(n: int, p: float, k_values: List[int]) -> List[float]:
+def binomial_probability_mass_function(n: int, p: float, k_values: list[int]) -> list[float]:
     """
     Calculates the PMF for a set of values of k.
 

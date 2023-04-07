@@ -1,8 +1,7 @@
-from typing import List
 import unittest
 
 
-def knuth_optimization(nums: List[int]) -> int:
+def knuth_optimization(nums: list[int]) -> int:
     if not nums:
         return 0
 

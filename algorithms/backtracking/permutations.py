@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def permute(items: List[int]) -> List[List[int]]:
+def permute(items: list[int]) -> list[list[int]]:
     if len(items) == 0:
         return [[]]
     result = []

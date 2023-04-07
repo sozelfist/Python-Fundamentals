@@ -1,5 +1,5 @@
-import unittest
 import re
+import unittest
 
 
 def evaluate_expression(expression: str) -> float:

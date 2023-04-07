@@ -1,4 +1,3 @@
-from typing import List
 import unittest
 
 
@@ -61,7 +60,7 @@ class BST:
             self.right = self.right.delete(min_val)
         return self
 
-    def preorder(self) -> List[int]:
+    def preorder(self) -> list[int]:
         result = []
         result.append(self.data)
         if self.left:
@@ -70,7 +69,7 @@ class BST:
             result += self.right.preorder()
         return result
 
-    def inorder(self) -> List[int]:
+    def inorder(self) -> list[int]:
         result = []
         if self.left:
             result += self.left.inorder()
@@ -79,7 +78,7 @@ class BST:
             result += self.right.inorder()
         return result
 
-    def postorder(self) -> List[int]:
+    def postorder(self) -> list[int]:
         result = []
         if self.left:
             result += self.left.postorder()

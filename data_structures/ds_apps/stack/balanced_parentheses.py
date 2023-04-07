@@ -1,10 +1,9 @@
-from typing import List
 import unittest
 
 
-def is_balanced(s: str, open_parens: List[str] = ['(', '[', '{'],
-                close_parens: List[str] = [')', ']', '}']) -> bool:
-    stack: List[str] = []
+def is_balanced(s: str, open_parens: list[str] = ['(', '[', '{'],
+                close_parens: list[str] = [')', ']', '}']) -> bool:
+    stack: list[str] = []
     for c in s:
         if c in open_parens:
             stack.append(c)

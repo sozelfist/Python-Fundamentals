@@ -1,4 +1,5 @@
 import unittest
+
 import numpy as np
 
 
@@ -13,7 +14,7 @@ def cost_function(x: np.ndarray, y: np.ndarray, w: float, b: float) -> float:
 
 def mini_batch_gradient_descent(x: np.ndarray, y: np.ndarray, w: float, b: float,
                                 learning_rate: float, num_iterations: int, batch_size: int):
-    for i in range(num_iterations):
+    for _i in range(num_iterations):
         # shuffle data
         indices = np.random.permutation(len(x))
         x = x[indices]
@@ -33,7 +34,7 @@ def mini_batch_gradient_descent(x: np.ndarray, y: np.ndarray, w: float, b: float
             b = b - learning_rate * db
 
         # calculate cost
-        cost = cost_function(x, y, w, b)
+        cost_function(x, y, w, b)
     return w, b
 
 

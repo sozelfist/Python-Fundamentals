@@ -1,6 +1,6 @@
-from itertools import islice
 import operator
 import unittest
+from itertools import islice
 
 
 def accumulate(iterable, func=operator.add, *, initial=None, start=None, stop=None):

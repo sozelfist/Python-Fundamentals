@@ -9,7 +9,7 @@ def rotate_matrix(matrix, angle, direction):
     num_rotations = angle // 90
 
     # Perform the rotations
-    for i in range(num_rotations):
+    for _i in range(num_rotations):
         # Transpose the matrix
         for j in range(len(matrix)):
             for k in range(j, len(matrix)):

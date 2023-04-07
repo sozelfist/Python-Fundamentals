@@ -1,9 +1,8 @@
-import unittest
-from typing import List, Union
 import math
+import unittest
 
 
-def jump_search(arr: List[int], x: int) -> Union[int, str]:
+def jump_search(arr: list[int], x: int) -> int | str:
     n = len(arr)
     step = int(math.sqrt(n))
     prev = 0

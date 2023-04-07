@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def rod_cutting(prices: List[int], n: int) -> int:
+def rod_cutting(prices: list[int], n: int) -> int:
     memo = [0] * (n + 1)
 
     for i in range(1, n + 1):
@@ -28,28 +27,25 @@ class TestRodCutting(unittest.TestCase):
         self.assertEqual(rod_cutting(prices, n), 22)
 
     def test_rod_cutting_empty_rod(self):
-        lengths = []
         prices = []
         n = 0
 
         self.assertEqual(rod_cutting(prices, n), 0)
 
     def test_rod_cutting_single_piece(self):
-        lengths = [1]
         prices = [2]
         n = 1
 
         self.assertEqual(rod_cutting(prices, n), 2)
 
     def test_rod_cutting_identical_prices(self):
-        lengths = [1, 2, 3, 4]
         prices = [5, 5, 5, 5]
         n = 4
 
         self.assertEqual(rod_cutting(prices, n), 20)
 
     def test_rod_cutting_large_input(self):
-        lengths = list(range(1, 101))
+        list(range(1, 101))
         prices = list(range(100, 0, -1))
         n = 100
 

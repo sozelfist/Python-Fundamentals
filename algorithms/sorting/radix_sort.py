@@ -1,8 +1,7 @@
 import unittest
-from typing import List
 
 
-def radix_sort(arr: List[int]) -> List[int]:
+def radix_sort(arr: list[int]) -> list[int]:
     if not arr:
         return arr
     max_val = max(arr)
@@ -13,7 +12,7 @@ def radix_sort(arr: List[int]) -> List[int]:
     return arr
 
 
-def counting_sort(arr: List[int], exp: int):
+def counting_sort(arr: list[int], exp: int):
     n = len(arr)
     output = [0] * n
     count = [0] * 10

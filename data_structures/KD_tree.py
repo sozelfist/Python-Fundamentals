@@ -1,10 +1,9 @@
-import unittest
-from typing import List, Tuple
 import heapq
+import unittest
 
 
 class KDNode:
-    def __init__(self, point: Tuple[float, ...], left_child=None, right_child=None, axis=None):
+    def __init__(self, point: tuple[float, ...], left_child=None, right_child=None, axis=None):
         self.point = point
         self.left_child = left_child
         self.right_child = right_child
@@ -12,7 +11,7 @@ class KDNode:
 
 
 class KDTree:
-    def __init__(self, points: List[Tuple[float, ...]]):
+    def __init__(self, points: list[tuple[float, ...]]):
         def build_tree(points, depth):
             if not points:
                 return None
@@ -27,7 +26,7 @@ class KDTree:
             )
         self.root = build_tree(points, depth=0)
 
-    def search_knn(self, query: Tuple[float, ...], k: int) -> List[Tuple[float, ...]]:
+    def search_knn(self, query: tuple[float, ...], k: int) -> list[tuple[float, ...]]:
         def search_node(node, query, k, heap):
             if not node:
                 return

@@ -1,5 +1,6 @@
 import unittest
-from typing import Any, Callable, Dict, Tuple, Union
+from collections.abc import Callable
+from typing import Any
 
 
 def check_permission(role: str) -> bool:
@@ -8,7 +9,7 @@ def check_permission(role: str) -> bool:
 
 def permission(role: str) -> Callable:
     def decorator(func: Callable) -> Callable:
-        def wrapper(*args: Union[Any, Tuple[Any, ...]], **kwargs: Dict[str, Any]) -> Any:
+        def wrapper(*args: Any | tuple[Any, ...], **kwargs: dict[str, Any]) -> Any:
             if check_permission(role):
                 return func(*args, **kwargs)
             else:

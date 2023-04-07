@@ -1,18 +1,18 @@
-from typing import List, Optional
 import unittest
+from typing import Optional
 
 
 class Node:
     def __init__(self, value: int, parent: Optional['Node'] = None):
         self.value = value
         self.parent = parent
-        self.left: Optional[Node] = None
-        self.right: Optional[Node] = None
+        self.left: Node | None = None
+        self.right: Node | None = None
 
     def __repr__(self):
         return str(self.value)
 
-    def inorder_traversal(self) -> List[int]:
+    def inorder_traversal(self) -> list[int]:
         values = []
         if self.left is not None:
             values.extend(self.left.inorder_traversal())
@@ -23,10 +23,10 @@ class Node:
 
 
 class CartesianTree:
-    def __init__(self, arr: List[int]):
+    def __init__(self, arr: list[int]):
         self.root = self.construct_cartesian_tree(arr)
 
-    def construct_cartesian_tree(self, arr: List[int]) -> Optional[Node]:
+    def construct_cartesian_tree(self, arr: list[int]) -> Node | None:
         if not arr:
             return None
 
@@ -43,7 +43,7 @@ class CartesianTree:
 
         return node
 
-    def inorder_traversal(self) -> List[int]:
+    def inorder_traversal(self) -> list[int]:
         if self.root is not None:
             return self.root.inorder_traversal()
         else:

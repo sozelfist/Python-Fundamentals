@@ -1,5 +1,6 @@
-import unittest
 import math
+import unittest
+
 import scipy.integrate as spi
 
 

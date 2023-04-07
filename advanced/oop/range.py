@@ -1,11 +1,10 @@
 import unittest
-from typing import Union
 
 
 class Range:
     """ A class that mimic's the built-in range class """
 
-    def __init__(self, start: int, stop: Union[int, None] = None, step: int = 1):
+    def __init__(self, start: int, stop: int | None = None, step: int = 1):
         """ Initialize a Range instance
         Semantics is similar to built-in range class """
 
@@ -138,9 +137,9 @@ class TestRange(unittest.TestCase):
 
     def test_input_validation(self):
         with self.assertRaises(TypeError):
-            r1 = Range("10")
+            Range("10")
         with self.assertRaises(ValueError):
-            r2 = Range(10, step=0)
+            Range(10, step=0)
 
 
 if __name__ == '__main__':
