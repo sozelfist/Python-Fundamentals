@@ -20,8 +20,10 @@ def nesterov_accelerated_gradient_descent(
 
     for i in range(num_iterations):
         # calculate gradients using the previous parameters with momentum
-        dw = (linear_model(x, w - momentum * v_dw, b - momentum * v_db) - y).dot(x) / len(x)
-        db = (linear_model(x, w - momentum * v_dw, b - momentum * v_db) - y).mean()
+        dw = (linear_model(x, w - momentum * v_dw, b - momentum * v_db) - y)\
+            .dot(x) / len(x)
+        db = (linear_model(x, w - momentum * v_dw, b - momentum * v_db) - y)\
+            .mean()
 
         # update parameters with momentum
         v_dw = momentum * v_dw + (1 - momentum) * dw
@@ -54,7 +56,8 @@ if __name__ == '__main__':
             # run NAG
             learning_rate = 0.01
             num_iterations = 5000
-            final_w, final_b = nesterov_accelerated_gradient_descent(x, y, w, b, learning_rate, num_iterations)
+            final_w, final_b = nesterov_accelerated_gradient_descent(
+                x, y, w, b, learning_rate, num_iterations)
 
             self.assertAlmostEqual(final_w, 2, delta=1e-2)
             self.assertAlmostEqual(final_b, 3, delta=1e-2)

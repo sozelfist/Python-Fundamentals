@@ -1,5 +1,3 @@
-
-
 def extended_euclidean(a: int, b: int) -> tuple[int, int, int]:
     if b == 0:
         return (a, 1, 0)

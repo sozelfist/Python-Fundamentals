@@ -2,7 +2,9 @@ import unittest
 from collections import deque
 
 
-def ford_fulkerson(n: int, edges: list[tuple[int, int, int]], s: int, t: int) -> int:
+def ford_fulkerson(
+        n: int, edges: list[tuple[int, int, int]], s: int, t: int
+) -> int:
     # Initialize the residual graph
     residual = [[0 for _ in range(n)] for _ in range(n)]
     for u, v, w in edges:
@@ -69,7 +71,8 @@ class TestFordFulkerson(unittest.TestCase):
 
     def test_complex(self):
         n = 5
-        edges = [(0, 1, 9), (0, 3, 5), (1, 2, 2), (1, 3, 4), (2, 4, 4), (3, 2, 1), (3, 4, 6)]
+        edges = [(0, 1, 9), (0, 3, 5), (1, 2, 2), (1, 3, 4),
+                 (2, 4, 4), (3, 2, 1), (3, 4, 6)]
         s = 0
         t = 4
         self.assertEqual(ford_fulkerson(n, edges, s, t), 9)

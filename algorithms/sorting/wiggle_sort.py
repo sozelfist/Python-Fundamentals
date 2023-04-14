@@ -15,7 +15,8 @@ def wiggle_sort(nums: list[int]) -> None:
 
     nums.sort()  # Sort the list in ascending order.
     for i in range(1, len(nums) - 1, 2):
-        nums[i], nums[i + 1] = nums[i + 1], nums[i]  # Swap every other element with its adjacent element.
+        # Swap every other element with its adjacent element.
+        nums[i], nums[i + 1] = nums[i + 1], nums[i]
 
 
 class TestWiggleSort(unittest.TestCase):

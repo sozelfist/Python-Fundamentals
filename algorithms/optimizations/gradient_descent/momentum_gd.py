@@ -49,7 +49,9 @@ class TestMomentumGradientDescent(unittest.TestCase):
         # run gradient descent
         learning_rate = 0.01
         num_iterations = 3000
-        final_w, final_b = momentum_gradient_descent(x, y, w, b, learning_rate, num_iterations)
+        final_w, final_b = momentum_gradient_descent(
+            x, y, w, b, learning_rate, num_iterations
+        )
 
         self.assertAlmostEqual(final_w, 2.000, delta=1e-2)
         self.assertAlmostEqual(final_b, 3.000, delta=1e-2)

@@ -12,8 +12,10 @@ def cost_function(x: np.ndarray, y: np.ndarray, w: float, b: float) -> float:
     return ((predictions - y)**2).mean()
 
 
-def mini_batch_gradient_descent(x: np.ndarray, y: np.ndarray, w: float, b: float,
-                                learning_rate: float, num_iterations: int, batch_size: int):
+def mini_batch_gradient_descent(
+    x: np.ndarray, y: np.ndarray, w: float, b: float,
+    learning_rate: float, num_iterations: int, batch_size: int
+):
     for _i in range(num_iterations):
         # shuffle data
         indices = np.random.permutation(len(x))
@@ -54,8 +56,10 @@ class TestGradientDescent(unittest.TestCase):
         self.batch_size = 2
 
     def test_mini_batch_gradient_descent(self):
-        final_w, final_b = mini_batch_gradient_descent(self.x, self.y, self.w, self.b, self.learning_rate,
-                                                       self.num_iterations, self.batch_size)
+        final_w, final_b = mini_batch_gradient_descent(
+            self.x, self.y, self.w, self.b, self.learning_rate,
+            self.num_iterations, self.batch_size
+        )
         self.assertAlmostEqual(final_w, 2.000, delta=1e-2)
         self.assertAlmostEqual(final_b, 3.000, delta=1e-2)
 

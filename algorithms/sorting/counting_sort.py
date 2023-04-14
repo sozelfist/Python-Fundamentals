@@ -36,7 +36,10 @@ class TestCountingSort(unittest.TestCase):
         self.assertEqual(counting_sort([5, 4, 3, 2, 1], 1), [1, 2, 3, 4, 5])
 
     def test_negative_elements(self):
-        self.assertEqual(counting_sort([-5, -4, -3, -2, -1], 1), [-5, -4, -3, -2, -1])
+        self.assertEqual(
+            counting_sort([-5, -4, -3, -2, -1], 1),
+            [-5, -4, -3, -2, -1]
+        )
 
 
 if __name__ == '__main__':

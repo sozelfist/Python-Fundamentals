@@ -15,12 +15,16 @@ def find_subsets(nums: list[int]) -> list[list[int]]:
 class TestFindSubsets(unittest.TestCase):
     def test_find_subsets(self):
         nums = [1, 2, 3]
-        expected_output = [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]
+        expected_output = [
+            [], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]
+        ]
         self.assertEqual(find_subsets(nums), expected_output)
 
     def test_find_subsets_with_duplicates(self):
         nums = [1, 2, 2]
-        expected_output = [[], [1], [1, 2], [1, 2, 2], [1, 2], [2], [2, 2], [2]]
+        expected_output = [
+            [], [1], [1, 2], [1, 2, 2], [1, 2], [2], [2, 2], [2]
+        ]
         self.assertEqual(find_subsets(nums), expected_output)
 
     def test_find_subsets_with_empty_input(self):

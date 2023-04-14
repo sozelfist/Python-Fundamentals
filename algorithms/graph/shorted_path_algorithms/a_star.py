@@ -2,7 +2,10 @@ import heapq
 import unittest
 
 
-def a_star(adj_list: list[list[tuple[int, int]]], heuristics: list[int], start: int, goal: int) -> list[int]:
+def a_star(
+    adj_list: list[list[tuple[int, int]]], heuristics: list[int],
+    start: int, goal: int
+) -> list[int]:
     n = len(adj_list)
     dist = {v: float('inf') for v in range(n)}
     dist[start] = 0
@@ -16,7 +19,8 @@ def a_star(adj_list: list[list[tuple[int, int]]], heuristics: list[int], start: 
             break
 
         for neighbor, weight in adj_list[current]:
-            cost = dist[current] + weight + heuristics[neighbor] - heuristics[current]
+            cost = dist[current] + weight + \
+                heuristics[neighbor] - heuristics[current]
             if cost < dist[neighbor]:
                 dist[neighbor] = cost
                 came_from[neighbor] = current

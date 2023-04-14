@@ -16,7 +16,10 @@ class TestPermute(unittest.TestCase):
     def test_permute(self):
         items = [1, 2, 3]
         result = permute(items)
-        self.assertEqual(result, [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]])
+        self.assertEqual(
+            result,
+            [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+        )
 
         items = [4, 5]
         result = permute(items)

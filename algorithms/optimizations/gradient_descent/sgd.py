@@ -14,7 +14,8 @@ def cost_function(x: np.ndarray, y: np.ndarray, w: float, b: float) -> float:
 
 
 def stochastic_gradient_descent(
-        x: np.ndarray, y: np.ndarray, w: float, b: float, learning_rate: float, num_iterations: int
+        x: np.ndarray, y: np.ndarray, w: float, b: float,
+        learning_rate: float, num_iterations: int
 ) -> tuple[float, float]:
     for i in range(num_iterations):
         # shuffle data
@@ -56,7 +57,9 @@ class TestStochasticGradientDescent(unittest.TestCase):
         # run gradient descent
         learning_rate = 0.01
         num_iterations = 500
-        final_w, final_b = stochastic_gradient_descent(x, y, w, b, learning_rate, num_iterations)
+        final_w, final_b = stochastic_gradient_descent(
+            x, y, w, b, learning_rate, num_iterations
+        )
 
         # Check final values are as expected
         self.assertAlmostEqual(final_w, 2.0, delta=0.1)

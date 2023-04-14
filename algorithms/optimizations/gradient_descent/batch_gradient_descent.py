@@ -43,7 +43,9 @@ class TestBatchGradientDescent(unittest.TestCase):
         b = 1
         learning_rate = 0.01
         num_iterations = 5000
-        final_w, final_b = batch_gradient_descent(x, y, w, b, learning_rate, num_iterations)
+        final_w, final_b = batch_gradient_descent(
+            x, y, w, b, learning_rate, num_iterations
+        )
         self.assertAlmostEqual(final_w, 2.0003, delta=0.001)
         self.assertAlmostEqual(final_b, 2.9992, delta=0.001)
 

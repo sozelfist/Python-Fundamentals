@@ -36,7 +36,10 @@ def bfs(graph: list[list[Edge]], level: list[int], s: int, t: int) -> bool:
     return level[t] >= 0
 
 
-def dfs(graph: list[list[Edge]], level: list[int], iter: list[int], u: int, t: int, f: int) -> int:
+def dfs(
+    graph: list[list[Edge]], level: list[int], iter: list[int],
+    u: int, t: int, f: int
+) -> int:
     if u < 0 or u >= len(graph) or t < 0 or t >= len(graph):
         raise ValueError("Invalid vertex index")
     if u == t:

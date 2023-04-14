@@ -16,7 +16,9 @@ def cost_function(
     return ((predictions - y)**2).mean()
 
 
-def grad_cost_function(params: list[float], x: np.ndarray, y: np.ndarray) -> np.ndarray:
+def grad_cost_function(
+    params: list[float], x: np.ndarray, y: np.ndarray
+) -> np.ndarray:
     w, b = params
     dw = (linear_model(x, w, b) - y).dot(x) / len(x)
     db = (linear_model(x, w, b) - y).mean()
@@ -34,7 +36,10 @@ class TestLinearModel(unittest.TestCase):
         params = [1, 1]
 
         # run L-BFGS
-        res = minimize(cost_function, params, args=(x, y), method='L-BFGS-B', jac=grad_cost_function)
+        res = minimize(
+            cost_function, params, args=(x, y),
+            method='L-BFGS-B', jac=grad_cost_function
+        )
 
         final_w, final_b = res.x
         expected_w, expected_b = (2, 3)

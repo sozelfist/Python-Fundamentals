@@ -2,8 +2,11 @@ import unittest
 
 
 def hamilton_cycle(graph: list[list[int]], start: int) -> list[int] | None:
-    def backtrack(curr_node: int, visited: list[bool], path: list[int]) -> list[int] | None:
-        # If all vertices have been visited and the last vertex is adjacent to the start vertex,
+    def backtrack(
+        curr_node: int, visited: list[bool], path: list[int]
+    ) -> list[int] | None:
+        # If all vertices have been visited and the last vertex
+        # is adjacent to the start vertex,
         # return the path with the start vertex appended to form a cycle
         if len(path) == len(graph) and graph[curr_node][start] == 1:
             return path + [start]

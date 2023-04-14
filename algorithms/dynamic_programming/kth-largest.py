@@ -3,7 +3,8 @@ import unittest
 
 def quickselect(arr, k):
     """
-    Returns the k-th largest element in the array using the Quickselect algorithm.
+    Returns the k-th largest element in the array using the
+    Quickselect algorithm.
     """
     if not arr or k > len(arr) or k <= 0:
         raise IndexError("k is out of bounds")
@@ -18,7 +19,8 @@ def quickselect(arr, k):
     elif k > len(left) + len(equal):
         return quickselect(right, k - len(left) - len(equal))
     else:
-        return equal[0] if len(equal) == 1 else quickselect(equal[1:] + right, k - len(left))
+        return equal[0] if len(equal) == 1 else\
+            quickselect(equal[1:] + right, k - len(left))
 
 
 class TestQuickselect(unittest.TestCase):

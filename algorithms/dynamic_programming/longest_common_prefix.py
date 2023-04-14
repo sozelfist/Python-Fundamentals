@@ -9,7 +9,8 @@ import unittest
 #         strs: A list of strings to search for a common prefix.
 
 #     Returns:
-#         The longest common prefix string, or an empty string if there is no common prefix.
+#         The longest common prefix string, or an empty string
+#         if there is no common prefix.
 #     """
 #     if not strs:
 #         return ""
@@ -41,7 +42,8 @@ import unittest
 
 #     prefix = ""
 #     for i in range(min_len):
-#         # Use the zip function to group the characters of the strings together
+#         # Use the zip function to group the characters of the strings
+#         # together
 #         group = [s[i] for s in strs]
 #         if all(c == group[0] for c in group):
 #             prefix += group[0]
@@ -87,16 +89,24 @@ class TestLongestCommonPrefix(unittest.TestCase):
         self.assertEqual(longest_common_prefix(["hello"]), "hello")
 
     def test_common_prefix(self):
-        self.assertEqual(longest_common_prefix(["apple", "app", "apartment", "apricot"]), "ap")
+        self.assertEqual(longest_common_prefix(
+            ["apple", "app", "apartment", "apricot"]), "ap")
 
     def test_duplicate_strings(self):
-        self.assertEqual(longest_common_prefix(["hello", "hello", "hello"]), "hello")
+        self.assertEqual(
+            longest_common_prefix(["hello", "hello", "hello"]),
+            "hello"
+        )
 
     def test_one_empty_string(self):
         self.assertEqual(longest_common_prefix(["", "hello", "world"]), "")
 
     def test_unicode_strings(self):
-        self.assertEqual(longest_common_prefix(["བོད་སྐད་གསར་བརྙན་", "བསྟན་པའི་སྒྲུབ་པའི་ལས་དོན་"]), "བ")
+        self.assertEqual(
+            longest_common_prefix(
+                ["བོད་སྐད་གསར་བརྙན་", "བསྟན་པའི་སྒྲུབ་པའི་ལས་དོན་"]),
+            "བ"
+        )
 
 
 if __name__ == '__main__':

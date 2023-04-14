@@ -1,20 +1,22 @@
 """
-    The Relabel-to-Front algorithm is an efficient algorithm for solving the maximum
-    flow problem in a flow network. The algorithm maintains a list of active nodes and
-    repeatedly pushes flow from active nodes to their neighbors until no more flow can
-    be pushed. If a node has excess flow that it cannot push to any neighbor, it is
-    relabeled to a new height to allow it to push flow again in the future.
+    The Relabel-to-Front algorithm is an efficient algorithm
+    for solving the maximum flow problem in a flow network.
+    The algorithm maintains a list of active nodes and repeatedly
+    pushes flow from active nodes to their neighbors until no more
+    flow can be pushed. If a node has excess flow that it cannot
+    push to any neighbor, it is relabeled to a new height to allow
+    it to push flow again in the future.
 
-    The algorithm uses a height labeling scheme to determine the order in which nodes
-    are processed. Each node is assigned a height, which represents the distance from
-    the node to the sink node in the residual graph. Nodes are processed in order of
-    decreasing height, and each node is processed repeatedly until it has no more excess
-    flow to push.
+    The algorithm uses a height labeling scheme to determine the order
+    in which nodes are processed. Each node is assigned a height, which
+    represents the distance from the node to the sink node in the residual
+    graph. Nodes are processed in order of decreasing height, and each
+    node is processed repeatedly until it has no more excess flow to push.
 
-    This implementation uses a matrix to represent the flow and capacity, and assumes
-    that the flow network is represented as an adjacency matrix. The matrix C represents
-    the capacity of the edges, and the function returns the maximum flow from the source
-    node to the sink node.
+    This implementation uses a matrix to represent the flow and capacity, and
+    assumes that the flow network is represented as an adjacency matrix. The
+    matrix C represents the capacity of the edges, and the function returns
+    the maximum flow from the source node to the sink node.
 """
 
 import unittest
@@ -22,11 +24,13 @@ import unittest
 
 def relabel_to_front(C, source: int, sink: int) -> int:
     """
-    Finds the maximum flow in a directed graph using the Relabel-to-Front algorithm.
+    Finds the maximum flow in a directed graph using the Relabel-to-Front
+    algorithm.
 
     Args:
-        C (List[List[int]]): The capacity matrix of the graph. C[u][v] is the capacity of the edge (u, v).
-        source (int): The source node of the graph.
+        C (List[List[int]]): The capacity matrix of the graph. C[u][v] is the
+        capacity of the edge (u, v). source (int): The source node of the
+        graph.
         sink (int): The sink node of the graph.
 
     Returns:
@@ -52,7 +56,8 @@ def relabel_to_front(C, source: int, sink: int) -> int:
         excess[v] += send
 
     def relabel(u):
-        """Relabels the height of node u to the smallest height that would allow a push from u to its neighbours."""
+        """Relabels the height of node u to the smallest height that would
+        allow a push from u to its neighbours."""
         min_height = float("inf")
         for v in range(n):
             if C[u][v] - F[u][v] > 0:
@@ -73,7 +78,8 @@ def relabel_to_front(C, source: int, sink: int) -> int:
                 seen[u] = 0
 
     height[source] = n  # longest path from source to sink is less than n long
-    excess[source] = float("inf")  # type: ignore # send as much flow as possible to neighbours of source
+    # type: ignore # send as much flow as possible to neighbours of source
+    excess[source] = float("inf")
     for v in range(n):
         push(source, v)
 

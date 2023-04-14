@@ -3,21 +3,24 @@ import unittest
 
 def transitive_closure(graph: list[list[int]]) -> list[list[int]]:
     """
-    Calculates the transitive closure of a directed graph using Warshall's algorithm.
+    Calculates the transitive closure of a directed graph using Warshall's
+    algorithm.
 
     Args:
-        graph: A list of lists representing the adjacency matrix of the graph. Each
-            row i represents the outgoing edges from vertex i, where graph[i][j] is 1
-            if there is a directed edge from i to j, and 0 otherwise.
+        graph: A list of lists representing the adjacency matrix of the graph.
+        Each row i represents the outgoing edges from vertex i,
+        where graph[i][j] is 1 if there is a directed edge from i to j,
+        and 0 otherwise.
 
     Returns:
-        A list of lists representing the adjacency matrix of the transitive closure of
-        the graph. Each row i represents the outgoing edges from vertex i, where the
-        value of transitive_closure[i][j] is 1 if there is a directed path from i to j
-        in the original graph, and 0 otherwise.
+        A list of lists representing the adjacency matrix of the transitive
+        closure of the graph. Each row i represents the outgoing edges from
+        vertex i, where the value of transitive_closure[i][j] is 1 if there
+        is a directed path from i to j in the original graph, and 0 otherwise.
 
     Raises:
-        ValueError: If the input matrix is not square or contains invalid entries.
+        ValueError: If the input matrix is not square or contains
+        invalid entries.
     """
 
     # Check that the input is a square matrix

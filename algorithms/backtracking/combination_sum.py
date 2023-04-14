@@ -24,19 +24,23 @@ class TestCombinationSum(unittest.TestCase):
         candidates = [2, 3, 6, 7]
         target = 7
         expected_output = [[2, 2, 3], [7]]
-        self.assertCountEqual(combination_sum(candidates, target), expected_output)
+        self.assertCountEqual(combination_sum(
+            candidates, target), expected_output)
 
     def test_combination_sum_with_normal_target(self):
         candidates = [2, 4, 6, 8]
         target = 10
-        expected_output = [[2, 2, 2, 2, 2], [2, 2, 2, 4], [2, 2, 6], [2, 4, 4], [2, 8], [4, 6]]
-        self.assertCountEqual(combination_sum(candidates, target), expected_output)
+        expected_output = [[2, 2, 2, 2, 2], [2, 2, 2, 4],
+                           [2, 2, 6], [2, 4, 4], [2, 8], [4, 6]]
+        self.assertCountEqual(combination_sum(
+            candidates, target), expected_output)
 
     def test_combination_sum_with_large_target(self):
         candidates = [3, 5, 7, 9]
         target = 12
         expected_output = [[3, 3, 3, 3], [3, 9], [5, 7]]
-        self.assertCountEqual(combination_sum(candidates, target), expected_output)
+        self.assertCountEqual(combination_sum(
+            candidates, target), expected_output)
 
 
 if __name__ == '__main__':

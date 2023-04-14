@@ -60,15 +60,20 @@ class TestTarjan(unittest.TestCase):
 
     def test_strongly_connected_components_of_size_1(self):
         g = create_graph(5, [(0, 1), (1, 2), (2, 0)])
-        self.assertEqual(strongly_connected_components(g), [[2, 1, 0], [3], [4]])
+        self.assertEqual(
+            strongly_connected_components(g),
+            [[2, 1, 0], [3], [4]]
+        )
 
     def test_strongly_connected_components_of_size_2(self):
         g = create_graph(5, [(0, 1), (1, 2), (2, 0), (3, 4), (4, 3)])
         self.assertEqual(strongly_connected_components(g), [[2, 1, 0], [4, 3]])
 
     def test_strongly_connected_components_of_size_3(self):
-        g = create_graph(7, [(0, 1), (1, 2), (2, 0), (3, 4), (4, 3), (3, 5), (5, 6), (6, 3)])
-        self.assertEqual(strongly_connected_components(g), [[2, 1, 0], [6, 5, 4, 3]])
+        g = create_graph(7, [(0, 1), (1, 2), (2, 0), (3, 4),
+                         (4, 3), (3, 5), (5, 6), (6, 3)])
+        self.assertEqual(strongly_connected_components(g),
+                         [[2, 1, 0], [6, 5, 4, 3]])
 
 
 if __name__ == '__main__':

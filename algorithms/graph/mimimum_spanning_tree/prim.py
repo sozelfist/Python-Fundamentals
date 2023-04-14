@@ -2,7 +2,9 @@ import heapq
 import unittest
 
 
-def prim(n: int, edges: list[tuple[int, int, int]], start: int) -> list[tuple[int, int]]:
+def prim(
+    n: int, edges: list[tuple[int, int, int]], start: int
+) -> list[tuple[int, int]]:
     if n == 0:
         return []
 
@@ -22,7 +24,9 @@ def prim(n: int, edges: list[tuple[int, int, int]], start: int) -> list[tuple[in
     return mst
 
 
-def create_graph(n: int, edges: list[tuple[int, int, int]]) -> list[list[tuple[int, int]]]:
+def create_graph(
+    n: int, edges: list[tuple[int, int, int]]
+) -> list[list[tuple[int, int]]]:
     graph = [[] for _ in range(n)]
     for u, v, w in edges:
         graph[u].append((v, w))
@@ -57,7 +61,8 @@ class TestPrim(unittest.TestCase):
 
     def test_small_graph(self):
         n = 5
-        edges = [(0, 1, 1), (0, 2, 2), (1, 2, 3), (1, 3, 4), (2, 3, 5), (3, 4, 6)]
+        edges = [(0, 1, 1), (0, 2, 2), (1, 2, 3),
+                 (1, 3, 4), (2, 3, 5), (3, 4, 6)]
         start = 0
         result = prim(n, edges, start)
         expected = [(0, 1), (0, 2), (1, 3), (3, 4)]
@@ -65,11 +70,15 @@ class TestPrim(unittest.TestCase):
 
     def test_large_graph(self):
         n = 10
-        edges = [(0, 1, 1), (0, 2, 2), (1, 2, 3), (1, 3, 4), (2, 3, 5), (3, 4, 6),
-                 (4, 5, 7), (5, 6, 8), (6, 7, 9), (7, 8, 10), (8, 9, 11)]
+        edges = [
+            (0, 1, 1), (0, 2, 2), (1, 2, 3), (1, 3, 4),
+            (2, 3, 5), (3, 4, 6), (4, 5, 7), (5, 6, 8),
+            (6, 7, 9), (7, 8, 10), (8, 9, 11)
+        ]
         start = 0
         result = prim(n, edges, start)
-        expected = [(0, 1), (1, 3), (0, 2), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9)]
+        expected = [(0, 1), (1, 3), (0, 2), (3, 4), (4, 5),
+                    (5, 6), (6, 7), (7, 8), (8, 9)]
         self.assertCountEqual(result, expected)
 
 

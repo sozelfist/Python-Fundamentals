@@ -3,19 +3,25 @@ import unittest
 import numpy as np
 
 
-def markov_chain(transitions: list[list[float]], initial_state: int, num_steps: int) -> list[int]:
+def markov_chain(
+    transitions: list[list[float]], initial_state: int, num_steps: int
+) -> list[int]:
     """
-    Simulate a discrete-time Markov chain with a given transition matrix, starting state, and number of steps.
+    Simulate a discrete-time Markov chain with a given transition matrix,
+    starting state, and number of steps.
 
     Args:
-    - transitions: a list of lists representing the transition probabilities between states, where
-      transitions[i][j] is the probability of transitioning from state i to state j.
-    - initial_state: an integer representing the starting state of the Markov chain.
-    - num_steps: an integer representing the number of steps to simulate the Markov chain.
+    - transitions: a list of lists representing the transition probabilities
+    between states, where transitions[i][j] is the probability of
+    transitioning from state i to state j.
+    - initial_state: an integer representing the starting state of the Markov
+    chain.
+    - num_steps: an integer representing the number of steps to simulate the
+    Markov chain.
 
     Returns:
-    - A list of integers representing the sequence of states visited by the Markov chain, starting with the
-      initial state.
+    - A list of integers representing the sequence of states visited by the
+    Markov chain, starting with the initial state.
     """
     # Convert the transition matrix to a numpy array for faster computations
     transitions = np.array(transitions)
@@ -48,7 +54,8 @@ class TestMarkovChain(unittest.TestCase):
         # Call the markov_chain function to simulate the Markov chain
         states = markov_chain(transitions, initial_state, num_steps)
 
-        # Check that the length of the output sequence is equal to num_steps + 1 (accounting for the initial state)
+        # Check that the length of the output
+        # sequence is equal to num_steps + 1 (accounting for the initial state)
         self.assertEqual(len(states), num_steps + 1)
 
         # Check that all elements in the output sequence are either 0 or 1
@@ -64,10 +71,12 @@ class TestMarkovChain(unittest.TestCase):
         # Call the markov_chain function to simulate the Markov chain
         states = markov_chain(transitions, initial_state, num_steps)
 
-        # Check that the length of the output sequence is equal to num_steps + 1 (accounting for the initial state)
+        # Check that the length of the output sequence
+        # is equal to num_steps + 1 (accounting for the initial state)
         self.assertEqual(len(states), num_steps + 1)
 
-        # Check that the proportion of time spent in each state converges to the stationary distribution
+        # Check that the proportion of time spent in
+        # each state converges to the stationary distribution
         # (0.5 for each state)
         self.assertAlmostEqual(states.count(0) / len(states), 0.5, places=1)
         self.assertAlmostEqual(states.count(1) / len(states), 0.5, places=1)

@@ -10,7 +10,8 @@ class ListNode:
 
 def has_cycle(head: ListNode | None) -> bool:
     """
-    Determines whether a linked list has a cycle using the Floyd cycle detection algorithm.
+    Determines whether a linked list has a cycle using
+    the Floyd cycle detection algorithm.
 
     Args:
         head (Optional[ListNode]): The head node of the linked list.

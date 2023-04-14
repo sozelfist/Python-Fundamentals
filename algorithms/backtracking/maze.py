@@ -1,9 +1,11 @@
 import unittest
 
-# Define a type alias for a maze, which is represented as a 2D grid of characters.
+# Define a type alias for a maze, which is represented as a 2D grid
+# of characters.
 Maze = list[list[str]]
 
-# Define a type alias for a point in the maze, which is represented as a tuple of x and y coordinates.
+# Define a type alias for a point in the maze, which is represented
+# as a tuple of x and y coordinates.
 Point = tuple[int, int]
 
 
@@ -16,8 +18,8 @@ def find_path(maze: Maze, start: Point, end: Point) -> list[Point]:
         end: A tuple of x and y coordinates representing the end point.
 
     Returns:
-        A list of tuples representing the path from the starting point to the end point,
-        or an empty list if no path is found.
+        A list of tuples representing the path from the starting point to the
+        end point, or an empty list if no path is found.
     """
     # Define a recursive helper function to explore all possible paths.
     def explore_path(path: list[Point], current: Point) -> list[Point]:
@@ -28,12 +30,14 @@ def find_path(maze: Maze, start: Point, end: Point) -> list[Point]:
         if current == end:
             return path
 
-        # Try moving in each of the four possible directions (up, down, left, right).
+        # Try moving in each of the four possible directions
+        # (up, down, left, right).
         for dx, dy in [(0, -1), (0, 1), (-1, 0), (1, 0)]:
             x, y = current[0] + dx, current[1] + dy
 
             # Check that the new position is within the maze and not a wall.
-            if 0 <= x < len(maze) and 0 <= y < len(maze[0]) and maze[x][y] != '#':
+            if 0 <= x < len(maze) and 0 <= y < len(maze[0])\
+                    and maze[x][y] != '#':
 
                 # Check that we haven't already visited this position.
                 if (x, y) not in path:
@@ -45,7 +49,8 @@ def find_path(maze: Maze, start: Point, end: Point) -> list[Point]:
                     if new_path:
                         return new_path
 
-        # If we've explored all possible paths from this position and haven't found a solution, backtrack.
+        # If we've explored all possible paths from this position and
+        # haven't found a solution, backtrack.
         path.pop()
         return []
 
@@ -80,8 +85,10 @@ class TestFindPath(unittest.TestCase):
         ]
         start = (1, 1)
         end = (5, 7)
-        expected_path = [(1, 1), (1, 2), (1, 3), (2, 3), (3, 3), (3, 4), (3, 5), (2, 5),
-                         (1, 5), (1, 6), (1, 7), (2, 7), (3, 7), (4, 7), (5, 7)]
+        expected_path = [
+            (1, 1), (1, 2), (1, 3), (2, 3), (3, 3), (3, 4), (3, 5), (2, 5),
+            (1, 5), (1, 6), (1, 7), (2, 7), (3, 7), (4, 7), (5, 7)
+        ]
         path = find_path(maze, start, end)
         self.assertEqual(path, expected_path)
 

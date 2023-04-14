@@ -45,7 +45,9 @@ class TestAdaGrad(unittest.TestCase):
         b = 1
         learning_rate = 0.01
         num_iterations = 5000
-        final_w, final_b = adaptive_gradient_descent(x, y, w, b, learning_rate, num_iterations)
+        final_w, final_b = adaptive_gradient_descent(
+            x, y, w, b, learning_rate, num_iterations
+        )
         self.assertAlmostEqual(final_w, 2.0121, delta=0.001)
         self.assertAlmostEqual(final_b, 2.0325, delta=0.001)
 

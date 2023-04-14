@@ -9,12 +9,14 @@ def exist(board: list[list[str]], word: str) -> bool:
         if len(word) == 0:
             return True
 
-        if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]) or board[i][j] != word[0]:
+        if i < 0 or i >= len(board) or j < 0 or j >= len(board[0])\
+                or board[i][j] != word[0]:
             return False
 
         temp, board[i][j] = board[i][j], "#"
         res = backtrack(i + 1, j, word[1:]) or \
-            backtrack(i - 1, j, word[1:]) or backtrack(i, j + 1, word[1:]) or backtrack(i, j - 1, word[1:])
+            backtrack(i - 1, j, word[1:])\
+            or backtrack(i, j + 1, word[1:]) or backtrack(i, j - 1, word[1:])
         board[i][j] = temp
 
         return res

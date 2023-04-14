@@ -45,7 +45,10 @@ class TestMergeSort(unittest.TestCase):
         self.assertEqual(merge_sort([0, 0, 0, 0, 0]), [0, 0, 0, 0, 0])
 
     def test_sorting_of_list_with_negative_elements(self):
-        self.assertEqual(merge_sort([-1, -5, -3, -2, -4]), [-5, -4, -3, -2, -1])
+        self.assertEqual(
+            merge_sort([-1, -5, -3, -2, -4]),
+            [-5, -4, -3, -2, -1]
+        )
 
     def test_sorting_of_list_with_empty_list(self):
         self.assertEqual(merge_sort([]), [])

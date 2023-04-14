@@ -30,8 +30,14 @@ class TestHeapSort(unittest.TestCase):
     def test_heap_sort(self):
         self.assertEqual(heap_sort([3, 2, 1]), [1, 2, 3])
         self.assertEqual(heap_sort([5, 2, 9, 1, 5]), [1, 2, 5, 5, 9])
-        self.assertEqual(heap_sort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-        self.assertEqual(heap_sort([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        self.assertEqual(
+            heap_sort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]),
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        )
+        self.assertEqual(
+            heap_sort([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        )
         self.assertEqual(heap_sort([1]), [1])
         self.assertEqual(heap_sort([3, 2, 1, 2, 3]), [1, 2, 2, 3, 3])
         self.assertEqual(heap_sort([-5, 2, 9, 1, -2]), [-5, -2, 1, 2, 9])

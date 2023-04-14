@@ -26,15 +26,31 @@ class TestHuffmanCoding(unittest.TestCase):
     def test_huffman_coding(self):
         freq = {'a': 5, 'b': 9, 'c': 12, 'd': 13, 'e': 16, 'f': 45}
         result = huffman_coding(freq)
-        self.assertDictEqual(result, {'a': '1100', 'b': '1101', 'c': '100', 'd': '101', 'e': '111', 'f': '0'})
+        self.assertDictEqual(
+            result,
+            {'a': '1100', 'b': '1101', 'c': '100',
+                'd': '101', 'e': '111', 'f': '0'}
+        )
 
         freq = {'a': 1, 'b': 1, 'c': 1, 'd': 1, 'e': 1, 'f': 1}
         result = huffman_coding(freq)
-        self.assertDictEqual(result, {'a': '100', 'b': '101', 'c': '110', 'd': '111', 'e': '00', 'f': '01'})
+        self.assertDictEqual(
+            result,
+            {
+                'a': '100', 'b': '101', 'c': '110',
+                'd': '111', 'e': '00', 'f': '01'
+            }
+        )
 
         freq = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6}
         result = huffman_coding(freq)
-        self.assertDictEqual(result, {'a': '1000', 'b': '1001', 'c': '101', 'd': '00', 'e': '01', 'f': '11'})
+        self.assertDictEqual(
+            result,
+            {
+                'a': '1000', 'b': '1001', 'c': '101',
+                'd': '00', 'e': '01', 'f': '11'
+            }
+        )
 
 
 if __name__ == '__main__':

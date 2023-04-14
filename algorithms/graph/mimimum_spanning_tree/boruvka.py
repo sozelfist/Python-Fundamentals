@@ -1,7 +1,9 @@
 import unittest
 
 
-def boruvka(n: int, edges: list[tuple[int, int, int]]) -> list[tuple[int, int]]:
+def boruvka(
+    n: int, edges: list[tuple[int, int, int]]
+) -> list[tuple[int, int]]:
     mst = []
     rep = [i for i in range(n)]
     weight = [float('inf')] * n
@@ -42,7 +44,8 @@ class TestBoruvka(unittest.TestCase):
 
     def test_boruvka_complete_graph(self):
         n = 4
-        edges = [(0, 1, 1), (0, 2, 2), (0, 3, 3), (1, 2, 4), (1, 3, 5), (2, 3, 6)]
+        edges = [(0, 1, 1), (0, 2, 2), (0, 3, 3),
+                 (1, 2, 4), (1, 3, 5), (2, 3, 6)]
         result = boruvka(n, edges)
         self.assertEqual(len(result), n - 1)
 

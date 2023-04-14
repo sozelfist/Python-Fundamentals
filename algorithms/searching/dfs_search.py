@@ -16,7 +16,10 @@ def dfs(graph: list[list[int]], start: int) -> list[int]:
         if not visited[vertex]:
             visited[vertex] = True
             result.append(vertex)
-            stack.extend(neighbor for neighbor in reversed(graph[vertex]) if not visited[neighbor])
+            stack.extend(
+                neighbor for neighbor in reversed(graph[vertex])
+                if not visited[neighbor]
+            )
 
     return result
 
