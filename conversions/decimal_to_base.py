@@ -5,7 +5,10 @@ def decimal_to_base(decimal: int, base: int) -> str:
     if decimal == 0:
         return "0"
     elif decimal < 0 or base < 2:
-        raise ValueError("Invalid input: decimal must be a positive integer and base must be 2 or greater")
+        raise ValueError(
+            "Invalid input: decimal must be a positive integer\
+             and base must be 2 or greater"
+        )
 
     digits = "0123456789ABCDEF"
     result = ""
