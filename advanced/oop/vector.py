@@ -57,7 +57,9 @@ class Vector:
         return np.dot(self._coords, other._coords)
 
     def angle_with(self, other: 'Vector') -> float:
-        return np.arccos(np.clip(self.dot(other) / (self.norm() * other.norm()), -1.0, 1.0))
+        return np.arccos(
+            np.clip(self.dot(other) / (self.norm() * other.norm()), -1.0, 1.0)
+        )
 
     def unit(self) -> 'Vector':
         return self / self.norm()
@@ -152,7 +154,8 @@ class TestVector(unittest.TestCase):
 
     def test_vector_unit(self):
         v = Vector([1, 2])
-        self.assertEqual(v.unit(), Vector([1 / math.sqrt(5), 2 / math.sqrt(5)]))
+        self.assertEqual(v.unit(), Vector(
+            [1 / math.sqrt(5), 2 / math.sqrt(5)]))
 
 
 if __name__ == '__main__':

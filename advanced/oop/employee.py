@@ -14,7 +14,9 @@ class Employee:
         self.email = f'{self.name.lower().replace(" ", ".")}@example.com'
 
     def __str__(self):
-        return f'Employee(name={self.name}, age={self.age}, email={self.email})'
+        return f'\
+            Employee(name={self.name}, age={self.age}, email={self.email})\
+        '
 
 
 class TestEmployee(unittest.TestCase):
@@ -28,7 +30,8 @@ class TestEmployee(unittest.TestCase):
 
     def test_custom_values(self):
         hire_date = date(2022, 1, 1)
-        employee = Employee('Jane Doe', 25, salary=50000.0, hire_date=hire_date)
+        employee = Employee('Jane Doe', 25, salary=50000.0,
+                            hire_date=hire_date)
         self.assertEqual(employee.name, 'Jane Doe')
         self.assertEqual(employee.age, 25)
         self.assertEqual(employee.salary, 50000.0)
@@ -37,9 +40,14 @@ class TestEmployee(unittest.TestCase):
 
     def test_asdict(self):
         hire_date = date(2022, 1, 1)
-        employee = Employee('Jane Doe', 25, salary=50000.0, hire_date=hire_date)
+        employee = Employee('Jane Doe', 25, salary=50000.0,
+                            hire_date=hire_date)
         employee_data = asdict(employee)
-        self.assertEqual(employee_data, {'name': 'Jane Doe', 'age': 25, 'salary': 50000.0, 'hire_date': hire_date})
+        self.assertEqual(
+            employee_data,
+            {'name': 'Jane Doe', 'age': 25, 'salary': 50000.0,
+             'hire_date': hire_date}
+        )
 
 
 if __name__ == '__main__':

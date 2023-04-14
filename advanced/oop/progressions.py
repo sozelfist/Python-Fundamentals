@@ -48,7 +48,9 @@ class Progression:
 # inherit from class Progression
 
 
-class ArithmeticProgression(Progression, iterator_name='arithmetic progression'):
+class ArithmeticProgression(
+    Progression, iterator_name='arithmetic progression'
+):
     """ Iterator producing an arithmetic progression. """
 
     def __init__(self, increment=1, start=0):
@@ -62,7 +64,7 @@ class ArithmeticProgression(Progression, iterator_name='arithmetic progression')
         super().__init__(start)          # initialize from base class
         self._increment = increment
 
-    def _advance(self):                  # overide inherited method
+    def _advance(self):                  # override inherited method
         """ Update current value by adding the fixed increment """
         self._current += self._increment
 
@@ -115,7 +117,8 @@ class FibonacciProgression(Progression, iterator_name='fibonacci progression'):
     def nth_element(self, n: int):
         """ Return the nth element of the progression """
         for _i in range(n - 1):
-            self._prev, self._current = self._current, self._prev + self._current
+            self._prev, self._current = self._current, self._prev +\
+                self._current
         return self._current
 
     def _advance(self):

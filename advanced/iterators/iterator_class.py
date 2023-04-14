@@ -14,10 +14,14 @@ class Iterator:
             self.stop = stop
         if self.step > 0:
             if self.start >= self.stop:
-                raise ValueError("start must be less than stop with positive step")
+                raise ValueError(
+                    "start must be less than stop with positive step"
+                )
         else:
             if self.start <= self.stop:
-                raise ValueError("start must be greater than stop with negative step")
+                raise ValueError(
+                    "start must be greater than stop with negative step"
+                )
 
     def __iter__(self):
         return self

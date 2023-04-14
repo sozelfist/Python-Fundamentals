@@ -10,16 +10,19 @@ class Book:
     def borrow(self):
         if self.borrowed:
             print(
-                f"Sorry, the book {self.title} by {self.author} is already borrowed.")
+                f"Sorry, the book {self.title} by {self.author}\
+                     is already borrowed.")
         else:
             self.borrowed = True
             print(
-                f"You have successfully borrowed {self.title} by {self.author}.")
+                f"You have successfully borrowed\
+                     {self.title} by {self.author}.")
 
     def return_book(self):
         if not self.borrowed:
             print(
-                f"Sorry, the book {self.title} by {self.author} is not on loan.")
+                f"Sorry, the book {self.title}\
+                     by {self.author} is not on loan.")
         else:
             self.borrowed = False
             print(f"Thank you for returning {self.title} by {self.author}.")

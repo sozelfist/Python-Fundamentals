@@ -54,8 +54,10 @@ class TestGroupby(unittest.TestCase):
                              for k, g in GroupBy([1, 1, 1])])
 
     def test_groupby_multiple_groups(self):
-        self.assertListEqual([(0, [0]), (1, [1, 1]), (0, [0, 0]), (1, [1])], [(k, list(g))
-                             for k, g in GroupBy([0, 1, 1, 0, 0, 1])])
+        self.assertListEqual(
+            [(0, [0]), (1, [1, 1]), (0, [0, 0]), (1, [1])],
+            [(k, list(g)) for k, g in GroupBy([0, 1, 1, 0, 0, 1])]
+        )
 
     def test_groupby_custom_key(self):
         data = ['Apple', 'Banana', 'Cherry', 'Durian', 'Elderberry']
@@ -68,7 +70,9 @@ class TestGroupby(unittest.TestCase):
         data = (i for i in range(1, 8))
         expected = [(0, [1]), (1, [2, 3]), (2, [4, 5]), (3, [6, 7])]
         self.assertListEqual(
-            expected, [(k, list(g)) for k, g in GroupBy(data, key=lambda x: x // 2)])
+            expected,
+            [(k, list(g)) for k, g in GroupBy(data, key=lambda x: x // 2)]
+        )
 
     def test_groupby_filter_empty_groups(self):
         data = ['', 'A', '', 'B', '', '', 'C']

@@ -3,7 +3,10 @@ from typing import Any
 
 
 class Generator:
-    def __init__(self, start: int | float, end: int | float | None = None, step: int | float = 1):
+    def __init__(
+        self, start: int | float, end: int | float | None = None,
+        step: int | float = 1
+    ):
         self.start = start
         self.step = step
         if end is not None:

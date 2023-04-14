@@ -19,7 +19,8 @@ class Range:
         # calculate the effective length once
         self._length = max(0, (stop - start + step - 1) // step)
 
-        # need knowledge of start and step (but not stop) to support __getitem__
+        # need knowledge of start and step (but not stop)
+        # to support __getitem__
         self._start = start
         self._step = step
 
@@ -28,9 +29,10 @@ class Range:
         return self._length
 
     def __getitem__(self, index: int) -> int:
-        """ Return entry at given index (using standard interpretation if negative) """
+        """ Return entry at given index (using standard interpretation
+        if negative) """
         if index < 0:
-            index += len(self)  # attemp to convert negative index
+            index += len(self)  # attempt to convert negative index
 
         if not 0 <= index < self._length:
             raise IndexError("Index out of range")
@@ -38,7 +40,9 @@ class Range:
         return self._start + index * self._step
 
     def __repr__(self) -> str:
-        return "Range({}, {}, {})".format(self._start, self._start + self._length * self._step, self._step)
+        return "Range({}, {}, {})".format(
+            self._start, self._start + self._length * self._step, self._step
+        )
 
     def __contains__(self, value: int) -> bool:
         """ Return True if value is in the range, False otherwise """
@@ -61,10 +65,12 @@ class Range:
         return current
 
     def __eq__(self, other: object) -> bool:
-        """ Return True if other range is the same as this range, False otherwise """
+        """ Return True if other range is the same as this range,
+         False otherwise """
         if not isinstance(other, Range):
             return False
-        return self._start == other._start and self._step == other._step and self._length == other._length
+        return self._start == other._start and self._step == other._step\
+            and self._length == other._length
 
 
 class TestRange(unittest.TestCase):
