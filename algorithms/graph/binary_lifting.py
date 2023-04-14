@@ -1,7 +1,9 @@
 import unittest
 
 
-def binary_lifting(adj_list: list[list[int]], root: int) -> tuple[list[list[int]], list[int]]:
+def binary_lifting(
+        adj_list: list[list[int]], root: int
+) -> tuple[list[list[int]], list[int]]:
     num_nodes = len(adj_list)
     log_num_nodes = (num_nodes - 1).bit_length()
 
