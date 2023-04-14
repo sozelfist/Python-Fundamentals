@@ -35,7 +35,8 @@ class Treap:
             self.root = self._insert_helper(self.root, key, priority)
 
     def _insert_helper(self, node: Node, key: int, priority: int) -> Node:
-        # Recursively insert a new node with the given key and priority into the Treap
+        # Recursively insert a new node with the given key and
+        # priority into the Treap
         if node is None:
             return Node(key, priority)
 
@@ -136,10 +137,13 @@ class TestTreap(unittest.TestCase):
         treap.insert(6, 60)
         treap.insert(8, 70)
 
-        expected_in_order = [(2, 40), (3, 20), (4, 50), (5, 10), (6, 60), (7, 30), (8, 70)]
+        expected_in_order = [
+            (2, 40), (3, 20), (4, 50), (5, 10), (6, 60), (7, 30), (8, 70)
+        ]
         self.assertEqual(treap.in_order_traversal(), expected_in_order)
 
-        expected_pre_order = [(5, 10), (3, 20), (2, 40), (4, 50), (7, 30), (6, 60), (8, 70)]
+        expected_pre_order = [(5, 10), (3, 20), (2, 40),
+                              (4, 50), (7, 30), (6, 60), (8, 70)]
         self.assertEqual(treap.pre_order_traversal(), expected_pre_order)
 
     def test_delete(self):
@@ -153,7 +157,8 @@ class TestTreap(unittest.TestCase):
         treap.insert(8, 70)
 
         treap.delete(2)
-        expected_in_order = [(3, 20), (4, 50), (5, 10), (6, 60), (7, 30), (8, 70)]
+        expected_in_order = [(3, 20), (4, 50), (5, 10),
+                             (6, 60), (7, 30), (8, 70)]
         self.assertEqual(treap.in_order_traversal(), expected_in_order)
 
         treap.delete(7)

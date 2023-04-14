@@ -18,14 +18,17 @@ class Heap:
         right = 2 * i + 2
         smallest = i
         if left < n and (self._heap[left] < self._heap[smallest]
-                         if self.is_min else self._heap[left] > self._heap[smallest]):
+                         if self.is_min else self._heap[left]
+                         > self._heap[smallest]):
             smallest = left
         if right < n and (self._heap[right] < self._heap[smallest]
-                          if self.is_min else self._heap[right] > self._heap[smallest]):
+                          if self.is_min else self._heap[right]
+                          > self._heap[smallest]):
             smallest = right
 
         if smallest != i:
-            self._heap[i], self._heap[smallest] = self._heap[smallest], self._heap[i]
+            self._heap[i], self._heap[smallest] = self._heap[smallest],\
+                self._heap[i]
             self._sift_down(smallest, n)
 
     def push(self, value: int) -> None:
@@ -35,8 +38,10 @@ class Heap:
     def _sift_up(self, i: int) -> None:
         parent = (i - 1) // 2
         if parent >= 0 and (self._heap[i] < self._heap[parent]
-                            if self.is_min else self._heap[i] > self._heap[parent]):
-            self._heap[i], self._heap[parent] = self._heap[parent], self._heap[i]
+                            if self.is_min else self._heap[i]
+                            > self._heap[parent]):
+            self._heap[i], self._heap[parent] = self._heap[parent],\
+                self._heap[i]
             self._sift_up(parent)
 
     def pop(self) -> int:

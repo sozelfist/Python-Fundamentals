@@ -17,9 +17,10 @@ def prefix_sum(
              means it includes all elements up to the last index.
 
     Returns:
-        A list of prefix sums starting from the start index up to the end index.
+        A list of prefix sums starting from the start
+        index up to the end index.
     """
-    # Initialize defaut start and end indices
+    # Initialize default start and end indices
     if start is None:
         start = 0
     if end is None:

@@ -44,7 +44,10 @@ class TestWeightedGraph(unittest.TestCase):
         self.assertEqual(self.graph.get_vertices(), [1, 2, 3])
 
     def test_get_edges(self):
-        self.assertEqual(self.graph.get_edges(), {1: {2: 10}, 2: {1: 10, 3: 20}, 3: {2: 20}})
+        self.assertEqual(
+            self.graph.get_edges(),
+            {1: {2: 10}, 2: {1: 10, 3: 20}, 3: {2: 20}}
+        )
 
 
 if __name__ == '__main__':

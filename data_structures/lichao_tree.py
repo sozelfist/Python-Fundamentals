@@ -38,7 +38,8 @@ class LiChaoTree:
             self.add_line(line, 2 * node, xmin, xm)
 
     def query(
-        self, x: int, node: int = 0, xmin: int | None = None, xmax: int | None = None
+        self, x: int, node: int = 0, xmin: int | None = None,
+        xmax: int | None = None
     ) -> int | None:
         if xmin is None:
             xmin = self.xmin
@@ -56,7 +57,8 @@ class LiChaoTree:
         elif right_val is None:
             return left_val
         else:
-            return max(left_val, right_val, self.tree[node].eval(x))  # type: ignore
+            # type: ignore
+            return max(left_val, right_val, self.tree[node].eval(x))
 
 
 class TestLiChaoTree(unittest.TestCase):

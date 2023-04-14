@@ -20,7 +20,8 @@ def evaluate_expression(expression):
                 stack.append(result)
             ops.pop()
         elif token in precedence:
-            while ops and ops[-1] != '(' and precedence[ops[-1]] >= precedence[token]:
+            while ops and ops[-1] != '(' and precedence[ops[-1]]\
+                    >= precedence[token]:
                 op = ops.pop()
                 operand2 = stack.pop()
                 operand1 = stack.pop()

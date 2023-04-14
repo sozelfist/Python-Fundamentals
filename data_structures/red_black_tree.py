@@ -4,7 +4,9 @@ import unittest
 
 
 class Node:
-    def __init__(self, key: int, color: str, left=None, right=None, parent=None):
+    def __init__(
+        self, key: int, color: str, left=None, right=None, parent=None
+    ):
         self.key = key
         self.color = color
         self.left = left
@@ -239,7 +241,8 @@ class RedBlackTree:
 
     def post_order_traversal(self, node: Node | None) -> None:
         """
-        Traverses the tree in post-order and prints the key values of the nodes.
+        Traverses the tree in post-order and prints the key
+        values of the nodes.
         """
         if node != self.nil:
             self.post_order_traversal(node.left)

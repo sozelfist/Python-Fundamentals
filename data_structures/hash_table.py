@@ -49,9 +49,9 @@ class HashTable:
                 return
 
     def get(self, key: str | int) -> type:
-        """Get the value associated with a key in the hash table, raise an exception if the key is not found"""
-        value = self.search(key)
-        if value:
+        """Get the value associated with a key in the hash table,
+        raise an exception if the key is not found"""
+        if (value := self.search(key)):
             return value
         else:
             raise KeyError(f"Key {key} not found in the Hash Table")
@@ -133,7 +133,10 @@ class TestHashTable(unittest.TestCase):
         self.ht.insert(14, "banana")
         self.ht.insert(23, "cherry")
         self.ht.insert(32, "date")
-        self.assertEqual(self.ht.values(), ['date', 'cherry', 'banana', 'apple'])
+        self.assertEqual(
+            self.ht.values(),
+            ['date', 'cherry', 'banana', 'apple']
+        )
 
 
 if __name__ == '__main__':

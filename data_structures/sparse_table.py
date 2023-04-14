@@ -4,7 +4,8 @@ import unittest
 class SparseTable:
     def __init__(self, arr: list[int]) -> None:
         n = len(arr)
-        k = (n).bit_length()  # The smallest power of 2 that is greater than or equal to n
+        # The smallest power of 2 that is greater than or equal to n
+        k = (n).bit_length()
         self.st = [[0] * k for _ in range(n)]
         self.log = [0] * (n + 1)
 
@@ -16,7 +17,8 @@ class SparseTable:
 
         for j in range(1, k):
             for i in range(n - (1 << j) + 1):
-                self.st[i][j] = min(self.st[i][j - 1], self.st[i + (1 << (j - 1))][j - 1])
+                self.st[i][j] = min(self.st[i][j - 1],
+                                    self.st[i + (1 << (j - 1))][j - 1])
 
     def query(self, l: int, r: int) -> int:
         """
@@ -65,9 +67,13 @@ class TestSparseTable(unittest.TestCase):
         arr = [4, 1, 3, 5, 2, 6, 7, 8]
         st = SparseTable(arr)
 
-        self.assertEqual(st.get_table(),
-                         [[4, 1, 1, 1], [1, 1, 1, 0], [3, 3, 2, 0], [5, 2, 2, 0],
-                          [2, 2, 2, 0], [6, 6, 0, 0], [7, 7, 0, 0], [8, 0, 0, 0]])
+        self.assertEqual(
+            st.get_table(),
+            [
+                [4, 1, 1, 1], [1, 1, 1, 0], [3, 3, 2, 0], [5, 2, 2, 0],
+                [2, 2, 2, 0], [6, 6, 0, 0], [7, 7, 0, 0], [8, 0, 0, 0]
+            ]
+        )
 
     def test_get_length(self):
         arr = [4, 1, 3, 5, 2, 6, 7, 8]

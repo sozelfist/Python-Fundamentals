@@ -23,7 +23,9 @@ class BinaryTree:
         else:
             self.data = data
 
-    def lookup(self, data: int, parent: Union[None, 'BinaryTree'] = None) -> Union[None, 'BinaryTree']:
+    def lookup(
+        self, data: int, parent: Union[None, 'BinaryTree'] = None
+    ) -> Union[None, 'BinaryTree']:
         if data < self.data:
             if self.left is None:
                 return None, None
@@ -93,7 +95,8 @@ class BinaryTree:
             children.append(self.right)
         for i, child in enumerate(children):
             s = child._print_tree(
-                prefix + ("    " if is_tail else "│   "), i == len(children) - 1, s)
+                prefix + ("    " if is_tail else "│   "), i ==
+                len(children) - 1, s)
         return s
 
 

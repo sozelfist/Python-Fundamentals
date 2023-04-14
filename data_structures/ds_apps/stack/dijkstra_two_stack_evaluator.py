@@ -27,7 +27,8 @@ def evaluate_expression(expression: str) -> float:
             else:
                 raise ValueError("Unbalanced parentheses")
         elif token in operators:
-            while operator_stack and operator_stack[-1] != "(" and precedence(operator_stack[-1], token):
+            while operator_stack and operator_stack[-1]\
+                    != "(" and precedence(operator_stack[-1], token):
                 operator = operator_stack.pop()
                 operand2 = operand_stack.pop()
                 operand1 = operand_stack.pop()

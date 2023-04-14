@@ -7,7 +7,10 @@ class BloomFilter:
     def __init__(self, capacity: int, error_rate: float):
         self.capacity = capacity
         self.error_rate = error_rate
-        self.num_hashes = math.ceil(self.capacity * abs(math.log(self.error_rate)) / (math.log(2) ** 2))
+        self.num_hashes = math.ceil(
+            self.capacity * abs(math.log(self.error_rate))
+            / (math.log(2) ** 2)
+        )
         self.bit_array_size = int(math.ceil(self.num_hashes * math.log(2)))
         self.bit_array = [0] * (self.bit_array_size)
 

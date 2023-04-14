@@ -2,14 +2,18 @@ import unittest
 
 
 class PriorityQueue:
-    def __init__(self, is_min_heap: bool = True, values: list[tuple[int, str]] = None):
+    def __init__(
+        self, is_min_heap: bool = True, values: list[tuple[int, str]] = None
+    ):
         self.heap = []
         self.is_min_heap = is_min_heap
         if values:
             self.heap = values
             self.build_heap()
 
-    def should_swap(self, parent: tuple[int, str], child: tuple[int, str]) -> bool:
+    def should_swap(
+        self, parent: tuple[int, str], child: tuple[int, str]
+    ) -> bool:
         if self.is_min_heap:
             return parent[0] > child[0]
         else:
@@ -36,7 +40,8 @@ class PriorityQueue:
         while index > 0:
             parent_index = (index - 1) // 2
             if self.should_swap(self.heap[parent_index], self.heap[index]):
-                self.heap[parent_index], self.heap[index] = self.heap[index], self.heap[parent_index]
+                self.heap[parent_index], self.heap[index] =\
+                    self.heap[index], self.heap[parent_index]
                 index = parent_index
             else:
                 break
@@ -50,12 +55,15 @@ class PriorityQueue:
             if right_child_index >= len(self.heap):
                 swap_index = left_child_index
             else:
-                if self.should_swap(self.heap[left_child_index], self.heap[right_child_index]):
+                if self.should_swap(
+                    self.heap[left_child_index], self.heap[right_child_index]
+                ):
                     swap_index = left_child_index
                 else:
                     swap_index = right_child_index
             if self.should_swap(self.heap[index], self.heap[swap_index]):
-                self.heap[index], self.heap[swap_index] = self.heap[swap_index], self.heap[index]
+                self.heap[index], self.heap[swap_index] =\
+                    self.heap[swap_index], self.heap[index]
                 index = swap_index
             else:
                 break
@@ -96,7 +104,8 @@ class TestPriorityQueue(unittest.TestCase):
         self.assertEqual(pq.heap, [(2, 'b'), (3, 'c'), (1, 'a')])
 
     def test_init_max_heap(self):
-        pq = PriorityQueue(is_min_heap=False, values=[(3, 'c'), (2, 'b'), (1, 'a')])
+        pq = PriorityQueue(is_min_heap=False, values=[
+                           (3, 'c'), (2, 'b'), (1, 'a')])
         self.assertEqual(pq.heap, [(3, 'c'), (2, 'b'), (1, 'a')])
 
 

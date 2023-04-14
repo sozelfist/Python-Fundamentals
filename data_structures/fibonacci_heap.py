@@ -95,7 +95,9 @@ class FibonacciHeap(Generic[T]):
             if node.key < self.min_node.key:
                 self.min_node = node
 
-    def _insert_into_list(self, head: FibonacciHeapNode[T], node: FibonacciHeapNode[T]) -> None:
+    def _insert_into_list(
+        self, head: FibonacciHeapNode[T], node: FibonacciHeapNode[T]
+    ) -> None:
         node.left = head.left
         node.right = head
         head.left.right = node
@@ -105,7 +107,9 @@ class FibonacciHeap(Generic[T]):
         node.left.right = node.right
         node.right.left = node.left
 
-    def _link(self, node1: FibonacciHeapNode[T], node2: FibonacciHeapNode[T]) -> None:
+    def _link(
+        self, node1: FibonacciHeapNode[T], node2: FibonacciHeapNode[T]
+    ) -> None:
         # make node1 a child of node2
         self._remove_from_list(node1)
         node1.parent = node2
@@ -117,7 +121,9 @@ class FibonacciHeap(Generic[T]):
             self._insert_into_list(node2.child, node1)
         node2.degree += 1
 
-    def _cut(self, node: FibonacciHeapNode[T], parent: FibonacciHeapNode[T]) -> None:
+    def _cut(
+        self, node: FibonacciHeapNode[T], parent: FibonacciHeapNode[T]
+    ) -> None:
         self._remove_from_list(node)
         parent.degree -= 1
         node.parent = None
@@ -125,8 +131,7 @@ class FibonacciHeap(Generic[T]):
         self._merge_with_list(node)
 
     def _cascading_cut(self, node: FibonacciHeapNode[T]) -> None:
-        parent = node.parent
-        if parent is not None:
+        if (parent := node.parent) is not None:
             if not node.marked:
                 node.marked = True
             else:
