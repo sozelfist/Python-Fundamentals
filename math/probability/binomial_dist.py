@@ -49,14 +49,17 @@ def binomial_variance(n: int, p: float) -> float:
     return variance
 
 
-def binomial_probability_mass_function(n: int, p: float, k_values: list[int]) -> list[float]:
+def binomial_probability_mass_function(
+    n: int, p: float, k_values: list[int]
+) -> list[float]:
     """
     Calculates the PMF for a set of values of k.
 
     Parameters:
     n (int): The number of trials.
     p (float): The probability of success in each trial.
-    k_values (List[int]): The values of k for which the PMF should be calculated.
+    k_values (List[int]): The values of k for which the PMF should
+    be calculated.
 
     Returns:
     List[float]: The PMF for each value of k.
@@ -83,7 +86,8 @@ class TestBinomialDistribution(unittest.TestCase):
         n = 10
         p = 0.5
         expected_variance = 2.5
-        self.assertAlmostEqual(binomial_variance(n, p), expected_variance, places=7)
+        self.assertAlmostEqual(binomial_variance(
+            n, p), expected_variance, places=7)
 
     def test_binomial_probability_mass_function(self):
         n = 10

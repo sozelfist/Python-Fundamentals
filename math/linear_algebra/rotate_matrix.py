@@ -59,7 +59,8 @@ class TestRotateMatrix(unittest.TestCase):
                   [7, 8, 9]]
         expected_output = [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
 
-        # Rotate the matrix counterclockwise by 270 degrees and check the output
+        # Rotate the matrix counterclockwise by 270 degrees
+        # and check the output
         output = rotate_matrix(matrix, 270, "counterclockwise")
         self.assertEqual(output, expected_output)
 

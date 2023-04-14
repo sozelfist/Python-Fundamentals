@@ -12,7 +12,10 @@ class TestDerivative(unittest.TestCase):
             return x**2
         self.assertAlmostEqual(derivative(f, 2), 4, places=5)
         self.assertAlmostEqual(derivative(f, 0), 0, places=5)
-        self.assertAlmostEqual(derivative(math.sin, math.pi / 2), math.cos(math.pi / 2), places=5)
+        self.assertAlmostEqual(
+            derivative(math.sin, math.pi / 2),
+            math.cos(math.pi / 2), places=5
+        )
 
     def test_derivative_with_custom_h(self):
         def f(x):

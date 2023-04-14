@@ -1,7 +1,9 @@
 import unittest
 
 
-def quine_mc_cluskey(minterms: list[str], maxterm_count: dict[int, int]) -> list[str]:
+def quine_mc_cluskey(
+    minterms: list[str], maxterm_count: dict[int, int]
+) -> list[str]:
     min_term_count = len(minterms)
     essential_prime_implicants = []
     for i in range(min_term_count):

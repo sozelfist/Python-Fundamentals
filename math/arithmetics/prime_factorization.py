@@ -64,7 +64,9 @@ class TestPrimeFactorization(unittest.TestCase):
 
     def test_large_number(self):
         pf = PrimeFactorization(1234567890)
-        self.assertEqual(pf.factors, Counter({3: 2, 2: 1, 5: 1, 3607: 1, 3803: 1}))
+        self.assertEqual(
+            pf.factors, Counter({3: 2, 2: 1, 5: 1, 3607: 1, 3803: 1})
+        )
 
     def test_negative_number(self):
         pf = PrimeFactorization(-10)

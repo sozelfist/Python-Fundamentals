@@ -5,7 +5,8 @@ import numpy as np
 
 def pca(X: np.ndarray, n_components: int) -> tuple[np.ndarray, np.ndarray]:
     """
-    Perform PCA on the input data X and return the transformed data and the eigenvectors.
+    Perform PCA on the input data X and return the transformed
+    data and the eigenvectors.
     """
     # Subtract the mean of the data from each feature
     X = X - np.mean(X, axis=0)

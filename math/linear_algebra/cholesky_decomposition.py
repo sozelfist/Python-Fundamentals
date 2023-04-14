@@ -18,7 +18,8 @@ def cholesky_decomposition(A: np.ndarray) -> tuple[np.ndarray, bool]:
     for i in range(n):
         for j in range(i + 1):
             s = sum(L[i, k] * L[j, k] for k in range(j))
-            L[i, j] = np.sqrt(A[i, i] - s) if (i == j) else (1.0 / L[j, j] * (A[i, j] - s))
+            L[i, j] = np.sqrt(A[i, i] - s)\
+                if (i == j) else (1.0 / L[j, j] * (A[i, j] - s))
 
     return (L, True)
 
