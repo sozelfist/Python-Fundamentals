@@ -3,12 +3,14 @@ import unittest
 
 def vigenere_cipher(plaintext: str, keyword: str, encrypt: bool = True) -> str:
     """
-    Encrypts or decrypts a plaintext message using the Vigenère cipher with a given keyword.
+    Encrypts or decrypts a plaintext message using the Vigenère
+    cipher with a given keyword.
 
     Args:
         plaintext: The plaintext message to encrypt or decrypt.
         keyword: The keyword to use for the Vigenère cipher.
-        encrypt: If True, encrypt the plaintext message (default). If False, decrypt the ciphertext message.
+        encrypt: If True, encrypt the plaintext message (default).
+        If False, decrypt the ciphertext message.
 
     Returns:
         The encrypted or decrypted message as a string.
@@ -17,7 +19,8 @@ def vigenere_cipher(plaintext: str, keyword: str, encrypt: bool = True) -> str:
     key = ""
     for i in range(len(plaintext)):
         key += keyword[i % len(keyword)]
-    # generate the key string by repeating the keyword over the length of the plaintext
+    # generate the key string by repeating the keyword over the length of the
+    # plaintext
 
     ciphertext = ""
     for i in range(len(plaintext)):
@@ -28,7 +31,8 @@ def vigenere_cipher(plaintext: str, keyword: str, encrypt: bool = True) -> str:
                 shift = 26 - shift
                 # if decrypting, invert the shift value
             char = chr((ord(plaintext[i].upper()) - 65 + shift) % 26 + 65)
-            # encrypt or decrypt the current plaintext letter using a Caesar cipher with the current shift value
+            # encrypt or decrypt the current plaintext letter using a
+            # Caesar cipher with the current shift value
             ciphertext += char
         else:
             ciphertext += plaintext[i]

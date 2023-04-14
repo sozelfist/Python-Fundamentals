@@ -28,7 +28,9 @@ class Reflector:
 
 
 class Enigma:
-    def __init__(self, rotors: tuple[Rotor, Rotor, Rotor], reflector: Reflector):
+    def __init__(
+            self, rotors: tuple[Rotor, Rotor, Rotor], reflector: Reflector
+    ):
         self.rotors = rotors
         self.reflector = reflector
 
