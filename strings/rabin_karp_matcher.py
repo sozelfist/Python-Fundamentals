@@ -25,7 +25,8 @@ def rabin_karp_matcher(text: str, pattern: str) -> list[int]:
                 result.append(i)
         if i < len(text) - len(pattern):
             text_hash = (text_hash * multiplier - ord(text[i]) * (multiplier
-                         ** len(pattern)) % prime + ord(text[i + len(pattern)])) % prime
+                         ** len(pattern)) % prime
+                         + ord(text[i + len(pattern)])) % prime
     return result
 
 

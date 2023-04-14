@@ -33,7 +33,8 @@ class SJF:
             shortest = None
 
             for j in range(self.no_of_processes):
-                if self.processes[j].arrival_time <= increment_time and remaining_time[j] > 0:
+                if self.processes[j].arrival_time <=\
+                        increment_time and remaining_time[j] > 0:
                     if remaining_time[j] < min_bt:
                         min_bt = remaining_time[j]
                         shortest = j
@@ -48,12 +49,15 @@ class SJF:
                 complete += 1
                 finish_time = increment_time + 1
                 finar = finish_time - self.processes[shortest].arrival_time
-                self.waiting_time[shortest] = finar - self.processes[shortest].burst_time
+                self.waiting_time[shortest] = finar - \
+                    self.processes[shortest].burst_time
 
                 if self.waiting_time[shortest] < 0:
                     self.waiting_time[shortest] = 0
 
-                self.turn_around_time[shortest] = self.processes[shortest].burst_time + self.waiting_time[shortest]
+                self.turn_around_time[shortest] =\
+                    self.processes[shortest].burst_time + \
+                    self.waiting_time[shortest]
 
             increment_time += 1
 
@@ -61,8 +65,10 @@ class SJF:
         total_waiting_time = sum(self.waiting_time)
         total_turn_around_time = sum(self.turn_around_time)
 
-        print(f"Average waiting time = {total_waiting_time / self.no_of_processes:.5f}")
-        print(f"Average turn around time = {total_turn_around_time / self.no_of_processes:.5f}")
+        print(
+            f"Average waiting time = {total_waiting_time / self.no_of_processes:.5f}")
+        print(
+            f"Average turn around time = {total_turn_around_time / self.no_of_processes:.5f}")
 
     def __repr__(self) -> str:
         return '\n'.join([f'{p}: arrival time={p.arrival_time}, burst time={p.burst_time}' for p in self.processes])
@@ -95,7 +101,8 @@ class TestSJF(unittest.TestCase):
             sjf.calculate_average_times()
             output = mock_stdout.getvalue().strip()
 
-        self.assertEqual(output, 'Average waiting time = 5.75000\nAverage turn around time = 11.75000')
+        self.assertEqual(
+            output, 'Average waiting time = 5.75000\nAverage turn around time = 11.75000')
 
 
 if __name__ == '__main__':
