@@ -11,12 +11,12 @@ def knuth_optimization(nums: list[int]) -> int:
 
     dp = [[0] * n for _ in range(n)]
 
-    for l in range(n):
-        for i in range(n - l):
-            j = i + l
-            if l == 0:
+    for _ in range(n):
+        for i in range(n - _):
+            j = i + _
+            if _ == 0:
                 dp[i][j] = nums[i]
-            elif l == 1:
+            elif _ == 1:
                 dp[i][j] = max(nums[i], nums[j])
             else:
                 dp[i][j] = max(nums[i] + min(dp[i + 2][j], dp[i + 1][j - 1]),
