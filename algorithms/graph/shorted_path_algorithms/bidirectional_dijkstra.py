@@ -1,8 +1,10 @@
 import heapq
 import unittest
 
+Graph = dict[str, dict[str, int]]
 
-def bidirectional_dijkstra(graph, start, end):
+
+def bidirectional_dijkstra(graph: Graph, start: str, end: str):
     # Initialize the forward and backward search
     forward_dist = {start: 0}
     backward_dist = {end: 0}
