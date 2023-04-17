@@ -1,20 +1,22 @@
 # Variables
 PYTEST = pytest
-COVERAGE = --cov=. 
-SOURCES = $(shell find . -name "*.py" ! -path "./venv/*")
+COVERAGE = --cov=.
+TEST_TARGETS = $(shell find . -name "*.py" ! -path "./venv/*")
 RUFF = ruff
+RUFF_OPTS = --fix
+LINTING_DEST = .
 
 # Targets
 default: lint test clean
 
 lint:
 	@echo "Linting code with Ruff"
-	$(RUFF) .
+	$(RUFF) $(RUFF_OPTS) $(LINTING_DEST)
 	@echo " "
 
 test:
 	@echo "Running tests with coverage"
-	$(PYTEST) $(COVERAGE) $(SOURCES)
+	$(PYTEST) $(COVERAGE) $(TEST_TARGETS)
 	@echo " "
 
 clean:
