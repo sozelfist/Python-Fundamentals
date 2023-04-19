@@ -14,9 +14,9 @@ The `LinkedList` class has a constructor that initializes an empty list, with th
 
 The class has several methods that allows the user to manipulate the linked list:
 
-- The `append()` method takes in a `data` value, creates a new node with that value, and adds it to the end of the list. 
-- The `insert()` method takes in a `prev_node` and a `data` value, creates a new node with that `value`, and adds it after the `prev_node`. 
-- The `delete()` method takes in a `data` value and removes the first node with that value from the list. 
+- The `append()` method takes in a `data` value, creates a new node with that value, and adds it to the end of the list.
+- The `insert()` method takes in a `prev_node` and a `data` value, creates a new node with that `value`, and adds it after the `prev_node`.
+- The `delete()` method takes in a `data` value and removes the first node with that value from the list.
 - The `search()` method takes in a `data` value and returns the first node with that `value`.
 
 The class also has methods that allow the user to access the linked list using an `index`, using the `__getitem__` method and `__len__` method. The `__str__` and `__repr__` methods return the string representation of the linked list in the form of `"1->2->3->..."`
