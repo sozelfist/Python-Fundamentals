@@ -4,7 +4,7 @@
 
 The implementation of the `Queue` class are placed in [queue.py](../../data_structures/queue.py)
 
-## Explaination
+## Explanation
 
 This code defines a `Queue` class using a Python list as the underlying data structure. The class has several methods:
 

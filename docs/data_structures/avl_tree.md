@@ -19,7 +19,7 @@ In short, AVL tree is a self-balancing binary search tree that provides an effic
 
 The `AVLTree` class is implemented at [avl_tree.py](../../data_structures/avl_tree.py)
 
-## Explaination
+## Explanation
 
 The implementation of AVL tree includes the basic operations such as insertion, left and right rotations and it also keeps track of the height of each node, which is used to check the balance of the tree.
 

@@ -4,7 +4,7 @@
 
 The `Trie` class implementation is placed in [trie.py](../../data_structures/tries.py)
 
-## Explaination
+## Explanation
 
 This code defines a `Trie` data structure and its related classes and methods. A `Trie`, also known as a prefix tree, is a tree-like data structure that stores an associative array where the keys are sequences (usually strings). The basic operations of a `Trie` are insertion, search and deletion of a key.
 

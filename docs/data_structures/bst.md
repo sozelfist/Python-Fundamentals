@@ -4,7 +4,7 @@
 
 The implementation of the `BinarySearchTree` class is placed in [binary_search_tree.py](../../data_structures/binary_search_tree.py)
 
-## Explaination
+## Explanation
 
 This code defines a class called `BST` which stands for Binary Search Tree. This class has several methods that can be used to manipulate the tree data structure.
 

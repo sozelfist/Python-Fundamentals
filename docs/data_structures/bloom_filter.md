@@ -4,7 +4,7 @@
 
 The `BloomFilter` class is placed here [bloom_filter.py](../../data_structures/bloom_filter.py)
 
-## Explaination
+## Explanation
 
 This code defines a Bloom filter data structure, which is a probabilistic data structure that can be used to test whether an element is a member of a set. The basic idea behind a Bloom filter is that it uses a bit array to store information about a set of elements, and a number of hash functions to map elements to positions in the bit array. When an element is added to the set, the hash functions are used to compute a set of indices in the bit array, and the bits at those indices are set to 1. To test whether an element is in the set, the same hash functions are used to compute a set of indices, and if all of the bits at those indices are 1, then the element is considered to be in the set.
 

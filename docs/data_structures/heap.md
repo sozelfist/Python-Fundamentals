@@ -4,7 +4,7 @@
 
 The implementation of the `Heap` class is placed in [heap.py](../../data_structures/heap.py)
 
-## Explaination
+## Explanation
 
 This code defines a class called `Heap` which is a simple implementation of a min or max heap data structure. The heap can be initialized as a min heap or a max heap, and it can be initialized with an array of values.
 

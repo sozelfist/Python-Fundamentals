@@ -4,7 +4,7 @@
 
 The `DisjointSet` is implemented here [disjoint_set.py](../../data_structures/disjoint_set.py)
 
-## Explaination
+## Explanation
 
 This is an implementation of the disjoint-set data structure, also known as a union-find data structure. It is used to keep track of a partition of a set into disjoint subsets.
 

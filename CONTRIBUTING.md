@@ -17,7 +17,7 @@ I am committed to providing a friendly, safe and welcoming environment for all, 
 
 ## How to Contribute
 
-I alway welcome contributions of all kinds, including but not limited to:
+I always welcome contributions of all kinds, including but not limited to:
 
 - Bug reports and fixes
 - Feature requests and new features

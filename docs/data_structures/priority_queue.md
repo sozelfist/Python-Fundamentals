@@ -4,7 +4,7 @@
 
 The implementation of the `PriorityQueue` class is at [priority_queue.py](../../data_structures/priority_queue.py)
 
-## Explaination
+## Explanation
 
 This code defines a `PriorityQueue` class that is based on a binary heap data structure. A priority queue is a data structure that stores elements in a specific order, so that the element with the highest or lowest priority can be retrieved quickly. In this case, the `PriorityQueue` class can be initialized with either a min heap or a max heap. The `PriorityQueue` class has the following methods:
 

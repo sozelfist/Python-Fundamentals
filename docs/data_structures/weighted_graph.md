@@ -4,7 +4,7 @@
 
 The `WeightedGraph` class is implemented here [weighted_graph.py](../../data_structures/weighted_graph.py)
 
-## Explaination
+## Explanation
 
 This code defines a class `WeightedGraph` that represents a weighted graph data structure. A weighted graph is a graph that has weights or values associated with each edge.
 

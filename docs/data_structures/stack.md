@@ -4,7 +4,7 @@
 
 The `Stack` class implementation is at [stack.py](../../data_structures/stack.py)
 
-## Explaination
+## Explanation
 
 This code defines a class called `Stack` which implements a basic stack data structure. A stack is a Last In, First Out (LIFO) data structure where elements are added and removed from the top of the stack. The code uses a list to store the elements in the stack.
 

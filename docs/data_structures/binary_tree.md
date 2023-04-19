@@ -4,7 +4,7 @@
 
 The `BinaryTree` class in implemented in [binary_tree.py](../../data_structures/binary_tree.py)
 
-## Explaination
+## Explanation
 
 This code is an implementation of a binary tree data structure in Python.
 

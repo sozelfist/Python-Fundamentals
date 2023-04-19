@@ -4,7 +4,7 @@ from functools import cache
 # from typing import Dict
 
 
-# mannual way to calculate factorial of n with dictionary caching
+# manual way to calculate factorial of n with dictionary caching
 # factorial_lookup: Dict[int, int] = {0: 1}
 
 # def factorial(n: int) -> int:

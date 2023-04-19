@@ -2,7 +2,7 @@
 
 Calculus is a branch of mathematics focused on finding tangent lines and rates of change. It consists of two main branches: Differential Calculus and Integral Calculus. Differential Calculus is concerned with finding the derivative of a function, while Integral Calculus is concerned with finding the definite integral of a function. Both branches are fundamental to understanding the behavior of functions and are used in a wide range of fields, including physics, engineering, and economics.
 
-## Branchs of Calculus
+## Branches of Calculus
 
 1. Differential Calculus:
 

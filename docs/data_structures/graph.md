@@ -4,7 +4,7 @@
 
 The `Graph` class is implemented here [graph.py](../../data_structures/graph.py)
 
-## Explaination
+## Explanation
 
 This code defines a class `Graph` that represents a simple graph data structure. A graph can be either directed or undirected, and this is determined by the directed parameter passed during initialization. The class has several methods that allow the user to add vertices and edges to the graph, and retrieve information about the graph's vertices and edges.
 

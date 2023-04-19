@@ -22,6 +22,6 @@ Red-black trees have an average time complexity of $O(\log{n})$ for most operati
 
 The `RedBlackTree` class is implemented at [red_black_tree.py](../../data_structures/red_black_tree.py)
 
-## Explaination
+## Explanation
 
 The implementation is clean and optimized, it uses sentinel nodes to simplify the implementation and it doesn't use unnecessary rebalancing when it's not needed after deletion. It also uses helper methods such as `transplant`, `left_rotate`, `right_rotate`, `insert_fixup` and `delete_fixup` to maintain the red-black tree's properties.

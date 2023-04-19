@@ -4,7 +4,7 @@
 
 The `Array` class is implemented at [array.py](../../data_structures/array.py)
 
-## Explaination
+## Explanation
 
 This code defines an `Array` class that is implemented using a Python `list`. The class has the following methods:
 
