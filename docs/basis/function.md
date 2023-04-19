@@ -33,7 +33,7 @@ These are the most common type of arguments. They are passed in the order that t
 ```python
 def greet(name, greeting):
     print(greeting + ", " + name + "!")
-    
+
 greet("Alice", "Hello")  # Output: Hello, Alice!
 ```
 
@@ -51,7 +51,7 @@ Default arguments are used when an argument is not provided by the caller. Here 
 ```python
 def greet(name, greeting="Hello"):
     print(greeting + ", " + name + "!")
-    
+
 greet("Alice")  # Output: Hello, Alice!
 ```
 
@@ -67,7 +67,7 @@ def add_numbers(*args):
     for arg in args:
         result += arg
     return result
-    
+
 sum = add_numbers(1, 2, 3, 4, 5)
 print(sum)  # Output: 15
 ```
@@ -79,7 +79,7 @@ The `**kwargs` syntax is used to pass a variable number of keyword arguments to 
 def print_kwargs(**kwargs):
     for key, value in kwargs.items():
         print(f"{key} = {value}")
-        
+
 print_kwargs(name="Alice", age=25, city="New York")
 # Output:
 # name = Alice

@@ -6,9 +6,9 @@ Please describe the problem that you are facing or the feature that you would li
 
 Please list the steps to reproduce the problem.
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
 ## Additional Context
 
