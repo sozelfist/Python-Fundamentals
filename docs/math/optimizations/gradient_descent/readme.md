@@ -65,14 +65,14 @@ def gradient_descent(x, y, w, b, learning_rate, num_iterations):
         # calculate gradients
         dw = ((linear_model(x, w, b) - y) * x).mean()
         db = (linear_model(x, w, b) - y).mean()
-        
+
         # update parameters
         w = w - learning_rate * dw
         b = b - learning_rate * db
-        
+
         # calculate cost
         cost = cost_function(x, y, w, b)
-        
+
         # print progress
         if (i+1) % 10 == 0:
             print(f'Iteration: {i+1}, cost = {cost}, w = {w}, b = {b}')
