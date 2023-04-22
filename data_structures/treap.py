@@ -2,7 +2,10 @@ import unittest
 
 
 class Node:
+    """ Treap Node class. """
+
     def __init__(self, key: int, priority: int):
+        """ Initialize Treap Node. """
         self.key = key
         self.priority = priority
         self.left: Node | None = None
@@ -10,33 +13,40 @@ class Node:
 
 
 class Treap:
+    """ Class that represent the Treap data structure. """
+
     def __init__(self):
+        """ Initialize Treap. """
         self.root: Node | None = None
 
     def _rotate_left(self, node: Node) -> Node:
-        # Perform a left rotation of the given node and its right child
+        """ Perform a left rotation of the given node and its right child. """
         y = node.right
         node.right = y.left
         y.left = node
         return y
 
     def _rotate_right(self, node: Node) -> Node:
-        # Perform a right rotation of the given node and its left child
+        """ Perform a right rotation of the given node and its left child. """
         x = node.left
         node.left = x.right
         x.right = node
         return x
 
     def insert(self, key: int, priority: int) -> None:
-        # Insert a new node with the given key and priority into the Treap
+        """
+        Insert a new node with the given key and priority into the Treap.
+        """
         if self.root is None:
             self.root = Node(key, priority)
         else:
             self.root = self._insert_helper(self.root, key, priority)
 
     def _insert_helper(self, node: Node, key: int, priority: int) -> Node:
-        # Recursively insert a new node with the given key and
-        # priority into the Treap
+        """
+        Recursively insert a new node with the given key and
+        priority into the Treap.
+        """
         if node is None:
             return Node(key, priority)
 
@@ -52,13 +62,13 @@ class Treap:
         return node
 
     def delete(self, key: int) -> None:
-        # Delete the node with the given key from the Treap
+        """ Delete the node with the given key from the Treap. """
         if self.root is None:
             return
         self.root = self._delete_helper(self.root, key)
 
     def _delete_helper(self, node: Node, key: int) -> Node | None:
-        # Recursively delete the node with the given key from the Treap
+        """ Recursively delete the node with the given key from the Treap. """
         if node is None:
             return None
 
@@ -81,7 +91,7 @@ class Treap:
         return node
 
     def search(self, key: int) -> Node | None:
-        # Search for a node with the given key in the Treap
+        """ Search for a node with the given key in the Treap. """
         node = self.root
         while node is not None:
             if key < node.key:
@@ -93,6 +103,7 @@ class Treap:
         return None
 
     def in_order_traversal(self, node: Node | None = None) -> list[tuple]:
+        """ Perform InOder Traversal on the Treap. """
         result = []
         if not node:
             node = self.root
@@ -104,6 +115,7 @@ class Treap:
         return result
 
     def pre_order_traversal(self, node: Node | None = None) -> list[tuple]:
+        """ Perform PreOder Traversal on the Treap. """
         result = []
         if not node:
             node = self.root
@@ -115,6 +127,7 @@ class Treap:
         return result
 
     def post_order_traversal(self, node: Node | None = None) -> list[tuple]:
+        """ Perform PostOder Traversal on the Treap. """
         result = []
         if not node:
             node = self.root
