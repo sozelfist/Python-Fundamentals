@@ -7,6 +7,7 @@
 [![Contributions welcome](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=0059b3)](https://github.com/TruongNhanNguyen/Python-Fundamentals/blob/master/CONTRIBUTING.md)
 [![Contributors](https://img.shields.io/github/contributors/TruongNhanNguyen/Python-Fundamentals?color=Green&label=Contributors)](https://github.com/TruongNhanNguyen/Python-Fundamentals/graphs/contributors)
 ![GitHub repo size](https://img.shields.io/github/repo-size/TruongNhanNguyen/Python-Fundamentals?color=red&label=Repo%20size)
+[![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/TruongNhanNguyen/Python-Fundamentals/blob/master/.pre-commit-config.yaml)
 [![CI](https://img.shields.io/github/actions/workflow/status/TruongNhanNguyen/Python-Fundamentals/CI.yml?label=CI%20Workflow&logo=GitHub&logoColor=GitHub)](https://github.com/TruongNhanNguyen/Python-Fundamentals/actions/workflows/CI.yml)
 </div>
 
