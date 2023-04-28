@@ -19,6 +19,10 @@ The following are some examples of recursion algorithms:
 1. Factorial Function: The factorial function is a classic example of a recursion algorithm. To calculate the factorial of a number, we recursively multiply the number by the factorial of the number minus one, until we reach the base case of one.
 
 2. Binary Search: Binary search is a search algorithm used to find a specific value in a sorted array. The algorithm recursively divides the array in half, discarding the half that does not contain the value being searched for, until it reaches the base case of a single element array.
+    <div align="center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Binary-search-work.gif/220px-Binary-search-work.gif">
+        <p>Visualization of the binary search algorithm where 9 is the target value</p>
+    </div>
 
 ## Performance Characteristics
 
