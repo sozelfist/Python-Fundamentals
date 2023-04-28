@@ -1,5 +1,9 @@
 # Array
 
+An array is a data structure that stores a collection of elements identified by indices. Arrays can have multiple dimensions and different ways of indexing and storing the elements. Arrays are useful for efficient computation and data manipulation. Arrays can be implemented by various data types and structures depending on the programming language. An array’s properties and operations can be described by a dope vector.
+
+Other data structures, such as lists, heaps, hash tables, double-ended queue, queues, stacks, strings, and VLists, are implemented using arrays. When compared to tree-based data structures (compare a sorted array to a search tree), array-based implementations of other data structures are frequently simple and space-efficient (implicit data structures), requiring little space overhead, but may have poor space complexity, particularly when modified.
+
 ## Implementation
 
 The `Array` class is implemented at [array.py](../../data_structures/array.py)

@@ -18,6 +18,20 @@ During the insertion and deletion, if the tree is not following the properties, 
 
 Red-black trees have an average time complexity of $O(\log{n})$ for most operations like searching, inserting and deleting. This makes it a good choice when the number of elements in the tree is large, and the elements need to be frequently added or removed.
 
+<div align="center">
+    <p><b>Example of a red–black tree</b></p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Red-black_tree_example_with_NIL.svg/316px-Red-black_tree_example_with_NIL.svg.png">
+    <p>
+        A directed graph with three vertices (blue circles) and three edges (black arrows).
+    </p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Red-black_tree_example_with_sockets.svg/316px-Red-black_tree_example_with_sockets.svg.png">
+    <p>
+        A directed graph with three vertices (blue circles) and three edges (black arrows).
+    </p>
+</div>
+
+For more information, see :heart: [Wikipedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
+
 ## Implementation
 
 The `RedBlackTree` class is implemented at [red_black_tree.py](../../data_structures/red_black_tree.py)

@@ -1,5 +1,26 @@
 # Binary Search Tree
 
+A Binary Search Tree (BST) is a binary tree data structure in which each node has at most two children, referred to as the left child and the right child.
+
+<div align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/180px-Binary_search_tree.svg.png">
+    <p>A binary search tree of size 9 and depth 3, with 8 at the root. The leaves are not drawn.</p>
+</div>
+
+## Structures
+
+In a BST, each node contains a key that satisfies the binary search property: the key of any node in the left subtree is less than the node's own key, and the key of any node in the right subtree is greater than the node's own key.
+
+The left and right subtrees themselves are also BSTs.
+
+The first node in a BST is called the root node. All other nodes are either a left child or a right child of some other node. Nodes that do not have any children are called leaf nodes, while nodes that have at least one child are called internal nodes.
+
+## Applications
+
+BSTs are commonly used in computer science and programming for efficient searching, sorting, and indexing algorithms. The time complexity of common operations such as search, insertion, and deletion is O(log n) on average and O(n) in the worst case, where n is the number of nodes in the tree.
+
+The efficiency of a BST depends on the balance of the tree, with a well-balanced tree achieving the best performance.
+
 ## Implementation
 
 The implementation of the `BinarySearchTree` class is placed in [binary_search_tree.py](../../data_structures/binary_search_tree.py)

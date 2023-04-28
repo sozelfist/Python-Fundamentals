@@ -1,5 +1,27 @@
 # Hash Table
 
+In computing, a _hash table_, also known as hash map, is a data structure that implements an associative array or dictionary. It is an abstract data type that maps keys to values. A hash table uses a _hash function_ to compute an _index_, also called a _hash code_, into an array of buckets or slots, from which the desired value can be found. During lookup, the key is hashed and the resulting hash indicates where the corresponding value is stored.
+
+Ideally, the hash function will assign each key to a unique bucket, but most hash table designs employ an imperfect hash function, which might cause hash collisions where the hash function generates the same index for more than one key. Such collisions are typically accommodated in some way.
+
+In a well-dimensioned hash table, the average time complexity for each lookup is independent of the number of elements stored in the table. Many hash table designs also allow arbitrary insertions and deletions of key–value pairs, at amortized constant average cost per operation.
+
+<div align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg/315px-Hash_table_3_1_1_0_1_0_0_SP.svg.png">
+    <p>A small phone book as a hash table</p>
+</div>
+
+For more information, see :books: [Wikipedia](https://en.wikipedia.org/wiki/Hash_table)
+
+## Time complexity in big O notation
+
+| **Algorithm** | **Average** | **Worst case** |
+| ------------- | ----------- | -------------- |
+| **Space**     | $\Theta(n)$ | $O(n)$         |
+| **Search**    | $\Theta(1)$ | $O(n)$         |
+| **Insert**    | $\Theta(1)$ | $O(n)$         |
+| **Delete**    | $\Theta(1)$ | $O(n)$         |
+
 ## Implementation
 
 The `HashTable` class is implemented here [hash_table.py](../../data_structures/hash_table.py)

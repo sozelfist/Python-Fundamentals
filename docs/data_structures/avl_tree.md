@@ -15,6 +15,25 @@ AVL tree is also commonly used in databases, file systems, and operating systems
 
 In short, AVL tree is a self-balancing binary search tree that provides an efficient way to maintain a data set with a large number of elements, and it provides a good balance between time and space complexity.
 
+<div align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/AVL_Tree_Example.gif/220px-AVL_Tree_Example.gif">
+    <p>Animation showing the insertion of several elements into an AVL tree. It includes left, right, left-right and right-left rotations.</p>
+</div>
+
+## Complexities in big O notation
+
+### Space complexity
+
+| Space | $\Theta(n)$ |
+| ----- | ----------- |
+
+### Time complexity
+
+| **Function** | **Amortized**     | **Worse Case** |
+| ------------ | ----------------- | -------------- |
+| **Search**   | $\Theta(\log{n})$ | $O(\log{n})$   |
+| **Insert**   | $\Theta(\log{n})$ | $O(\log{n})$   |
+| **Delete**   | $\Theta(\log{n})$ | $O(\log{n})$   |
 ## Implementation
 
 The `AVLTree` class is implemented at [avl_tree.py](../../data_structures/avl_tree.py)
