@@ -1,5 +1,12 @@
 # Weighted Graph
 
+A weighted graph or a network is a graph in which a number (the weight) is assigned to each edge. Such weights might represent for example costs, lengths or capacities, depending on the problem at hand. Such graphs arise in many contexts, for example in shortest path problems such as the traveling salesman problem.
+
+<div align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Weighted_network.svg/220px-Weighted_network.svg.png">
+    <p>A weighted graph with ten vertices and twelve edges</p>
+</div>
+
 ## Implementation
 
 The `WeightedGraph` class is implemented here [weighted_graph.py](../../data_structures/weighted_graph.py)

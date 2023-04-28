@@ -1,5 +1,35 @@
 ## Heap
 
+A Heap is a specialized tree-based data structure in which the parent node is either greater than or less than its children nodes, depending on whether it is a _Max Heap_ or a _Min Heap_, respectively.
+
+<div align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Max-Heap-new.svg/220px-Max-Heap-new.svg.png">
+    <p>Example of a binary max-heap with node keys being integers between 1 and 100</p>
+</div>
+
+## Types of Heap
+
+A Max Heap is a complete binary tree where the value of each node is greater than or equal to the values of its children. The node at the root of the tree has the largest value.
+
+A Min Heap is also a complete binary tree where the value of each node is less than or equal to the values of its children. The node at the root of the tree has the smallest value.
+
+## Applications
+
+Heaps are commonly used to implement priority queues, which are used in a variety of applications, such as task scheduling, Dijkstra's algorithm, and Huffman coding.
+
+
+## Operations
+
+The two main operations supported by heaps are:
+
+1. Insertion: A new element is added to the heap by inserting it at the next available position in the bottom level of the tree, and then bubbling it up to its proper position by comparing it with its parent node.
+
+2. Deletion: The root node is removed from the heap, and the last element in the bottom level of the tree is moved to the root position. The element is then bubbled down to its proper position by comparing it with its children nodes.
+
+## Complexities
+
+Heaps have a time complexity of O(log n) for both insertion and deletion operations, where n is the number of elements in the heap. However, building a heap from an unsorted array takes O(n) time, and the complexity of finding the kth smallest or largest element in a heap is O(k log n), which is less efficient than other algorithms such as quickselect.
+
 ## Implementation
 
 The implementation of the `Heap` class is placed in [heap.py](../../data_structures/heap.py)

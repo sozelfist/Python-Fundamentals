@@ -1,5 +1,9 @@
 # Priority Queue
 
+In computer science, a _priority queue_ is an abstract data-type similar to a regular queue or stack data structure. Each element in a priority queue has an associated priority. In a priority queue, elements with high priority are served before elements with low priority. In some implementations, if two elements have the same priority, they are served in the same order that they were enqueued in. In other implementations, the order of elements with the same priority is undefined.
+
+While priority queues are often implemented using heaps, they are conceptually distinct from heaps. A priority queue is an abstract data structure like a list or a map; just as a list can be implemented with a linked list or with an array, a priority queue can be implemented with a heap or another method such as an unordered array.
+
 ## Implementation
 
 The implementation of the `PriorityQueue` class is at [priority_queue.py](../../data_structures/priority_queue.py)

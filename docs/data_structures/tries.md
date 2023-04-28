@@ -1,5 +1,28 @@
 # Trie
 
+In computer science, a trie, also called digital tree or prefix tree, is a type of k-ary search tree, a tree data structure used for locating specific keys from within a set. These keys are most often strings, with links between nodes defined not by the entire key, but by individual characters. In order to access a key (to recover its value, change it, or remove it), the trie is traversed depth-first, following the links between nodes, which represent each character in the key.
+
+Unlike a binary search tree, nodes in the trie do not store their associated key. Instead, a node's position in the trie defines the key with which it is associated. This distributes the value of each key across the data structure, and means that not every node necessarily has an associated value.
+
+All the children of a node have a common prefix of the string associated with that parent node, and the root is associated with the empty string. This task of storing data accessible by its prefix can be accomplished in a memory-optimized way by employing a radix tree.
+
+<div align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Trie_example.svg/250px-Trie_example.svg.png">
+    <p>A trie for keys "A", "to", "tea", "ted", "ten", "i", "in", and "inn". Each complete English word has an arbitrary integer value associated with it.</p>
+</div>
+
+Tries support various operations: insertion, deletion, and lookup of a string key. Tries are composed of
+nodes *nodes* that contain links that are either references to other child suffix child nodes, or *nil* . Except for root, each node is pointed to by just one other node, called the parent. Each node contains $R$ links, where $R$ is the cardinality of the applicable alphabet, although tries have a substantial number of
+*nil* links.
+
+## Time complexity in big O notation
+| **Algorithm** | **Average** | **Worst case** |
+| ------------- | ----------- | -------------- |
+| **Space**     | $O(n)$      | $O(n)$         |
+| **Search**    | $O(n)$      | $O(n)$         |
+| **Insert**    | $O(n)$      | $O(n)$         |
+| **Delete**    | $O(n)$      | $O(n)$         |
+
 ## Implementation
 
 The `Trie` class implementation is placed in [trie.py](../../data_structures/tries.py)

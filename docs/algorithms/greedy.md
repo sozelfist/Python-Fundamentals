@@ -24,7 +24,15 @@ The following are the general steps involved in a greedy algorithm:
 
 ## Example: Coin Change Problem
 
-One example of a problem that can be solved using a greedy algorithm is the coin change problem. Suppose you need to make change for a given amount of money using the minimum number of coins. Here's an example of how to solve this problem using a greedy algorithm:
+One example of a problem that can be solved using a greedy algorithm is the coin change problem. Suppose you need to make change for a given amount of money using the minimum number of coins.
+
+<div align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Two_Pence_01.jpg/120px-Two_Pence_01.jpg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Five_New_Pence.jpg/120px-Five_New_Pence.jpg">
+    <p>With only 2 pence and 5 pence coins, one cannot make 3 pence, but one can make any higher integer amount.</p>
+</div>
+
+Here's an example of how to solve this problem using a greedy algorithm:
 
 1. Define the problem: The problem is to make change for a given amount of money using the minimum number of coins.
 

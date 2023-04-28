@@ -19,6 +19,12 @@ Define the problem: First, define the problem and identify the decision variable
 4. Terminate: If a complete solution is found, terminate the search. Otherwise, continue backtracking until all possible solutions have been explored.
 
 ## Example: N-Queens Problem
+
+<div align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Eight-queens-animation.gif/220px-Eight-queens-animation.gif">
+    <p>This animation illustrates backtracking to solve the problem. A queen is placed in a column that is known not to cause conflict. If a column is not found the program returns to the last good state and then tries a different column.</p>
+</div>
+
 The N-Queens problem involves placing N queens on an N x N chessboard such that no two queens threaten each other. Here's an example of how to solve the problem using backtracking:
 
 1. Define the problem: The problem is to place N queens on an N x N chessboard such that no two queens threaten each other.

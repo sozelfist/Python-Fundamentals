@@ -1,5 +1,19 @@
 # Stack
 
+In computer science, a _stack_ is an abstract data type that serves as a collection of elements, with two main operations:
+
+- _Push_, which adds an element to the collection, and
+- _Pop_, which removes the most recently added element that was not yet removed.
+
+Additionally, a _peek_ operation can, without modifying the stack, return the value of the last element added. Calling this structure a stack is by analogy to a set of physical items stacked one atop another, such as a stack of plates.
+
+The order in which an element added to or removed from a stack is described as last in, first out, referred to by the acronym _LIFO_. As with a stack of physical objects, this structure makes it easy to take an item off the top of the stack, but accessing a datum deeper in the stack may require taking off multiple other items first.
+
+<div align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Lifo_stack.svg/350px-Lifo_stack.svg.png">
+    <p>Simple representation of a stack runtime with push and pop operations.</p>
+</div>
+
 ## Implementation
 
 The `Stack` class implementation is at [stack.py](../../data_structures/stack.py)
