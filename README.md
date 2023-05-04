@@ -2,6 +2,11 @@
 
 # Python Fundamentals
 
+<div align="center">
+    <img src="./assets/images/COVER.png">
+    <p> Created by OpenAI DALL-E 2</p>
+</div>
+
 [![License](https://img.shields.io/github/license/TruongNhanNguyen/Python-Fundamentals?color=blue&label=License)](https://github.com/TruongNhanNguyen/Python-Fundamentals/blob/master/LICENSE)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/TruongNhanNguyen/Python-Fundamentals)
 [![Contributions welcome](https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=0059b3)](https://github.com/TruongNhanNguyen/Python-Fundamentals/blob/master/CONTRIBUTING.md)
