@@ -55,7 +55,7 @@ def jaro_winkler_distance(s1: str, s2: str, p: float = 0.1) -> float:
 
     # Calculate the common prefix length
     l = 0
-    for i in range(min(4, min(len_s1, len_s2))):
+    for i in range(min(4, *(len_s1, len_s2))):
         if s1[i] == s2[i]:
             l += 1
         else:
