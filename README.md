@@ -3,7 +3,7 @@
 # Python Fundamentals
 
 <div align="center">
-    <img src="./assets/images/COVER.png">
+    <img src="./assets/images/COVER.png" height="500", width="500">
     <p> Created by OpenAI DALL-E 2</p>
 </div>
 
