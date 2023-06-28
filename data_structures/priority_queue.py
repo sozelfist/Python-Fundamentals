@@ -3,7 +3,7 @@ import unittest
 
 class PriorityQueue:
     def __init__(
-        self, is_min_heap: bool = True, values: list[tuple[int, str]] = None
+        self, is_min_heap: bool = True, values: list[tuple[int, str]] | None = None
     ):
         self.heap = []
         self.is_min_heap = is_min_heap
