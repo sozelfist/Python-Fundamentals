@@ -4,7 +4,7 @@
     both directions, swapping adjacent elements if they are in the wrong order.
 
     Source: [Wikipedia](https://en.wikipedia.org/wiki/Cocktail_shaker_sort)
-    Psuedocode:
+    Pseudocode:
     ```
     procedure cocktailShakerSort(A : list of sortable items) is
         do
