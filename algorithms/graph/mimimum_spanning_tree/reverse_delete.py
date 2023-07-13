@@ -56,7 +56,7 @@ def reverse_delete_algorithm(adj_matrix: Graph) -> Graph:
 def is_connected(adj_matrix: Graph, connected: set[int]) -> bool:
     """ Helper function to check if a graph is connected. """
     visited = [False] * len(adj_matrix)
-    stack = [list(connected)[0]]
+    stack = [next(iter(connected))]
     while stack:
         v = stack.pop()
         if not visited[v]:
