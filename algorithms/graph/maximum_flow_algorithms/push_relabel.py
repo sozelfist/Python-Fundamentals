@@ -45,7 +45,7 @@ def relabel_to_front(C, source: int, sink: int) -> int:
     excess = [0] * n  # flow into node minus flow from node
     seen = [0] * n  # neighbours seen since last relabel
     # node "queue"
-    nodelist = [i for i in range(n) if i != source and i != sink]
+    nodelist = [i for i in range(n) if i not in (source, sink)]
 
     def push(u, v):
         """Pushes flow from node u to node v."""
