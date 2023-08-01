@@ -2,7 +2,7 @@
 import unittest
 from sys import maxsize
 
-INF = int(0x3f3f3f3f)
+INF = 0x3f3f3f3f
 
 
 class Edge:
