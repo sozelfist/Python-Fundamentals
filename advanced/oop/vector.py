@@ -36,10 +36,10 @@ class Vector:
             raise ValueError("Vectors must have the same dimensions")
         return Vector(self._coords - other._coords)
 
-    def __mul__(self, scalar: int | float) -> 'Vector':
+    def __mul__(self, scalar: float) -> 'Vector':
         return Vector(self._coords * scalar)
 
-    def __truediv__(self, scalar: int | float) -> 'Vector':
+    def __truediv__(self, scalar: float) -> 'Vector':
         return Vector(self._coords * (1 / scalar))
 
     def __eq__(self, other: 'Vector') -> bool:
