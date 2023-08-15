@@ -3,7 +3,7 @@ import unittest
 
 
 class Node:
-    def __init__(self, key: int | float, value: int | None, level: int):
+    def __init__(self, key: float, value: int | None, level: int):
         self.key = key
         self.value = value
         self.next = [None] * level
