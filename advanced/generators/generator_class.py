@@ -4,8 +4,8 @@ from typing import Any
 
 class Generator:
     def __init__(
-        self, start: int | float, end: int | float | None = None,
-        step: int | float = 1
+        self, start: float, end: float | None = None,
+        step: float = 1
     ):
         self.start = start
         self.step = step
