@@ -17,7 +17,7 @@ def namedtuple(classname: str, fieldnames: str) -> Any:
                                for name in self.__slots__)
             return f"{self.__class__.__name__}({values})"
 
-        def __eq__(self, other: Any) -> bool:
+        def __eq__(self, other: object) -> bool:
             if not isinstance(other, self.__class__):
                 return False
             return all(getattr(self, name) == getattr(other, name)
