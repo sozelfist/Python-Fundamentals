@@ -40,9 +40,7 @@ class Range:
         return self._start + index * self._step
 
     def __repr__(self) -> str:
-        return "Range({}, {}, {})".format(
-            self._start, self._start + self._length * self._step, self._step
-        )
+        return f"Range({self._start}, {self._start + self._length * self._step}, {self._step})"
 
     def __contains__(self, value: int) -> bool:
         """ Return True if value is in the range, False otherwise """
