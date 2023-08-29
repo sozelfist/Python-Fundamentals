@@ -42,8 +42,7 @@ def chain(*iterables):
     for it in iterables:
         if not hasattr(it, '__iter__'):
             raise TypeError(f"{type(it).__name__} object is not iterable")
-        for element in it:
-            yield element
+        yield from it
 
 
 class TestChain(unittest.TestCase):
