@@ -1,5 +1,2 @@
 image:
-  file: .gitpod.dockerfile
-
-tasks:
-  - init: pip install -r requirements.txt
+  file: Dockerfile
