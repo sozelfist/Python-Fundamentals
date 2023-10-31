@@ -7,24 +7,25 @@ RUFF_OPTS = --fix
 LINTING_DEST = .
 
 # Targets
+.PHONY: default lint test clean
+
 default: lint test clean
 
 lint:
 	@echo "Linting code with Ruff"
-	$(RUFF) $(RUFF_OPTS) $(LINTING_DEST)
+	@$(RUFF) $(RUFF_OPTS) $(LINTING_DEST)
 	@echo " "
 
 test:
 	@echo "Running tests with coverage"
-	$(PYTEST) $(COVERAGE) $(TEST_TARGETS)
+	@$(PYTEST) $(COVERAGE) $(TEST_TARGETS)
 	@echo " "
 
 clean:
-	@echo "Removing .pytest_cache folder"
+	@echo "Removing temporary files and folders"
 	@rm -rf .pytest_cache
-	@echo "Removing .coverage file"
 	@rm -f .coverage
-	@echo "Removing __pycache__ folders except in .venv"
 	@find . -name '__pycache__' -type d ! -path './venv/*' -exec rm -rf {} +
-	@echo "Removing .ruff_cache folder"
 	@rm -rf .ruff_cache
+	@echo "Cleanup completed"
+
