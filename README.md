@@ -77,22 +77,19 @@ This project also includes the implementation in Python of different subjects su
 
 To get started with the project, simply clone the repository to your local machine and navigate to the appropriate folder for the concept or data structure you wish to learn about. Each implementation has its dedicated folder with the necessary files and documentation.
 
+### Run project locally on your computer without Docker
+
 ```sh
 $ git clone https://github.com/TruongNhanNguyen/Python-Fundamentals.git
+$ make
 ```
 
-### Tests :test_tube:
-
-You can run the `Makefile` to test, lint (, and clean aux files) the project:
+### Run with Docker
 
 ```sh
-$ make # run testing and linting processes
-$ # make lint
-$ # make test
-$ # make cleaning
+docker pull sozeldocker/python-fundamentals
+docker run -it -rm sozeldocker/python-fundamentals
 ```
-
-
 
 ## Contributing :sparkling_heart: :clap:
 
