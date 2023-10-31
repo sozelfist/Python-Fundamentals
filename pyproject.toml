@@ -5,7 +5,6 @@ ignore = [      # `ruff rule S101` for a description of that rule
     "E741",     # E741: Ambiguous variable name 'l'
     "G004",     # G004 Logging statement uses f-string
     "N999",     # N999: Invalid module name
-    "PLC1901",  # PLC1901: `{}` can be simplified to `{}` as an empty string is falsey
     "PLR2004",  # PLR2004: Magic value used in comparison
     "PLR5501",  # PLR5501: Consider using `elif` instead of `else`
     "PLW0120",  # PLW0120: `else` clause on loop without a `break` statement
