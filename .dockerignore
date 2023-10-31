@@ -1,0 +1,10 @@
+# Exclude specific files
+.git
+.venv
+.vscode
+*.pyc
+
+# Exclude specific directories
+venv
+__pycache__
+
