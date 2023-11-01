@@ -14,6 +14,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/TruongNhanNguyen/Python-Fundamentals?color=red&label=Repo%20size)
 [![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/TruongNhanNguyen/Python-Fundamentals/blob/master/.pre-commit-config.yaml)
 [![CI](https://img.shields.io/github/actions/workflow/status/TruongNhanNguyen/Python-Fundamentals/CI.yml?label=CI%20Workflow&logo=GitHub&logoColor=GitHub)](https://github.com/TruongNhanNguyen/Python-Fundamentals/actions/workflows/CI.yml)
+[![Docker Stars](https://img.shields.io/docker/stars/sozeldocker/python-fundamentals?style=flat&logo=docker)](https://hub.docker.com/repository/docker/sozeldocker/python-fundamentals/general)
 </div>
 
 You can run and edit the codes, or contribute to them using Gitpod.io (a free online development environment) with a single click.
@@ -88,7 +89,7 @@ $ make
 
 ```sh
 docker pull sozeldocker/python-fundamentals
-docker run -it -rm sozeldocker/python-fundamentals
+docker run -it --rm sozeldocker/python-fundamentals
 ```
 
 ## Contributing :sparkling_heart: :clap:
