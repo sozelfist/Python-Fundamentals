@@ -92,9 +92,16 @@ docker pull sozeldocker/python-fundamentals
 docker run -it --rm sozeldocker/python-fundamentals
 ```
 
+
+## All algorithms are implemented in Python (for educational purposes).
+
+These implementations are intended for learning purposes. As such, they may be less efficient than the Python libraries.
+
 ## Contributing :sparkling_heart: :clap:
 
 I always welcome contributions to this project. If you have an implementation of a concept or data structure that is not included here, or you have found an error in our code, please feel free to submit a pull request.
+
+> Please read the [Contribution Guidelines](CONTRIBUTING.md) before you contribute to this project.
 
 ## License :black_nib:
 
