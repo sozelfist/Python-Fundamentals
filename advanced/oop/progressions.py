@@ -9,7 +9,7 @@ class Progression:
 
     def __init__(self, start=0):
         """ Initialize current to the first value of the progression """
-        self._current = start
+        self._start = self._current = start
 
     def _advance(self):
         """ Update self._current to a new value
@@ -71,7 +71,7 @@ class ArithmeticProgression(
     def nth_element(self, n: int):
         """ Return the nth element of the progression """
 
-        return self._current + (n - 1) * self._increment
+        return self._start + (n - 1) * self._increment
 
 # inherit from Progression class
 
@@ -96,7 +96,7 @@ class GeometricProgression(Progression, iterator_name='geometric progression'):
 
     def nth_element(self, n: int):
         """ Return the nth element of the progression """
-        return self._current * self._base ** (n - 1)
+        return self._start * self._base ** (n - 1)
 
 # inherit from Progression class
 
@@ -112,14 +112,16 @@ class FibonacciProgression(Progression, iterator_name='fibonacci progression'):
          """
 
         super().__init__(first)          # start progeression at first
-        self._prev = second - first      # fictitious value preceding the first
+        self._second = second
+        self._prev = self._second - self._start      # fictitious value preceding the first
 
     def nth_element(self, n: int):
         """ Return the nth element of the progression """
+        current = self._start
+        prev = self._second - self._start
         for _i in range(n - 1):
-            self._prev, self._current = self._current, self._prev +\
-                self._current
-        return self._current
+            prev, current = current, prev + current
+        return current
 
     def _advance(self):
         """ Update current value by taking sum of previous two """
@@ -132,13 +134,15 @@ class TestProgression(unittest.TestCase):
         self.assertEqual(next(progression), 0)
         self.assertEqual(next(progression), 1)
         self.assertEqual(next(progression), 2)
+        self.assertEqual(next(progression), 3)
 
     def test_arithmetic_progression(self):
         progression = ArithmeticProgression(increment=2, start=2)
         self.assertEqual(next(progression), 2)
         self.assertEqual(next(progression), 4)
         self.assertEqual(next(progression), 6)
-        self.assertEqual(progression.nth_element(3), 12)
+        self.assertEqual(next(progression), 8)
+        self.assertEqual(progression.nth_element(5), 10)
         self.assertEqual(progression.iterator_name, 'arithmetic progression')
 
     def test_geometric_progression(self):
@@ -146,7 +150,8 @@ class TestProgression(unittest.TestCase):
         self.assertEqual(next(progression), 2)
         self.assertEqual(next(progression), 4)
         self.assertEqual(next(progression), 8)
-        self.assertEqual(progression.nth_element(4), 128)
+        self.assertEqual(next(progression), 16)
+        self.assertEqual(progression.nth_element(5), 32)
         self.assertEqual(progression.iterator_name, 'geometric progression')
 
     def test_fibonacci_progression(self):
@@ -154,7 +159,8 @@ class TestProgression(unittest.TestCase):
         self.assertEqual(next(progression), 1)
         self.assertEqual(next(progression), 2)
         self.assertEqual(next(progression), 3)
-        self.assertEqual(progression.nth_element(4), 21)
+        self.assertEqual(next(progression), 5)
+        self.assertEqual(progression.nth_element(5), 8)
         self.assertEqual(progression.iterator_name, 'fibonacci progression')
 
     def test_invalid_input(self):
