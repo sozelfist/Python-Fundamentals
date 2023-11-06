@@ -1,6 +1,6 @@
 attrs==23.1.0
 autopep8==2.0.4
-contourpy==1.1.1
+contourpy==1.2.0
 matplotlib==3.8.0
 numpy==1.26.1
 Pillow==10.1.0
