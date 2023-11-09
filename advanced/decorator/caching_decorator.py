@@ -4,11 +4,12 @@ from typing import Any
 
 
 def cache(func: Callable) -> Callable:
-    def wrapper(*args: tuple[Any, ...]):
+    def wrapper(*args: tuple[Any, ...]) -> Any:
         if args not in wrapper.cache:
-            wrapper.cache[args] = func(*args)
-        return wrapper.cache[args]
-    wrapper.cache = {}
+            wrapper.cache[tuple(args)] = func(*args)
+        return wrapper.cache[tuple(args)]
+
+    wrapper.cache: dict[tuple, Any] = {}
     return wrapper
 
 
@@ -36,5 +37,5 @@ class TestMyFunction(unittest.TestCase):
         self.assertEqual(my_function.cache, {(2,): 4, (3,): 9})
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
