@@ -4,6 +4,16 @@ from typing import Any
 
 
 def cache(func: Callable) -> Callable:
+    """
+    A decorator that caches the results of the decorated function.
+
+    Args:
+        func (Callable): The function to be decorated.
+
+    Returns:
+        Callable: The wrapper function that handles caching.
+    """
+
     def wrapper(*args: tuple[Any, ...]) -> Any:
         if args not in wrapper.cache:
             wrapper.cache[tuple(args)] = func(*args)
@@ -15,6 +25,16 @@ def cache(func: Callable) -> Callable:
 
 @cache
 def my_function(x: int) -> int:
+    """
+    Computes the square of the input.
+
+    Args:
+        x (int): The input integer.
+
+    Returns:
+        int: The square of the input.
+    """
+
     print("computing")
     return x * x
 
