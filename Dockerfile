@@ -9,6 +9,9 @@ FROM python:${PYTHON_VERSION}-alpine
 # Set the working directory in the container
 WORKDIR /src
 
+# Check if make is installed and install if it is not
+RUN if [ ! -x /usr/bin/make ]; then apk add --no-cache make; fi
+
 # Copy only the requirements file to leverage Docker cache
 COPY requirements.txt /src/
 
@@ -19,9 +22,6 @@ RUN apk add --no-cache --virtual .build-deps build-base && \
 
 # Copy the current directory contents into the container at /src
 COPY . /src/
-
-# Check if make is installed and install if it is not
-RUN if [ ! -x /usr/bin/make ]; then apk add --no-cache make; fi
 
 # Set the entrypoint to be make
 ENTRYPOINT ["make"]
