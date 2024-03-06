@@ -1,6 +1,6 @@
 # Contributing to Python Fundamentals
 
-I Ilcome contributions to Python Fundamentals! Whether you're fixing a bug, implementing a new feature, or improving documentation, I're glad to have you on board.
+I always welcome your contributions to Python Fundamentals! Whether you're fixing a bug, implementing a new feature, or improving documentation, I're glad to have you on board.
 
 ## Getting Started
 
