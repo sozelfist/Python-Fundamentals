@@ -64,13 +64,10 @@ def accumulate(
             total = func(total, element)
         except TypeError:
             raise TypeError(
-                "unsupported operand type(s) for {}: '{}' and '{}'".format(
-                    func.__name__, type(total).__name__,
-                    type(element).__name__
-                )
+                f"unsupported operand type(s) for {func.__name__}: \
+                        '{type(total).__name__}' and '{type(element).__name__}'"
             )
         yield total
-
 
 class TestAccumulate(unittest.TestCase):
     def test_empty_iterable(self):
