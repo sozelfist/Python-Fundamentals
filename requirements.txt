@@ -4,7 +4,7 @@ contourpy==1.2.0
 matplotlib==3.8.3
 numpy==1.26.4
 Pillow==10.2.0
-pre-commit==3.6.2
+pre-commit==3.7.0
 pytest==8.1.1
 pytest-cov==4.1.0
 python-dateutil==2.9.0.post0
