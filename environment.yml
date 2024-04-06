@@ -5,17 +5,11 @@ channels:
 dependencies:
   - python=3.10
   - pip
-  - attrs
-  - autopep8
-  - contourpy
-  - matplotlib
+  - black
   - numpy
-  - Pillow
   - pre-commit
   - pytest
   - pytest-cov
-  - python-dateutil
   - ruff
   - scipy
-  - six
   - sympy
