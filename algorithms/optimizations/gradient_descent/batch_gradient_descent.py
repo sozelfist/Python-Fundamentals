@@ -9,12 +9,16 @@ def linear_model(x: np.ndarray, w: float, b: float) -> np.ndarray:
 
 def cost_function(x: np.ndarray, y: np.ndarray, w: float, b: float) -> float:
     predictions = linear_model(x, w, b)
-    return ((predictions - y)**2).mean()
+    return ((predictions - y) ** 2).mean()
 
 
 def batch_gradient_descent(
-        x: np.ndarray, y: np.ndarray, w: float, b: float,
-        learning_rate: float, num_iterations: int
+    x: np.ndarray,
+    y: np.ndarray,
+    w: float,
+    b: float,
+    learning_rate: float,
+    num_iterations: int,
 ) -> tuple[float, float]:
     for i in range(num_iterations):
         # calculate gradients
@@ -30,12 +34,11 @@ def batch_gradient_descent(
 
         # print progress
         if (i + 1) % 100 == 0:
-            print(f'Iteration: {i+1}, cost = {cost}, w = {w}, b = {b}')
+            print(f"Iteration: {i+1}, cost = {cost}, w = {w}, b = {b}")
     return w, b
 
 
 class TestBatchGradientDescent(unittest.TestCase):
-
     def test_batch_gradient_descent(self):
         x = np.array([1, 2, 3, 4, 5])
         y = np.array([5, 7, 9, 11, 13])
@@ -50,5 +53,5 @@ class TestBatchGradientDescent(unittest.TestCase):
         self.assertAlmostEqual(final_b, 2.9992, delta=0.001)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

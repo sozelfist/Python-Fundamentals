@@ -54,14 +54,12 @@ def determinant(matrix: list[list[int]]) -> int:
         det = 0
         for j in range(n):
             # Compute the cofactor of the first row and j-th column
-            cofactor = [[matrix[i][j]
-                         for j in range(1, n)] for i in range(1, n)]
+            cofactor = [[matrix[i][j] for j in range(1, n)] for i in range(1, n)]
             det += ((-1) ** j) * matrix[0][j] * determinant(cofactor)
         return det
 
 
 class TestSpanningTrees(unittest.TestCase):
-
     def test_count_spanning_trees_nonempty_graph(self):
         # Test case for a non-empty graph
         adj_matrix = [
@@ -69,26 +67,20 @@ class TestSpanningTrees(unittest.TestCase):
             [1, 0, 1, 0, 0],
             [1, 1, 0, 1, 1],
             [0, 0, 1, 0, 1],
-            [0, 0, 1, 1, 0]
+            [0, 0, 1, 1, 0],
         ]
         expected_count = 144
         self.assertEqual(count_spanning_trees(adj_matrix), expected_count)
 
     def test_count_spanning_trees_single_vertex(self):
         # Test case for a graph with only one vertex
-        adj_matrix = [
-            [0]
-        ]
+        adj_matrix = [[0]]
         expected_count = 0
         self.assertEqual(count_spanning_trees(adj_matrix), expected_count)
 
     def test_count_spanning_trees_empty_graph(self):
         # Test case for an empty graph (all zero adjacency matrix)
-        adj_matrix = [
-            [0, 0, 0],
-            [0, 0, 0],
-            [0, 0, 0]
-        ]
+        adj_matrix = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
         expected_count = 0
         self.assertEqual(count_spanning_trees(adj_matrix), expected_count)
 
@@ -100,11 +92,11 @@ class TestSpanningTrees(unittest.TestCase):
             [1, 0, 1, 0, 0],
             [1, 1, 0, 0, 0],
             [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0]
+            [0, 0, 0, 0, 0],
         ]
         expected_count = 0
         self.assertEqual(count_spanning_trees(adj_matrix), expected_count)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

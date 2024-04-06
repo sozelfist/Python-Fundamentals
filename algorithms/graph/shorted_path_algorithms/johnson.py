@@ -21,37 +21,25 @@ class TestFloydWarshall(unittest.TestCase):
     def test_johnson_1(self):
         nodes = 4
         inf = float("inf")
-        graph = [[0, 3, inf, 5],
-                 [2, 0, inf, 4],
-                 [inf, 1, 0, inf],
-                 [inf, inf, 2, 0]]
+        graph = [[0, 3, inf, 5], [2, 0, inf, 4], [inf, 1, 0, inf], [inf, inf, 2, 0]]
         result = johnson(graph, nodes)
-        expected = [[0, 3, 7, 5],
-                    [2, 0, 6, 4],
-                    [3, 1, 0, 5],
-                    [5, 3, 2, 0]]
+        expected = [[0, 3, 7, 5], [2, 0, 6, 4], [3, 1, 0, 5], [5, 3, 2, 0]]
         self.assertEqual(result, expected)
 
     def test_johnson_2(self):
         nodes = 3
         inf = float("inf")
-        graph = [[0, 1, inf],
-                 [1, 0, 2],
-                 [inf, 2, 0]]
+        graph = [[0, 1, inf], [1, 0, 2], [inf, 2, 0]]
         result = johnson(graph, nodes)
-        expected = [[0, 1, 3],
-                    [1, 0, 2],
-                    [3, 2, 0]]
+        expected = [[0, 1, 3], [1, 0, 2], [3, 2, 0]]
         self.assertEqual(result, expected)
 
     def test_johnson_3(self):
         nodes = 2
         float("inf")
-        graph = [[0, 5],
-                 [3, 0]]
+        graph = [[0, 5], [3, 0]]
         result = johnson(graph, nodes)
-        expected = [[0, 5],
-                    [3, 0]]
+        expected = [[0, 5], [3, 0]]
         self.assertEqual(result, expected)
 
 

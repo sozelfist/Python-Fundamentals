@@ -25,7 +25,9 @@ class SegmentTree:
         if l == tl and r == tr:
             return self.tree[v]
         tm = (tl + tr) // 2
-        return self._query(2 * v, tl, tm, l, min(r, tm)) + self._query(2 * v + 1, tm + 1, tr, max(l, tm + 1), r)
+        return self._query(2 * v, tl, tm, l, min(r, tm)) + self._query(
+            2 * v + 1, tm + 1, tr, max(l, tm + 1), r
+        )
 
     def update(self, pos: int, val: int) -> None:
         self._update(1, 0, self.n - 1, pos, val)
@@ -59,5 +61,5 @@ class TestSegmentTree(unittest.TestCase):
         self.assertEqual(self.seg_tree.query(0, 7), 41)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

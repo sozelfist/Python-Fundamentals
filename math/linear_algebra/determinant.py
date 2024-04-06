@@ -16,8 +16,8 @@ def determinant(A: list[list[int]]) -> int:
     for c in range(n):
         cofactorRow = []
         for r in range(n):
-            minor = [row[:c] + row[c + 1:] for row in (A[:r] + A[r + 1:])]
-            cofactorRow.append((-1)**(r + c) * determinant(minor))
+            minor = [row[:c] + row[c + 1 :] for row in (A[:r] + A[r + 1 :])]
+            cofactorRow.append((-1) ** (r + c) * determinant(minor))
         cofactors.append(cofactorRow)
 
     det = sum(A[i][0] * cofactors[i][0] for i in range(n))
@@ -36,5 +36,5 @@ class TestDeterminant(unittest.TestCase):
             determinant(A)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

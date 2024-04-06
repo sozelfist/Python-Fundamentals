@@ -1,7 +1,7 @@
 import unittest
 from typing import Generic, TypeVar
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 
 class FibonacciHeapNode(Generic[T]):
@@ -73,7 +73,7 @@ class FibonacciHeap(Generic[T]):
         return min_node.value
 
     def decrease_key(self, node: FibonacciHeapNode[T], new_key: float) -> None:
-        assert new_key < node.key, 'New key must be less than old key'
+        assert new_key < node.key, "New key must be less than old key"
         node.key = new_key
 
         parent = node.parent
@@ -107,9 +107,7 @@ class FibonacciHeap(Generic[T]):
         node.left.right = node.right
         node.right.left = node.left
 
-    def _link(
-        self, node1: FibonacciHeapNode[T], node2: FibonacciHeapNode[T]
-    ) -> None:
+    def _link(self, node1: FibonacciHeapNode[T], node2: FibonacciHeapNode[T]) -> None:
         # make node1 a child of node2
         self._remove_from_list(node1)
         node1.parent = node2
@@ -121,9 +119,7 @@ class FibonacciHeap(Generic[T]):
             self._insert_into_list(node2.child, node1)
         node2.degree += 1
 
-    def _cut(
-        self, node: FibonacciHeapNode[T], parent: FibonacciHeapNode[T]
-    ) -> None:
+    def _cut(self, node: FibonacciHeapNode[T], parent: FibonacciHeapNode[T]) -> None:
         self._remove_from_list(node)
         parent.degree -= 1
         node.parent = None
@@ -180,5 +176,5 @@ class TestFibonacciHeap(unittest.TestCase):
         self.assertIsNone(heap.delete_min())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

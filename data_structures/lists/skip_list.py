@@ -13,7 +13,7 @@ class SkipList:
     def __init__(self, max_level: int = 16):
         self.max_level = max_level
         self.level = 0
-        self.head = Node(float('-inf'), None, max_level)
+        self.head = Node(float("-inf"), None, max_level)
 
     def _random_level(self) -> int:
         level = 0
@@ -73,7 +73,7 @@ class SkipList:
         while curr:
             res.append(f"({curr.key}, {curr.value})")
             curr = curr.next[0]
-        return ' -> '.join(res)
+        return " -> ".join(res)
 
 
 class TestSkipList(unittest.TestCase):
@@ -107,5 +107,5 @@ class TestSkipList(unittest.TestCase):
         self.assertEqual(str(self.skip_list), "")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

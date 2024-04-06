@@ -26,5 +26,5 @@ class TestFibonacciNumbers(unittest.TestCase):
         self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

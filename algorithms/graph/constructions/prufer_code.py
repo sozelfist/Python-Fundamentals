@@ -33,8 +33,19 @@ class TestPruferCode(unittest.TestCase):
 
     def test_medium_tree(self):
         leaf_nodes = [3, 1, 0, 0, 3, 2, 9, 9, 2, 3]
-        expected_edges = [(3, 4), (1, 5), (0, 1), (0, 6), (3, 0),
-                          (2, 7), (9, 8), (9, 10), (2, 9), (3, 2), (3, 11)]
+        expected_edges = [
+            (3, 4),
+            (1, 5),
+            (0, 1),
+            (0, 6),
+            (3, 0),
+            (2, 7),
+            (9, 8),
+            (9, 10),
+            (2, 9),
+            (3, 2),
+            (3, 11),
+        ]
         self.assertEqual(prufer_code(leaf_nodes), expected_edges)
 
     def test_empty_input(self):
@@ -44,10 +55,9 @@ class TestPruferCode(unittest.TestCase):
 
     def test_duplicate_nodes(self):
         leaf_nodes = [1, 1, 2, 3, 3, 3]
-        expected_edges = [(1, 0), (1, 4), (2, 1), (3, 2),
-                          (3, 5), (3, 6), (3, 7)]
+        expected_edges = [(1, 0), (1, 4), (2, 1), (3, 2), (3, 5), (3, 6), (3, 7)]
         self.assertEqual(prufer_code(leaf_nodes), expected_edges)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

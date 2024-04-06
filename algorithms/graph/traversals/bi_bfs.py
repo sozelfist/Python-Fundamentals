@@ -50,8 +50,7 @@ def bidirectional_bfs(
                     if neighbor in target_visited:
                         # Construct the shortest path by combining partial
                         # paths from source and target
-                        path = _construct_path(
-                            source_parent, target_parent, neighbor)
+                        path = _construct_path(source_parent, target_parent, neighbor)
                         return path
 
         source_frontier = next_source_frontier
@@ -70,8 +69,7 @@ def bidirectional_bfs(
                     if neighbor in source_visited:
                         # Construct the shortest path by combining partial
                         # paths from source and target
-                        path = _construct_path(
-                            source_parent, target_parent, neighbor)
+                        path = _construct_path(source_parent, target_parent, neighbor)
                         return path
 
         target_frontier = next_target_frontier
@@ -81,8 +79,9 @@ def bidirectional_bfs(
 
 
 def _construct_path(
-        source_parent: dict[int, int | None],
-        target_parent: dict[int, int | None], common_node: int
+    source_parent: dict[int, int | None],
+    target_parent: dict[int, int | None],
+    common_node: int,
 ) -> list[int]:
     """
     Helper function to construct the shortest path
@@ -124,15 +123,17 @@ def _construct_path(
 class BidirectionalBFSTestCase(unittest.TestCase):
     def setUp(self):
         # Example graph represented as an adjacency list
-        self.graph = {1: [2, 3],
-                      2: [1, 4, 5],
-                      3: [1, 6],
-                      4: [2, 7],
-                      5: [2, 8],
-                      6: [3],
-                      7: [4],
-                      8: [5, 9],
-                      9: [8]}
+        self.graph = {
+            1: [2, 3],
+            2: [1, 4, 5],
+            3: [1, 6],
+            4: [2, 7],
+            5: [2, 8],
+            6: [3],
+            7: [4],
+            8: [5, 9],
+            9: [8],
+        }
 
     def test_bidirectional_bfs_shortest_path(self):
         # Test case for finding shortest path
@@ -144,10 +145,7 @@ class BidirectionalBFSTestCase(unittest.TestCase):
 
     def test_bidirectional_bfs_disconnected_graph(self):
         # Test case for disconnected graph
-        graph = {1: [2],
-                 2: [1],
-                 3: [4],
-                 4: [3]}
+        graph = {1: [2], 2: [1], 3: [4], 4: [3]}
         source_node = 1
         target_node = 3
         expected_path = None
@@ -155,5 +153,5 @@ class BidirectionalBFSTestCase(unittest.TestCase):
         self.assertEqual(shortest_path, expected_path)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -40,5 +40,5 @@ class TestKahnTopologicalSort(unittest.TestCase):
         self.assertEqual(kahn_topological_sort(graph), [0, 1, 2, 3, 4])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

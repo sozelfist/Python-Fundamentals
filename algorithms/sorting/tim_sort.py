@@ -8,7 +8,7 @@ def insertion_sort(arr: list[int], left=0, right=None) -> list[int]:
     for i in range(left + 1, right + 1):
         key_item = arr[i]
         j = bisect.bisect_left(arr[:i], key_item, lo=left, hi=i)
-        arr[j + 1:i + 1] = arr[j:i]
+        arr[j + 1 : i + 1] = arr[j:i]
         arr[j] = key_item
     return arr
 
@@ -19,7 +19,6 @@ def merge(left: list[int], right: list[int]) -> list[int]:
     if not right:
         return left
     if left[0] < right[0]:
-
         return [left[0]] + merge(left[1:], right)
     return [right[0]] + merge(left, right[1:])
 
@@ -35,10 +34,9 @@ def timsort(arr: list[int]) -> list[int]:
             midpoint = start + size - 1
             end = min((start + size * 2 - 1), (n - 1))
             merged_array = merge(
-                left=arr[start:midpoint + 1],
-                right=arr[midpoint + 1:end + 1]
+                left=arr[start : midpoint + 1], right=arr[midpoint + 1 : end + 1]
             )
-            arr[start:start + len(merged_array)] = merged_array
+            arr[start : start + len(merged_array)] = merged_array
         size *= 2
     return arr
 
@@ -75,5 +73,5 @@ class TestTimSort(unittest.TestCase):
         self.assertEqual(sorted_arr, [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

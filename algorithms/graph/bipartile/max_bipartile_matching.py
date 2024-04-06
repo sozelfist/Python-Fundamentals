@@ -23,17 +23,17 @@ def bfs(graph, U, match, dist):
             dist[u] = 0
             queue.append(u)
         else:
-            dist[u] = float('inf')
-    dist[None] = float('inf')
+            dist[u] = float("inf")
+    dist[None] = float("inf")
 
     while queue:
         u = queue.pop(0)
         if u is not None:
             for v in graph[u]:
-                if dist[match[v]] == float('inf'):
+                if dist[match[v]] == float("inf"):
                     dist[match[v]] = dist[u] + 1
                     queue.append(match[v])
-    return dist[None] != float('inf')
+    return dist[None] != float("inf")
 
 
 def dfs(u, graph, match, dist):
@@ -53,12 +53,11 @@ def dfs(u, graph, match, dist):
     """
     if u is not None:
         for v in graph[u]:
-            if dist[match[v]] == dist[u] + 1 and\
-                    dfs(match[v], graph, match, dist):
+            if dist[match[v]] == dist[u] + 1 and dfs(match[v], graph, match, dist):
                 match[v] = u
                 match[u] = v
                 return True
-        dist[u] = float('inf')
+        dist[u] = float("inf")
         return False
     return True
 
@@ -110,24 +109,24 @@ class BipartiteMatchingTestCase(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_graph_with_no_edges(self):
-        graph = {'U1': [], 'U2': [], 'U3': []}
+        graph = {"U1": [], "U2": [], "U3": []}
         expected = {}
         result = max_bipartite_matching(graph)
         self.assertEqual(result, expected)
 
     def test_graph_with_single_matching(self):
-        graph = {'U1': ['V1'], 'U2': ['V2'], 'U3': ['V3']}
-        expected = {'U1': 'V1', 'U2': 'V2', 'U3': 'V3'}
+        graph = {"U1": ["V1"], "U2": ["V2"], "U3": ["V3"]}
+        expected = {"U1": "V1", "U2": "V2", "U3": "V3"}
         result = max_bipartite_matching(graph)
         self.assertEqual(result, expected)
 
     def test_graph_with_multiple_matchings(self):
-        graph = {'U1': ['V1', 'V2'], 'U2': ['V1', 'V2'], 'U3': ['V2', 'V3']}
-        expected1 = {'U1': 'V1', 'U2': 'V2', 'U3': 'V3'}
-        expected2 = {'U1': 'V2', 'U2': 'V1', 'U3': 'V3'}
+        graph = {"U1": ["V1", "V2"], "U2": ["V1", "V2"], "U3": ["V2", "V3"]}
+        expected1 = {"U1": "V1", "U2": "V2", "U3": "V3"}
+        expected2 = {"U1": "V2", "U2": "V1", "U3": "V3"}
         result = max_bipartite_matching(graph)
         self.assertIn(result, [expected1, expected2])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

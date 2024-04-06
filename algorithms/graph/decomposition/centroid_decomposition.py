@@ -15,8 +15,7 @@ def add_edge(u: int, v: int) -> None:
 
 
 def dfs(
-    src: int, visited: list[bool], subtree_size: list[int],
-    num_nodes: list[int]
+    src: int, visited: list[bool], subtree_size: list[int], num_nodes: list[int]
 ) -> None:
     """Setup subtree sizes and nodes in current tree."""
     visited[src] = True
@@ -29,8 +28,7 @@ def dfs(
 
 
 def get_centroid(
-    src: int, visited: list[bool], subtree_size: list[int],
-    num_nodes: int
+    src: int, visited: list[bool], subtree_size: list[int], num_nodes: int
 ) -> int:
     """Get the centroid of tree rooted at src."""
     is_centroid = True
@@ -40,8 +38,10 @@ def get_centroid(
         if not visited[neighbor] and not centroid_marked[neighbor]:
             if subtree_size[neighbor] > num_nodes / 2:
                 is_centroid = False
-            if heaviest_child == 0 or \
-                    subtree_size[neighbor] > subtree_size[heaviest_child]:
+            if (
+                heaviest_child == 0
+                or subtree_size[neighbor] > subtree_size[heaviest_child]
+            ):
                 heaviest_child = neighbor
     if is_centroid and num_nodes - subtree_size[src] <= num_nodes / 2:
         return src
@@ -72,7 +72,6 @@ def decompose_tree(root: int) -> list[int]:
 
 
 class TestCentroidDecomposition(unittest.TestCase):
-
     def setUp(self):
         add_edge(1, 4)
         add_edge(2, 4)
@@ -106,5 +105,5 @@ class TestCentroidDecomposition(unittest.TestCase):
         self.assertEqual(result, 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -8,26 +8,26 @@ def fibonacci_search(arr: list[int], x: int) -> int:
     fib2 = 0  # (m-2)'th Fibonacci Number
     fib1 = 1  # (m-1)'th Fibonacci Number
     fib = fib2 + fib1  # m'th Fibonacci
-    while (fib < n):
+    while fib < n:
         fib2 = fib1
         fib1 = fib
         fib = fib2 + fib1
 
     offset = -1
-    while (fib > 1):
+    while fib > 1:
         idx = min(offset + fib2, n - 1)
-        if (arr[idx] < x):
+        if arr[idx] < x:
             fib = fib1
             fib1 = fib2
             fib2 = fib - fib1
             offset = idx
-        elif (arr[idx] > x):
+        elif arr[idx] > x:
             fib = fib2
             fib1 = fib1 - fib2
             fib2 = fib - fib1
         else:
             return idx
-    if (fib1 and arr[offset + 1] == x):
+    if fib1 and arr[offset + 1] == x:
         return offset + 1
     return -1
 
@@ -54,5 +54,5 @@ class TestFibonacciSearch(unittest.TestCase):
         self.assertEqual(result, 2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

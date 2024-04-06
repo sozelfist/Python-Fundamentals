@@ -2,7 +2,7 @@ import unittest
 
 
 def coin_change(coins: list[int], amount: int) -> int | float:
-    dp = [float('inf') for _ in range(amount + 1)]
+    dp = [float("inf") for _ in range(amount + 1)]
     dp[0] = 0
 
     for i in range(1, amount + 1):
@@ -10,7 +10,7 @@ def coin_change(coins: list[int], amount: int) -> int | float:
             if coin <= i:
                 dp[i] = min(dp[i], dp[i - coin] + 1)
 
-    return dp[amount] if dp[amount] != float('inf') else -1
+    return dp[amount] if dp[amount] != float("inf") else -1
 
 
 class TestCoinChange(unittest.TestCase):
@@ -21,5 +21,5 @@ class TestCoinChange(unittest.TestCase):
         self.assertEqual(coin_change([1, 3, 5], 8), 2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

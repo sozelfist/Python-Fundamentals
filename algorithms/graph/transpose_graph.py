@@ -18,7 +18,6 @@ def transpose_graph(graph: dict[int, list[int]]):
 
 
 class TestTransposeGraph(unittest.TestCase):
-
     def test_empty_graph(self):
         graph1 = {}
         expected1 = {}
@@ -45,5 +44,5 @@ class TestTransposeGraph(unittest.TestCase):
         self.assertEqual(transpose_graph(graph5), expected5)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

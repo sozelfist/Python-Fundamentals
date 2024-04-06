@@ -2,7 +2,6 @@ import unittest
 
 
 def minPathSum(grid: list[list[int]]) -> tuple[int, list[tuple[int, int]]]:
-
     # Check if the grid is empty
     if not grid:
         return 0, []
@@ -50,21 +49,13 @@ def minPathSum(grid: list[list[int]]) -> tuple[int, list[tuple[int, int]]]:
 
 class TestMinPathSum(unittest.TestCase):
     def test_example_1(self):
-        grid = [
-            [1, 3, 1],
-            [1, 5, 1],
-            [4, 2, 1]
-        ]
+        grid = [[1, 3, 1], [1, 5, 1], [4, 2, 1]]
         min_sum, path = minPathSum(grid)
         self.assertEqual(min_sum, 7)
         self.assertEqual(path, [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2)])
 
     def test_example_2(self):
-        grid = [
-            [1, 2, 3],
-            [4, 5, 6],
-            [7, 8, 9]
-        ]
+        grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
         min_sum, path = minPathSum(grid)
         self.assertEqual(min_sum, 21)
         self.assertEqual(path, [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2)])
@@ -94,14 +85,10 @@ class TestMinPathSum(unittest.TestCase):
         self.assertEqual(path, [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0)])
 
     def test_irregular_grid(self):
-        grid = [
-            [1, 3, 2],
-            [4, 5],
-            [7, 6, 8, 9]
-        ]
+        grid = [[1, 3, 2], [4, 5], [7, 6, 8, 9]]
         with self.assertRaises(ValueError):
             minPathSum(grid)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

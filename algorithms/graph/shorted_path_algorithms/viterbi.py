@@ -62,18 +62,15 @@ def get_shortest_path(backpointers, target):
 
 class TestViterbiShortestPath(unittest.TestCase):
     def setUp(self):
-        """ Example weighted graph represented as an adjacency list. """
-        self.graph = {0: {1: 2, 2: 4},
-                      1: {3: 1},
-                      2: {3: 3},
-                      3: {4: 1},
-                      4: {}}
+        """Example weighted graph represented as an adjacency list."""
+        self.graph = {0: {1: 2, 2: 4}, 1: {3: 1}, 2: {3: 3}, 3: {4: 1}, 4: {}}
         self.source = 0
         self.target = 4
 
     def test_viterbi_shortest_path(self):
         shortest_distances, backpointers = viterbi_shortest_path(
-            self.graph, self.source)
+            self.graph, self.source
+        )
         self.assertEqual(shortest_distances, {0: 0, 1: 2, 2: 4, 3: 3, 4: 4})
         self.assertEqual(backpointers, {1: 0, 2: 0, 3: 1, 4: 3})
 
@@ -83,5 +80,5 @@ class TestViterbiShortestPath(unittest.TestCase):
         self.assertEqual(shortest_path, [0, 1, 3, 4])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

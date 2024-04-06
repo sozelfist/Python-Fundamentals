@@ -178,7 +178,6 @@ class SplayTree:
 
 
 class TestSplayTree(unittest.TestCase):
-
     def test_insert_and_find(self):
         tree = SplayTree()
         tree.insert(5)
@@ -265,5 +264,5 @@ class TestSplayTree(unittest.TestCase):
         self.assertListEqual(keys, [2, 1, 5, 3, 7, 8, 9])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

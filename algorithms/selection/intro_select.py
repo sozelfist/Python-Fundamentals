@@ -35,6 +35,7 @@ def introselect(nums: list[int], k: int) -> int:
     """
     Find the k-th smallest element in the list using the IntroSelect algorithm.
     """
+
     def select_helper(nums: list[int], low: int, high: int, k: int) -> int:
         # Base case: if the list contains only one element
         if low == high:
@@ -69,13 +70,14 @@ def introselect_sort(nums: list[int]) -> list[int]:
     """
     Sort the list using IntroSelect algorithm.
     """
+
     def introselect_helper(nums: list[int], low: int, high: int) -> None:
         # Base case: if the sublist contains at most 16 elements, use Insertion Sort
         if high - low <= 16:
             insertion_sort(nums, low, high)
         # Base case: if recursion depth exceeds a limit, switch to HeapSort
         elif depth_limit == 0:
-            nums[low:high + 1] = heapsort(nums[low:high + 1])
+            nums[low : high + 1] = heapsort(nums[low : high + 1])
         else:
             # Partition the list and get the pivot's final position
             pivot_index = partition(nums, low, high)
@@ -162,5 +164,5 @@ class IntroSelectTestCase(unittest.TestCase):
         self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

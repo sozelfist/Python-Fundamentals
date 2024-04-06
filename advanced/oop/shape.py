@@ -21,7 +21,7 @@ class Circle(Shape):
         super().__init__(0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     triangle = Triangle()
     print(triangle.get_sides())  # 3
     rectangle = Rectangle()

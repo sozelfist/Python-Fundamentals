@@ -47,11 +47,7 @@ def shortest_path_bfs(
 
 class ShortestPathBFSTest(unittest.TestCase):
     def setUp(self):
-        self.graph = {1: [2, 3],
-                      2: [1, 3, 4],
-                      3: [1, 2, 4, 5],
-                      4: [2, 3, 5],
-                      5: [3, 4]}
+        self.graph = {1: [2, 3], 2: [1, 3, 4], 3: [1, 2, 4, 5], 4: [2, 3, 5], 5: [3, 4]}
 
     def test_shortest_path_exists(self):
         start_vertex = 1
@@ -59,8 +55,9 @@ class ShortestPathBFSTest(unittest.TestCase):
         expected_path = [1, 3, 5]
         result = shortest_path_bfs(self.graph, start_vertex, end_vertex)
         self.assertEqual(
-            result, expected_path,
-            f"Failed for start={start_vertex} and end={end_vertex}"
+            result,
+            expected_path,
+            f"Failed for start={start_vertex} and end={end_vertex}",
         )
 
     def test_shortest_path_not_exists(self):
@@ -69,8 +66,9 @@ class ShortestPathBFSTest(unittest.TestCase):
         expected_path = None
         result = shortest_path_bfs(self.graph, start_vertex, end_vertex)
         self.assertEqual(
-            result, expected_path,
-            f"Failed for start={start_vertex} and end={end_vertex}"
+            result,
+            expected_path,
+            f"Failed for start={start_vertex} and end={end_vertex}",
         )
 
     def test_start_end_same_vertex(self):
@@ -79,8 +77,9 @@ class ShortestPathBFSTest(unittest.TestCase):
         expected_path = [1]
         result = shortest_path_bfs(self.graph, start_vertex, end_vertex)
         self.assertEqual(
-            result, expected_path,
-            f"Failed for start={start_vertex} and end={end_vertex}"
+            result,
+            expected_path,
+            f"Failed for start={start_vertex} and end={end_vertex}",
         )
 
     def test_single_vertex_graph(self):
@@ -90,10 +89,11 @@ class ShortestPathBFSTest(unittest.TestCase):
         expected_path = [1]
         result = shortest_path_bfs(graph, start_vertex, end_vertex)
         self.assertEqual(
-            result, expected_path,
-            f"Failed for start={start_vertex} and end={end_vertex}"
+            result,
+            expected_path,
+            f"Failed for start={start_vertex} and end={end_vertex}",
         )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

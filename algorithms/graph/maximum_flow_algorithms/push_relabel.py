@@ -1,22 +1,22 @@
 """
-    The Relabel-to-Front algorithm is an efficient algorithm
-    for solving the maximum flow problem in a flow network.
-    The algorithm maintains a list of active nodes and repeatedly
-    pushes flow from active nodes to their neighbors until no more
-    flow can be pushed. If a node has excess flow that it cannot
-    push to any neighbor, it is relabeled to a new height to allow
-    it to push flow again in the future.
+The Relabel-to-Front algorithm is an efficient algorithm
+for solving the maximum flow problem in a flow network.
+The algorithm maintains a list of active nodes and repeatedly
+pushes flow from active nodes to their neighbors until no more
+flow can be pushed. If a node has excess flow that it cannot
+push to any neighbor, it is relabeled to a new height to allow
+it to push flow again in the future.
 
-    The algorithm uses a height labeling scheme to determine the order
-    in which nodes are processed. Each node is assigned a height, which
-    represents the distance from the node to the sink node in the residual
-    graph. Nodes are processed in order of decreasing height, and each
-    node is processed repeatedly until it has no more excess flow to push.
+The algorithm uses a height labeling scheme to determine the order
+in which nodes are processed. Each node is assigned a height, which
+represents the distance from the node to the sink node in the residual
+graph. Nodes are processed in order of decreasing height, and each
+node is processed repeatedly until it has no more excess flow to push.
 
-    This implementation uses a matrix to represent the flow and capacity, and
-    assumes that the flow network is represented as an adjacency matrix. The
-    matrix C represents the capacity of the edges, and the function returns
-    the maximum flow from the source node to the sink node.
+This implementation uses a matrix to represent the flow and capacity, and
+assumes that the flow network is represented as an adjacency matrix. The
+matrix C represents the capacity of the edges, and the function returns
+the maximum flow from the source node to the sink node.
 """
 
 import unittest
@@ -98,34 +98,31 @@ def relabel_to_front(C, source: int, sink: int) -> int:
 
 
 class TestMaxFlow(unittest.TestCase):
-
     def test_small_network(self):
-        C = [[0, 3, 4],
-             [0, 0, 1],
-             [0, 0, 0]]
+        C = [[0, 3, 4], [0, 0, 1], [0, 0, 0]]
         source = 0
         sink = 2
         self.assertEqual(relabel_to_front(C, source, sink), 5)
 
     def test_disconnected_network(self):
-        C = [[0, 0, 0],
-             [0, 0, 0],
-             [0, 0, 0]]
+        C = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
         source = 0
         sink = 2
         self.assertEqual(relabel_to_front(C, source, sink), 0)
 
     def test_medium_network(self):
-        C = [[0, 16, 13, 0, 0, 0],
-             [0, 0, 10, 12, 0, 0],
-             [0, 4, 0, 0, 14, 0],
-             [0, 0, 9, 0, 0, 20],
-             [0, 0, 0, 7, 0, 4],
-             [0, 0, 0, 0, 0, 0]]
+        C = [
+            [0, 16, 13, 0, 0, 0],
+            [0, 0, 10, 12, 0, 0],
+            [0, 4, 0, 0, 14, 0],
+            [0, 0, 9, 0, 0, 20],
+            [0, 0, 0, 7, 0, 4],
+            [0, 0, 0, 0, 0, 0],
+        ]
         source = 0
         sink = 5
         self.assertEqual(relabel_to_front(C, source, sink), 23)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

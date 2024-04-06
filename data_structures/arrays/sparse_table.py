@@ -17,8 +17,9 @@ class SparseTable:
 
         for j in range(1, k):
             for i in range(n - (1 << j) + 1):
-                self.st[i][j] = min(self.st[i][j - 1],
-                                    self.st[i + (1 << (j - 1))][j - 1])
+                self.st[i][j] = min(
+                    self.st[i][j - 1], self.st[i + (1 << (j - 1))][j - 1]
+                )
 
     def query(self, l: int, r: int) -> int:
         """
@@ -70,9 +71,15 @@ class TestSparseTable(unittest.TestCase):
         self.assertEqual(
             st.get_table(),
             [
-                [4, 1, 1, 1], [1, 1, 1, 0], [3, 3, 2, 0], [5, 2, 2, 0],
-                [2, 2, 2, 0], [6, 6, 0, 0], [7, 7, 0, 0], [8, 0, 0, 0]
-            ]
+                [4, 1, 1, 1],
+                [1, 1, 1, 0],
+                [3, 3, 2, 0],
+                [5, 2, 2, 0],
+                [2, 2, 2, 0],
+                [6, 6, 0, 0],
+                [7, 7, 0, 0],
+                [8, 0, 0, 0],
+            ],
         )
 
     def test_get_length(self):
@@ -91,5 +98,5 @@ class TestSparseTable(unittest.TestCase):
         self.assertEqual(st.get_element(7, 3), 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

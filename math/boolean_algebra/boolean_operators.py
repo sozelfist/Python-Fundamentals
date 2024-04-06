@@ -71,5 +71,5 @@ class TestBooleanOperators(unittest.TestCase):
         self.assertEqual(XNOR(0, 0), 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

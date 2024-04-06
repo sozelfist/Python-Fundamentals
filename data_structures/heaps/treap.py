@@ -2,10 +2,10 @@ import unittest
 
 
 class Node:
-    """ Treap Node class. """
+    """Treap Node class."""
 
     def __init__(self, key: int, priority: int):
-        """ Initialize Treap Node. """
+        """Initialize Treap Node."""
         self.key = key
         self.priority = priority
         self.left: Node | None = None
@@ -13,21 +13,21 @@ class Node:
 
 
 class Treap:
-    """ Class that represent the Treap data structure. """
+    """Class that represent the Treap data structure."""
 
     def __init__(self):
-        """ Initialize Treap. """
+        """Initialize Treap."""
         self.root: Node | None = None
 
     def _rotate_left(self, node: Node) -> Node:
-        """ Perform a left rotation of the given node and its right child. """
+        """Perform a left rotation of the given node and its right child."""
         y = node.right
         node.right = y.left
         y.left = node
         return y
 
     def _rotate_right(self, node: Node) -> Node:
-        """ Perform a right rotation of the given node and its left child. """
+        """Perform a right rotation of the given node and its left child."""
         x = node.left
         node.left = x.right
         x.right = node
@@ -62,13 +62,13 @@ class Treap:
         return node
 
     def delete(self, key: int) -> None:
-        """ Delete the node with the given key from the Treap. """
+        """Delete the node with the given key from the Treap."""
         if self.root is None:
             return
         self.root = self._delete_helper(self.root, key)
 
     def _delete_helper(self, node: Node, key: int) -> Node | None:
-        """ Recursively delete the node with the given key from the Treap. """
+        """Recursively delete the node with the given key from the Treap."""
         if node is None:
             return None
 
@@ -91,7 +91,7 @@ class Treap:
         return node
 
     def search(self, key: int) -> Node | None:
-        """ Search for a node with the given key in the Treap. """
+        """Search for a node with the given key in the Treap."""
         node = self.root
         while node is not None:
             if key < node.key:
@@ -103,7 +103,7 @@ class Treap:
         return None
 
     def in_order_traversal(self, node: Node | None = None) -> list[tuple]:
-        """ Perform InOder Traversal on the Treap. """
+        """Perform InOder Traversal on the Treap."""
         result = []
         if not node:
             node = self.root
@@ -115,7 +115,7 @@ class Treap:
         return result
 
     def pre_order_traversal(self, node: Node | None = None) -> list[tuple]:
-        """ Perform PreOder Traversal on the Treap. """
+        """Perform PreOder Traversal on the Treap."""
         result = []
         if not node:
             node = self.root
@@ -127,7 +127,7 @@ class Treap:
         return result
 
     def post_order_traversal(self, node: Node | None = None) -> list[tuple]:
-        """ Perform PostOder Traversal on the Treap. """
+        """Perform PostOder Traversal on the Treap."""
         result = []
         if not node:
             node = self.root
@@ -151,12 +151,25 @@ class TestTreap(unittest.TestCase):
         treap.insert(8, 70)
 
         expected_in_order = [
-            (2, 40), (3, 20), (4, 50), (5, 10), (6, 60), (7, 30), (8, 70)
+            (2, 40),
+            (3, 20),
+            (4, 50),
+            (5, 10),
+            (6, 60),
+            (7, 30),
+            (8, 70),
         ]
         self.assertEqual(treap.in_order_traversal(), expected_in_order)
 
-        expected_pre_order = [(5, 10), (3, 20), (2, 40),
-                              (4, 50), (7, 30), (6, 60), (8, 70)]
+        expected_pre_order = [
+            (5, 10),
+            (3, 20),
+            (2, 40),
+            (4, 50),
+            (7, 30),
+            (6, 60),
+            (8, 70),
+        ]
         self.assertEqual(treap.pre_order_traversal(), expected_pre_order)
 
     def test_delete(self):
@@ -170,8 +183,7 @@ class TestTreap(unittest.TestCase):
         treap.insert(8, 70)
 
         treap.delete(2)
-        expected_in_order = [(3, 20), (4, 50), (5, 10),
-                             (6, 60), (7, 30), (8, 70)]
+        expected_in_order = [(3, 20), (4, 50), (5, 10), (6, 60), (7, 30), (8, 70)]
         self.assertEqual(treap.in_order_traversal(), expected_in_order)
 
         treap.delete(7)
@@ -193,5 +205,5 @@ class TestTreap(unittest.TestCase):
         self.assertEqual(treap.search(9), None)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

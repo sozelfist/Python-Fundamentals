@@ -2,7 +2,9 @@ import unittest
 
 
 def bron_kerbosch(graph: dict[int, list[int]]) -> list[set[int]]:
-    def recursive_bron_kerbosch(R: set[int], P: set[int], X: set[int]) -> list[set[int]]:
+    def recursive_bron_kerbosch(
+        R: set[int], P: set[int], X: set[int]
+    ) -> list[set[int]]:
         """
         Find all maximal cliques in an undirected graph using the Bron-Kerbosch algorithm.
 
@@ -38,7 +40,8 @@ def bron_kerbosch(graph: dict[int, list[int]]) -> list[set[int]]:
         for v in P.copy():
             neighbors = set(graph[v])
             recursive_cliques = recursive_bron_kerbosch(
-                R | {v}, P & neighbors, X & neighbors)
+                R | {v}, P & neighbors, X & neighbors
+            )
             cliques.extend(recursive_cliques)
             P.remove(v)
             X.add(v)

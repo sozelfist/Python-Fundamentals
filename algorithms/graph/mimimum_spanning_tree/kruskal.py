@@ -1,9 +1,7 @@
 import unittest
 
 
-def kruskal(
-    n: int, edges: list[tuple[int, int, int]]
-) -> list[tuple[int, int]]:
+def kruskal(n: int, edges: list[tuple[int, int, int]]) -> list[tuple[int, int]]:
     edges.sort(key=lambda x: x[2])
     parent = [i for i in range(n)]
     result = []
@@ -38,12 +36,11 @@ class TestKruskal(unittest.TestCase):
         self.assertEqual(result, expected_result)
 
         n = 6
-        edges = [(0, 1, 2), (0, 3, 6), (1, 2, 3),
-                 (3, 4, 5), (4, 2, 1), (5, 2, 4)]
+        edges = [(0, 1, 2), (0, 3, 6), (1, 2, 3), (3, 4, 5), (4, 2, 1), (5, 2, 4)]
         result = kruskal(n, edges)
         expected_result = [(4, 2), (0, 1), (1, 2), (5, 2), (3, 4)]
         self.assertEqual(result, expected_result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

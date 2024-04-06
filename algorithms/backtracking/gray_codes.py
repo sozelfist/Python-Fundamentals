@@ -41,5 +41,5 @@ class GrayCodeTestCase(unittest.TestCase):
         self.assertEqual(generate_gray_codes(n), expected_gray_codes)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

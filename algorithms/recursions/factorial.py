@@ -52,8 +52,8 @@ class TestFactorial(unittest.TestCase):
         with self.assertRaises((TypeError, ValueError)):
             factorial(3.14)
         with self.assertRaises((TypeError, ValueError)):
-            factorial('5')
+            factorial("5")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

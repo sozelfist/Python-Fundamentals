@@ -3,9 +3,7 @@ import unittest
 import numpy as np
 
 
-def lower_upper_decomposition(
-    table: np.ndarray
-) -> tuple[np.ndarray, np.ndarray]:
+def lower_upper_decomposition(table: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     rows, columns = np.shape(table)
     if rows != columns:
         raise ValueError(
@@ -38,10 +36,12 @@ class TestLowerUpperDecomposition(unittest.TestCase):
         matrix = np.array([[2, -2, 1], [0, 1, 2], [5, 3, 1]])
         lower, upper = lower_upper_decomposition(matrix)
 
-        np.testing.assert_array_almost_equal(lower, np.array(
-            [[1., 0., 0.], [0., 1., 0.], [2.5, 8., 1.]]))
-        np.testing.assert_array_almost_equal(upper, np.array(
-            [[2., -2., 1.], [0., 1., 2.], [0., 0., -17.5]]))
+        np.testing.assert_array_almost_equal(
+            lower, np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [2.5, 8.0, 1.0]])
+        )
+        np.testing.assert_array_almost_equal(
+            upper, np.array([[2.0, -2.0, 1.0], [0.0, 1.0, 2.0], [0.0, 0.0, -17.5]])
+        )
 
     def test_shape_error(self):
         matrix = np.array([[2, -2, 1], [0, 1, 2]])
@@ -49,5 +49,5 @@ class TestLowerUpperDecomposition(unittest.TestCase):
             lower_upper_decomposition(matrix)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

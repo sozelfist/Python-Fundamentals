@@ -68,7 +68,6 @@ def jaro_winkler_distance(s1: str, s2: str, p: float = 0.1) -> float:
 
 
 class TestJaroWinklerDistance(unittest.TestCase):
-
     def test_same_strings(self):
         s1 = "Hello world"
         s2 = "Hello world"
@@ -100,5 +99,5 @@ class TestJaroWinklerDistance(unittest.TestCase):
         self.assertAlmostEqual(distance, 00.9878787878787879, places=10)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

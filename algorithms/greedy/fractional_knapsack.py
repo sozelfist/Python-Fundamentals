@@ -38,5 +38,5 @@ class TestFractionalKnapsack(unittest.TestCase):
         self.assertAlmostEqual(result, 0.0, delta=1e-9)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

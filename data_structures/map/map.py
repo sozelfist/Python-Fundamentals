@@ -2,8 +2,8 @@ import unittest
 from collections.abc import Hashable
 from typing import Generic, TypeVar
 
-K = TypeVar('K')  # Key type
-V = TypeVar('V')  # Value type
+K = TypeVar("K")  # Key type
+V = TypeVar("V")  # Value type
 
 
 class Map(Generic[K, V]):
@@ -78,30 +78,30 @@ class Map(Generic[K, V]):
 class MapTestCase(unittest.TestCase):
     def setUp(self):
         self.m = Map()
-        self.m['a'] = 1
-        self.m['b'] = 2
-        self.m['c'] = 3
+        self.m["a"] = 1
+        self.m["b"] = 2
+        self.m["c"] = 3
 
     def test_get_item(self):
-        self.assertEqual(self.m['a'], 1)
-        self.assertEqual(self.m['b'], 2)
-        self.assertEqual(self.m['c'], 3)
-        self.assertIsNone(self.m.get('d'))
+        self.assertEqual(self.m["a"], 1)
+        self.assertEqual(self.m["b"], 2)
+        self.assertEqual(self.m["c"], 3)
+        self.assertIsNone(self.m.get("d"))
 
     def test_set_item(self):
-        self.m['d'] = 4
+        self.m["d"] = 4
         self.assertEqual(len(self.m), 4)
-        self.assertEqual(self.m['d'], 4)
-        self.m['a'] = 5
+        self.assertEqual(self.m["d"], 4)
+        self.m["a"] = 5
         self.assertEqual(len(self.m), 4)
-        self.assertEqual(self.m['a'], 5)
+        self.assertEqual(self.m["a"], 5)
 
     def test_del_item(self):
-        del self.m['b']
+        del self.m["b"]
         self.assertEqual(len(self.m), 2)
-        self.assertIsNone(self.m.get('b'))
+        self.assertIsNone(self.m.get("b"))
         with self.assertRaises(KeyError):
-            del self.m['d']
+            del self.m["d"]
 
     def test_len(self):
         self.assertEqual(len(self.m), 3)
@@ -109,32 +109,32 @@ class MapTestCase(unittest.TestCase):
         self.assertEqual(len(self.m), 0)
 
     def test_iter(self):
-        keys = {'a', 'b', 'c'}
+        keys = {"a", "b", "c"}
         for k, _v in self.m:
             self.assertIn(k, keys)
 
     def test_str(self):
-        self.assertEqual(str(self.m), '{a: 1, b: 2, c: 3}')
+        self.assertEqual(str(self.m), "{a: 1, b: 2, c: 3}")
 
     def test_get(self):
-        self.assertEqual(self.m.get('a'), 1)
-        self.assertEqual(self.m.get('d'), None)
-        self.assertEqual(self.m.get('d', 'default'), 'default')
+        self.assertEqual(self.m.get("a"), 1)
+        self.assertEqual(self.m.get("d"), None)
+        self.assertEqual(self.m.get("d", "default"), "default")
 
     def test_keys(self):
-        self.assertEqual(self.m.keys(), ['a', 'b', 'c'])
+        self.assertEqual(self.m.keys(), ["a", "b", "c"])
 
     def test_values(self):
         self.assertEqual(self.m.values(), [1, 2, 3])
 
     def test_items(self):
-        self.assertEqual(self.m.items(), [('a', 1), ('b', 2), ('c', 3)])
+        self.assertEqual(self.m.items(), [("a", 1), ("b", 2), ("c", 3)])
 
     def test_clear(self):
         self.m.clear()
         self.assertEqual(len(self.m), 0)
-        self.assertEqual(str(self.m), '{}')
+        self.assertEqual(str(self.m), "{}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

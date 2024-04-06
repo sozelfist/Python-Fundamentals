@@ -31,7 +31,7 @@ class Graph:
         Returns:
             bool: True if there is an edge from x to y, False otherwise.
         """
-        return y in self.vertices[x]['neighbors']
+        return y in self.vertices[x]["neighbors"]
 
     def neighbors(self, x: str) -> list:
         """
@@ -44,7 +44,7 @@ class Graph:
         Returns:
             list: A list of vertices that are neighbors of x.
         """
-        return list(self.vertices[x]['neighbors'])
+        return list(self.vertices[x]["neighbors"])
 
     def add_vertex(self, x: str, v: Any = None) -> None:
         """
@@ -56,7 +56,7 @@ class Graph:
             Defaults to None.
         """
         if x not in self.vertices:
-            self.vertices[x] = {'value': v, 'neighbors': set()}
+            self.vertices[x] = {"value": v, "neighbors": set()}
 
     def remove_vertex(self, x: str) -> None:
         """
@@ -69,7 +69,7 @@ class Graph:
             del self.vertices[x]
             # Remove any edges that are connected to x
             for v in self.vertices:
-                self.vertices[v]['neighbors'].discard(x)
+                self.vertices[v]["neighbors"].discard(x)
 
     def add_edge(self, x: str, y: str, z: Any = None) -> None:
         """
@@ -82,7 +82,7 @@ class Graph:
             Defaults to None.
         """
         if x in self.vertices and y in self.vertices:
-            self.vertices[x]['neighbors'].add(y)
+            self.vertices[x]["neighbors"].add(y)
             self.edges[(x, y)] = z
 
     def remove_edge(self, x: str, y: str) -> None:
@@ -94,7 +94,7 @@ class Graph:
             y (str): The ending vertex.
         """
         if x in self.vertices and y in self.vertices:
-            self.vertices[x]['neighbors'].discard(y)
+            self.vertices[x]["neighbors"].discard(y)
             del self.edges[(x, y)]
 
     def get_vertex_value(self, x: str) -> Any | None:
@@ -107,7 +107,7 @@ class Graph:
         Returns:
             Any: The value associated with the vertex, or None if not found.
         """
-        return self.vertices.get(x, {}).get('value')
+        return self.vertices.get(x, {}).get("value")
 
     def set_vertex_value(self, x: str, v: Any) -> None:
         """
@@ -118,7 +118,7 @@ class Graph:
             v (Any): The value to be associated with the vertex.
         """
         if x in self.vertices:
-            self.vertices[x]['value'] = v
+            self.vertices[x]["value"] = v
 
     def get_edge_value(self, x: str, y: str) -> Any | None:
         """
@@ -126,7 +126,7 @@ class Graph:
         Args:
         x (str): The starting vertex.
         y (str): The ending vertex.
-    """
+        """
         return self.edges.get((x, y))
 
     def set_edge_value(self, x: str, y: str, v: Any) -> None:
@@ -143,57 +143,56 @@ class Graph:
 
 
 class TestGraph(unittest.TestCase):
-
     def setUp(self):
         self.graph = Graph()
-        self.graph.add_vertex('A')
-        self.graph.add_vertex('B')
-        self.graph.add_edge('A', 'B', 10)
+        self.graph.add_vertex("A")
+        self.graph.add_vertex("B")
+        self.graph.add_edge("A", "B", 10)
 
     def test_adjacent(self):
-        self.assertTrue(self.graph.adjacent('A', 'B'))
-        self.assertFalse(self.graph.adjacent('B', 'A'))
-        self.assertFalse(self.graph.adjacent('A', 'C'))
+        self.assertTrue(self.graph.adjacent("A", "B"))
+        self.assertFalse(self.graph.adjacent("B", "A"))
+        self.assertFalse(self.graph.adjacent("A", "C"))
 
     def test_neighbors(self):
-        neighbors = self.graph.neighbors('A')
-        self.assertEqual(neighbors, ['B'])
+        neighbors = self.graph.neighbors("A")
+        self.assertEqual(neighbors, ["B"])
 
     def test_add_vertex(self):
-        self.graph.add_vertex('C')
-        self.assertIn('C', self.graph.vertices)
+        self.graph.add_vertex("C")
+        self.assertIn("C", self.graph.vertices)
 
     def test_remove_vertex(self):
-        self.graph.remove_vertex('B')
-        self.assertNotIn('B', self.graph.vertices)
+        self.graph.remove_vertex("B")
+        self.assertNotIn("B", self.graph.vertices)
 
     def test_add_edge(self):
-        self.graph.add_edge('B', 'A', 20)
-        self.assertTrue(self.graph.adjacent('B', 'A'))
-        self.assertEqual(self.graph.get_edge_value('B', 'A'), 20)
+        self.graph.add_edge("B", "A", 20)
+        self.assertTrue(self.graph.adjacent("B", "A"))
+        self.assertEqual(self.graph.get_edge_value("B", "A"), 20)
 
     def test_remove_edge(self):
-        self.graph.remove_edge('A', 'B')
-        self.assertFalse(self.graph.adjacent('A', 'B'))
+        self.graph.remove_edge("A", "B")
+        self.assertFalse(self.graph.adjacent("A", "B"))
 
     def test_get_vertex_value(self):
-        value = self.graph.get_vertex_value('A')
+        value = self.graph.get_vertex_value("A")
         self.assertIsNone(value)
 
     def test_set_vertex_value(self):
-        self.graph.set_vertex_value('A', 100)
-        value = self.graph.get_vertex_value('A')
+        self.graph.set_vertex_value("A", 100)
+        value = self.graph.get_vertex_value("A")
         self.assertEqual(value, 100)
 
     def test_get_edge_value(self):
-        value = self.graph.get_edge_value('A', 'B')
+        value = self.graph.get_edge_value("A", "B")
         self.assertEqual(value, 10)
 
     def test_set_edge_value(self):
-        self.graph.set_edge_value('A', 'B', 50)
-        value = self.graph.get_edge_value('A', 'B')
+        self.graph.set_edge_value("A", "B", 50)
+        value = self.graph.get_edge_value("A", "B")
         self.assertEqual(value, 50)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

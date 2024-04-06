@@ -1,4 +1,3 @@
-
 import unittest
 
 
@@ -55,5 +54,5 @@ class TestGraph(unittest.TestCase):
         self.assertEqual(str(self.graph), "{1: [2], 2: [1, 3], 3: [2]}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

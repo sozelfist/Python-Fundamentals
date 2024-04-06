@@ -1,4 +1,3 @@
-
 import numpy as np
 
 
@@ -8,22 +7,27 @@ def linear_model(x: np.ndarray, w: float, b: float) -> np.ndarray:
 
 def cost_function(x: np.ndarray, y: np.ndarray, w: float, b: float) -> float:
     predictions = linear_model(x, w, b)
-    return ((predictions - y)**2).mean()
+    return ((predictions - y) ** 2).mean()
 
 
 def nesterov_accelerated_gradient_descent(
-        x: np.ndarray, y: np.ndarray, w: float, b: float,
-        learning_rate: float, num_iterations: int, momentum: float = 0.9
+    x: np.ndarray,
+    y: np.ndarray,
+    w: float,
+    b: float,
+    learning_rate: float,
+    num_iterations: int,
+    momentum: float = 0.9,
 ) -> tuple[float, float]:
     v_dw = 0
     v_db = 0
 
     for i in range(num_iterations):
         # calculate gradients using the previous parameters with momentum
-        dw = (linear_model(x, w - momentum * v_dw, b - momentum * v_db) - y)\
-            .dot(x) / len(x)
-        db = (linear_model(x, w - momentum * v_dw, b - momentum * v_db) - y)\
-            .mean()
+        dw = (linear_model(x, w - momentum * v_dw, b - momentum * v_db) - y).dot(
+            x
+        ) / len(x)
+        db = (linear_model(x, w - momentum * v_dw, b - momentum * v_db) - y).mean()
 
         # update parameters with momentum
         v_dw = momentum * v_dw + (1 - momentum) * dw
@@ -36,11 +40,11 @@ def nesterov_accelerated_gradient_descent(
 
         # print progress
         if (i + 1) % 100 == 0:
-            print(f'Iteration: {i+1}, cost = {cost}, w = {w}, b = {b}')
+            print(f"Iteration: {i+1}, cost = {cost}, w = {w}, b = {b}")
     return w, b
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import unittest
 
     class TestNesterovAcceleratedGradientDescent(unittest.TestCase):
@@ -57,9 +61,10 @@ if __name__ == '__main__':
             learning_rate = 0.01
             num_iterations = 5000
             final_w, final_b = nesterov_accelerated_gradient_descent(
-                x, y, w, b, learning_rate, num_iterations)
+                x, y, w, b, learning_rate, num_iterations
+            )
 
             self.assertAlmostEqual(final_w, 2, delta=1e-2)
             self.assertAlmostEqual(final_b, 3, delta=1e-2)
 
-    unittest.main(argv=[''], exit=False)
+    unittest.main(argv=[""], exit=False)

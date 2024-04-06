@@ -73,22 +73,16 @@ def m_coloring(graph, m):
 
 class TestMColoring(unittest.TestCase):
     def test_m_coloring_with_solution(self):
-        graph1 = [[0, 1, 1, 1],
-                  [1, 0, 1, 0],
-                  [1, 1, 0, 1],
-                  [1, 0, 1, 0]]
+        graph1 = [[0, 1, 1, 1], [1, 0, 1, 0], [1, 1, 0, 1], [1, 0, 1, 0]]
         m1 = 3
         expected_colors1 = [1, 2, 3, 2]
         self.assertEqual(m_coloring(graph1, m1), expected_colors1)
 
     def test_m_coloring_with_no_solution(self):
-        graph2 = [[0, 1, 0, 1],
-                  [1, 0, 1, 0],
-                  [0, 1, 0, 1],
-                  [1, 1, 1, 0]]
+        graph2 = [[0, 1, 0, 1], [1, 0, 1, 0], [0, 1, 0, 1], [1, 1, 1, 0]]
         m2 = 2
         self.assertIsNone(m_coloring(graph2, m2))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

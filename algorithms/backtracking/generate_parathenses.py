@@ -15,7 +15,9 @@ def generateParentheses(n: int) -> list[str]:
     return result
 
 
-def backtrack(result: list[str], current: str, open_count: int, close_count: int, n: int) -> None:
+def backtrack(
+    result: list[str], current: str, open_count: int, close_count: int, n: int
+) -> None:
     """
     Recursive function to generate well-formed parentheses sequences.
 
@@ -38,7 +40,6 @@ def backtrack(result: list[str], current: str, open_count: int, close_count: int
 
 
 class TestGenerateParentheses(unittest.TestCase):
-
     def test_generate_parentheses_with_n_1(self):
         expected_output = ["()"]
         self.assertEqual(generateParentheses(1), expected_output)
@@ -53,9 +54,20 @@ class TestGenerateParentheses(unittest.TestCase):
 
     def test_generate_parentheses_with_n_4(self):
         expected_output = [
-            "(((())))", "((()()))", "((())())", "((()))()", "(()(()))",
-            "(()()())", "(()())()", "(())(())", "(())()()", "()((()))",
-            "()(()())", "()(())()", "()()(())", "()()()()"
+            "(((())))",
+            "((()()))",
+            "((())())",
+            "((()))()",
+            "(()(()))",
+            "(()()())",
+            "(()())()",
+            "(())(())",
+            "(())()()",
+            "()((()))",
+            "()(()())",
+            "()(())()",
+            "()()(())",
+            "()()()()",
         ]
         self.assertEqual(generateParentheses(4), expected_output)
 

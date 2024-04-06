@@ -1,7 +1,7 @@
 import unittest
 from typing import Generic, TypeVar
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 
 class Bag(Generic[T]):
@@ -64,5 +64,5 @@ class TestBag(unittest.TestCase):
         self.assertEqual(list(bag), [1, 1, 2, 2, 3])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

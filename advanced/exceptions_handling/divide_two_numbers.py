@@ -23,9 +23,9 @@ class TestDivideFunction(unittest.TestCase):
         self.assertIsNone(result)
 
     def test_divide_non_numeric_inputs(self):
-        result = divide(10, 'a')
+        result = divide(10, "a")
         self.assertIsNone(result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -32,5 +32,5 @@ class TestBucketSort(unittest.TestCase):
         self.assertEqual(sorted_arr, [0.1, 0.3, 0.3, 0.4, 0.5])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

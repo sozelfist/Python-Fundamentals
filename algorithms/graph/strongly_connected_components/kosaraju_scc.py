@@ -2,18 +2,14 @@ import unittest
 
 
 def kosaraju(graph: list[list[int]]) -> list[list[int]]:
-    def dfs_first_pass(
-        node: int, visited: list[bool], stack: list[int]
-    ) -> None:
+    def dfs_first_pass(node: int, visited: list[bool], stack: list[int]) -> None:
         visited[node] = True
         for neighbor in graph[node]:
             if not visited[neighbor]:
                 dfs_first_pass(neighbor, visited, stack)
         stack.append(node)
 
-    def dfs_second_pass(
-        node: int, visited: list[bool], component: list[int]
-    ) -> None:
+    def dfs_second_pass(node: int, visited: list[bool], component: list[int]) -> None:
         visited[node] = True
         component.append(node)
         for neighbor in graph[node]:
@@ -48,12 +44,7 @@ def kosaraju(graph: list[list[int]]) -> list[list[int]]:
 
 class TestKosaraju(unittest.TestCase):
     def test_kosaraju(self):
-        graph = [
-            [1],
-            [2],
-            [0, 3],
-            [2]
-        ]
+        graph = [[1], [2], [0, 3], [2]]
         expected = [[0, 1, 2, 3]]
         result = kosaraju(graph)
         self.assertEqual(result, expected)

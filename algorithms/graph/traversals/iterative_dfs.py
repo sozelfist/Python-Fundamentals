@@ -8,19 +8,25 @@ class Graph:
     def add_edge(self, u: int, v: int) -> None:
         self.adj_list[u].append(v)
 
-    def idfs(
-        self, start: int, target: int, max_depth: int
-    ) -> list[int] | None:
-        if start < 0 or start >= len(self.adj_list)\
-                or target < 0 or target >= len(self.adj_list):
+    def idfs(self, start: int, target: int, max_depth: int) -> list[int] | None:
+        if (
+            start < 0
+            or start >= len(self.adj_list)
+            or target < 0
+            or target >= len(self.adj_list)
+        ):
             return None
 
         visited = [False] * len(self.adj_list)
         return self._idfs(start, target, max_depth, visited)
 
     def _idfs(
-        self, node: int, target: int, max_depth: int,
-        visited: list[bool], depth: int = 0
+        self,
+        node: int,
+        target: int,
+        max_depth: int,
+        visited: list[bool],
+        depth: int = 0,
     ) -> list[int] | None:
         if node == target:
             return [node]
@@ -31,8 +37,7 @@ class Graph:
         visited[node] = True
         for neighbor in self.adj_list[node]:
             if not visited[neighbor]:
-                path = self._idfs(neighbor, target,
-                                  max_depth, visited, depth + 1)
+                path = self._idfs(neighbor, target, max_depth, visited, depth + 1)
                 if path is not None:
                     return [node] + path
 
@@ -120,5 +125,5 @@ class TestIDFS(unittest.TestCase):
         self.assertIsNone(result)  # Expected result is None
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

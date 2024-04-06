@@ -2,9 +2,7 @@ import unittest
 
 
 def prefix_sum(
-    nums: list[int],
-    start: int | None = None,
-    end: int | None = None
+    nums: list[int], start: int | None = None, end: int | None = None
 ) -> list[int]:
     """
     Given an array of integers, return a new array where each element
@@ -61,5 +59,5 @@ class TestPrefixSum(unittest.TestCase):
             prefix_sum(arr, start=start, end=end)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

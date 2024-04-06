@@ -40,5 +40,5 @@ class TestTernarySearch(unittest.TestCase):
         self.assertEqual(ternary_search([1], 1), 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

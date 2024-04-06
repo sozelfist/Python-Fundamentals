@@ -62,7 +62,6 @@ def hopcroft_karp(graph: Graph) -> dict[int, int]:
 
 
 class TestHopcroftKarp(unittest.TestCase):
-
     def test_empty_graph(self):
         graph = {}
         self.assertEqual(hopcroft_karp(graph), {})
@@ -78,5 +77,5 @@ class TestHopcroftKarp(unittest.TestCase):
         self.assertEqual(hopcroft_karp(graph), expected_matching)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

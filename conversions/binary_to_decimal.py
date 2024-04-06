@@ -18,5 +18,5 @@ class TestBinaryToDecimal(unittest.TestCase):
         self.assertEqual(binary_to_decimal("10000"), 16)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

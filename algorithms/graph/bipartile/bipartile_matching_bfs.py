@@ -17,11 +17,9 @@ def is_bipartite(graph: dict[int, list[int]]):
 
                 for neighbor_vertex in graph[curr_vertex]:
                     if vertex_colors[neighbor_vertex] == -1:
-                        vertex_colors[neighbor_vertex] = 1 - \
-                            vertex_colors[curr_vertex]
+                        vertex_colors[neighbor_vertex] = 1 - vertex_colors[curr_vertex]
                         bfs_queue.append(neighbor_vertex)
-                    elif vertex_colors[neighbor_vertex] \
-                            == vertex_colors[curr_vertex]:
+                    elif vertex_colors[neighbor_vertex] == vertex_colors[curr_vertex]:
                         return False
 
     return True
@@ -46,12 +44,10 @@ def find_bipartite_matching(graph: dict[int, list[int]]):
 
                 for neighbor_vertex in graph[curr_vertex]:
                     if vertex_colors[neighbor_vertex] == -1:
-                        vertex_colors[neighbor_vertex] = 1 - \
-                            vertex_colors[curr_vertex]
+                        vertex_colors[neighbor_vertex] = 1 - vertex_colors[curr_vertex]
                         bfs_queue.append(neighbor_vertex)
                         matching[neighbor_vertex] = curr_vertex
-                    elif vertex_colors[neighbor_vertex] \
-                            == vertex_colors[curr_vertex]:
+                    elif vertex_colors[neighbor_vertex] == vertex_colors[curr_vertex]:
                         continue
 
     return [(v, u) for v, u in matching.items()]
@@ -59,43 +55,23 @@ def find_bipartite_matching(graph: dict[int, list[int]]):
 
 class TestBipartiteMatching(unittest.TestCase):
     def test_bipartite_graph(self):
-        bipartite_graph = {
-            0: [1, 3],
-            1: [0, 2],
-            2: [1, 3],
-            3: [0, 2]
-        }
+        bipartite_graph = {0: [1, 3], 1: [0, 2], 2: [1, 3], 3: [0, 2]}
         self.assertTrue(is_bipartite(bipartite_graph))
 
     def test_non_bipartile_graph(self):
-        non_bipartite_graph = {
-            0: [1, 2, 3],
-            1: [0, 2],
-            2: [1, 0, 3],
-            3: [0, 2]
-        }
+        non_bipartite_graph = {0: [1, 2, 3], 1: [0, 2], 2: [1, 0, 3], 3: [0, 2]}
         self.assertFalse(is_bipartite(non_bipartite_graph))
 
     def test_find_bipartite_matching(self):
-        bipartite_graph = {
-            0: [1, 3],
-            1: [0, 2],
-            2: [1, 3],
-            3: [0, 2]
-        }
+        bipartite_graph = {0: [1, 3], 1: [0, 2], 2: [1, 3], 3: [0, 2]}
         matching = find_bipartite_matching(bipartite_graph)
         self.assertEqual(matching, [(1, 0), (3, 0), (2, 1)])
 
     def test_find_non_bipartite_graph(self):
-        non_bipartite_graph = {
-            0: [1, 2, 3],
-            1: [0, 2],
-            2: [1, 0, 3],
-            3: [0, 2]
-        }
+        non_bipartite_graph = {0: [1, 2, 3], 1: [0, 2], 2: [1, 0, 3], 3: [0, 2]}
         matching = find_bipartite_matching(non_bipartite_graph)
         self.assertIsNone(matching)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

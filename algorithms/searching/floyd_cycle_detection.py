@@ -3,7 +3,7 @@ from typing import Optional
 
 
 class ListNode:
-    def __init__(self, val: float | None, next: Optional['ListNode'] = None):
+    def __init__(self, val: float | None, next: Optional["ListNode"] = None):
         self.val = val
         self.next = next
 
@@ -57,5 +57,5 @@ class TestHasCycle(unittest.TestCase):
         self.assertTrue(has_cycle(self.node1))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

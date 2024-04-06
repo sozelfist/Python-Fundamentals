@@ -45,5 +45,5 @@ class TestSelectionSort(unittest.TestCase):
         self.assertEqual(sorted_arr, [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

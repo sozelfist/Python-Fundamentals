@@ -52,8 +52,7 @@ class TestBFSDisconnected(unittest.TestCase):
         self.assertEqual(bfs_disconnected(graph), expected)
 
     def test_on_graph_with_multiple_disconnected_components(self):
-        graph: Graph = {1: [2, 3], 2: [1, 3], 3: [
-            1, 2], 4: [], 5: [], 6: [7], 7: [6]}
+        graph: Graph = {1: [2, 3], 2: [1, 3], 3: [1, 2], 4: [], 5: [], 6: [7], 7: [6]}
         expected: list[list[int]] = [[1, 2, 3], [4], [5], [6, 7]]
         self.assertEqual(bfs_disconnected(graph), expected)
 
@@ -63,5 +62,5 @@ class TestBFSDisconnected(unittest.TestCase):
         self.assertEqual(bfs_disconnected(graph), expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -40,5 +40,5 @@ class TestDecimalToBase(unittest.TestCase):
             decimal_to_base(30, 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -77,5 +77,5 @@ class TestMaxDifferencePairs(unittest.TestCase):
         self.assertEqual(max_pair, (1, 5))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -54,7 +54,7 @@ def reverse_delete_algorithm(adj_matrix: Graph) -> Graph:
 
 
 def is_connected(adj_matrix: Graph, connected: set[int]) -> bool:
-    """ Helper function to check if a graph is connected. """
+    """Helper function to check if a graph is connected."""
     visited = [False] * len(adj_matrix)
     stack = [next(iter(connected))]
     while stack:
@@ -68,7 +68,7 @@ def is_connected(adj_matrix: Graph, connected: set[int]) -> bool:
 
 
 def get_connected_vertices(adj_matrix: Graph) -> set[int]:
-    """ Helper function to get the set of connected vertices in a graph. """
+    """Helper function to get the set of connected vertices in a graph."""
     visited = [False] * len(adj_matrix)
     stack = [0]
     while stack:
@@ -82,21 +82,10 @@ def get_connected_vertices(adj_matrix: Graph) -> set[int]:
 
 
 class TestReverseDeleteAlgorithm(unittest.TestCase):
-
     def test_reverse_delete_algorithm(self):
-        graph = [
-            [0, 2, 3, 0],
-            [2, 0, 1, 3],
-            [3, 1, 0, 4],
-            [0, 3, 4, 0]
-        ]
+        graph = [[0, 2, 3, 0], [2, 0, 1, 3], [3, 1, 0, 4], [0, 3, 4, 0]]
         mst = reverse_delete_algorithm(graph)
-        self.assertEqual(mst, [
-            [0, 2, 0, 0],
-            [2, 0, 1, 3],
-            [0, 1, 0, 0],
-            [0, 3, 0, 0]
-        ])
+        self.assertEqual(mst, [[0, 2, 0, 0], [2, 0, 1, 3], [0, 1, 0, 0], [0, 3, 0, 0]])
         self.assertEqual(sum(sum(row) for row in mst) / 2, 6)
 
     def test_reverse_delete_algorithm_empty_graph(self):
@@ -110,19 +99,11 @@ class TestReverseDeleteAlgorithm(unittest.TestCase):
         self.assertEqual(mst, [[0]])
 
     def test_reverse_delete_algorithm_complete_graph(self):
-        graph = [
-            [0, 2, 3],
-            [2, 0, 1],
-            [3, 1, 0]
-        ]
+        graph = [[0, 2, 3], [2, 0, 1], [3, 1, 0]]
         mst = reverse_delete_algorithm(graph)
-        self.assertEqual(mst, [
-            [0, 2, 0],
-            [2, 0, 1],
-            [0, 1, 0]
-        ])
+        self.assertEqual(mst, [[0, 2, 0], [2, 0, 1], [0, 1, 0]])
         self.assertEqual(sum(sum(row) for row in mst) / 2, 3)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -78,7 +78,6 @@ def longest_common_prefix(strs: list[str]) -> str:
 
 
 class TestLongestCommonPrefix(unittest.TestCase):
-
     def test_empty_input(self):
         self.assertEqual(longest_common_prefix([]), "")
 
@@ -89,25 +88,22 @@ class TestLongestCommonPrefix(unittest.TestCase):
         self.assertEqual(longest_common_prefix(["hello"]), "hello")
 
     def test_common_prefix(self):
-        self.assertEqual(longest_common_prefix(
-            ["apple", "app", "apartment", "apricot"]), "ap")
+        self.assertEqual(
+            longest_common_prefix(["apple", "app", "apartment", "apricot"]), "ap"
+        )
 
     def test_duplicate_strings(self):
-        self.assertEqual(
-            longest_common_prefix(["hello", "hello", "hello"]),
-            "hello"
-        )
+        self.assertEqual(longest_common_prefix(["hello", "hello", "hello"]), "hello")
 
     def test_one_empty_string(self):
         self.assertEqual(longest_common_prefix(["", "hello", "world"]), "")
 
     def test_unicode_strings(self):
         self.assertEqual(
-            longest_common_prefix(
-                ["བོད་སྐད་གསར་བརྙན་", "བསྟན་པའི་སྒྲུབ་པའི་ལས་དོན་"]),
-            "བ"
+            longest_common_prefix(["བོད་སྐད་གསར་བརྙན་", "བསྟན་པའི་སྒྲུབ་པའི་ལས་དོན་"]),
+            "བ",
         )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

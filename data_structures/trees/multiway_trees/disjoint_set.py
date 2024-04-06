@@ -60,5 +60,5 @@ class TestDisjointSet(unittest.TestCase):
         self.assertEqual(self.ds.parent, {1: 1, 2: 1, 3: 1})
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

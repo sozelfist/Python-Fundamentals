@@ -31,20 +31,24 @@ def hamilton_cycle(graph: list[list[int]], start: int) -> list[int] | None:
 
 class TestHamiltonCycle(unittest.TestCase):
     def test_cycle_exists(self):
-        graph = [[0, 1, 1, 0, 0],
-                 [1, 0, 1, 1, 0],
-                 [1, 1, 0, 1, 1],
-                 [0, 1, 1, 0, 1],
-                 [0, 0, 1, 1, 0]]
+        graph = [
+            [0, 1, 1, 0, 0],
+            [1, 0, 1, 1, 0],
+            [1, 1, 0, 1, 1],
+            [0, 1, 1, 0, 1],
+            [0, 0, 1, 1, 0],
+        ]
         cycle = hamilton_cycle(graph, 0)
         self.assertEqual(cycle, [0, 1, 3, 4, 2, 0])
 
     def test_cycle_does_not_exist(self):
-        graph = [[0, 1, 1, 0, 0],
-                 [1, 0, 1, 1, 0],
-                 [1, 1, 0, 1, 1],
-                 [0, 1, 1, 0, 0],
-                 [0, 0, 1, 0, 0]]
+        graph = [
+            [0, 1, 1, 0, 0],
+            [1, 0, 1, 1, 0],
+            [1, 1, 0, 1, 1],
+            [0, 1, 1, 0, 0],
+            [0, 0, 1, 0, 0],
+        ]
         cycle = hamilton_cycle(graph, 0)
         self.assertIsNone(cycle)
 
@@ -59,5 +63,5 @@ class TestHamiltonCycle(unittest.TestCase):
         self.assertEqual(cycle, [1, 0, 1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

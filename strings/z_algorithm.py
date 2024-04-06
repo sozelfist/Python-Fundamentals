@@ -50,5 +50,5 @@ class TestZAlgorithm(unittest.TestCase):
         self.assertEqual(z_algorithm(text, pattern), expected_result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

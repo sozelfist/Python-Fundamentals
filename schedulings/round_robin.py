@@ -26,8 +26,7 @@ class Scheduler:
                         t += self.rem_burst_times[i]
                         self.waiting_times[i] = t - burst_time
                         self.rem_burst_times[i] = 0
-                        self.turn_around_times[i] = self.waiting_times[i]\
-                            + burst_time
+                        self.turn_around_times[i] = self.waiting_times[i] + burst_time
             if done is True:
                 break
 
@@ -58,8 +57,7 @@ class TestScheduler(unittest.TestCase):
         expected_turn_around_times = [7, 12, 15]
 
         self.assertEqual(scheduler.get_waiting_times(), expected_waiting_times)
-        self.assertEqual(scheduler.get_turn_around_times(),
-                         expected_turn_around_times)
+        self.assertEqual(scheduler.get_turn_around_times(), expected_turn_around_times)
 
     def test_scheduler_single_process(self):
         burst_times = [10]
@@ -70,8 +68,7 @@ class TestScheduler(unittest.TestCase):
         expected_turn_around_times = [10]
 
         self.assertEqual(scheduler.get_waiting_times(), expected_waiting_times)
-        self.assertEqual(scheduler.get_turn_around_times(),
-                         expected_turn_around_times)
+        self.assertEqual(scheduler.get_turn_around_times(), expected_turn_around_times)
 
     def test_scheduler_empty_list(self):
         burst_times = []
@@ -82,8 +79,7 @@ class TestScheduler(unittest.TestCase):
         expected_turn_around_times = []
 
         self.assertEqual(scheduler.get_waiting_times(), expected_waiting_times)
-        self.assertEqual(scheduler.get_turn_around_times(),
-                         expected_turn_around_times)
+        self.assertEqual(scheduler.get_turn_around_times(), expected_turn_around_times)
 
     def test_scheduler_all_processes_same_burst_time(self):
         burst_times = [4, 4, 4, 4]
@@ -94,9 +90,8 @@ class TestScheduler(unittest.TestCase):
         expected_turn_around_times = [10, 12, 14, 16]
 
         self.assertEqual(scheduler.get_waiting_times(), expected_waiting_times)
-        self.assertEqual(scheduler.get_turn_around_times(),
-                         expected_turn_around_times)
+        self.assertEqual(scheduler.get_turn_around_times(), expected_turn_around_times)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

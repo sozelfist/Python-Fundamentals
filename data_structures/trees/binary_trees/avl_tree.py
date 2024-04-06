@@ -27,22 +27,20 @@ class AVLTree:
         left_child = node.left
         node.left = left_child.right
         left_child.right = node
-        node.height = 1 + max(self.get_height(node.left),
-                              self.get_height(node.right))
-        left_child.height = 1 + \
-            max(self.get_height(left_child.left),
-                self.get_height(left_child.right))
+        node.height = 1 + max(self.get_height(node.left), self.get_height(node.right))
+        left_child.height = 1 + max(
+            self.get_height(left_child.left), self.get_height(left_child.right)
+        )
         return left_child
 
     def left_rotate(self, node: Node) -> Node:
         right_child = node.right
         node.right = right_child.left
         right_child.left = node
-        node.height = 1 + max(self.get_height(node.left),
-                              self.get_height(node.right))
-        right_child.height = 1 + \
-            max(self.get_height(right_child.left),
-                self.get_height(right_child.right))
+        node.height = 1 + max(self.get_height(node.left), self.get_height(node.right))
+        right_child.height = 1 + max(
+            self.get_height(right_child.left), self.get_height(right_child.right)
+        )
         return right_child
 
     def insert(self, key: int) -> None:
@@ -55,8 +53,7 @@ class AVLTree:
             node.left = self._insert(node.left, key)
         else:
             node.right = self._insert(node.right, key)
-        node.height = 1 + max(self.get_height(node.left),
-                              self.get_height(node.right))
+        node.height = 1 + max(self.get_height(node.left), self.get_height(node.right))
         balance = self.get_balance(node)
         if balance > 1 and key < node.left.key:
             return self.right_rotate(node)
@@ -100,8 +97,7 @@ class AVLTree:
                 successor = self._find_successor(node.right)
                 node.key = successor.key
                 node.right = self._delete(node.right, successor.key)
-        node.height = 1 + max(self.get_height(node.left),
-                              self.get_height(node.right))
+        node.height = 1 + max(self.get_height(node.left), self.get_height(node.right))
         balance = self.get_balance(node)
         if balance > 1:
             if self.get_balance(node.left) >= 0:
@@ -202,8 +198,7 @@ class TestAVLTree(unittest.TestCase):
         self.tree.insert(40)
         self.tree.insert(50)
         self.tree.insert(25)
-        self.assertEqual(self.tree.inorder_traversal(),
-                         [10, 20, 25, 30, 40, 50])
+        self.assertEqual(self.tree.inorder_traversal(), [10, 20, 25, 30, 40, 50])
 
     def test_preorder_traversal(self):
         self.tree.insert(10)
@@ -212,8 +207,7 @@ class TestAVLTree(unittest.TestCase):
         self.tree.insert(40)
         self.tree.insert(50)
         self.tree.insert(25)
-        self.assertEqual(self.tree.preorder_traversal(),
-                         [30, 20, 10, 25, 40, 50])
+        self.assertEqual(self.tree.preorder_traversal(), [30, 20, 10, 25, 40, 50])
 
     def test_postorder_traversal(self):
         self.tree.insert(10)
@@ -222,9 +216,8 @@ class TestAVLTree(unittest.TestCase):
         self.tree.insert(40)
         self.tree.insert(50)
         self.tree.insert(25)
-        self.assertEqual(self.tree.postorder_traversal(),
-                         [10, 25, 20, 50, 40, 30])
+        self.assertEqual(self.tree.postorder_traversal(), [10, 25, 20, 50, 40, 30])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -22,6 +22,7 @@ def quick_select(nums: list[int], k: int) -> int:
     Find the k-th smallest element in the list using the QuickSelect algorithm.
     Note: the case of array of duplicated elements is unsolved
     """
+
     def select_helper(nums: list[int], low: int, high: int, k: int) -> int:
         # Base case: if the list contains only one element
         if low == high:
@@ -82,5 +83,5 @@ class QuickSelectTestCase(unittest.TestCase):
             quick_select(nums, k)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

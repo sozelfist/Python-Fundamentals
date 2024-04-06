@@ -5,9 +5,7 @@ def interpolation_search(arr: list[int], x: int) -> int | str:
     low = 0
     high = len(arr) - 1
     while low <= high and x >= arr[low] and x <= arr[high]:
-        pos = low + int((float(high - low)
-                         / (arr[high] - arr[low]))
-                        * (x - arr[low]))
+        pos = low + int((float(high - low) / (arr[high] - arr[low])) * (x - arr[low]))
         if arr[pos] == x:
             return pos
         elif arr[pos] < x:
@@ -40,11 +38,8 @@ class TestInterpolationSearch(unittest.TestCase):
         arr = [1, 2, 3, 4, 4, 5, 6]
         x = 4
         result = interpolation_search(arr, x)
-        self.assertIn(
-            result, [3, 4],
-            "Incorrect result with duplicate elements"
-        )
+        self.assertIn(result, [3, 4], "Incorrect result with duplicate elements")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

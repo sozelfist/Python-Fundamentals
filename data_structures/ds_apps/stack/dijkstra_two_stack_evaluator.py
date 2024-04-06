@@ -4,10 +4,12 @@ import unittest
 
 def evaluate_expression(expression: str) -> float:
     tokens = re.findall(r"[\d\.]+|\+|\-|\*|\/|\(|\)", expression)
-    operators = {"+": lambda x, y: x + y,
-                 "-": lambda x, y: x - y,
-                 "*": lambda x, y: x * y,
-                 "/": lambda x, y: x / y}
+    operators = {
+        "+": lambda x, y: x + y,
+        "-": lambda x, y: x - y,
+        "*": lambda x, y: x * y,
+        "/": lambda x, y: x / y,
+    }
     operand_stack = []
     operator_stack = []
 
@@ -27,8 +29,11 @@ def evaluate_expression(expression: str) -> float:
             else:
                 raise ValueError("Unbalanced parentheses")
         elif token in operators:
-            while operator_stack and operator_stack[-1]\
-                    != "(" and precedence(operator_stack[-1], token):
+            while (
+                operator_stack
+                and operator_stack[-1] != "("
+                and precedence(operator_stack[-1], token)
+            ):
                 operator = operator_stack.pop()
                 operand2 = operand_stack.pop()
                 operand1 = operand_stack.pop()
@@ -93,5 +98,5 @@ class TestEvaluateExpression(unittest.TestCase):
     #         evaluate_expression("3/0")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

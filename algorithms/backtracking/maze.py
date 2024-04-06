@@ -21,6 +21,7 @@ def find_path(maze: Maze, start: Point, end: Point) -> list[Point]:
         A list of tuples representing the path from the starting point to the
         end point, or an empty list if no path is found.
     """
+
     # Define a recursive helper function to explore all possible paths.
     def explore_path(path: list[Point], current: Point) -> list[Point]:
         # Add the current point to the path.
@@ -36,12 +37,9 @@ def find_path(maze: Maze, start: Point, end: Point) -> list[Point]:
             x, y = current[0] + dx, current[1] + dy
 
             # Check that the new position is within the maze and not a wall.
-            if 0 <= x < len(maze) and 0 <= y < len(maze[0])\
-                    and maze[x][y] != '#':
-
+            if 0 <= x < len(maze) and 0 <= y < len(maze[0]) and maze[x][y] != "#":
                 # Check that we haven't already visited this position.
                 if (x, y) not in path:
-
                     # Explore the path recursively from the new position.
                     new_path = explore_path(path, (x, y))
 
@@ -59,13 +57,12 @@ def find_path(maze: Maze, start: Point, end: Point) -> list[Point]:
 
 
 class TestFindPath(unittest.TestCase):
-
     def test_simple_maze(self):
         maze = [
-            ['#', '#', '#', '#'],
-            ['#', ' ', ' ', '#'],
-            ['#', ' ', ' ', '#'],
-            ['#', '#', '#', '#']
+            ["#", "#", "#", "#"],
+            ["#", " ", " ", "#"],
+            ["#", " ", " ", "#"],
+            ["#", "#", "#", "#"],
         ]
         start = (1, 1)
         end = (2, 2)
@@ -75,32 +72,45 @@ class TestFindPath(unittest.TestCase):
 
     def test_complex_maze(self):
         maze = [
-            ['#', '#', '#', '#', '#', '#', '#', '#', '#'],
-            ['#', ' ', ' ', ' ', '#', ' ', ' ', ' ', '#'],
-            ['#', ' ', '#', ' ', '#', ' ', '#', ' ', '#'],
-            ['#', ' ', '#', ' ', ' ', ' ', '#', ' ', '#'],
-            ['#', ' ', '#', '#', '#', '#', '#', ' ', '#'],
-            ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
-            ['#', '#', '#', '#', '#', '#', '#', '#', '#']
+            ["#", "#", "#", "#", "#", "#", "#", "#", "#"],
+            ["#", " ", " ", " ", "#", " ", " ", " ", "#"],
+            ["#", " ", "#", " ", "#", " ", "#", " ", "#"],
+            ["#", " ", "#", " ", " ", " ", "#", " ", "#"],
+            ["#", " ", "#", "#", "#", "#", "#", " ", "#"],
+            ["#", " ", " ", " ", " ", " ", " ", " ", "#"],
+            ["#", "#", "#", "#", "#", "#", "#", "#", "#"],
         ]
         start = (1, 1)
         end = (5, 7)
         expected_path = [
-            (1, 1), (1, 2), (1, 3), (2, 3), (3, 3), (3, 4), (3, 5), (2, 5),
-            (1, 5), (1, 6), (1, 7), (2, 7), (3, 7), (4, 7), (5, 7)
+            (1, 1),
+            (1, 2),
+            (1, 3),
+            (2, 3),
+            (3, 3),
+            (3, 4),
+            (3, 5),
+            (2, 5),
+            (1, 5),
+            (1, 6),
+            (1, 7),
+            (2, 7),
+            (3, 7),
+            (4, 7),
+            (5, 7),
         ]
         path = find_path(maze, start, end)
         self.assertEqual(path, expected_path)
 
     def test_no_path(self):
         maze = [
-            ['#', '#', '#', '#', '#', '#', '#', '#', '#'],
-            ['#', ' ', ' ', ' ', '#', ' ', ' ', ' ', '#'],
-            ['#', ' ', '#', ' ', '#', ' ', '#', ' ', '#'],
-            ['#', ' ', '#', ' ', '#', ' ', '#', ' ', '#'],
-            ['#', ' ', '#', '#', '#', '#', '#', ' ', '#'],
-            ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
-            ['#', '#', '#', '#', '#', '#', '#', '#', '#']
+            ["#", "#", "#", "#", "#", "#", "#", "#", "#"],
+            ["#", " ", " ", " ", "#", " ", " ", " ", "#"],
+            ["#", " ", "#", " ", "#", " ", "#", " ", "#"],
+            ["#", " ", "#", " ", "#", " ", "#", " ", "#"],
+            ["#", " ", "#", "#", "#", "#", "#", " ", "#"],
+            ["#", " ", " ", " ", " ", " ", " ", " ", "#"],
+            ["#", "#", "#", "#", "#", "#", "#", "#", "#"],
         ]
         start = (1, 1)
         end = (5, 8)
@@ -108,5 +118,5 @@ class TestFindPath(unittest.TestCase):
         self.assertEqual(path, [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

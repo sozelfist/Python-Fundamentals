@@ -3,9 +3,7 @@ import unittest
 from itertools import islice
 
 
-def accumulate(
-    iterable, func=operator.add, *, initial=None, start=None, stop=None
-):
+def accumulate(iterable, func=operator.add, *, initial=None, start=None, stop=None):
     """
     Return an iterator that generates the running totals of elements
     in the input iterable. If the iterable is empty, an empty
@@ -69,33 +67,32 @@ def accumulate(
             )
         yield total
 
+
 class TestAccumulate(unittest.TestCase):
     def test_empty_iterable(self):
         self.assertEqual(list(accumulate([])), [])
 
     def test_different_types(self):
         with self.assertRaises(TypeError):
-            list(accumulate(['a', 1, {}]))
+            list(accumulate(["a", 1, {}]))
 
     def test_start_and_end_indices(self):
-        self.assertEqual(
-            list(accumulate([1, 2, 3, 4, 5], start=1, stop=3)), [2, 5])
+        self.assertEqual(list(accumulate([1, 2, 3, 4, 5], start=1, stop=3)), [2, 5])
 
     def test_addition(self):
         self.assertEqual(list(accumulate([1, 2, 3, 4, 5])), [1, 3, 6, 10, 15])
 
     def test_multiplication(self):
         self.assertEqual(
-            list(accumulate([1, 2, 3, 4, 5], func=operator.mul)),
-            [1, 2, 6, 24, 120]
+            list(accumulate([1, 2, 3, 4, 5], func=operator.mul)), [1, 2, 6, 24, 120]
         )
 
     def test_initial_value(self):
         self.assertEqual(
             list(accumulate([1, 2, 3, 4, 5], initial=100)),
-            [100, 101, 103, 106, 110, 115]
+            [100, 101, 103, 106, 110, 115],
         )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

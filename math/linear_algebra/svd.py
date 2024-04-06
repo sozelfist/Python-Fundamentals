@@ -28,10 +28,8 @@ class TestSVD(unittest.TestCase):
     def test_svd(self):
         A = np.array([[3, 2, 2], [2, 3, -2]])
         U, S, V = svd(A)
-        np.testing.assert_allclose(
-            A, U @ S @ np.transpose(V), rtol=1e-6, atol=1e-6
-        )
+        np.testing.assert_allclose(A, U @ S @ np.transpose(V), rtol=1e-6, atol=1e-6)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

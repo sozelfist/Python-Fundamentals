@@ -46,8 +46,7 @@ def markov_chain(
 class TestMarkovChain(unittest.TestCase):
     def test_simple_chain(self):
         # Define a transition matrix for a simple 2-state Markov chain
-        transitions = [[0.7, 0.3],
-                       [0.4, 0.6]]
+        transitions = [[0.7, 0.3], [0.4, 0.6]]
         initial_state = 0
         num_steps = 10
 
@@ -63,8 +62,7 @@ class TestMarkovChain(unittest.TestCase):
 
     def test_irreducible_chain(self):
         # Define a transition matrix for an irreducible Markov chain
-        transitions = [[0.5, 0.5],
-                       [0.5, 0.5]]
+        transitions = [[0.5, 0.5], [0.5, 0.5]]
         initial_state = 0
         num_steps = 1000
 
@@ -82,5 +80,5 @@ class TestMarkovChain(unittest.TestCase):
         self.assertAlmostEqual(states.count(1) / len(states), 0.5, places=1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -13,6 +13,7 @@ def fleury(graph: list[list[int]]) -> list[int]:
     Returns:
         List[int]: The list of vertices in the Eulerian path or circuit.
     """
+
     def is_bridge(u: int, v: int) -> bool:
         """Check if an edge (u, v) is a bridge in the graph."""
         if len(graph[u]) == 1:
@@ -31,8 +32,7 @@ def fleury(graph: list[list[int]]) -> list[int]:
     def dfs(u: int) -> None:
         """Perform depth-first search from vertex u."""
         for v in graph[u]:
-            if not visited[u][v] and\
-                    (not is_bridge(u, v) or len(graph[u]) == 1):
+            if not visited[u][v] and (not is_bridge(u, v) or len(graph[u]) == 1):
                 visited[u][v] = visited[v][u] = True
                 dfs(v)
         path.append(u)
@@ -80,5 +80,5 @@ class FleuryTestCase(unittest.TestCase):
         self.assertEqual(fleury(graph), expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

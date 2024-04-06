@@ -9,12 +9,17 @@ def linear_model(x: np.ndarray, w: float, b: float) -> np.ndarray:
 
 def cost_function(x: np.ndarray, y: np.ndarray, w: float, b: float) -> float:
     predictions = linear_model(x, w, b)
-    return ((predictions - y)**2).mean()
+    return ((predictions - y) ** 2).mean()
 
 
 def momentum_gradient_descent(
-        x: np.ndarray, y: np.ndarray, w: float, b: float,
-        learning_rate: float, num_iterations: int, momentum: float = 0.9
+    x: np.ndarray,
+    y: np.ndarray,
+    w: float,
+    b: float,
+    learning_rate: float,
+    num_iterations: int,
+    momentum: float = 0.9,
 ) -> tuple[float, float]:
     v_dw = 0
     v_db = 0
@@ -36,7 +41,6 @@ def momentum_gradient_descent(
 
 
 class TestMomentumGradientDescent(unittest.TestCase):
-
     def test_momentum_gradient_descent(self):
         # sample data
         x = np.array([1, 2, 3, 4, 5])
@@ -57,5 +61,5 @@ class TestMomentumGradientDescent(unittest.TestCase):
         self.assertAlmostEqual(final_b, 3.000, delta=1e-2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

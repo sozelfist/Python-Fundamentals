@@ -251,5 +251,5 @@ class TestBST(unittest.TestCase):
         self.assertEqual(self.bst.is_balanced(), False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

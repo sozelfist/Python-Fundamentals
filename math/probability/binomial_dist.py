@@ -15,7 +15,7 @@ def binomial_pmf(n: int, p: float, k: int) -> float:
     float: The PMF of the binomial distribution.
     """
     binomial_coefficient = math.comb(n, k)
-    pmf = binomial_coefficient * (p ** k) * ((1 - p) ** (n - k))
+    pmf = binomial_coefficient * (p**k) * ((1 - p) ** (n - k))
     return pmf
 
 
@@ -86,8 +86,7 @@ class TestBinomialDistribution(unittest.TestCase):
         n = 10
         p = 0.5
         expected_variance = 2.5
-        self.assertAlmostEqual(binomial_variance(
-            n, p), expected_variance, places=7)
+        self.assertAlmostEqual(binomial_variance(n, p), expected_variance, places=7)
 
     def test_binomial_probability_mass_function(self):
         n = 10
@@ -99,5 +98,5 @@ class TestBinomialDistribution(unittest.TestCase):
             self.assertAlmostEqual(pmf_value, expected_pmf_values[i], places=5)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

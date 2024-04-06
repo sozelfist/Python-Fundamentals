@@ -2,9 +2,7 @@ import unittest
 from collections import deque
 
 
-def ford_fulkerson(
-        n: int, edges: list[tuple[int, int, int]], s: int, t: int
-) -> int:
+def ford_fulkerson(n: int, edges: list[tuple[int, int, int]], s: int, t: int) -> int:
     # Initialize the residual graph
     residual = [[0 for _ in range(n)] for _ in range(n)]
     for u, v, w in edges:
@@ -63,16 +61,33 @@ def bfs(residual: list[list[int]], s: int, t: int, parent: list[int]) -> bool:
 class TestFordFulkerson(unittest.TestCase):
     def test_simple(self):
         n = 6
-        edges = [(0, 1, 16), (0, 2, 13), (1, 2, 10), (1, 3, 12), (2, 1, 4),
-                 (2, 4, 14), (3, 2, 9), (3, 5, 20), (4, 3, 7), (4, 5, 4)]
+        edges = [
+            (0, 1, 16),
+            (0, 2, 13),
+            (1, 2, 10),
+            (1, 3, 12),
+            (2, 1, 4),
+            (2, 4, 14),
+            (3, 2, 9),
+            (3, 5, 20),
+            (4, 3, 7),
+            (4, 5, 4),
+        ]
         s = 0
         t = 5
         self.assertEqual(ford_fulkerson(n, edges, s, t), 23)
 
     def test_complex(self):
         n = 5
-        edges = [(0, 1, 9), (0, 3, 5), (1, 2, 2), (1, 3, 4),
-                 (2, 4, 4), (3, 2, 1), (3, 4, 6)]
+        edges = [
+            (0, 1, 9),
+            (0, 3, 5),
+            (1, 2, 2),
+            (1, 3, 4),
+            (2, 4, 4),
+            (3, 2, 1),
+            (3, 4, 6),
+        ]
         s = 0
         t = 4
         self.assertEqual(ford_fulkerson(n, edges, s, t), 9)
@@ -85,5 +100,5 @@ class TestFordFulkerson(unittest.TestCase):
         self.assertEqual(ford_fulkerson(n, edges, s, t), 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -4,7 +4,7 @@ import unittest
 class SqrtTree:
     def __init__(self, arr: list[int]) -> None:
         self.arr = arr
-        self.block_size = int(len(self.arr)**0.5) + 1
+        self.block_size = int(len(self.arr) ** 0.5) + 1
         self.blocks = [0] * self.block_size
         for i in range(len(self.arr)):
             self.blocks[i // self.block_size] += self.arr[i]
@@ -56,5 +56,5 @@ class TestSqrtTree(unittest.TestCase):
         self.assertEqual(sqrt_tree.query(3, 3), 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

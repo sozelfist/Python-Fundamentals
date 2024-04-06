@@ -4,8 +4,7 @@ import unittest
 
 class KDNode:
     def __init__(
-        self, point: tuple[float, ...],
-        left_child=None, right_child=None, axis=None
+        self, point: tuple[float, ...], left_child=None, right_child=None, axis=None
     ):
         self.point = point
         self.left_child = left_child
@@ -24,18 +23,17 @@ class KDTree:
             return KDNode(
                 points[median_idx],
                 left_child=build_tree(points[:median_idx], depth + 1),
-                right_child=build_tree(points[median_idx + 1:], depth + 1),
-                axis=axis
+                right_child=build_tree(points[median_idx + 1 :], depth + 1),
+                axis=axis,
             )
+
         self.root = build_tree(points, depth=0)
 
-    def search_knn(
-        self, query: tuple[float, ...], k: int
-    ) -> list[tuple[float, ...]]:
+    def search_knn(self, query: tuple[float, ...], k: int) -> list[tuple[float, ...]]:
         def search_node(node, query, k, heap):
             if not node:
                 return
-            distance = sum((p - q)**2 for p, q in zip(node.point, query))
+            distance = sum((p - q) ** 2 for p, q in zip(node.point, query))
             if len(heap) < k:
                 heap.append((-distance, node.point))
             else:
@@ -53,6 +51,7 @@ class KDTree:
                 search_node(node.left_child, query, k, heap)
             else:
                 search_node(node.right_child, query, k, heap)
+
         heap = []
         search_node(self.root, query, k, heap)
         return [point for _, point in sorted(heap, reverse=True)]
@@ -82,5 +81,5 @@ class KDTreeTestCase(unittest.TestCase):
         self.assertEqual(actual_neighbors, expected_neighbors)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

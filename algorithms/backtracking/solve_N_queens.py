@@ -80,11 +80,22 @@ class TestNQueens(unittest.TestCase):
         """
         n = 4
         result = n_queens(n)
-        self.assertEqual(result, [[0, 1, 0, 0], [0, 0, 0, 1], [1, 0, 0, 0], [0, 0, 1, 0]])
+        self.assertEqual(
+            result, [[0, 1, 0, 0], [0, 0, 0, 1], [1, 0, 0, 0], [0, 0, 1, 0]]
+        )
 
         n = 5
         result = n_queens(n)
-        self.assertEqual(result, [[1, 0, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 0, 1], [0, 1, 0, 0, 0], [0, 0, 0, 1, 0]])
+        self.assertEqual(
+            result,
+            [
+                [1, 0, 0, 0, 0],
+                [0, 0, 1, 0, 0],
+                [0, 0, 0, 0, 1],
+                [0, 1, 0, 0, 0],
+                [0, 0, 0, 1, 0],
+            ],
+        )
 
 
 if __name__ == "__main__":

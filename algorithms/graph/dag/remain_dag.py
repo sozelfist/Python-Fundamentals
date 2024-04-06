@@ -3,18 +3,18 @@ import unittest
 
 class DAG:
     def __init__(self, v):
-        """ Initialize DAG with v vertices. """
+        """Initialize DAG with v vertices."""
         self.v = v
         self.adj = [[] for i in range(v)]
         self.indegree = [0 for i in range(v)]
 
     def add_edge(self, v, w):
-        """ Utility function to add edge """
+        """Utility function to add edge"""
         self.adj[v].append(w)
         self.indegree[w] += 1
 
     def topological_sort(self):
-        """ Perform topological sort on the DAG. """
+        """Perform topological sort on the DAG."""
         topological = []
         q = []
 
@@ -37,8 +37,8 @@ class DAG:
         return topological
 
     def maximum_edge_addition(self):
-        """ Returns a list of edges that can be added without
-        creating any cycle. """
+        """Returns a list of edges that can be added without
+        creating any cycle."""
         visited = [False for i in range(self.v)]
         topo = self.topological_sort()
         edges = []
@@ -50,7 +50,6 @@ class DAG:
                 visited[j] = True
 
             for j in range(i + 1, len(topo)):
-
                 if not visited[topo[j]]:
                     edges.append((t, topo[j]))
 
@@ -85,10 +84,12 @@ class TestDAG(unittest.TestCase):
         g3.add_edge(2, 3)
         g3.add_edge(3, 1)
         edges3, num_edges3 = g3.maximum_edge_addition()
-        self.assertEqual(edges3, [(4, 5), (4, 2), (4, 3),
-                         (5, 3), (5, 1), (2, 0), (2, 1), (0, 3), (0, 1)])
+        self.assertEqual(
+            edges3,
+            [(4, 5), (4, 2), (4, 3), (5, 3), (5, 1), (2, 0), (2, 1), (0, 3), (0, 1)],
+        )
         self.assertEqual(num_edges3, 9)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -37,7 +37,7 @@ def draw_shape(shape: Shape):
     shape.draw()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     triangle = Triangle()
     rectangle = Rectangle()
     circle = Circle()

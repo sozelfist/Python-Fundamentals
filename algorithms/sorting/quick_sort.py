@@ -20,6 +20,7 @@ def quick_sort(arr: list[int]) -> list[int]:
             pivot_index = partition(arr, start, end)
             sort(arr, start, pivot_index - 1)
             sort(arr, pivot_index + 1, end)
+
     sort(arr, 0, len(arr) - 1)
     return arr
 
@@ -45,5 +46,5 @@ class TestQuickSort(unittest.TestCase):
         self.assertEqual(quick_sort(arr), [1, 2, 2, 3, 3, 4, 4, 5, 5])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

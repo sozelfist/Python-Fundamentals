@@ -3,11 +3,10 @@ import unittest
 
 
 def a_star(
-    adj_list: list[list[tuple[int, int]]], heuristics: list[int],
-    start: int, goal: int
+    adj_list: list[list[tuple[int, int]]], heuristics: list[int], start: int, goal: int
 ) -> list[int]:
     n = len(adj_list)
-    dist = {v: float('inf') for v in range(n)}
+    dist = {v: float("inf") for v in range(n)}
     dist[start] = 0
     queue = [(0, start)]
     came_from = {v: None for v in range(n)}
@@ -19,8 +18,7 @@ def a_star(
             break
 
         for neighbor, weight in adj_list[current]:
-            cost = dist[current] + weight + \
-                heuristics[neighbor] - heuristics[current]
+            cost = dist[current] + weight + heuristics[neighbor] - heuristics[current]
             if cost < dist[neighbor]:
                 dist[neighbor] = cost
                 came_from[neighbor] = current
@@ -58,5 +56,5 @@ class TestAStar(unittest.TestCase):
         self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

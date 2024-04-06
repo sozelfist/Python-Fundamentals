@@ -59,7 +59,6 @@ def shortest_common_supersequence(str1: str, str2: str) -> str:
 
 
 class TestShortestCommonSupersequence(unittest.TestCase):
-
     def test_no_common_characters(self):
         string1 = "ABCDEF"
         string2 = "XYZ"

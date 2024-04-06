@@ -8,8 +8,7 @@ class BloomFilter:
         self.capacity = capacity
         self.error_rate = error_rate
         self.num_hashes = math.ceil(
-            self.capacity * abs(math.log(self.error_rate))
-            / (math.log(2) ** 2)
+            self.capacity * abs(math.log(self.error_rate)) / (math.log(2) ** 2)
         )
         self.bit_array_size = int(math.ceil(self.num_hashes * math.log(2)))
         self.bit_array = [0] * (self.bit_array_size)
@@ -67,5 +66,5 @@ class TestBloomFilter(unittest.TestCase):
         # self.assertFalse("mango" in self.bloom_filter)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

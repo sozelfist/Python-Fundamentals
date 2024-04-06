@@ -10,7 +10,7 @@ class PrimeFactorization:
         self.factorize()
 
     def __str__(self):
-        factors_str = ' x '.join([f"{p}^{e}" for p, e in self.factors.items()])
+        factors_str = " x ".join([f"{p}^{e}" for p, e in self.factors.items()])
         return f"{self.root} = {factors_str}"
 
     def factorize(self):
@@ -18,7 +18,7 @@ class PrimeFactorization:
             return
 
         # Check for small factors up to sqrt(n)
-        for p in range(2, int(self.n ** 0.5) + 1):
+        for p in range(2, int(self.n**0.5) + 1):
             if self.n % p == 0:
                 e = 0
                 while self.n % p == 0:
@@ -64,9 +64,7 @@ class TestPrimeFactorization(unittest.TestCase):
 
     def test_large_number(self):
         pf = PrimeFactorization(1234567890)
-        self.assertEqual(
-            pf.factors, Counter({3: 2, 2: 1, 5: 1, 3607: 1, 3803: 1})
-        )
+        self.assertEqual(pf.factors, Counter({3: 2, 2: 1, 5: 1, 3607: 1, 3803: 1}))
 
     def test_negative_number(self):
         pf = PrimeFactorization(-10)
@@ -77,5 +75,5 @@ class TestPrimeFactorization(unittest.TestCase):
         self.assertEqual(pf.factors, Counter())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

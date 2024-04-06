@@ -76,14 +76,14 @@ class LinkedList:
 
     def __str__(self) -> str:
         if not self.head:
-            return ''
+            return ""
 
         res = []
         current = self.head
         while current:
             res.append(str(current.data))
             current = current.next
-        return '->'.join(res)
+        return "->".join(res)
 
     def __repr__(self) -> str:
         return self.__str__()
@@ -136,5 +136,5 @@ class TestLinkedList(unittest.TestCase):
             my_linked_list[3]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

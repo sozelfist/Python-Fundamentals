@@ -1,7 +1,7 @@
 import unittest
 from typing import TypeVar
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 
 class CircularBuffer:
@@ -74,5 +74,5 @@ class TestCircularBuffer(unittest.TestCase):
             buffer.dequeue()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

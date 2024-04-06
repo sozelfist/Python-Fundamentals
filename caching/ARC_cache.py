@@ -82,67 +82,67 @@ class TestARCCache(unittest.TestCase):
         self.cache = ARC(3)
 
     def test_add_and_retrieve_items(self):
-        self.cache['a'] = '1'
-        self.cache['b'] = '2'
-        self.cache['c'] = '3'
-        self.assertEqual(self.cache['a'], '1')
-        self.assertEqual(self.cache['b'], '2')
-        self.assertEqual(self.cache['c'], '3')
+        self.cache["a"] = "1"
+        self.cache["b"] = "2"
+        self.cache["c"] = "3"
+        self.assertEqual(self.cache["a"], "1")
+        self.assertEqual(self.cache["b"], "2")
+        self.assertEqual(self.cache["c"], "3")
 
     def test_eviction(self):
-        self.cache['a'] = '1'
-        self.cache['b'] = '2'
-        self.cache['c'] = '3'
-        self.cache['d'] = '4'
+        self.cache["a"] = "1"
+        self.cache["b"] = "2"
+        self.cache["c"] = "3"
+        self.cache["d"] = "4"
         with self.assertRaises(KeyError):
-            self.cache['a']
-        self.assertEqual(self.cache['b'], '2')
-        self.assertEqual(self.cache['c'], '3')
-        self.assertEqual(self.cache['d'], '4')
+            self.cache["a"]
+        self.assertEqual(self.cache["b"], "2")
+        self.assertEqual(self.cache["c"], "3")
+        self.assertEqual(self.cache["d"], "4")
 
     def test_ghost_items(self):
-        self.cache['a'] = '1'
-        self.cache['b'] = '2'
-        self.cache['c'] = '3'
-        self.cache['a'] = '-1'
-        self.cache['d'] = '4'
+        self.cache["a"] = "1"
+        self.cache["b"] = "2"
+        self.cache["c"] = "3"
+        self.cache["a"] = "-1"
+        self.cache["d"] = "4"
         with self.assertRaises(KeyError):
-            self.cache['a']
-        self.assertEqual(self.cache['c'], '3')
-        self.assertEqual(self.cache['d'], '4')
+            self.cache["a"]
+        self.assertEqual(self.cache["c"], "3")
+        self.assertEqual(self.cache["d"], "4")
 
     def test_overwrite_existing_item(self):
-        self.cache['a'] = '1'
-        self.cache['b'] = '2'
-        self.cache['a'] = '3'
-        self.assertEqual(self.cache['a'], '3')
-        self.assertEqual(self.cache['b'], '2')
+        self.cache["a"] = "1"
+        self.cache["b"] = "2"
+        self.cache["a"] = "3"
+        self.assertEqual(self.cache["a"], "3")
+        self.assertEqual(self.cache["b"], "2")
 
     def test_remove_item(self):
-        self.cache['a'] = '1'
-        self.cache['b'] = '2'
-        del self.cache['a']
+        self.cache["a"] = "1"
+        self.cache["b"] = "2"
+        del self.cache["a"]
         with self.assertRaises(KeyError):
-            self.cache['a']
-        self.assertEqual(self.cache['b'], '2')
+            self.cache["a"]
+        self.assertEqual(self.cache["b"], "2")
 
     def test_cache_size(self):
         self.assertEqual(len(self.cache), 0)
-        self.cache['a'] = '1'
+        self.cache["a"] = "1"
         self.assertEqual(len(self.cache), 1)
-        self.cache['b'] = '2'
+        self.cache["b"] = "2"
         self.assertEqual(len(self.cache), 2)
-        self.cache['c'] = '3'
+        self.cache["c"] = "3"
         self.assertEqual(len(self.cache), 3)
-        self.cache['d'] = '4'
+        self.cache["d"] = "4"
         self.assertEqual(len(self.cache), 3)
-        del self.cache['d']
+        del self.cache["d"]
         self.assertEqual(len(self.cache), 2)
-        del self.cache['c']
+        del self.cache["c"]
         self.assertEqual(len(self.cache), 1)
-        del self.cache['b']
+        del self.cache["b"]
         self.assertEqual(len(self.cache), 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

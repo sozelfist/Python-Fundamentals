@@ -37,7 +37,6 @@ def trap(height: list[int]) -> int:
 
 
 class TestTrappingRainWater(unittest.TestCase):
-
     def test_trapping_rain_water_with_example_input(self):
         height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
         expected_output = 6
@@ -64,5 +63,5 @@ class TestTrappingRainWater(unittest.TestCase):
         self.assertEqual(trap(height), expected_output)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

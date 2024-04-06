@@ -4,7 +4,7 @@ import unittest
 
 def dijkstra(adj_list: list[list[tuple[int, int]]], start: int) -> list[int]:
     n = len(adj_list)
-    dist = [float('inf')] * n
+    dist = [float("inf")] * n
     dist[start] = 0
     visited = [False] * n
     queue = [(0, start)]
@@ -32,9 +32,9 @@ class TestDijkstra(unittest.TestCase):
     def test_dijkstra_disconnected(self):
         adj_list = [[(1, 2)], [(2, 1)], [], [], []]
         result = dijkstra(adj_list, 0)
-        expected = [0, 2, 3, float('inf'), float('inf')]
+        expected = [0, 2, 3, float("inf"), float("inf")]
         self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

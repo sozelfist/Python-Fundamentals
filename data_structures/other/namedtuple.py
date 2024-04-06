@@ -13,15 +13,17 @@ def namedtuple(classname: str, fieldnames: str) -> Any:
                 setattr(self, name, value)
 
         def __repr__(self) -> str:
-            values = ", ".join(f"{name}={getattr(self, name)}"
-                               for name in self.__slots__)
+            values = ", ".join(
+                f"{name}={getattr(self, name)}" for name in self.__slots__
+            )
             return f"{self.__class__.__name__}({values})"
 
         def __eq__(self, other: object) -> bool:
             if not isinstance(other, self.__class__):
                 return False
-            return all(getattr(self, name) == getattr(other, name)
-                       for name in self.__slots__)
+            return all(
+                getattr(self, name) == getattr(other, name) for name in self.__slots__
+            )
 
         def __iter__(self):
             return iter(getattr(self, name) for name in self.__slots__)
@@ -32,9 +34,7 @@ def namedtuple(classname: str, fieldnames: str) -> Any:
         def __len__(self) -> int:
             return len(self.__slots__)
 
-    return type(
-        classname, (_NamedTuple,), {"__doc__": f"{classname}({fieldnames})"}
-    )
+    return type(classname, (_NamedTuple,), {"__doc__": f"{classname}({fieldnames})"})
 
 
 class TestNamedtuple(unittest.TestCase):
@@ -81,5 +81,5 @@ class TestNamedtuple(unittest.TestCase):
             Person("Alice", 25, "female")  # Should raise TypeError
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

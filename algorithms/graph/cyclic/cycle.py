@@ -11,9 +11,7 @@ def find_cycle(graph: dict[int, list[int]]) -> set[int] | None:
 
     visited = set()
 
-    def dfs(
-            node: int, parent: int | None
-    ) -> tuple[bool, list[int]] | None:
+    def dfs(node: int, parent: int | None) -> tuple[bool, list[int]] | None:
         visited.add(node)
         for neighbor in graph.get(node, []):
             if neighbor not in visited:
@@ -34,7 +32,6 @@ def find_cycle(graph: dict[int, list[int]]) -> set[int] | None:
 
 
 class TestFindCycle(unittest.TestCase):
-
     def test_cycle_exists(self):
         graph = {0: [1, 2], 1: [2], 2: [0, 3], 3: [3]}
         expected_cycle = {0, 1, 2}
@@ -49,5 +46,5 @@ class TestFindCycle(unittest.TestCase):
         self.assertIsNone(find_cycle(graph))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

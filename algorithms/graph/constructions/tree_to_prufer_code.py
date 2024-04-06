@@ -61,5 +61,5 @@ class TestPruferCode(unittest.TestCase):
         self.assertEqual(code, [3, 3, 3, 4])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

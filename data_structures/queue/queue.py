@@ -69,5 +69,5 @@ class TestQueue(unittest.TestCase):
             my_queue.peek()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

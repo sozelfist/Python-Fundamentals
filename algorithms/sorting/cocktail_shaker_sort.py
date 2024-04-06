@@ -1,42 +1,42 @@
-""" The Cocktail Shaker Sort algorithm, also known as the Cocktail Sort
-    or the Shaker Sort. It is a variation of the Bubble Sort algorithm
-    that sorts elements in a list by repeatedly traversing the list in
-    both directions, swapping adjacent elements if they are in the wrong order.
+"""The Cocktail Shaker Sort algorithm, also known as the Cocktail Sort
+or the Shaker Sort. It is a variation of the Bubble Sort algorithm
+that sorts elements in a list by repeatedly traversing the list in
+both directions, swapping adjacent elements if they are in the wrong order.
 
-    Source: [Wikipedia](https://en.wikipedia.org/wiki/Cocktail_shaker_sort)
-    Pseudocode:
-    ```
-    procedure cocktailShakerSort(A : list of sortable items) is
-        do
-            swapped := false
-            for each i in 0 to length(A) − 1 do:
-                // test whether the two elements are in the wrong order
-                if A[i] > A[i + 1] then
-                    swap(A[i], A[i + 1]) // let the two elements change places
-                    swapped := true
-                end if
-            end for
-            if not swapped then
-                // we can exit the outer loop here if no swaps occurred.
-                break do-while loop
+Source: [Wikipedia](https://en.wikipedia.org/wiki/Cocktail_shaker_sort)
+Pseudocode:
+```
+procedure cocktailShakerSort(A : list of sortable items) is
+    do
+        swapped := false
+        for each i in 0 to length(A) − 1 do:
+            // test whether the two elements are in the wrong order
+            if A[i] > A[i + 1] then
+                swap(A[i], A[i + 1]) // let the two elements change places
+                swapped := true
             end if
-            swapped := false
-            for each i in length(A) − 1 to 0 do:
-                if A[i] > A[i + 1] then
-                    swap(A[i], A[i + 1])
-                    swapped := true
-                end if
-            end for
-        while swapped
-        // if no elements have been swapped, then the list is sorted
-    end procedure
-    ```
+        end for
+        if not swapped then
+            // we can exit the outer loop here if no swaps occurred.
+            break do-while loop
+        end if
+        swapped := false
+        for each i in length(A) − 1 to 0 do:
+            if A[i] > A[i + 1] then
+                swap(A[i], A[i + 1])
+                swapped := true
+            end if
+        end for
+    while swapped
+    // if no elements have been swapped, then the list is sorted
+end procedure
+```
 """
 
 import unittest
 from typing import TypeVar
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 
 def cocktail_shaker_sort(arr: list[T]) -> list[T]:
@@ -71,7 +71,6 @@ def cocktail_shaker_sort(arr: list[T]) -> list[T]:
 
 
 class TestCocktailShakerSort(unittest.TestCase):
-
     def test_sort_empty_list(self):
         arr: list[int] = []
         sorted_arr = cocktail_shaker_sort(arr)
@@ -98,5 +97,5 @@ class TestCocktailShakerSort(unittest.TestCase):
         self.assertEqual(sorted_arr, [1, 1, 2, 2, 3, 5, 5, 8, 9])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

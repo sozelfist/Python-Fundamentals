@@ -2,8 +2,7 @@ import unittest
 
 
 def lcs(
-    X: list[int], Y: list[int], m: int, n: int,
-    memo: dict[tuple[int, int], int]
+    X: list[int], Y: list[int], m: int, n: int, memo: dict[tuple[int, int], int]
 ) -> int:
     if m == 0 or n == 0:
         return 0
@@ -12,10 +11,7 @@ def lcs(
     if X[m - 1] == Y[n - 1]:
         memo[(m, n)] = 1 + lcs(X, Y, m - 1, n - 1, memo)
     else:
-        memo[(m, n)] = max(
-            lcs(X, Y, m, n - 1, memo),
-            lcs(X, Y, m - 1, n, memo)
-        )
+        memo[(m, n)] = max(lcs(X, Y, m, n - 1, memo), lcs(X, Y, m - 1, n, memo))
     return memo[(m, n)]
 
 
@@ -39,9 +35,8 @@ class TestLCS(unittest.TestCase):
         # Edge case when one of the lists is shorter than the other
         self.assertEqual(lcs_length([1, 2, 3, 4, 5], [2, 3]), 2)
         # Edge case when one of the lists is longer than the other
-        self.assertEqual(lcs_length([1, 2, 3, 4, 5], [
-                         1, 2, 3, 4, 5, 6, 7, 8]), 5)
+        self.assertEqual(lcs_length([1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 6, 7, 8]), 5)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -17,7 +17,7 @@ class BankAccount:
         print(f"Your balance is {self._balance}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     account = BankAccount(1000)
     account.check_balance()  # "Your balance is 1000"
     account.deposit(500)  # "Deposited 500, new balance is 1500"

@@ -17,7 +17,7 @@ def monte_carlo_pi(num_points: int) -> float:
     for _ in range(num_points):
         x = random.uniform(0, 1)
         y = random.uniform(0, 1)
-        if math.sqrt(x ** 2 + y ** 2) <= 1:
+        if math.sqrt(x**2 + y**2) <= 1:
             inside += 1
     return 4 * inside / num_points
 
@@ -32,5 +32,5 @@ class TestMonteCarloPi(unittest.TestCase):
             monte_carlo_pi(0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

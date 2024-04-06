@@ -19,8 +19,11 @@ def quickselect(arr, k):
     elif k > len(left) + len(equal):
         return quickselect(right, k - len(left) - len(equal))
     else:
-        return equal[0] if len(equal) == 1 else\
-            quickselect(equal[1:] + right, k - len(left))
+        return (
+            equal[0]
+            if len(equal) == 1
+            else quickselect(equal[1:] + right, k - len(left))
+        )
 
 
 class TestQuickselect(unittest.TestCase):
@@ -49,5 +52,5 @@ class TestQuickselect(unittest.TestCase):
             quickselect(arr, len(arr) + 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

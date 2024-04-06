@@ -28,7 +28,7 @@ def count_walks_with_k_edges(
         # Iterate over all adjacent vertices of u
         for nei in graph[u]:
             # Recursively count walks with k-1 edges from nei to v
-            count += dfs(nei, v, e-1)
+            count += dfs(nei, v, e - 1)
 
         # Store the result in the memoization table and return the count
         memo[u][e] = {v: count}
@@ -54,7 +54,7 @@ def count_walks_with_k_edges(
         # Iterate over all adjacent vertices of u
         for nei in graph[u]:
             # Recursively find walks with k-1 edges from nei to v
-            find_walks(nei, v, e-1, path + [nei])
+            find_walks(nei, v, e - 1, path + [nei])
 
     # Call the DFS function to find the walks from src to dest with k edges
     find_walks(src, dest, k, [src])
@@ -64,13 +64,7 @@ def count_walks_with_k_edges(
 
 class TestCountWalksWithKEdges(unittest.TestCase):
     def test_count_walks_with_k_edges_example_graph(self):
-        graph = {
-            0: [1, 2],
-            1: [2],
-            2: [3],
-            3: [4],
-            4: [1]
-        }
+        graph = {0: [1, 2], 1: [2], 2: [3], 3: [4], 4: [1]}
         src = 0
         dest = 3
         k = 3
@@ -81,13 +75,7 @@ class TestCountWalksWithKEdges(unittest.TestCase):
         self.assertEqual(count, expected_count)
 
     def test_count_walks_with_k_edges_no_walks(self):
-        graph = {
-            0: [1, 2],
-            1: [2],
-            2: [3],
-            3: [4],
-            4: [1]
-        }
+        graph = {0: [1, 2], 1: [2], 2: [3], 3: [4], 4: [1]}
         src = 0
         dest = 3
         k = 5
@@ -98,13 +86,7 @@ class TestCountWalksWithKEdges(unittest.TestCase):
         self.assertEqual(count, expected_count)
 
     def test_count_walks_with_k_edges_multiple_walks(self):
-        graph = {
-            0: [1, 2],
-            1: [2],
-            2: [3, 4],
-            3: [4],
-            4: []
-        }
+        graph = {0: [1, 2], 1: [2], 2: [3, 4], 3: [4], 4: []}
         src = 0
         dest = 4
         k = 2
@@ -115,14 +97,7 @@ class TestCountWalksWithKEdges(unittest.TestCase):
         self.assertEqual(count, expected_count)
 
     def test_count_walks_with_k_edges_self_loop(self):
-
-        graph = {
-            0: [1, 2],
-            1: [2],
-            2: [3, 4],
-            3: [4],
-            4: [4]
-        }
+        graph = {0: [1, 2], 1: [2], 2: [3, 4], 3: [4], 4: [4]}
         src = 0
         dest = 4
         k = 2
@@ -133,5 +108,5 @@ class TestCountWalksWithKEdges(unittest.TestCase):
         self.assertEqual(count, expected_count)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

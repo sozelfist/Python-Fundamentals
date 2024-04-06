@@ -35,10 +35,10 @@ class TestWiggleSort(unittest.TestCase):
 
     def test_wiggle_sort_non_integer_elements(self):
         # Test case with a list containing non-integer elements.
-        nums = [3, 5, 'a', 1, 6, 4]
+        nums = [3, 5, "a", 1, 6, 4]
         with self.assertRaises(ValueError):
             wiggle_sort(nums)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

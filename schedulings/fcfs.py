@@ -29,8 +29,7 @@ class Scheduler:
         """
         waiting_times = [0] * len(self.processes)
         for i in range(1, len(self.processes)):
-            waiting_times[i] = self.processes[i - 1].duration\
-                + waiting_times[i - 1]
+            waiting_times[i] = self.processes[i - 1].duration + waiting_times[i - 1]
             self.processes[i].waiting_time = waiting_times[i]
         return waiting_times
 
@@ -50,16 +49,18 @@ class Scheduler:
         This function calculates the average of the turnaround times
             Return: The average of the turnaround times.
         """
-        return sum([process.turnaround_time for process in self.processes])\
-            / len(self.processes)
+        return sum([process.turnaround_time for process in self.processes]) / len(
+            self.processes
+        )
 
     def calculate_average_waiting_time(self) -> float:
         """
         This function calculates the average of the waiting times
             Return: The average of the waiting times.
         """
-        return sum([process.waiting_time for process in self.processes])\
-            / len(self.processes)
+        return sum([process.waiting_time for process in self.processes]) / len(
+            self.processes
+        )
 
     def schedule(self) -> None:
         # ensure that we actually have processes
@@ -89,7 +90,7 @@ class TestScheduler(unittest.TestCase):
             Process(1, 8),
             Process(2, 4),
             Process(3, 9),
-            Process(4, 5)
+            Process(4, 5),
         ]
         self.scheduler = Scheduler(self.processes)
 
@@ -110,8 +111,7 @@ class TestScheduler(unittest.TestCase):
     def test_calculate_average_turnaround_time(self) -> None:
         self.scheduler.calculate_waiting_times()
         self.scheduler.calculate_turnaround_times()
-        average_turnaround_time = \
-            self.scheduler.calculate_average_turnaround_time()
+        average_turnaround_time = self.scheduler.calculate_average_turnaround_time()
         self.assertEqual(average_turnaround_time, 16.75)
 
     def test_schedule_zero_processes(self) -> None:
@@ -119,5 +119,5 @@ class TestScheduler(unittest.TestCase):
             Scheduler([]).schedule()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

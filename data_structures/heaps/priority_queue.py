@@ -11,9 +11,7 @@ class PriorityQueue:
             self.heap = values
             self.build_heap()
 
-    def should_swap(
-        self, parent: tuple[int, str], child: tuple[int, str]
-    ) -> bool:
+    def should_swap(self, parent: tuple[int, str], child: tuple[int, str]) -> bool:
         if self.is_min_heap:
             return parent[0] > child[0]
         else:
@@ -40,8 +38,10 @@ class PriorityQueue:
         while index > 0:
             parent_index = (index - 1) // 2
             if self.should_swap(self.heap[parent_index], self.heap[index]):
-                self.heap[parent_index], self.heap[index] =\
-                    self.heap[index], self.heap[parent_index]
+                self.heap[parent_index], self.heap[index] = (
+                    self.heap[index],
+                    self.heap[parent_index],
+                )
                 index = parent_index
             else:
                 break
@@ -62,8 +62,10 @@ class PriorityQueue:
                 else:
                     swap_index = right_child_index
             if self.should_swap(self.heap[index], self.heap[swap_index]):
-                self.heap[index], self.heap[swap_index] =\
-                    self.heap[swap_index], self.heap[index]
+                self.heap[index], self.heap[swap_index] = (
+                    self.heap[swap_index],
+                    self.heap[index],
+                )
                 index = swap_index
             else:
                 break
@@ -81,33 +83,32 @@ class TestPriorityQueue(unittest.TestCase):
         self.pq = PriorityQueue()
 
     def test_insert(self):
-        self.pq.insert((1, 'a'))
-        self.pq.insert((2, 'b'))
-        self.pq.insert((3, 'c'))
-        self.assertEqual(self.pq.heap, [(1, 'a'), (2, 'b'), (3, 'c')])
+        self.pq.insert((1, "a"))
+        self.pq.insert((2, "b"))
+        self.pq.insert((3, "c"))
+        self.assertEqual(self.pq.heap, [(1, "a"), (2, "b"), (3, "c")])
 
     def test_peek(self):
-        self.pq.insert((1, 'a'))
-        self.pq.insert((2, 'b'))
-        self.pq.insert((3, 'c'))
-        self.assertEqual(self.pq.peek(), (1, 'a'))
+        self.pq.insert((1, "a"))
+        self.pq.insert((2, "b"))
+        self.pq.insert((3, "c"))
+        self.assertEqual(self.pq.peek(), (1, "a"))
 
     def test_poll(self):
-        self.pq.insert((1, 'a'))
-        self.pq.insert((2, 'b'))
-        self.pq.insert((3, 'c'))
-        self.assertEqual(self.pq.poll(), (1, 'a'))
-        self.assertEqual(self.pq.heap, [(2, 'b'), (3, 'c')])
+        self.pq.insert((1, "a"))
+        self.pq.insert((2, "b"))
+        self.pq.insert((3, "c"))
+        self.assertEqual(self.pq.poll(), (1, "a"))
+        self.assertEqual(self.pq.heap, [(2, "b"), (3, "c")])
 
     def test_init_with_list(self):
-        pq = PriorityQueue(values=[(3, 'c'), (2, 'b'), (1, 'a')])
-        self.assertEqual(pq.heap, [(2, 'b'), (3, 'c'), (1, 'a')])
+        pq = PriorityQueue(values=[(3, "c"), (2, "b"), (1, "a")])
+        self.assertEqual(pq.heap, [(2, "b"), (3, "c"), (1, "a")])
 
     def test_init_max_heap(self):
-        pq = PriorityQueue(is_min_heap=False, values=[
-                           (3, 'c'), (2, 'b'), (1, 'a')])
-        self.assertEqual(pq.heap, [(3, 'c'), (2, 'b'), (1, 'a')])
+        pq = PriorityQueue(is_min_heap=False, values=[(3, "c"), (2, "b"), (1, "a")])
+        self.assertEqual(pq.heap, [(3, "c"), (2, "b"), (1, "a")])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

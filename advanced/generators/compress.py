@@ -30,31 +30,24 @@ def compress(data, selectors):
 
 
 class TestCompress(unittest.TestCase):
-
     def test_compress_with_strings_and_lists(self):
         self.assertEqual(
-            list(compress('ABCDEF', [1, 0, 1, 0, 1, 1])),
-            ['A', 'C', 'E', 'F']
+            list(compress("ABCDEF", [1, 0, 1, 0, 1, 1])), ["A", "C", "E", "F"]
         )
-        self.assertEqual(
-            list(compress([1, 2, 3], [True, False, True])), [1, 3]
-        )
-        self.assertEqual(
-            list(compress('hello', [0, 1, 1, 0, 1])),
-            ['e', 'l', 'o']
-        )
+        self.assertEqual(list(compress([1, 2, 3], [True, False, True])), [1, 3])
+        self.assertEqual(list(compress("hello", [0, 1, 1, 0, 1])), ["e", "l", "o"])
         self.assertEqual(list(compress([], [])), [])
         self.assertEqual(list(compress([1, 2, 3], [])), [])
         self.assertEqual(list(compress([], [True, False, True])), [])
 
     def test_raises_type_error_if_argument_is_not_iterable(self):
         with self.assertRaises(TypeError):
-            compress('hello', 1)
+            compress("hello", 1)
         with self.assertRaises(TypeError):
-            compress(123, 'world')
+            compress(123, "world")
         with self.assertRaises(TypeError):
             compress(None, [1, 2, 3])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

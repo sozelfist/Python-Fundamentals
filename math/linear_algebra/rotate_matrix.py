@@ -25,15 +25,10 @@ def rotate_matrix(matrix, angle, direction):
 
 
 class TestRotateMatrix(unittest.TestCase):
-
     def test_rotate_clockwise_90(self):
         # Define the input and expected output matrices
-        matrix = [[1, 2, 3],
-                  [4, 5, 6],
-                  [7, 8, 9]]
-        expected_output = [[7, 4, 1],
-                           [8, 5, 2],
-                           [9, 6, 3]]
+        matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        expected_output = [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
 
         # Rotate the matrix clockwise by 90 degrees and check the output
         output = rotate_matrix(matrix, 90, "clockwise")
@@ -41,12 +36,8 @@ class TestRotateMatrix(unittest.TestCase):
 
     def test_rotate_clockwise_180(self):
         # Define the input and expected output matrices
-        matrix = [[1, 2, 3],
-                  [4, 5, 6],
-                  [7, 8, 9]]
-        expected_output = [[9, 8, 7],
-                           [6, 5, 4],
-                           [3, 2, 1]]
+        matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        expected_output = [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
 
         # Rotate the matrix clockwise by 180 degrees and check the output
         output = rotate_matrix(matrix, 180, "clockwise")
@@ -54,9 +45,7 @@ class TestRotateMatrix(unittest.TestCase):
 
     def test_rotate_counterclockwise_270(self):
         # Define the input and expected output matrices
-        matrix = [[1, 2, 3],
-                  [4, 5, 6],
-                  [7, 8, 9]]
+        matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
         expected_output = [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
 
         # Rotate the matrix counterclockwise by 270 degrees
@@ -65,5 +54,5 @@ class TestRotateMatrix(unittest.TestCase):
         self.assertEqual(output, expected_output)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

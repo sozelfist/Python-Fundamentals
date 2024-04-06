@@ -22,5 +22,5 @@ class TestKnapsack(unittest.TestCase):
         self.assertEqual(knapsack([(100, 100), (100, 100)], 10), 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

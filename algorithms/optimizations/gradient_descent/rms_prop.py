@@ -7,16 +7,20 @@ def linear_model(x: np.ndarray, w: float, b: float) -> np.ndarray:
     return w * x + b
 
 
-def cost_function(
-    x: np.ndarray, y: np.ndarray, w: float, b: float
-) -> float:
+def cost_function(x: np.ndarray, y: np.ndarray, w: float, b: float) -> float:
     predictions = linear_model(x, w, b)
-    return ((predictions - y)**2).mean()
+    return ((predictions - y) ** 2).mean()
 
 
 def rmsprop(
-    x: np.ndarray, y: np.ndarray, w: float, b: float, learning_rate: float,
-    num_iterations: int, decay_rate: float = 0.9, epsilon: float = 1e-8
+    x: np.ndarray,
+    y: np.ndarray,
+    w: float,
+    b: float,
+    learning_rate: float,
+    num_iterations: int,
+    decay_rate: float = 0.9,
+    epsilon: float = 1e-8,
 ) -> tuple[float, float]:
     # initialize variables for moving average of squared gradients
     g_w = 0
@@ -40,12 +44,11 @@ def rmsprop(
 
         # print progress
         if (i + 1) % 10 == 0:
-            print(f'Iteration: {i+1}, cost = {cost}, w = {w}, b = {b}')
+            print(f"Iteration: {i+1}, cost = {cost}, w = {w}, b = {b}")
     return w, b
 
 
 class TestRMSProp(unittest.TestCase):
-
     def test_rmsprop(self):
         # sample data
         x = np.array([1, 2, 3, 4, 5])
@@ -64,5 +67,5 @@ class TestRMSProp(unittest.TestCase):
         self.assertAlmostEqual(final_b, 3.0, delta=1e-2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

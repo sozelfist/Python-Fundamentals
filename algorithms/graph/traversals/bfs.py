@@ -36,17 +36,11 @@ def reconstruct_path(path: list[int], start: int, end: int) -> list[int]:
 
 class TestBFS(unittest.TestCase):
     def test_BFS(self):
-        graph = [
-            [1, 2],
-            [2, 3],
-            [3, 4],
-            [4],
-            []
-        ]
+        graph = [[1, 2], [2, 3], [3, 4], [4], []]
         result = bfs(graph, 0, 4)
         self.assertTrue(result[0])
         self.assertEqual(result[1], [0, 2, 4])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

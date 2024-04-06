@@ -13,17 +13,17 @@ def pascal_triangle(n: int) -> list[list[int]]:
 
 class TestPascalTriangle(unittest.TestCase):
     def test_pascal_triangle(self):
-        expected_output = '''
+        expected_output = """
             [1]
             [1, 1]
             [1, 2, 1]
             [1, 3, 3, 1]
             [1, 4, 6, 4, 1]
             [1, 5, 10, 10, 5, 1]
-        '''
+        """
         pascal_triangle(6)
         self.assertEqual(expected_output, expected_output)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

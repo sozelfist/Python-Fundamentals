@@ -17,7 +17,8 @@ def dfs(graph: list[list[int]], start: int) -> list[int]:
             visited[vertex] = True
             result.append(vertex)
             stack.extend(
-                neighbor for neighbor in reversed(graph[vertex])
+                neighbor
+                for neighbor in reversed(graph[vertex])
                 if not visited[neighbor]
             )
 
@@ -50,5 +51,5 @@ class TestDFS(unittest.TestCase):
         self.assertEqual(result, [0, 1, 2])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

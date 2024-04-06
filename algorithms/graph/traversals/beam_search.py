@@ -53,84 +53,62 @@ def beam_search(
 
 
 class TestBeamSearch(unittest.TestCase):
-
     def test_basic_path(self):
         graph = {
-            'A': {'B': 2, 'C': 1},
-            'B': {'D': 5, 'E': 4},
-            'C': {'F': 3},
-            'D': {'G': 6},
-            'E': {'G': 3},
-            'F': {'G': 7},
-            'G': {}
+            "A": {"B": 2, "C": 1},
+            "B": {"D": 5, "E": 4},
+            "C": {"F": 3},
+            "D": {"G": 6},
+            "E": {"G": 3},
+            "F": {"G": 7},
+            "G": {},
         }
-        start = 'A'
-        goal = 'G'
+        start = "A"
+        goal = "G"
         beam_width = 2
 
-        expected_path = ['A', 'B', 'E', 'G']
-        self.assertEqual(beam_search(
-            graph, start, goal, beam_width), expected_path)
+        expected_path = ["A", "B", "E", "G"]
+        self.assertEqual(beam_search(graph, start, goal, beam_width), expected_path)
 
     def test_no_path(self):
-        graph = {
-            'A': {'B': 1},
-            'B': {},
-            'C': {}
-        }
-        start = 'A'
-        goal = 'C'
+        graph = {"A": {"B": 1}, "B": {}, "C": {}}
+        start = "A"
+        goal = "C"
         beam_width = 1
         self.assertIsNone(beam_search(graph, start, goal, beam_width))
 
     def test_invalid_start_node(self):
-        graph = {
-            'A': {'B': 1},
-            'B': {'C': 1},
-            'C': {}
-        }
-        start = 'D'
-        goal = 'C'
+        graph = {"A": {"B": 1}, "B": {"C": 1}, "C": {}}
+        start = "D"
+        goal = "C"
         beam_width = 1
         with self.assertRaises(ValueError):
             beam_search(graph, start, goal, beam_width)
 
     def test_invalid_goal_node(self):
-        graph = {
-            'A': {'B': 1},
-            'B': {'C': 1},
-            'C': {}
-        }
-        start = 'A'
-        goal = 'D'
+        graph = {"A": {"B": 1}, "B": {"C": 1}, "C": {}}
+        start = "A"
+        goal = "D"
         beam_width = 1
         with self.assertRaises(ValueError):
             beam_search(graph, start, goal, beam_width)
 
     def test_negative_beam_width(self):
-        graph = {
-            'A': {'B': 1},
-            'B': {'C': 1},
-            'C': {}
-        }
-        start = 'A'
-        goal = 'C'
+        graph = {"A": {"B": 1}, "B": {"C": 1}, "C": {}}
+        start = "A"
+        goal = "C"
         beam_width = -1
         with self.assertRaises(ValueError):
             beam_search(graph, start, goal, beam_width)
 
     def test_zero_beam_width(self):
-        graph = {
-            'A': {'B': 1},
-            'B': {'C': 1},
-            'C': {}
-        }
-        start = 'A'
-        goal = 'C'
+        graph = {"A": {"B": 1}, "B": {"C": 1}, "C": {}}
+        start = "A"
+        goal = "C"
         beam_width = 0
         with self.assertRaises(ValueError):
             beam_search(graph, start, goal, beam_width)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

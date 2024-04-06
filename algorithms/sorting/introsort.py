@@ -26,10 +26,8 @@ def introsort(arr: list[int]) -> list[int]:
     # Define the depth limit for switching to heapsort
     depth_limit = 2 * (len(arr).bit_length())
 
-    def insertion_sort(
-        arr: list[int], left: int, right: int
-    ) -> None:
-        """ Helper function to perform insertion sort. """
+    def insertion_sort(arr: list[int], left: int, right: int) -> None:
+        """Helper function to perform insertion sort."""
         for i in range(left + 1, right + 1):
             key_item = arr[i]
             j = i - 1
@@ -39,7 +37,7 @@ def introsort(arr: list[int]) -> list[int]:
             arr[j + 1] = key_item
 
     def partition(arr: list[int], low: int, high: int) -> int:
-        """ Helper function to perform partitioning in quicksort. """
+        """Helper function to perform partitioning in quicksort."""
         pivot_index = random.randint(low, high)
         arr[low], arr[pivot_index] = arr[pivot_index], arr[low]
         pivot = arr[low]
@@ -59,10 +57,8 @@ def introsort(arr: list[int]) -> list[int]:
         arr[low], arr[j] = arr[j], arr[low]
         return j
 
-    def quicksort(
-        arr: list[int], low: int, high: int, depth_limit: int
-    ) -> None:
-        """ Helper function to perform quicksort. """
+    def quicksort(arr: list[int], low: int, high: int, depth_limit: int) -> None:
+        """Helper function to perform quicksort."""
         if low < high:
             if high - low < depth_limit:
                 insertion_sort(arr, low, high)
@@ -99,5 +95,5 @@ class IntrosortTestCase(unittest.TestCase):
         self.assertEqual(introsort(arr), expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

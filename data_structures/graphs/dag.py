@@ -6,7 +6,7 @@ class DAGNode:
         self.value = value
         self.children = []
 
-    def add_child(self, child: 'DAGNode') -> None:
+    def add_child(self, child: "DAGNode") -> None:
         self.children.append(child)
 
 
@@ -54,9 +54,7 @@ class DAG:
         return stack[::-1]
 
     def is_acyclic(self) -> bool:
-        def has_cycle(
-            node: DAGNode, visited: set[str], rec_stack: set[str]
-        ) -> bool:
+        def has_cycle(node: DAGNode, visited: set[str], rec_stack: set[str]) -> bool:
             visited.add(node.value)
             rec_stack.add(node.value)
 
@@ -108,7 +106,7 @@ class DAGTestCase(unittest.TestCase):
         self.dag.add_edge("E", "F")
 
     def test_topological_sort(self):
-        expected = ['A', 'C', 'B', 'E', 'D', 'F']
+        expected = ["A", "C", "B", "E", "D", "F"]
         result = self.dag.topological_sort()
         self.assertEqual(result, expected)
 
@@ -118,8 +116,7 @@ class DAGTestCase(unittest.TestCase):
         self.assertFalse(self.dag.is_acyclic())
 
     def test_get_path(self):
-        expected = [['A', 'B', 'D', 'F'], [
-            'A', 'B', 'E', 'F'], ['A', 'C', 'E', 'F']]
+        expected = [["A", "B", "D", "F"], ["A", "B", "E", "F"], ["A", "C", "E", "F"]]
         result = self.dag.get_path("A", "F")
         self.assertEqual(result, expected)
 
@@ -128,5 +125,5 @@ class DAGTestCase(unittest.TestCase):
         self.assertEqual(result, [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -31,7 +31,6 @@ def midpoint_rule(func, a, b, n=1000):
 
 
 def gaussian_quadrature(func, a, b, n=1000):
-
     x, w = np.polynomial.legendre.leggauss(n)
     x = 0.5 * (b - a) * x + 0.5 * (b + a)
     return 0.5 * (b - a) * np.dot(func(x), w)
@@ -48,30 +47,26 @@ class TestIntegrationMethods(unittest.TestCase):
         self.assertAlmostEqual(
             integrate(lambda x: x**2, 0, 1, method="trapezoidal", n=2000),
             1 / 3,
-            delta=0.0003
+            delta=0.0003,
         )
 
     def test_midpoint_rule(self):
         self.assertAlmostEqual(
             integrate(lambda x: x**2, 0, 1, method="midpoint", n=2000),
             1 / 3,
-            delta=0.0003
+            delta=0.0003,
         )
 
     def test_gaussian_quadrature(self):
         self.assertAlmostEqual(
-            integrate(lambda x: x**2, 0, 1, method="gaussian"),
-            1 / 3,
-            places=5
+            integrate(lambda x: x**2, 0, 1, method="gaussian"), 1 / 3, places=5
         )
 
     def test_monte_carlo(self):
         self.assertAlmostEqual(
-            integrate(lambda x: x**2, 0, 1, method="monte_carlo"),
-            1 / 3,
-            places=1
+            integrate(lambda x: x**2, 0, 1, method="monte_carlo"), 1 / 3, places=1
         )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

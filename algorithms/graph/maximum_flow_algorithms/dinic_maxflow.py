@@ -37,8 +37,7 @@ def bfs(graph: list[list[Edge]], level: list[int], s: int, t: int) -> bool:
 
 
 def dfs(
-    graph: list[list[Edge]], level: list[int], iter: list[int],
-    u: int, t: int, f: int
+    graph: list[list[Edge]], level: list[int], iter: list[int], u: int, t: int, f: int
 ) -> int:
     if u < 0 or u >= len(graph) or t < 0 or t >= len(graph):
         raise ValueError("Invalid vertex index")
@@ -117,5 +116,5 @@ class TestDinicMaxFlow(unittest.TestCase):
             add_edge(graph, 1, 2, -10)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

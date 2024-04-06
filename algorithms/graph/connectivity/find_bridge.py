@@ -1,9 +1,7 @@
 import unittest
 
 
-def find_bridges(
-    n: int, edges: list[tuple[int, int]]
-) -> list[tuple[int, int]]:
+def find_bridges(n: int, edges: list[tuple[int, int]]) -> list[tuple[int, int]]:
     graph = [[] for _ in range(n)]
     for u, v in edges:
         graph[u].append(v)
@@ -24,13 +22,11 @@ def find_bridges(
         for v in graph[u]:
             if not visited[v]:
                 dfs(v, u)
-                lowest_reachable[u] = min(
-                    lowest_reachable[u], lowest_reachable[v])
+                lowest_reachable[u] = min(lowest_reachable[u], lowest_reachable[v])
                 if lowest_reachable[v] > discovery_time[u]:
                     bridges.append((u, v))
             elif v != parent:
-                lowest_reachable[u] = min(
-                    lowest_reachable[u], discovery_time[v])
+                lowest_reachable[u] = min(lowest_reachable[u], discovery_time[v])
 
     for u in range(n):
         if not visited[u]:
@@ -60,11 +56,10 @@ class TestFindBridges(unittest.TestCase):
 
     def test_complex_graph(self):
         n = 7
-        edges = [(0, 1), (0, 2), (1, 2), (1, 3), (1, 4),
-                 (3, 4), (3, 5), (4, 5), (5, 6)]
+        edges = [(0, 1), (0, 2), (1, 2), (1, 3), (1, 4), (3, 4), (3, 5), (4, 5), (5, 6)]
         bridges = find_bridges(n, edges)
         self.assertEqual(bridges, [(5, 6)])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

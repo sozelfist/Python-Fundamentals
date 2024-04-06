@@ -17,6 +17,7 @@ def find_edge_disjoint_paths(
         List[List[int]]: A list of edge-disjoint paths between
         the source and target vertices.
     """
+
     def dfs(v: int, path: list[int]) -> list[list[int]]:
         if v == target:
             return [path]
@@ -49,41 +50,36 @@ class TestFindEdgeDisjointPaths(unittest.TestCase):
         source1 = 0
         target1 = 3
         expected1 = [[0, 2, 3]]
-        self.assertEqual(find_edge_disjoint_paths(
-            graph1, source1, target1), expected1)
+        self.assertEqual(find_edge_disjoint_paths(graph1, source1, target1), expected1)
 
     def test_graph_with_multiple_edge_disjoint_paths(self):
         graph2 = [[1, 2], [2, 3], [3, 4], [4], []]
         source2 = 0
         target2 = 4
         expected2 = [[0, 1, 2, 3, 4], [0, 2, 4]]
-        self.assertEqual(find_edge_disjoint_paths(
-            graph2, source2, target2), expected2)
+        self.assertEqual(find_edge_disjoint_paths(graph2, source2, target2), expected2)
 
     def test_graph_with_no_edge_disjoint_paths(self):
         graph3 = [[1, 2], [2], [1], []]
         source3 = 0
         target3 = 3
         expected3 = []
-        self.assertEqual(find_edge_disjoint_paths(
-            graph3, source3, target3), expected3)
+        self.assertEqual(find_edge_disjoint_paths(graph3, source3, target3), expected3)
 
     def test_graph_with_multiple_paths_but_not_all_are_edge_disjoint(self):
         graph4 = [[1, 2], [2, 3], [3, 4], [4], [1]]
         source4 = 0
         target4 = 4
         expected4 = [[0, 1, 2, 3, 4], [0, 2, 4]]
-        self.assertEqual(find_edge_disjoint_paths(
-            graph4, source4, target4), expected4)
+        self.assertEqual(find_edge_disjoint_paths(graph4, source4, target4), expected4)
 
     def test_graph_with_disconnected_components(self):
         graph5 = [[1], [0], [3], [2], []]
         source5 = 0
         target5 = 4
         expected5 = []
-        self.assertEqual(find_edge_disjoint_paths(
-            graph5, source5, target5), expected5)
+        self.assertEqual(find_edge_disjoint_paths(graph5, source5, target5), expected5)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -17,6 +17,7 @@ def shortest_path_dag(graph: Graph, start: str) -> dict[str, float]:
     dict: A dictionary with the shortest distances from the start
     node to all other nodes in the DAG.
     """
+
     # Step 1: Topologically sort the nodes in the DAG
     def topological_sort(graph):
         visited = set()
@@ -35,7 +36,7 @@ def shortest_path_dag(graph: Graph, start: str) -> dict[str, float]:
         return stack[::-1]
 
     # Step 2: Perform the shortest path algorithm
-    dist = {node: float('inf') for node in graph}
+    dist = {node: float("inf") for node in graph}
     dist[start] = 0
     sorted_nodes = topological_sort(graph)
 
@@ -49,15 +50,15 @@ def shortest_path_dag(graph: Graph, start: str) -> dict[str, float]:
 class TestShortestPathDAG(unittest.TestCase):
     def test_shortest_path_dag(self):
         graph = {
-            'A': [('B', 3), ('C', 2)],
-            'B': [('C', 1), ('D', 4)],
-            'C': [('D', 2), ('E', 1)],
-            'D': [('E', 3)],
-            'E': []
+            "A": [("B", 3), ("C", 2)],
+            "B": [("C", 1), ("D", 4)],
+            "C": [("D", 2), ("E", 1)],
+            "D": [("E", 3)],
+            "E": [],
         }
-        start = 'A'
+        start = "A"
 
-        expected_distances = {'A': 0, 'B': 3, 'C': 2, 'D': 4, 'E': 3}
+        expected_distances = {"A": 0, "B": 3, "C": 2, "D": 4, "E": 3}
 
         actual_distances = shortest_path_dag(graph, start)
 
@@ -65,9 +66,9 @@ class TestShortestPathDAG(unittest.TestCase):
 
     def test_shortest_path_dag_empty_graph(self):
         graph = {}
-        start = 'A'
+        start = "A"
 
-        expected_distances = {'A': 0}
+        expected_distances = {"A": 0}
 
         actual_distances = shortest_path_dag(graph, start)
 
@@ -75,22 +76,28 @@ class TestShortestPathDAG(unittest.TestCase):
 
     def test_shortest_path_dag_unreachable_node(self):
         graph = {
-            'A': [('B', 3), ('C', 2)],
-            'B': [('C', 1), ('D', 4)],
-            'C': [('D', 2), ('E', 1)],
-            'D': [('E', 3)],
-            'E': [],
-            'F': []
+            "A": [("B", 3), ("C", 2)],
+            "B": [("C", 1), ("D", 4)],
+            "C": [("D", 2), ("E", 1)],
+            "D": [("E", 3)],
+            "E": [],
+            "F": [],
         }
-        start = 'F'
+        start = "F"
 
-        expected_distances = {'A': float('inf'), 'B': float('inf'), 'C': float(
-            'inf'), 'D': float('inf'), 'E': float('inf'), 'F': 0}
+        expected_distances = {
+            "A": float("inf"),
+            "B": float("inf"),
+            "C": float("inf"),
+            "D": float("inf"),
+            "E": float("inf"),
+            "F": 0,
+        }
 
         actual_distances = shortest_path_dag(graph, start)
 
         self.assertEqual(actual_distances, expected_distances)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

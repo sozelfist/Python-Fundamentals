@@ -3,7 +3,7 @@ from typing import Optional
 
 
 class Node:
-    def __init__(self, value: int, parent: Optional['Node'] = None):
+    def __init__(self, value: int, parent: Optional["Node"] = None):
         self.value = value
         self.parent = parent
         self.left: Node | None = None
@@ -37,7 +37,7 @@ class CartesianTree:
         if node.left:
             node.left.parent = node
 
-        node.right = self.construct_cartesian_tree(arr[min_index + 1:])
+        node.right = self.construct_cartesian_tree(arr[min_index + 1 :])
         if node.right:
             node.right.parent = node
 
@@ -80,5 +80,5 @@ class TestCartesianTree(unittest.TestCase):
         self.assertEqual(ct.inorder_traversal(), [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

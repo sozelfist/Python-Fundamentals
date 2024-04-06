@@ -42,7 +42,6 @@ def vigenere_cipher(plaintext: str, keyword: str, encrypt: bool = True) -> str:
 
 
 class TestVigenereCipher(unittest.TestCase):
-
     def test_encrypt(self):
         plaintext = "HELLO WORLD"
         keyword = "SECRET"
@@ -74,5 +73,5 @@ class TestVigenereCipher(unittest.TestCase):
         self.assertEqual(ciphertext, "CICJZ JUBPB")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

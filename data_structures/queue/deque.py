@@ -2,7 +2,7 @@ import unittest
 from collections.abc import Iterable
 from typing import Generic, TypeVar
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 
 class Node(Generic[T]):
@@ -33,7 +33,7 @@ class Deque(Generic[T]):
 
     def popleft(self) -> T:
         if self.head is None:
-            raise IndexError('pop from an empty deque')
+            raise IndexError("pop from an empty deque")
         value = self.head.value
         if self.head is self.tail:
             self.head = self.tail = None
@@ -55,7 +55,7 @@ class Deque(Generic[T]):
 
     def pop(self) -> T:
         if self.tail is None:
-            raise IndexError('pop from an empty deque')
+            raise IndexError("pop from an empty deque")
         value = self.tail.value
         if self.head is self.tail:
             self.head = self.tail = None
@@ -160,5 +160,5 @@ class TestDeque(unittest.TestCase):
         self.assertRaises(IndexError, deque.popleft)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

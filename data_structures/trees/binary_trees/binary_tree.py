@@ -24,8 +24,8 @@ class BinaryTree:
             self.data = data
 
     def lookup(
-        self, data: int, parent: Union[None, 'BinaryTree'] = None
-    ) -> Union[None, 'BinaryTree']:
+        self, data: int, parent: Union[None, "BinaryTree"] = None
+    ) -> Union[None, "BinaryTree"]:
         if data < self.data:
             if self.left is None:
                 return None, None
@@ -45,7 +45,7 @@ class BinaryTree:
             cnt += 1
         return cnt
 
-    def delete(self, data: int) -> Union[None, 'BinaryTree']:
+    def delete(self, data: int) -> Union[None, "BinaryTree"]:
         node, parent = self.lookup(data)
         if node is not None:
             children_count = node.children_count()
@@ -95,8 +95,8 @@ class BinaryTree:
             children.append(self.right)
         for i, child in enumerate(children):
             s = child._print_tree(
-                prefix + ("    " if is_tail else "│   "), i ==
-                len(children) - 1, s)
+                prefix + ("    " if is_tail else "│   "), i == len(children) - 1, s
+            )
         return s
 
 

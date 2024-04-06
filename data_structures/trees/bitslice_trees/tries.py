@@ -68,5 +68,5 @@ class TestTrie(unittest.TestCase):
         self.assertEqual(self.trie.starts_with("hey"), False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

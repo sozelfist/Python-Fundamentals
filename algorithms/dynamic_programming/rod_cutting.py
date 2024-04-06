@@ -52,5 +52,5 @@ class TestRodCutting(unittest.TestCase):
         self.assertEqual(rod_cutting(prices, n), 10000)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

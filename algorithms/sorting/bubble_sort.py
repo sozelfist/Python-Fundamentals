@@ -38,5 +38,5 @@ class TestBubbleSort(unittest.TestCase):
         self.assertEqual(sorted_arr, [-5, -1, 2, 3, 4])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

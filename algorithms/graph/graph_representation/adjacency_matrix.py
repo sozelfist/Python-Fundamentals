@@ -24,9 +24,10 @@ class TestGraph(unittest.TestCase):
         g.add_edge(1, 2)
         g.add_edge(2, 0)
         g.add_edge(2, 3)
-        self.assertEqual(g.get_graph(), [[0, 1, 1, 0], [
-                         0, 0, 1, 0], [1, 0, 0, 1], [0, 0, 0, 0]])
+        self.assertEqual(
+            g.get_graph(), [[0, 1, 1, 0], [0, 0, 1, 0], [1, 0, 0, 1], [0, 0, 0, 0]]
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -25,9 +25,7 @@ class LazySegmentTree:
                 self.lazy[2 * v + 1] += self.lazy[v]
             self.lazy[v] = 0
 
-    def _update(
-        self, v: int, tl: int, tr: int, l: int, r: int, add: int
-    ) -> None:
+    def _update(self, v: int, tl: int, tr: int, l: int, r: int, add: int) -> None:
         self._push(v, tl, tr)
         if l > r:
             return
@@ -47,8 +45,9 @@ class LazySegmentTree:
         if l == tl and r == tr:
             return self.tree[v]
         tm = (tl + tr) // 2
-        return self._query(2 * v, tl, tm, l, min(r, tm))\
-            + self._query(2 * v + 1, tm + 1, tr, max(l, tm + 1), r)
+        return self._query(2 * v, tl, tm, l, min(r, tm)) + self._query(
+            2 * v + 1, tm + 1, tr, max(l, tm + 1), r
+        )
 
     def range_update(self, l: int, r: int, add: int) -> None:
         self._update(1, 0, self.n - 1, l, r, add)
@@ -100,5 +99,5 @@ class TestLazySegmentTree(unittest.TestCase):
             tree.range_query(1, 6)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

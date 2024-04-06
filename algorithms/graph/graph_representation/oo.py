@@ -24,24 +24,24 @@ class Graph:
 class TestGraph(unittest.TestCase):
     def test_add_vertex(self):
         g = Graph()
-        a = Vertex('A')
-        b = Vertex('B')
+        a = Vertex("A")
+        b = Vertex("B")
         g.add_vertex(a)
         g.add_vertex(b)
         self.assertEqual(len(g.graph_dict), 2)
-        self.assertIn('A', g.graph_dict)
-        self.assertIn('B', g.graph_dict)
+        self.assertIn("A", g.graph_dict)
+        self.assertIn("B", g.graph_dict)
 
     def test_add_edge(self):
         g = Graph()
-        a = Vertex('A')
-        b = Vertex('B')
+        a = Vertex("A")
+        b = Vertex("B")
         g.add_vertex(a)
         g.add_vertex(b)
-        g.add_edge('A', 'B', 1)
-        self.assertIn('B', g.graph_dict['A'].edges)
-        self.assertEqual(g.graph_dict['A'].edges['B'], 1)
+        g.add_edge("A", "B", 1)
+        self.assertIn("B", g.graph_dict["A"].edges)
+        self.assertEqual(g.graph_dict["A"].edges["B"], 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

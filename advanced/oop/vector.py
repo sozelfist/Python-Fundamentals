@@ -21,47 +21,47 @@ class Vector:
         self._coords[index] = value
 
     def __repr__(self) -> str:
-        return f'Vector({self._coords.tolist()})'
+        return f"Vector({self._coords.tolist()})"
 
     def __str__(self) -> str:
-        return f'<{self._coords}>'
+        return f"<{self._coords}>"
 
-    def __add__(self, other: 'Vector') -> 'Vector':
+    def __add__(self, other: "Vector") -> "Vector":
         if len(self) != len(other):
             raise ValueError("Vectors must have the same dimensions")
         return Vector(self._coords + other._coords)
 
-    def __sub__(self, other: 'Vector') -> 'Vector':
+    def __sub__(self, other: "Vector") -> "Vector":
         if len(self) != len(other):
             raise ValueError("Vectors must have the same dimensions")
         return Vector(self._coords - other._coords)
 
-    def __mul__(self, scalar: float) -> 'Vector':
+    def __mul__(self, scalar: float) -> "Vector":
         return Vector(self._coords * scalar)
 
-    def __truediv__(self, scalar: float) -> 'Vector':
+    def __truediv__(self, scalar: float) -> "Vector":
         return Vector(self._coords * (1 / scalar))
 
-    def __eq__(self, other: 'Vector') -> bool:
+    def __eq__(self, other: "Vector") -> bool:
         return np.array_equal(self._coords, other._coords)
 
-    def __ne__(self, other: 'Vector') -> bool:
+    def __ne__(self, other: "Vector") -> bool:
         return not self == other
 
     def norm(self) -> float:
         return math.sqrt(np.dot(self._coords, self._coords.T))
 
-    def dot(self, other: 'Vector') -> float:
+    def dot(self, other: "Vector") -> float:
         if len(self) != len(other):
             raise ValueError("Vectors must have the same dimensions")
         return np.dot(self._coords, other._coords)
 
-    def angle_with(self, other: 'Vector') -> float:
+    def angle_with(self, other: "Vector") -> float:
         return np.arccos(
             np.clip(self.dot(other) / (self.norm() * other.norm()), -1.0, 1.0)
         )
 
-    def unit(self) -> 'Vector':
+    def unit(self) -> "Vector":
         return self / self.norm()
 
 
@@ -154,9 +154,8 @@ class TestVector(unittest.TestCase):
 
     def test_vector_unit(self):
         v = Vector([1, 2])
-        self.assertEqual(v.unit(), Vector(
-            [1 / math.sqrt(5), 2 / math.sqrt(5)]))
+        self.assertEqual(v.unit(), Vector([1 / math.sqrt(5), 2 / math.sqrt(5)]))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

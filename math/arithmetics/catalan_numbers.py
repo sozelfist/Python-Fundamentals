@@ -22,5 +22,5 @@ class TestCatalanNumbers(unittest.TestCase):
         self.assertEqual(generate_catalan_numbers(5), [1, 1, 2, 5, 14])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

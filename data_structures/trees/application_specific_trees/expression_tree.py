@@ -29,7 +29,7 @@ class ExpressionTree:
 
 
 def build_expression_tree(expression: str) -> ExpressionTree:
-    node = ast.parse(expression, mode='eval').body
+    node = ast.parse(expression, mode="eval").body
     return build_subtree(node)
 
 
@@ -89,5 +89,5 @@ class TestExpressionTree(unittest.TestCase):
             build_expression_tree(expression)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

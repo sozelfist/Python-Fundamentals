@@ -65,5 +65,5 @@ class TestStack(unittest.TestCase):
         self.assertTrue("Stack is empty" in str(context.exception))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

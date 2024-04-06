@@ -17,7 +17,6 @@ def next_greater_elements(nums: list[int]) -> list[int]:
 
 
 class TestNextGreaterElements(unittest.TestCase):
-
     def test_next_greater_elements(self):
         nums = [-10, -5, 0, 5, 5.1, 11, 13, 21, 3, 4, -21, -10, -5, -1, 0]
         result = next_greater_elements(nums)
@@ -43,5 +42,5 @@ class TestNextGreaterElements(unittest.TestCase):
         self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

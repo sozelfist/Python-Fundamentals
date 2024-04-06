@@ -22,14 +22,13 @@ def isomorphic(s: str, t: str) -> bool:
 
 
 class TestIsomorphic(unittest.TestCase):
-
     def test_isomorphic(self):
         test_cases: list[tuple[str, str, bool]] = [
             ("egg", "add", True),
             ("foo", "bar", False),
             ("paper", "title", True),
             ("ab", "aa", False),
-            ("ab", "cd", True)
+            ("ab", "cd", True),
         ]
 
         for s, t, expected in test_cases:
@@ -38,5 +37,5 @@ class TestIsomorphic(unittest.TestCase):
                 self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

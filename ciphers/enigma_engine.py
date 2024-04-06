@@ -8,12 +8,12 @@ class Rotor:
         self.position = 0
 
     def forward(self, char: str) -> str:
-        relative_pos = (ord(char) - ord('A') + self.position) % 26
+        relative_pos = (ord(char) - ord("A") + self.position) % 26
         return self.wiring[relative_pos]
 
     def backward(self, char: str) -> str:
         relative_pos = (self.wiring.index(char) - self.position) % 26
-        return chr(relative_pos + ord('A'))
+        return chr(relative_pos + ord("A"))
 
     def rotate(self):
         self.position = (self.position + 1) % 26
@@ -24,13 +24,11 @@ class Reflector:
         self.wiring = wiring
 
     def reflect(self, char: str) -> str:
-        return self.wiring[ord(char) - ord('A')]
+        return self.wiring[ord(char) - ord("A")]
 
 
 class Enigma:
-    def __init__(
-            self, rotors: tuple[Rotor, Rotor, Rotor], reflector: Reflector
-    ):
+    def __init__(self, rotors: tuple[Rotor, Rotor, Rotor], reflector: Reflector):
         self.rotors = rotors
         self.reflector = reflector
 
@@ -41,7 +39,7 @@ class Enigma:
         for rotor in reversed(self.rotors):
             letter = rotor.backward(letter)
         for rotor in self.rotors:
-            if rotor.position == ord(rotor.notch) - ord('A'):
+            if rotor.position == ord(rotor.notch) - ord("A"):
                 rotor.rotate()
         return letter
 
@@ -57,22 +55,22 @@ class Enigma:
 
 class TestEnigma(unittest.TestCase):
     def test_encode_letter(self):
-        rotor1 = Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q')
-        rotor2 = Rotor("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E')
-        rotor3 = Rotor("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V')
+        rotor1 = Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", "Q")
+        rotor2 = Rotor("AJDKSIRUXBLHWTMCQGZNPYFVOE", "E")
+        rotor3 = Rotor("BDFHJLCPRTXVZNYEIWGAKMUSQO", "V")
         reflector = Reflector("YRUHQSLDPXNGOKMIEBFZCWVJAT")
 
         enigma = Enigma((rotor1, rotor2, rotor3), reflector)
 
-        self.assertEqual(enigma.encode_letter('A'), 'N')
-        self.assertEqual(enigma.encode_letter('B'), 'F')
-        self.assertEqual(enigma.encode_letter('C'), 'X')
-        self.assertEqual(enigma.encode_letter('D'), 'U')
+        self.assertEqual(enigma.encode_letter("A"), "N")
+        self.assertEqual(enigma.encode_letter("B"), "F")
+        self.assertEqual(enigma.encode_letter("C"), "X")
+        self.assertEqual(enigma.encode_letter("D"), "U")
 
     def test_encode(self):
-        rotor1 = Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q')
-        rotor2 = Rotor("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E')
-        rotor3 = Rotor("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V')
+        rotor1 = Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", "Q")
+        rotor2 = Rotor("AJDKSIRUXBLHWTMCQGZNPYFVOE", "E")
+        rotor3 = Rotor("BDFHJLCPRTXVZNYEIWGAKMUSQO", "V")
         reflector = Reflector("YRUHQSLDPXNGOKMIEBFZCWVJAT")
 
         enigma = Enigma((rotor1, rotor2, rotor3), reflector)
@@ -86,5 +84,5 @@ class TestEnigma(unittest.TestCase):
         self.assertEqual(enigma.encode(message), expected_output)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

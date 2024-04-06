@@ -87,5 +87,5 @@ class TestTreeSort(unittest.TestCase):
         self.assertEqual(tree_sort(arr), expected_result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

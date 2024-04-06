@@ -24,5 +24,5 @@ class TestGraph(unittest.TestCase):
         self.assertEqual(g.get_adj_list(), [[1, 2], [2], [0, 3], []])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

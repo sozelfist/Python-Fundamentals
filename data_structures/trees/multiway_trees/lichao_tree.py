@@ -17,8 +17,11 @@ class LiChaoTree:
         self.tree = [None] * (4 * (xmax - xmin + 1))
 
     def add_line(
-            self, line: Line, node: int = 0,
-            xmin: int | None = None, xmax: int | None = None
+        self,
+        line: Line,
+        node: int = 0,
+        xmin: int | None = None,
+        xmax: int | None = None,
     ):
         if xmin is None:
             xmin = self.xmin
@@ -38,8 +41,7 @@ class LiChaoTree:
             self.add_line(line, 2 * node, xmin, xm)
 
     def query(
-        self, x: int, node: int = 0, xmin: int | None = None,
-        xmax: int | None = None
+        self, x: int, node: int = 0, xmin: int | None = None, xmax: int | None = None
     ) -> int | None:
         if xmin is None:
             xmin = self.xmin
@@ -101,5 +103,5 @@ class TestLiChaoTree(unittest.TestCase):
         self.assertEqual(tree.query(-5), 30)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

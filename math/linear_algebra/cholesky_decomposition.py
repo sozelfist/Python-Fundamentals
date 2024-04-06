@@ -6,9 +6,9 @@ import numpy as np
 def cholesky_decomposition(A: np.ndarray) -> tuple[np.ndarray, bool]:
     n = A.shape[0]
     if n != A.shape[1]:
-        raise ValueError('Input matrix must be square')
+        raise ValueError("Input matrix must be square")
     if not np.allclose(A, A.T):
-        raise ValueError('Input matrix must be symmetric')
+        raise ValueError("Input matrix must be symmetric")
 
     positive_definite = np.all(np.linalg.eigvals(A) > 0)
     if not positive_definite:
@@ -18,8 +18,9 @@ def cholesky_decomposition(A: np.ndarray) -> tuple[np.ndarray, bool]:
     for i in range(n):
         for j in range(i + 1):
             s = sum(L[i, k] * L[j, k] for k in range(j))
-            L[i, j] = np.sqrt(A[i, i] - s)\
-                if (i == j) else (1.0 / L[j, j] * (A[i, j] - s))
+            L[i, j] = (
+                np.sqrt(A[i, i] - s) if (i == j) else (1.0 / L[j, j] * (A[i, j] - s))
+            )
 
     return (L, True)
 
@@ -42,5 +43,5 @@ class CholeskyDecompositionTestCase(unittest.TestCase):
             cholesky_decomposition(A)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

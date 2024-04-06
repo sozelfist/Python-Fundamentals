@@ -72,5 +72,5 @@ class TestLCA(unittest.TestCase):
         self.assertEqual(lca.query(7, 11), 7)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

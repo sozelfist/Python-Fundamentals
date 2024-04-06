@@ -23,8 +23,7 @@ class VectorTransformations:
         return np.matmul(transformation_matrix, vector)
 
     def dilation(self, vector: np.ndarray, scale_factor: float) -> np.ndarray:
-        transformation_matrix = np.array(
-            [[scale_factor, 0], [0, scale_factor]])
+        transformation_matrix = np.array([[scale_factor, 0], [0, scale_factor]])
         return np.matmul(transformation_matrix, vector)
 
     def shearing(self, vector: np.ndarray, shear_factor: float) -> np.ndarray:
@@ -46,18 +45,21 @@ class TestVectorTransformations(unittest.TestCase):
 
     def test_reflect_over_x(self):
         reflected_vector_x = self.v_transform.reflect_over_x(self.vector)
-        self.assertTrue(np.allclose(reflected_vector_x,
-                        np.array([1, -2]), rtol=1e-1, atol=1e-1))
+        self.assertTrue(
+            np.allclose(reflected_vector_x, np.array([1, -2]), rtol=1e-1, atol=1e-1)
+        )
 
     def test_reflect_over_y(self):
         reflected_vector_y = self.v_transform.reflect_over_y(self.vector)
-        self.assertTrue(np.allclose(reflected_vector_y,
-                        np.array([-1, 2]), rtol=1e-1, atol=1e-1))
+        self.assertTrue(
+            np.allclose(reflected_vector_y, np.array([-1, 2]), rtol=1e-1, atol=1e-1)
+        )
 
     def test_dilation(self):
         scaled_vector = self.v_transform.dilation(self.vector, 2)
-        self.assertTrue(np.allclose(
-            scaled_vector, np.array([2, 4]), rtol=1e-1, atol=1e-1))
+        self.assertTrue(
+            np.allclose(scaled_vector, np.array([2, 4]), rtol=1e-1, atol=1e-1)
+        )
 
     # def test_shearing(self):
     #     sheared_vector = self.v_transform.shearing(self.vector, 0.5)
@@ -67,5 +69,5 @@ class TestVectorTransformations(unittest.TestCase):
     #     )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

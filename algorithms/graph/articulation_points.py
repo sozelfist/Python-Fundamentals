@@ -5,9 +5,14 @@ def articulation_points(graph: dict[int, list[int]]) -> set[int]:
     """
     Returns a set of articulation points in an undirected graph.
     """
+
     def dfs(
-            u: int, parent: int, visited: set[int],
-            disc: list[int], low: list[int], ap: set[int]
+        u: int,
+        parent: int,
+        visited: set[int],
+        disc: list[int],
+        low: list[int],
+        ap: set[int],
     ):
         """
         Depth-first search to find articulation points.
@@ -63,7 +68,6 @@ def articulation_points(graph: dict[int, list[int]]) -> set[int]:
 
 
 class TestArticulationPoints(unittest.TestCase):
-
     def test_empty_graph(self):
         # Test an empty graph.
         graph = {}
@@ -100,5 +104,5 @@ class TestArticulationPoints(unittest.TestCase):
         self.assertEqual(articulation_points(graph), set())
 
 
-if __name__ == '__main__':
-    unittest.main(argv=['first-arg-is-ignored'], exit=False)
+if __name__ == "__main__":
+    unittest.main(argv=["first-arg-is-ignored"], exit=False)

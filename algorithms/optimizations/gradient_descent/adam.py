@@ -9,13 +9,19 @@ def linear_model(x: np.ndarray, w: float, b: float) -> np.ndarray:
 
 def cost_function(x: np.ndarray, y: np.ndarray, w: float, b: float) -> float:
     predictions = linear_model(x, w, b)
-    return ((predictions - y)**2).mean()
+    return ((predictions - y) ** 2).mean()
 
 
 def adam(
-        x: np.ndarray, y: np.ndarray, w: float, b: float,
-        learning_rate: float, num_iterations: int,
-        beta1: float = 0.9, beta2: float = 0.999, epsilon: float = 1e-8
+    x: np.ndarray,
+    y: np.ndarray,
+    w: float,
+    b: float,
+    learning_rate: float,
+    num_iterations: int,
+    beta1: float = 0.9,
+    beta2: float = 0.999,
+    epsilon: float = 1e-8,
 ) -> tuple[float, float]:
     # initialize variables for momentum
     m_w = 0
@@ -35,10 +41,10 @@ def adam(
         v_b = beta2 * v_b + (1 - beta2) * (db**2)
 
         # bias correction
-        m_w_hat = m_w / (1 - beta1**(i + 1))
-        m_b_hat = m_b / (1 - beta1**(i + 1))
-        v_w_hat = v_w / (1 - beta2**(i + 1))
-        v_b_hat = v_b / (1 - beta2**(i + 1))
+        m_w_hat = m_w / (1 - beta1 ** (i + 1))
+        m_b_hat = m_b / (1 - beta1 ** (i + 1))
+        v_w_hat = v_w / (1 - beta2 ** (i + 1))
+        v_b_hat = v_b / (1 - beta2 ** (i + 1))
 
         # update parameters
         w = w - learning_rate * m_w_hat / (np.sqrt(v_w_hat) + epsilon)
@@ -50,7 +56,6 @@ def adam(
 
 
 class TestAdam(unittest.TestCase):
-
     def test_adam(self):
         x = np.array([1, 2, 3, 4, 5])
         y = np.array([5, 7, 9, 11, 13])
@@ -66,5 +71,5 @@ class TestAdam(unittest.TestCase):
         self.assertAlmostEqual(final_b, 3.0, delta=0.001)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

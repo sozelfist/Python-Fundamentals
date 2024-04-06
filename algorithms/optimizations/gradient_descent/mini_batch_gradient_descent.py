@@ -9,12 +9,17 @@ def linear_model(x: np.ndarray, w: float, b: float) -> np.ndarray:
 
 def cost_function(x: np.ndarray, y: np.ndarray, w: float, b: float) -> float:
     predictions = linear_model(x, w, b)
-    return ((predictions - y)**2).mean()
+    return ((predictions - y) ** 2).mean()
 
 
 def mini_batch_gradient_descent(
-    x: np.ndarray, y: np.ndarray, w: float, b: float,
-    learning_rate: float, num_iterations: int, batch_size: int
+    x: np.ndarray,
+    y: np.ndarray,
+    w: float,
+    b: float,
+    learning_rate: float,
+    num_iterations: int,
+    batch_size: int,
 ):
     for _i in range(num_iterations):
         # shuffle data
@@ -24,8 +29,8 @@ def mini_batch_gradient_descent(
 
         # split data into mini-batches
         for j in range(0, len(x), batch_size):
-            x_batch = x[j:j + batch_size]
-            y_batch = y[j:j + batch_size]
+            x_batch = x[j : j + batch_size]
+            y_batch = y[j : j + batch_size]
 
             # calculate gradients
             dw = ((linear_model(x_batch, w, b) - y_batch) * x_batch).mean()
@@ -57,12 +62,17 @@ class TestGradientDescent(unittest.TestCase):
 
     def test_mini_batch_gradient_descent(self):
         final_w, final_b = mini_batch_gradient_descent(
-            self.x, self.y, self.w, self.b, self.learning_rate,
-            self.num_iterations, self.batch_size
+            self.x,
+            self.y,
+            self.w,
+            self.b,
+            self.learning_rate,
+            self.num_iterations,
+            self.batch_size,
         )
         self.assertAlmostEqual(final_w, 2.000, delta=1e-2)
         self.assertAlmostEqual(final_b, 3.000, delta=1e-2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

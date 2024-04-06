@@ -1,9 +1,7 @@
 import unittest
 
 
-def bfs(
-    graph: list[list[int]], source: int, sink: int, parent: list[int]
-) -> bool:
+def bfs(graph: list[list[int]], source: int, sink: int, parent: list[int]) -> bool:
     """
     Breadth-first search algorithm to find a path
     from source to sink in the residual graph.
@@ -25,9 +23,7 @@ def bfs(
     return visited[sink]
 
 
-def min_cut(
-    graph: list[list[int]], source: int, sink: int
-) -> list[tuple[int, int]]:
+def min_cut(graph: list[list[int]], source: int, sink: int) -> list[tuple[int, int]]:
     """
     Implementation of the minimum cut algorithm using the Ford-Fulkerson
     algorithm.
@@ -81,5 +77,5 @@ class TestMinCut(unittest.TestCase):
         self.assertEqual(result, expected_result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

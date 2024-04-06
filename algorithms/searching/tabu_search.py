@@ -2,9 +2,13 @@ import unittest
 from collections.abc import Callable
 
 
-def tabu_search(initial_solution: list[int], objective_function: Callable,
-                neighborhood_function: Callable, tabu_list_length: int,
-                max_iterations: int) -> tuple[list[int], int]:
+def tabu_search(
+    initial_solution: list[int],
+    objective_function: Callable,
+    neighborhood_function: Callable,
+    tabu_list_length: int,
+    max_iterations: int,
+) -> tuple[list[int], int]:
     """
     Implementation of Tabu search algorithm for combinatorial
     optimization problems.
@@ -30,7 +34,7 @@ def tabu_search(initial_solution: list[int], objective_function: Callable,
     for _i in range(max_iterations):
         neighbors = neighborhood_function(current_solution)
         best_neighbor = None
-        best_neighbor_objective_value = float('inf')
+        best_neighbor_objective_value = float("inf")
 
         for neighbor in neighbors:
             if neighbor not in tabu_list:
@@ -54,7 +58,6 @@ def tabu_search(initial_solution: list[int], objective_function: Callable,
 
 
 class TestTabuSearch(unittest.TestCase):
-
     def test_solution_found(self):
         # Test that the function can find a valid solution
         # to the optimization problem
@@ -63,7 +66,7 @@ class TestTabuSearch(unittest.TestCase):
         max_iterations = 50
 
         def objective_function(x):
-            return x[0]**2 + x[1]**2 - 2 * x[0] - 4 * x[1] + 4
+            return x[0] ** 2 + x[1] ** 2 - 2 * x[0] - 4 * x[1] + 4
 
         def neighborhood_function(x):
             neighbors = []
@@ -76,9 +79,13 @@ class TestTabuSearch(unittest.TestCase):
             if x[1] < 4:
                 neighbors.append([x[0], x[1] + 1])
             return neighbors
+
         best_solution, best_objective_value = tabu_search(
-            initial_solution, objective_function, neighborhood_function,
-            tabu_list_length, max_iterations
+            initial_solution,
+            objective_function,
+            neighborhood_function,
+            tabu_list_length,
+            max_iterations,
         )
         # Ensure that the objective value is at least as good as the true
         # optimal value
@@ -95,16 +102,22 @@ class TestTabuSearch(unittest.TestCase):
         max_iterations = 50
 
         def objective_function(x):
-            return x[0]**2 + x[1]**2 - 2 * x[0] - 4 * x[1] + 4
+            return x[0] ** 2 + x[1] ** 2 - 2 * x[0] - 4 * x[1] + 4
 
         def neighborhood_function(x):
             return [
-                [x[0] - 1, x[1]], [x[0] + 1, x[1]],
-                [x[0], x[1] - 1], [x[0], x[1] + 1]
+                [x[0] - 1, x[1]],
+                [x[0] + 1, x[1]],
+                [x[0], x[1] - 1],
+                [x[0], x[1] + 1],
             ]
+
         best_solution, best_objective_value = tabu_search(
-            initial_solution, objective_function, neighborhood_function,
-            tabu_list_length, max_iterations
+            initial_solution,
+            objective_function,
+            neighborhood_function,
+            tabu_list_length,
+            max_iterations,
         )
         # Ensure that the function returns the initial solution
         # if no improvement is made
@@ -118,7 +131,7 @@ class TestTabuSearch(unittest.TestCase):
         max_iterations = 50
 
         def objective_function(x):
-            return x[0]**2 + x[1]**2 - 2 * x[0] - 4 * x[1] + 4
+            return x[0] ** 2 + x[1] ** 2 - 2 * x[0] - 4 * x[1] + 4
 
         def neighborhood_function(x):
             neighbors = []
@@ -131,9 +144,13 @@ class TestTabuSearch(unittest.TestCase):
             if x[1] < 4:
                 neighbors.append([x[0], x[1] + 1])
             return neighbors
+
         best_solution, best_objective_value = tabu_search(
-            initial_solution, objective_function, neighborhood_function,
-            tabu_list_length, max_iterations
+            initial_solution,
+            objective_function,
+            neighborhood_function,
+            tabu_list_length,
+            max_iterations,
         )
         # Ensure that the objective value is at least as good as the
         # true optimal value
@@ -150,7 +167,7 @@ class TestTabuSearch(unittest.TestCase):
         max_iterations = 50
 
         def objective_function(x):
-            return x[0]**2 + x[1]**2 - 2 * x[0] - 4 * x[1] + 4
+            return x[0] ** 2 + x[1] ** 2 - 2 * x[0] - 4 * x[1] + 4
 
         def neighborhood_function(x):
             neighbors = []
@@ -163,9 +180,13 @@ class TestTabuSearch(unittest.TestCase):
             if x[1] < 4:
                 neighbors.append([x[0], x[1] + 1])
             return neighbors
+
         best_solution, best_objective_value = tabu_search(
-            initial_solution, objective_function, neighborhood_function,
-            tabu_list_length, max_iterations
+            initial_solution,
+            objective_function,
+            neighborhood_function,
+            tabu_list_length,
+            max_iterations,
         )
         # Ensure that the objective value is at least as good as the true
         # optimal value
@@ -175,5 +196,5 @@ class TestTabuSearch(unittest.TestCase):
         self.assertGreaterEqual(best_solution[0] + best_solution[1], 3)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

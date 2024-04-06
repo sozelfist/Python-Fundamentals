@@ -14,7 +14,6 @@ def hamming_distance(s1: str, s2: str) -> tuple[int, list]:
 
 
 class TestHammingDistance(unittest.TestCase):
-
     def test_identical_strings(self):
         s1 = "abcd"
         s2 = "abcd"
@@ -43,5 +42,5 @@ class TestHammingDistance(unittest.TestCase):
             hamming_distance(s1, s2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

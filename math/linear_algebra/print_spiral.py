@@ -46,19 +46,14 @@ def print_spiral(matrix: list[list[int]], direction: str) -> list[int]:
 
 
 class TestPrintSpiral(unittest.TestCase):
-
     def test_print_spiral_clockwise(self):
-        matrix = [[1, 2, 3],
-                  [4, 5, 6],
-                  [7, 8, 9]]
+        matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
         expected_output = [1, 2, 3, 6, 9, 8, 7, 4, 5]
         result = print_spiral(matrix, "clockwise")
         self.assertEqual(result, expected_output)
 
     def test_print_spiral_counterclockwise(self):
-        matrix = [[1, 2, 3],
-                  [4, 5, 6],
-                  [7, 8, 9]]
+        matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
         expected_output = [5, 4, 7, 8, 9, 6, 3, 2, 1]
         result = print_spiral(matrix, "counterclockwise")
         self.assertEqual(result, expected_output)
@@ -76,5 +71,5 @@ class TestPrintSpiral(unittest.TestCase):
         self.assertEqual(result, expected_output)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

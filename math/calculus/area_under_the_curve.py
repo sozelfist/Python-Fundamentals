@@ -19,8 +19,7 @@ def simpsons_rule(f, a, b, n):
     h = (b - a) / (2 * n)
     x = np.linspace(a, b, 2 * n + 1)
     y = f(x)
-    area = \
-        (h / 3) * (y[0] + 4 * np.sum(y[1::2]) + 2 * np.sum(y[2:-1:2]) + y[-1])
+    area = (h / 3) * (y[0] + 4 * np.sum(y[1::2]) + 2 * np.sum(y[2:-1:2]) + y[-1])
     return area
 
 
@@ -58,5 +57,5 @@ class TestIntegrationMethods(unittest.TestCase):
         self.assertAlmostEqual(result, expected, places=4)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

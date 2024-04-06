@@ -12,7 +12,6 @@ def kadane(arr: list[int]) -> int:
 
 
 class TestKadane(unittest.TestCase):
-
     def test_empty_array(self):
         self.assertEqual(kadane([]), 0)
 
@@ -32,5 +31,5 @@ class TestKadane(unittest.TestCase):
         self.assertEqual(kadane([-2, 1, -3, 4, -1, 2, 1, 5, -6]), 11)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

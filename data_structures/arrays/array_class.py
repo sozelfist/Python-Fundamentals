@@ -106,5 +106,5 @@ class TestArray(unittest.TestCase):
         self.assertEqual(my_array.capacity, 4)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

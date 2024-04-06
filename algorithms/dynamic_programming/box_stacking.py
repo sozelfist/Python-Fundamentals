@@ -25,8 +25,10 @@ def max_box_height(boxes: list[Box]) -> int:
         for j in range(i):
             # Check if the current box can be stacked on top of
             # the previous box
-            if rotated_boxes[i][0] < rotated_boxes[j][0]\
-                    and rotated_boxes[i][1] < rotated_boxes[j][1]:
+            if (
+                rotated_boxes[i][0] < rotated_boxes[j][0]
+                and rotated_boxes[i][1] < rotated_boxes[j][1]
+            ):
                 # Update the maximum height
                 dp[i] = max(dp[i], dp[j] + rotated_boxes[i][2])
 
@@ -65,5 +67,5 @@ class BoxStackingTestCase(unittest.TestCase):
         self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -19,8 +19,10 @@ def knuth_optimization(nums: list[int]) -> int:
             elif _ == 1:
                 dp[i][j] = max(nums[i], nums[j])
             else:
-                dp[i][j] = max(nums[i] + min(dp[i + 2][j], dp[i + 1][j - 1]),
-                               nums[j] + min(dp[i + 1][j - 1], dp[i][j - 2]))
+                dp[i][j] = max(
+                    nums[i] + min(dp[i + 2][j], dp[i + 1][j - 1]),
+                    nums[j] + min(dp[i + 1][j - 1], dp[i][j - 2]),
+                )
 
     return dp[0][n - 1]
 
@@ -51,10 +53,10 @@ class TestKnuthOptimization(unittest.TestCase):
         self.assertEqual(knuth_optimization(nums6), 0)
 
     def test_knuth_optimization_non_int_list(self):
-        nums7 = [1, 2, '3', 4, 'five']
+        nums7 = [1, 2, "3", 4, "five"]
         with self.assertRaises(TypeError):
             knuth_optimization(nums7)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

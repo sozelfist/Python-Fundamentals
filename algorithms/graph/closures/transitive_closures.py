@@ -41,14 +41,14 @@ def transitive_closure(graph: list[list[int]]) -> list[list[int]]:
     for k in range(num_vertices):
         for i in range(num_vertices):
             for j in range(num_vertices):
-                transitive_closure[i][j] = transitive_closure[i][j] \
-                    or (transitive_closure[i][k] and transitive_closure[k][j])
+                transitive_closure[i][j] = transitive_closure[i][j] or (
+                    transitive_closure[i][k] and transitive_closure[k][j]
+                )
 
     return transitive_closure
 
 
 class TestTransitiveClosure(unittest.TestCase):
-
     def test_basic_graph(self):
         graph = [[0, 1, 0], [0, 0, 1], [1, 0, 0]]
         expected = [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
@@ -80,5 +80,5 @@ class TestTransitiveClosure(unittest.TestCase):
             transitive_closure(graph)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

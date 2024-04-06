@@ -7,7 +7,7 @@ def filterfalse(predicate, iterable):
     If predicate is None, return the items that are false.
     """
     if not callable(predicate) and predicate is not None:
-        raise TypeError('predicate must be a callable object or None')
+        raise TypeError("predicate must be a callable object or None")
     if predicate is None:
         predicate = bool
     for x in iterable:
@@ -16,7 +16,6 @@ def filterfalse(predicate, iterable):
 
 
 class TestFilterFalse(unittest.TestCase):
-
     def test_filter_false(self):
         data = [0, 1, 2, 3, 4, 5]
         result = list(filterfalse(lambda x: x % 2 == 0, data))
@@ -43,5 +42,5 @@ class TestFilterFalse(unittest.TestCase):
         self.assertEqual(result, [1, 3, 5])
 
 
-if __name__ == '__main__':
-    unittest.main(argv=['first-arg-is-ignored'], exit=False)
+if __name__ == "__main__":
+    unittest.main(argv=["first-arg-is-ignored"], exit=False)

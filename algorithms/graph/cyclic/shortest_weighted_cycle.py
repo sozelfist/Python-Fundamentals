@@ -2,7 +2,7 @@
 import unittest
 from sys import maxsize
 
-INF = 0x3f3f3f3f
+INF = 0x3F3F3F3F
 
 
 class Edge:
@@ -103,5 +103,5 @@ class GraphTest(unittest.TestCase):
         self.assertIn((2, 4), self.g.adj[5])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

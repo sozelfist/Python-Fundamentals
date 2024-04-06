@@ -2,7 +2,7 @@ import unittest
 
 
 def binary_lifting(
-        adj_list: list[list[int]], root: int
+    adj_list: list[list[int]], root: int
 ) -> tuple[list[list[int]], list[int]]:
     num_nodes = len(adj_list)
     log_num_nodes = (num_nodes - 1).bit_length()
@@ -51,7 +51,7 @@ class TestBinaryLifting(unittest.TestCase):
         expected_ancestors = [
             [-1, 0, 0, 1, 1, 3, 3],
             [-1, -1, -1, 0, 0, 1, 1],
-            [-1, -1, -1, -1, -1, -1, -1]
+            [-1, -1, -1, -1, -1, -1, -1],
         ]
         self.assertEqual(self.ancestors, expected_ancestors)
 
@@ -88,5 +88,5 @@ class TestBinaryLifting(unittest.TestCase):
         self.assertEqual(lca, 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -4,9 +4,7 @@ import unittest
 
 
 class Node:
-    def __init__(
-        self, key: int, color: str, left=None, right=None, parent=None
-    ):
+    def __init__(self, key: int, color: str, left=None, right=None, parent=None):
         self.key = key
         self.color = color
         self.left = left
