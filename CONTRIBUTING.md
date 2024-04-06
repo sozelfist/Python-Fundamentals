@@ -29,7 +29,8 @@ If you're not sure where to start, take a look at the issues labeled with [good 
 
 ## Submitting a Pull Request
 
-- Make sure that your code passes the tests and linters by running `make test` and `make lint`.
+- Make sure that you run this command before commit changes `pre-commit run --all-files`.
+- Make sure that your code passes the tests and linters by running `make` (include cleansing process for removing aux files).
 - Make sure that your code is well-documented and follows the Python style guide.
 - Include a good description of your changes in the pull request.
 - Squash any insignificant commits before submitting the pull request.
