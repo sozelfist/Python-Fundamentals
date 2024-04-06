@@ -3,6 +3,7 @@ PYTEST = pytest
 COVERAGE = --cov=.
 TEST_TARGETS = $(shell find . -name "*.py" ! -path "./venv/*")
 RUFF = ruff
+RUFF_CHECK_OPTS = check
 RUFF_OPTS = --fix
 LINTING_DEST = .
 
@@ -13,7 +14,7 @@ default: lint test clean
 
 lint:
 	@echo "Linting code with Ruff"
-	@$(RUFF) $(RUFF_OPTS) $(LINTING_DEST)
+	@$(RUFF) $(RUFF_CHECK_OPTS) $(LINTING_DEST)
 	@echo " "
 
 test:
@@ -28,4 +29,3 @@ clean:
 	@find . -name '__pycache__' -type d ! -path './venv/*' -exec rm -rf {} +
 	@rm -rf .ruff_cache
 	@echo "Cleanup completed"
-
