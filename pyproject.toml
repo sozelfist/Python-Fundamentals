@@ -1,63 +1,67 @@
 [tool.ruff]
 lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$" # Regular expression for dummy variables
 lint.ignore = [
-    "B904",     # Within an `except` clause, raise exceptions with `raise ... from err`
-    "B905",     # `zip()` without an explicit `strict=` parameter
-    "E501",     # Line too long
-    "E741",     # Ambiguous variable name 'l'
-    "G004",     # Logging statement uses f-string
-    "N999",     # Invalid module name
-    "PLR2004",  # Magic value used in comparison
-    "PLR5501",  # Consider using `elif` instead of `else`
-    "PLW0120",  # `else` clause on loop without a `break` statement
-    "PLW060",   # Using global for `{name}` but no assignment is done -- DO NOT FIX
-    "PLW2901",  # Redefined loop variable
-    "RUF00",    # Ambiguous unicode character -- DO NOT FIX
-    "RUF100",   # Unused `noqa` directive
-    "S101",     # Use of `assert` detected -- DO NOT FIX
-    "S105",     # Possible hardcoded password: 'password'
-    "S113",     # Probable use of requests call without timeout
-    "S311",     # Standard pseudo-random generators are not suitable for cryptographic purposes
-    "UP038",    # Use `X | Y` in `{}` call instead of `(X, Y)` -- DO NOT FIX
-    "N806",     # Variable name should be lowercase
-    "A001",
-    "A002",     # Shadowing variable names
-    "A003",     # Class attribute shadowing
-    "N803",     # Variable name should be lowercase
-    "N802",     # Function name should be lowercase
-    "S324",
-    "B006"
+  "B904",    # Within an `except` clause, raise exceptions with `raise ... from err`
+  "B905",    # `zip()` without an explicit `strict=` parameter
+  "E501",    # Line too long
+  "E741",    # Ambiguous variable name 'l'
+  "G004",    # Logging statement uses f-string
+  "N999",    # Invalid module name
+  "PLR2004", # Magic value used in comparison
+  "PLR5501", # Consider using `elif` instead of `else`
+  "PLW0120", # `else` clause on loop without a `break` statement
+  "PLW060",  # Using global for `{name}` but no assignment is done -- DO NOT FIX
+  "PLW2901", # Redefined loop variable
+  "RUF00",   # Ambiguous unicode character -- DO NOT FIX
+  "RUF100",  # Unused `noqa` directive
+  "S101",    # Use of `assert` detected -- DO NOT FIX
+  "S105",    # Possible hardcoded password: 'password'
+  "S113",    # Probable use of requests call without timeout
+  "S311",    # Standard pseudo-random generators are not suitable for cryptographic purposes
+  "UP038",   # Use `X | Y` in `{}` call instead of `(X, Y)` -- DO NOT FIX
+  "N806",    # Variable name should be lowercase
+  "A001",
+  "A002",    # Shadowing variable names
+  "A003",    # Class attribute shadowing
+  "N803",    # Variable name should be lowercase
+  "N802",    # Function name should be lowercase
+  "S324",
+  "B006",
 ]
 lint.select = [
-    "A",        # builtins
-    "B",        # bugbear
-    "C40",      # comprehensions
-    "C90",      # mccabe code complexity
-    "E",        # pycodestyle errors
-    "F",        # pyflakes
-    "G",        # logging format
-    "I",        # isort
-    "N",        # pep8 naming
-    "PL",       # pylint
-    "PIE",      # pie
-    "PYI",      # type hinting stub files
-    "RUF",      # ruff
-    "S",        # bandit
-    "TID",      # tidy imports
-    "UP",       # pyupgrade
-    "W",        # pycodestyle warnings
-    "YTT",      # year 2020
+  "A",   # builtins
+  "B",   # bugbear
+  "C40", # comprehensions
+  "C90", # mccabe code complexity
+  "E",   # pycodestyle errors
+  "F",   # pyflakes
+  "G",   # logging format
+  "I",   # isort
+  "N",   # pep8 naming
+  "PL",  # pylint
+  "PIE", # pie
+  "PYI", # type hinting stub files
+  "RUF", # ruff
+  "S",   # bandit
+  "TID", # tidy imports
+  "UP",  # pyupgrade
+  "W",   # pycodestyle warnings
+  "YTT", # year 2020
 ]
 
-[tool.ruff.lint.pylint]   # DO NOT INCREASE THESE VALUES
-allow-magic-value-types = ["float", "int", "str"]
-max-args = 10        # default: 5
-max-branches = 20    # default: 12
-max-returns = 8      # default: 6
-max-statements = 88  # default: 50
+[tool.ruff.lint.pylint] # DO NOT INCREASE THESE VALUES
+allow-magic-value-types = [
+  "float",
+  "int",
+  "str",
+]
+max-args = 10 # default: 5
+max-branches = 20 # default: 12
+max-returns = 8 # default: 6
+max-statements = 88 # default: 50
 
-[tool.ruff.lint.mccabe]   # DO NOT INCREASE THIS VALUE
-max-complexity = 17  # default: 10
+[tool.ruff.lint.mccabe] # DO NOT INCREASE THIS VALUE
+max-complexity = 17 # default: 10
 
 [tool.codespell]
 ignore-words-list = "3rt,ans,crate,damon,fo,followings,hist,iff,kwanza,mater,secant,som,sur,tim,zar"
@@ -65,13 +69,15 @@ skip = "./.*,*.json,ciphers/prehistoric_men.txt,project_euler/problem_022/p022_n
 
 [tool.pytest.ini_options]
 markers = [
-    "mat_ops: mark a test as utilizing matrix operations.",
+  "mat_ops: mark a test as utilizing matrix operations.",
 ]
 addopts = [
-    "--durations=10",
-    "--showlocals",
+  "--durations=10",
+  "--showlocals",
 ]
 
 [tool.coverage.report]
-omit = [".env/*"]
+omit = [
+  ".env/*",
+]
 sort = "Cover"
