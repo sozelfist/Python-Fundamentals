@@ -49,6 +49,9 @@ lint.select = [
   "YTT", # year 2020
 ]
 
+[tool.ruff.lint.mccabe] # DO NOT INCREASE THIS VALUE
+max-complexity = 17 # default: 10
+
 [tool.ruff.lint.pylint] # DO NOT INCREASE THESE VALUES
 allow-magic-value-types = [
   "float",
@@ -59,9 +62,6 @@ max-args = 10 # default: 5
 max-branches = 20 # default: 12
 max-returns = 8 # default: 6
 max-statements = 88 # default: 50
-
-[tool.ruff.lint.mccabe] # DO NOT INCREASE THIS VALUE
-max-complexity = 17 # default: 10
 
 [tool.codespell]
 ignore-words-list = "3rt,ans,crate,damon,fo,followings,hist,iff,kwanza,mater,secant,som,sur,tim,zar"
