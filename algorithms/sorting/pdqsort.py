@@ -1,13 +1,15 @@
 import random
 import unittest
+from typing import TypeVar
+
+T = TypeVar("T")
 
 
-def insertion_sort(arr, left, right):
+def insertion_sort(arr: list[T], left: int, right: int) -> None:
     """
     Sorts a portion of the array using insertion sort.
-
     Parameters:
-    arr (List[int]): The list to sort.
+    arr (list[T]): The list to sort.
     left (int): The starting index of the portion to sort.
     right (int): The ending index of the portion to sort.
     """
@@ -20,15 +22,13 @@ def insertion_sort(arr, left, right):
         arr[j + 1] = key
 
 
-def partition(arr, low, high):
+def partition(arr: list[T], low: int, high: int) -> int:
     """
     Partitions the array around a pivot.
-
     Parameters:
-    arr (List[int]): The list to partition.
+    arr (list[T]): The list to partition.
     low (int): The starting index of the portion to partition.
     high (int): The ending index of the portion to partition.
-
     Returns:
     int: The index of the pivot.
     """
@@ -42,12 +42,11 @@ def partition(arr, low, high):
     return i + 1
 
 
-def heapify(arr, n, i, low):
+def heapify(arr: list[T], n: int, i: int, low: int) -> None:
     """
     Converts a portion of the array into a heap.
-
     Parameters:
-    arr (List[int]): The list to heapify.
+    arr (list[T]): The list to heapify.
     n (int): The size of the heap.
     i (int): The index of the current node.
     low (int): The starting index of the portion to heapify.
@@ -64,12 +63,11 @@ def heapify(arr, n, i, low):
         heapify(arr, n, largest, low)
 
 
-def heap_sort(arr, low, high):
+def heap_sort(arr: list[T], low: int, high: int) -> None:
     """
     Sorts a portion of the array using heap sort.
-
     Parameters:
-    arr (List[int]): The list to sort.
+    arr (list[T]): The list to sort.
     low (int): The starting index of the portion to sort.
     high (int): The ending index of the portion to sort.
     """
@@ -81,12 +79,11 @@ def heap_sort(arr, low, high):
         heapify(arr, i, 0, low)
 
 
-def pdqsort_recursive(arr, low, high, depth_limit):
+def pdqsort_recursive(arr: list[T], low: int, high: int, depth_limit: int) -> None:
     """
     Recursively sorts the array using PDQSort algorithm.
-
     Parameters:
-    arr (List[int]): The list to sort.
+    arr (list[T]): The list to sort.
     low (int): The starting index of the portion to sort.
     high (int): The ending index of the portion to sort.
     depth_limit (int): The maximum recursion depth.
@@ -108,33 +105,21 @@ def pdqsort_recursive(arr, low, high, depth_limit):
         low = pivot_index + 1
 
 
-def pdqsort(arr):
+def pdqsort(arr: list[T]) -> None:
     """
     Sorts the entire array using the Pattern-Defeating Quicksort (PDQSort) algorithm.
-
     PDQSort is an optimized version of Quicksort that includes enhancements to deal with
     various patterns in the input data, such as already sorted or nearly sorted sequences.
     It dynamically switches between different sorting strategies based on the characteristics
     of the data and recursion depth to achieve better performance.
-
     PDQSort employs the following techniques:
     - Insertion Sort for small arrays to reduce overhead.
     - Partitioning around a pivot to divide the array into subarrays.
     - Heap Sort as a fallback when the recursion depth limit is reached, preventing worst-case
       scenarios that could degrade performance to O(n^2).
     - Tail call optimization to avoid excessive recursive calls and stack overflow.
-
     Parameters:
-    arr (List[int]): The list of integers to sort. The list is sorted in place.
-
-    Returns:
-    None: The function modifies the input list in place and does not return a value.
-
-    Example:
-    >>> arr = [3, 6, 8, 10, 1, 2, 1]
-    >>> pdqsort(arr)
-    >>> print(arr)
-    [1, 1, 2, 3, 6, 8, 10]
+    arr (list[T]): The list of elements to sort. The list is sorted in place.
     """
     max_depth = (len(arr).bit_length() - 1) * 2
     pdqsort_recursive(arr, 0, len(arr) - 1, max_depth)
@@ -171,6 +156,18 @@ class TestPDQSort(unittest.TestCase):
         sorted_arr = sorted(arr)
         pdqsort(arr)
         self.assertEqual(arr, sorted_arr)
+
+    def test_string_list(self):
+        arr = ["banana", "apple", "orange", "grape", "kiwi"]
+        pdqsort(arr)
+        self.assertEqual(arr, ["apple", "banana", "grape", "kiwi", "orange"])
+
+    def test_empty_string_list(self):
+        arr = ["", "apple", "banana", "", "orange", "", "grape", "kiwi", ""]
+        pdqsort(arr)
+        self.assertEqual(
+            arr, ["", "", "", "", "apple", "banana", "grape", "kiwi", "orange"]
+        )
 
 
 if __name__ == "__main__":
