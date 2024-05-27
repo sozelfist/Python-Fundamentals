@@ -29,8 +29,8 @@ class TestGraph(unittest.TestCase):
         g.add_vertex(a)
         g.add_vertex(b)
         self.assertEqual(len(g.graph_dict), 2)
-        self.assertIn("A", g.graph_dict)
-        self.assertIn("B", g.graph_dict)
+        self.assertTrue("A" in g.graph_dict)
+        self.assertTrue("B" in g.graph_dict)
 
     def test_add_edge(self):
         g = Graph()
@@ -39,7 +39,7 @@ class TestGraph(unittest.TestCase):
         g.add_vertex(a)
         g.add_vertex(b)
         g.add_edge("A", "B", 1)
-        self.assertIn("B", g.graph_dict["A"].edges)
+        self.assertTrue("B" in g.graph_dict["A"].edges)
         self.assertEqual(g.graph_dict["A"].edges["B"], 1)
 
 

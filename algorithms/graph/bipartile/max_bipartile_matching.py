@@ -125,7 +125,7 @@ class BipartiteMatchingTestCase(unittest.TestCase):
         expected1 = {"U1": "V1", "U2": "V2", "U3": "V3"}
         expected2 = {"U1": "V2", "U2": "V1", "U3": "V3"}
         result = max_bipartite_matching(graph)
-        self.assertIn(result, [expected1, expected2])
+        self.assertTrue(result in [expected1, expected2])
 
 
 if __name__ == "__main__":

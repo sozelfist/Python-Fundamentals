@@ -99,8 +99,8 @@ class GraphTest(unittest.TestCase):
 
     def test_add_edge(self):
         self.g.add_edge(2, 5, 4)
-        self.assertIn((5, 4), self.g.adj[2])
-        self.assertIn((2, 4), self.g.adj[5])
+        self.assertTrue((5, 4) in self.g.adj[2])
+        self.assertTrue((2, 4) in self.g.adj[5])
 
 
 if __name__ == "__main__":

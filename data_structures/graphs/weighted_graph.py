@@ -33,11 +33,11 @@ class TestWeightedGraph(unittest.TestCase):
 
     def test_add_vertex(self):
         self.graph.add_vertex(4)
-        self.assertIn(4, self.graph.get_vertices())
+        self.assertTrue(4 in self.graph.get_vertices())
 
     def test_add_edge(self):
         self.graph.add_edge(3, 1, 30)
-        self.assertIn(1, self.graph.get_edges()[3])
+        self.assertTrue(1 in self.graph.get_edges()[3])
         self.assertEqual(self.graph.get_edges()[3][1], 30)
 
     def test_get_vertices(self):

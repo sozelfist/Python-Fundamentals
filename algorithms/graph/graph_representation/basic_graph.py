@@ -160,7 +160,7 @@ class TestGraph(unittest.TestCase):
 
     def test_add_vertex(self):
         self.graph.add_vertex("C")
-        self.assertIn("C", self.graph.vertices)
+        self.assertTrue("C" in self.graph.vertices)
 
     def test_remove_vertex(self):
         self.graph.remove_vertex("B")

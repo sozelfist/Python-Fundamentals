@@ -111,7 +111,7 @@ class MapTestCase(unittest.TestCase):
     def test_iter(self):
         keys = {"a", "b", "c"}
         for k, _v in self.m:
-            self.assertIn(k, keys)
+            self.assertTrue(k in keys)
 
     def test_str(self):
         self.assertEqual(str(self.m), "{a: 1, b: 2, c: 3}")

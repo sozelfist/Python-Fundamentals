@@ -38,7 +38,7 @@ class TestInterpolationSearch(unittest.TestCase):
         arr = [1, 2, 3, 4, 4, 5, 6]
         x = 4
         result = interpolation_search(arr, x)
-        self.assertIn(result, [3, 4], "Incorrect result with duplicate elements")
+        self.assertTrue(result in [3, 4], "Incorrect result with duplicate elements")
 
 
 if __name__ == "__main__":
